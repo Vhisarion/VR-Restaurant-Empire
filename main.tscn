@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://ds14koq2wnvg5"]
+[gd_scene load_steps=14 format=3 uid="uid://ds14koq2wnvg5"]
 
 [ext_resource type="Script" path="res://Main.gd" id="1_twrd7"]
 [ext_resource type="PackedScene" uid="uid://bx1xdisoqo1f6" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_tac_glove_low.tscn" id="2_783tr"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://blwjhk4l31m1t" path="res://XR Testing Sandbox_1m x 1m.png" id="4_quo00"]
 [ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="5_bbqjl"]
 [ext_resource type="PackedScene" uid="uid://btqopri7eg61g" path="res://objects/pickable_cube.tscn" id="7_r2dmj"]
+[ext_resource type="PackedScene" uid="uid://dwjni3o73iqh4" path="res://assets/models/providers/fruit_box/box.glb" id="8_g7w26"]
+[ext_resource type="PackedScene" uid="uid://buschsg5svx53" path="res://objects/pickable_orange.tscn" id="9_yghjc"]
 
 [sub_resource type="Environment" id="Environment_aukc3"]
 background_mode = 1
@@ -14,14 +16,15 @@ background_color = Color(0.223529, 0.454902, 0.564706, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5knl4"]
 albedo_texture = ExtResource("4_quo00")
-uv1_scale = Vector3(2.82, 2.82, 2.82)
+uv1_triplanar = true
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_d613e"]
 material = SubResource("StandardMaterial3D_5knl4")
-size = Vector2(100, 100)
+size = Vector2(25, 25)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nyr4n"]
-size = Vector3(100, 0.5, 100)
+margin = 0.01
+size = Vector3(25, 0.5, 25)
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_twrd7")
@@ -36,9 +39,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1, -0.5)
 tracker = &"left_hand"
 
 [node name="LeftHand" parent="XROrigin3D/LeftHand" instance=ExtResource("2_783tr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
 
 [node name="FunctionPickup" parent="XROrigin3D/LeftHand/LeftHand" instance=ExtResource("3_8fdte")]
+ranged_enable = false
 
 [node name="RightHand" type="XRController3D" parent="XROrigin3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, -0.5)
@@ -49,6 +52,7 @@ tracker = &"right_hand"
 [node name="FunctionPickup" parent="XROrigin3D/RightHand/RightHand" instance=ExtResource("3_8fdte")]
 
 [node name="PlayerBody" parent="XROrigin3D" instance=ExtResource("5_bbqjl")]
+push_rigid_bodies = false
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.5, 0.866025, 0, -0.866025, -0.5, 0, 10, 0)
@@ -62,13 +66,20 @@ environment = SubResource("Environment_aukc3")
 mesh = SubResource("PlaneMesh_d613e")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
 shape = SubResource("BoxShape3D_nyr4n")
 
 [node name="PickableCube" parent="." instance=ExtResource("7_r2dmj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0886962, 0.228719, -1.47388)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0886962, 0.365979, -1.24564)
 
-[node name="PickableCube2" parent="." instance=ExtResource("7_r2dmj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.283305, 0.491746, -2.01312)
+[node name="box" parent="." instance=ExtResource("8_g7w26")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.19642, 0.1, -1.06089)
 
-[node name="PickableCube3" parent="." instance=ExtResource("7_r2dmj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0279138, 0.282087, -2.41769)
+[node name="PickableOrange" parent="." instance=ExtResource("9_yghjc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.355614, 0.365979, -0.823433)
+
+[node name="PickableOrange2" parent="." instance=ExtResource("9_yghjc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.129365, 0.365979, -0.823433)
+
+[node name="PickableOrange3" parent="." instance=ExtResource("9_yghjc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0936139, 0.365979, -0.823433)
