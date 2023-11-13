@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://12pugybo1s2e"]
+
+[ext_resource type="PackedScene" uid="uid://d3bwdeygiskuv" path="res://objects/Stage_1/SnapZones/orange_snap_zone.tscn" id="1_2cmsi"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_axnuj"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[node name="OrangeSqueezer" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.265075, 0.64292)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_axnuj")
+
+[node name="OrangeSnapZone" parent="." instance=ExtResource("1_2cmsi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.309252, 0)

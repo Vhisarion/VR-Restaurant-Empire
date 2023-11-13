@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://ds14koq2wnvg5"]
+[gd_scene load_steps=14 format=3 uid="uid://ds14koq2wnvg5"]
 
 [ext_resource type="Script" path="res://Main.gd" id="1_twrd7"]
 [ext_resource type="PackedScene" uid="uid://bx1xdisoqo1f6" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_tac_glove_low.tscn" id="2_783tr"]
@@ -7,8 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://blwjhk4l31m1t" path="res://XR Testing Sandbox_1m x 1m.png" id="4_quo00"]
 [ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="5_bbqjl"]
 [ext_resource type="PackedScene" uid="uid://dwjni3o73iqh4" path="res://assets/models/providers/fruit_box/box.glb" id="8_g7w26"]
-[ext_resource type="PackedScene" uid="uid://d3bwdeygiskuv" path="res://objects/orange_snap_zone.tscn" id="9_7h1l6"]
-[ext_resource type="PackedScene" uid="uid://buschsg5svx53" path="res://objects/pickable_orange.tscn" id="9_yghjc"]
+[ext_resource type="PackedScene" uid="uid://12pugybo1s2e" path="res://objects/Stage_1/Machines/orange_squeezer.tscn" id="9_xh3px"]
+[ext_resource type="PackedScene" uid="uid://buschsg5svx53" path="res://objects/Stage_1/Products/pickable_orange.tscn" id="9_yghjc"]
 
 [sub_resource type="Environment" id="Environment_aukc3"]
 background_mode = 1
@@ -25,9 +25,6 @@ size = Vector2(25, 25)
 [sub_resource type="BoxShape3D" id="BoxShape3D_nyr4n"]
 margin = 0.01
 size = Vector3(25, 0.5, 25)
-
-[sub_resource type="BoxMesh" id="BoxMesh_axnuj"]
-size = Vector3(0.5, 0.5, 0.5)
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_twrd7")
@@ -86,11 +83,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.129365, 0.365979, -0.82343
 [node name="PickableOrange3" parent="." instance=ExtResource("9_yghjc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0936139, 0.365979, -0.823433)
 
-[node name="SnapzoneTest" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.265075, 0.64292)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="SnapzoneTest"]
-mesh = SubResource("BoxMesh_axnuj")
-
-[node name="OrangeSnapZone" parent="SnapzoneTest" instance=ExtResource("9_7h1l6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.309252, 0)
+[node name="OrangeSqueezer" parent="." instance=ExtResource("9_xh3px")]
