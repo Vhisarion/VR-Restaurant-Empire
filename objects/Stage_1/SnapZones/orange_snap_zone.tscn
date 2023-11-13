@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://d3bwdeygiskuv"]
+
+[ext_resource type="Script" path="res://addons/godot-xr-tools/objects/snap_zone.gd" id="1_0htvq"]
+[ext_resource type="PackedScene" uid="uid://d28piv5pop8yv" path="res://assets/models/raw_products/orange/orange.glb" id="2_xcq2o"]
+
+[sub_resource type="SphereShape3D" id="1"]
+radius = 0.3
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dk15h"]
+shading_mode = 0
+albedo_color = Color(0, 0, 0, 1)
+
+[node name="OrangeSnapZone" type="Area3D"]
+collision_layer = 4
+collision_mask = 65540
+script = ExtResource("1_0htvq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("1")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+unit_size = 3.0
+max_db = 1.0
+max_distance = 100.0
+
+[node name="orange" parent="." instance=ExtResource("2_xcq2o")]
+
+[node name="Orange_0" parent="orange/Orange" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_dk15h")
+
+[connection signal="body_entered" from="." to="." method="_on_snap_zone_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_snap_zone_body_exited"]
+
+[editable path="orange"]

@@ -1,0 +1,49 @@
+[gd_scene load_steps=12 format=3 uid="uid://buschsg5svx53"]
+
+[ext_resource type="PackedScene" uid="uid://d28piv5pop8yv" path="res://assets/models/raw_products/orange/orange.glb" id="1_4h0u4"]
+[ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_tmp1b"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/objects/highlight/highlight_visible.gd" id="3_186r0"]
+[ext_resource type="ArrayMesh" uid="uid://1y4x254dcrox" path="res://assets/models/raw_products/orange/orange_highlight.obj" id="3_778v8"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand.gd" id="5_tqk1d"]
+[ext_resource type="Animation" uid="uid://dqa0h82y3qn1t" path="res://addons/godot-xr-tools/hands/animations/left/Grip 1.res" id="6_7b67c"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/hands/poses/hand_pose_settings.gd" id="7_76hdu"]
+[ext_resource type="Animation" uid="uid://daqddcrbpam0c" path="res://addons/godot-xr-tools/hands/animations/right/Grip 1.res" id="8_yxqxg"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_2fysm"]
+radius = 0.04
+
+[sub_resource type="Resource" id="Resource_v6l77"]
+script = ExtResource("7_76hdu")
+closed_pose = ExtResource("6_7b67c")
+
+[sub_resource type="Resource" id="Resource_pfwtu"]
+script = ExtResource("7_76hdu")
+closed_pose = ExtResource("8_yxqxg")
+
+[node name="PickableOrange" instance=ExtResource("1_tmp1b")]
+
+[node name="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.005)
+shape = SubResource("SphereShape3D_2fysm")
+
+[node name="XRToolsHighlightVisible" type="Node3D" parent="." index="1"]
+script = ExtResource("3_186r0")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="XRToolsHighlightVisible" index="0" groups=["Orange"]]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 0, 0)
+mesh = ExtResource("3_778v8")
+
+[node name="orange" parent="." index="2" instance=ExtResource("1_4h0u4")]
+
+[node name="XRToolsGrabPointHand" type="Marker3D" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00233705, 0.0542291, -0.0893074)
+visible = false
+script = ExtResource("5_tqk1d")
+hand_pose = SubResource("Resource_v6l77")
+
+[node name="XRToolsGrabPointHand2" type="Marker3D" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00233705, 0.0458648, -0.0923175)
+visible = false
+script = ExtResource("5_tqk1d")
+hand = 1
+hand_pose = SubResource("Resource_pfwtu")
