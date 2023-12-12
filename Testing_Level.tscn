@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1k321cvdlh3x"]
+
+[ext_resource type="Script" path="res://LevelController.gd" id="1_j7qlp"]
+[ext_resource type="PackedScene" uid="uid://fo70a732j1c7" path="res://Customer.tscn" id="2_n3kvj"]
+
+[node name="Testing_Level" type="Node3D"]
+script = ExtResource("1_j7qlp")
+
+[node name="Customer" parent="." instance=ExtResource("2_n3kvj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.679763, 0, 0.702285)

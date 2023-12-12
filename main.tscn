@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://ds14koq2wnvg5"]
+[gd_scene load_steps=17 format=3 uid="uid://ds14koq2wnvg5"]
 
 [ext_resource type="Script" path="res://Main.gd" id="1_twrd7"]
 [ext_resource type="PackedScene" uid="uid://bx1xdisoqo1f6" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_tac_glove_low.tscn" id="2_783tr"]
@@ -6,9 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://chumpejwiub7f" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_tac_glove_low.tscn" id="3_mjom7"]
 [ext_resource type="Texture2D" uid="uid://blwjhk4l31m1t" path="res://XR Testing Sandbox_1m x 1m.png" id="4_quo00"]
 [ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="5_bbqjl"]
-[ext_resource type="PackedScene" uid="uid://dwjni3o73iqh4" path="res://assets/models/providers/fruit_box/box.glb" id="8_g7w26"]
-[ext_resource type="PackedScene" uid="uid://12pugybo1s2e" path="res://objects/Stage_1/Machines/orange_squeezer.tscn" id="9_xh3px"]
+[ext_resource type="PackedScene" uid="uid://cvvipg8eanrkt" path="res://objects/Stage_1/Products/Finished/Juices/lemonade.tscn" id="9_km7de"]
+[ext_resource type="PackedScene" uid="uid://12pugybo1s2e" path="res://objects/Stage_1/Machines/AutomaticSqueezer.tscn" id="9_xh3px"]
 [ext_resource type="PackedScene" uid="uid://buschsg5svx53" path="res://objects/Stage_1/Products/pickable_orange.tscn" id="9_yghjc"]
+[ext_resource type="PackedScene" uid="uid://dk3x174taxp54" path="res://objects/Stage_1/Products/Finished/Juices/OrangeJuice.tscn" id="10_l4k1b"]
+[ext_resource type="PackedScene" uid="uid://djm8fjd5lqa4m" path="res://objects/Stage_1/Products/Finished/Fruits/AppleProduct.tscn" id="11_l6xge"]
+[ext_resource type="PackedScene" uid="uid://c3n7mspk1jai5" path="res://objects/Stage_1/Products/Finished/Fruits/PearProduct.tscn" id="12_p3dw2"]
 
 [sub_resource type="Environment" id="Environment_aukc3"]
 background_mode = 1
@@ -71,16 +74,29 @@ mesh = SubResource("PlaneMesh_d613e")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
 shape = SubResource("BoxShape3D_nyr4n")
 
-[node name="box" parent="." instance=ExtResource("8_g7w26")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.19642, 0.1, -1.06089)
-
 [node name="PickableOrange" parent="." instance=ExtResource("9_yghjc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.355614, 0.365979, -0.823433)
+visible = false
 
 [node name="PickableOrange2" parent="." instance=ExtResource("9_yghjc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.129365, 0.365979, -0.823433)
+visible = false
 
 [node name="PickableOrange3" parent="." instance=ExtResource("9_yghjc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0936139, 0.365979, -0.823433)
+visible = false
 
-[node name="OrangeSqueezer" parent="." instance=ExtResource("9_xh3px")]
+[node name="AutomaticSqueezer" parent="." instance=ExtResource("9_xh3px")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.265075, 0.64292)
+
+[node name="Lemonade" parent="." instance=ExtResource("9_km7de")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.549581, -1.1)
+
+[node name="OrangeJuice" parent="." instance=ExtResource("10_l4k1b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 0.566754, -1.1)
+
+[node name="AppleProduct" parent="." instance=ExtResource("11_l6xge")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.527997, 0.373353, -1.08272)
+
+[node name="PearProduct" parent="." instance=ExtResource("12_p3dw2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.197267, 0.520587, -1.13383)

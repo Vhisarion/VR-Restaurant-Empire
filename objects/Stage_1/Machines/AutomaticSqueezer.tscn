@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://12pugybo1s2e"]
+
+[ext_resource type="PackedScene" uid="uid://d3bwdeygiskuv" path="res://objects/Stage_1/SnapZones/orange_snap_zone.tscn" id="1_2cmsi"]
+[ext_resource type="Script" path="res://objects/Stage_1/Machines/AutomaticSqueezer.gd" id="1_sepsy"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_axnuj"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[node name="AutomaticSqueezer" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.265075, 0.64292)
+script = ExtResource("1_sepsy")
+
+[node name="Cube" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_axnuj")
+
+[node name="OrangeSnapZone" parent="." instance=ExtResource("1_2cmsi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.309252, 0)
+
+[node name="PreparationTimer" type="Timer" parent="."]
+
+[node name="ProductLocation" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.342235, -0.0436847, 0.0039261)
+
+[connection signal="has_dropped" from="OrangeSnapZone" to="." method="_on_orange_snap_zone_has_dropped"]
+[connection signal="has_picked_up" from="OrangeSnapZone" to="." method="_on_orange_snap_zone_has_picked_up"]
+[connection signal="timeout" from="PreparationTimer" to="." method="_on_preparation_timer_timeout"]
