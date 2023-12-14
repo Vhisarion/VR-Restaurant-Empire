@@ -34,6 +34,8 @@ enabled=PackedStringArray("res://addons/godot-xr-tools/plugin.cfg")
 3d_physics/layer_20="Player Body"
 3d_physics/layer_21="Pointable"
 3d_physics/layer_22="Hand Pose Area"
+3d_physics/layer_31="Player Ignored Enviroment"
+3d_physics/layer_32="Machines"
 
 [rendering]
 

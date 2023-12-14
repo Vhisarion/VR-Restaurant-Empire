@@ -1,0 +1,136 @@
+[gd_scene load_steps=12 format=3 uid="uid://d1k321cvdlh3x"]
+
+[ext_resource type="Script" path="res://LevelController.gd" id="1_re0la"]
+[ext_resource type="PackedScene" uid="uid://de0xjyc00xb3h" path="res://Levels/Stage_1/Environment.tscn" id="2_njvmh"]
+[ext_resource type="PackedScene" uid="uid://o7e8qsgryg7y" path="res://Player.tscn" id="3_ckomq"]
+[ext_resource type="PackedScene" uid="uid://cyt57ukl0puk5" path="res://objects/Stage_1/Products/Finished/Fruits/Orange.tscn" id="7_eq7uv"]
+[ext_resource type="PackedScene" uid="uid://cgplqy743cl23" path="res://objects/Stage_1/red_straw.tscn" id="8_qunt6"]
+[ext_resource type="PackedScene" uid="uid://bw7lwiff3esh3" path="res://objects/Stage_1/blue_straw.tscn" id="9_akfa5"]
+[ext_resource type="PackedScene" uid="uid://clid6pryr5sf5" path="res://objects/Stage_1/Machines/ManualSqueezer.tscn" id="9_hjhln"]
+[ext_resource type="PackedScene" uid="uid://dp7h3tvs3lhuq" path="res://objects/Stage_1/Machines/Water.tscn" id="10_2l82g"]
+[ext_resource type="PackedScene" uid="uid://dij0c6twfyfnp" path="res://objects/Stage_1/Products/Finished/Fruits/Lemon.tscn" id="11_kp53s"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_2yw0t"]
+size = Vector3(2, 0.75, 0.4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_seu67"]
+size = Vector3(2, 0.75, 0.4)
+
+[node name="Testing_Level" type="Node3D"]
+script = ExtResource("1_re0la")
+
+[node name="Environment" parent="." instance=ExtResource("2_njvmh")]
+
+[node name="CustomerLocation1" type="Node3D" parent="Environment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.803518, 1.19209e-07, -0.892037)
+
+[node name="CustomerLocation2" type="Node3D" parent="Environment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.551422, -0.0582396, -0.938597)
+
+[node name="Player" parent="." instance=ExtResource("3_ckomq")]
+
+[node name="Counter" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.375, -0.524539)
+collision_layer = 1073741824
+mass = 100.0
+freeze = true
+
+[node name="Counter" type="MeshInstance3D" parent="Counter"]
+mesh = SubResource("BoxMesh_2yw0t")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Counter"]
+shape = SubResource("BoxShape3D_seu67")
+
+[node name="Counter2" type="RigidBody3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.20021, 0.75, 0.294692)
+collision_layer = 1073741824
+mass = 100.0
+freeze = true
+
+[node name="Counter" type="MeshInstance3D" parent="Counter2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.36436, 0)
+mesh = SubResource("BoxMesh_2yw0t")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Counter2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.36369, 0)
+shape = SubResource("BoxShape3D_seu67")
+
+[node name="Counter3" type="RigidBody3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.20689, 0.375, 0.286665)
+collision_layer = 1073741824
+mass = 100.0
+freeze = true
+
+[node name="Counter" type="MeshInstance3D" parent="Counter3"]
+mesh = SubResource("BoxMesh_2yw0t")
+skeleton = NodePath("../../Counter3")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Counter3"]
+shape = SubResource("BoxShape3D_seu67")
+
+[node name="ManualSqueezer" parent="." instance=ExtResource("9_hjhln")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0745, 0.825259, -0.0541784)
+
+[node name="ManualSqueezer2" parent="." instance=ExtResource("9_hjhln")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0745, 0.825259, 0.885539)
+
+[node name="Water" parent="." instance=ExtResource("10_2l82g")]
+transform = Transform3D(0.998514, 0.0544972, 0, -0.0544972, 0.998514, 0, 0, 0, 1, -1.2342, 1.0045, -0.197081)
+
+[node name="PickableOrange" parent="." instance=ExtResource("7_eq7uv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.08998, 0.875, 0.185819)
+collision_mask = 3221422087
+
+[node name="PickableOrange2" parent="." instance=ExtResource("7_eq7uv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.08998, 0.875, 0.307879)
+collision_mask = 3221422087
+
+[node name="PickableOrange3" parent="." instance=ExtResource("7_eq7uv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.21422, 0.875, 0.193823)
+collision_mask = 3221422087
+
+[node name="PickableOrange4" parent="." instance=ExtResource("7_eq7uv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.21422, 0.875, 0.318063)
+collision_mask = 3221422087
+
+[node name="RedStraw" parent="." instance=ExtResource("8_qunt6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.31848, 0.90145, 0.199616)
+
+[node name="RedStraw2" parent="." instance=ExtResource("8_qunt6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.23932, 0.90145, 0.199616)
+
+[node name="RedStraw3" parent="." instance=ExtResource("8_qunt6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.15261, 0.90145, 0.199616)
+
+[node name="RedStraw4" parent="." instance=ExtResource("8_qunt6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0546, 0.90145, 0.199616)
+
+[node name="RedStraw5" parent="." instance=ExtResource("8_qunt6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0546, 0.90145, 0.199616)
+
+[node name="BlueStraw" parent="." instance=ExtResource("9_akfa5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.27329, 0.90204, 0.0464568)
+
+[node name="BlueStraw2" parent="." instance=ExtResource("9_akfa5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.22052, 0.90204, 0.0464568)
+
+[node name="BlueStraw3" parent="." instance=ExtResource("9_akfa5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1602, 0.90204, 0.0464568)
+
+[node name="BlueStraw4" parent="." instance=ExtResource("9_akfa5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.07726, 0.90204, 0.0464568)
+
+[node name="BlueStraw5" parent="." instance=ExtResource("9_akfa5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.07726, 0.90204, 0.0464568)
+
+[node name="Lemon" parent="." instance=ExtResource("11_kp53s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.08208, 0.75, 0.478274)
+
+[node name="Lemon2" parent="." instance=ExtResource("11_kp53s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.08208, 0.75, 0.615866)
+
+[node name="Lemon3" parent="." instance=ExtResource("11_kp53s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.22565, 0.75, 0.615866)
+
+[node name="Lemon4" parent="." instance=ExtResource("11_kp53s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.22565, 0.75, 0.478274)

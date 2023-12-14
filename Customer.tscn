@@ -1,9 +1,56 @@
-[gd_scene load_steps=2 format=3 uid="uid://fo70a732j1c7"]
+[gd_scene load_steps=8 format=3 uid="uid://fo70a732j1c7"]
 
 [ext_resource type="Script" path="res://Customer.gd" id="1_qdvgl"]
+[ext_resource type="PackedScene" uid="uid://ce7vysyvondf8" path="res://addons/godot-xr-tools/objects/snap_zone.tscn" id="2_mjyil"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qlxxd"]
+albedo_color = Color(0, 1, 0, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_f0r1i"]
+material = SubResource("StandardMaterial3D_qlxxd")
+radius = 0.3
+height = 1.7
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1cstt"]
+size = Vector3(0.5, 0.01, 0.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_uxe6t"]
+size = Vector3(0.5, 0.01, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vhl6v"]
+size = Vector3(0.615541, 0.464178, 0.726843)
 
 [node name="Customer" type="Node3D"]
 script = ExtResource("1_qdvgl")
-max_patience = 20
+max_patience = 10
+
+[node name="CustomerBody" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_f0r1i")
+
+[node name="Tray" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.941086, 0.529565)
+
+[node name="TrayBody" type="RigidBody3D" parent="Tray"]
+freeze = true
+
+[node name="TrayMesh" type="CollisionShape3D" parent="Tray/TrayBody"]
+shape = SubResource("BoxShape3D_1cstt")
+
+[node name="TrayCollider" type="MeshInstance3D" parent="Tray/TrayBody"]
+mesh = SubResource("BoxMesh_uxe6t")
+
+[node name="TraySnapZone" parent="Tray" instance=ExtResource("2_mjyil")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.941086, -0.765419)
+snap_mode = 1
+snap_require = "Product"
+
+[node name="TraySnapZoneCollider" type="CollisionShape3D" parent="Tray/TraySnapZone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.11554, 0.765419)
+shape = SubResource("BoxShape3D_vhl6v")
 
 [node name="PatienceTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="has_picked_up" from="Tray/TraySnapZone" to="." method="_on_tray_snap_zone_has_picked_up"]
+[connection signal="timeout" from="PatienceTimer" to="." method="_on_patience_timer_timeout"]

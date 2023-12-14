@@ -5,6 +5,8 @@
 
 [node name="Testing_Level" type="Node3D"]
 script = ExtResource("1_j7qlp")
+number_of_customers = null
+max_time = null
 
 [node name="Customer" parent="." instance=ExtResource("2_n3kvj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.679763, 0, 0.702285)

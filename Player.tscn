@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://o7e8qsgryg7y"]
+
+[ext_resource type="PackedScene" uid="uid://bx1xdisoqo1f6" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_tac_glove_low.tscn" id="1_24ja7"]
+[ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="2_qdm8t"]
+[ext_resource type="PackedScene" uid="uid://chumpejwiub7f" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_tac_glove_low.tscn" id="3_4v6vy"]
+[ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="4_o6lw0"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_027ib"]
+radius = 0.2
+height = 1.4
+
+[node name="Player" type="XROrigin3D"]
+
+[node name="XRCamera3D" type="XRCamera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
+
+[node name="LeftHand" type="XRController3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1, -0.5)
+tracker = &"left_hand"
+
+[node name="LeftHand" parent="LeftHand" instance=ExtResource("1_24ja7")]
+
+[node name="FunctionPickup" parent="LeftHand/LeftHand" instance=ExtResource("2_qdm8t")]
+ranged_enable = false
+
+[node name="RightHand" type="XRController3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, -0.5)
+tracker = &"right_hand"
+
+[node name="RightHand" parent="RightHand" instance=ExtResource("3_4v6vy")]
+
+[node name="FunctionPickup" parent="RightHand/RightHand" instance=ExtResource("2_qdm8t")]
+
+[node name="PlayerBody" parent="." instance=ExtResource("4_o6lw0")]
+collision_mask = 1019
+player_calibrate_height = false
+push_rigid_bodies = false
+
+[node name="_CollisionShape3D_22381" type="CollisionShape3D" parent="PlayerBody"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+shape = SubResource("CapsuleShape3D_027ib")

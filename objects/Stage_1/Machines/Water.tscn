@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://dp7h3tvs3lhuq"]
+
+[ext_resource type="Script" path="res://objects/Stage_1/Machines/Water.gd" id="1_wtipe"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5jwnl"]
+size = Vector3(0.1, 0.4, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ctyhb"]
+albedo_color = Color(0, 0, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_uk73y"]
+material = SubResource("StandardMaterial3D_ctyhb")
+size = Vector3(0.1, 0.4, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_h1kby"]
+size = Vector3(0.183899, 0.645945, 0.253501)
+
+[node name="Water" type="RigidBody3D"]
+collision_layer = 4
+collision_mask = 3221422087
+freeze_mode = 1
+script = ExtResource("1_wtipe")
+
+[node name="BottleCollider" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_5jwnl")
+
+[node name="BottleMesh" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_uk73y")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_mask = 65540
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55504, 0)
+shape = SubResource("BoxShape3D_h1kby")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

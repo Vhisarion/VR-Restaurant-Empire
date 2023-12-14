@@ -445,7 +445,7 @@ func _do_precise_grab() -> void:
 			_remote_transform.remote_path = _remote_transform.get_path_to(self)
 
 		HoldMethod.REPARENT:
-			# Calculate the precise transform for reparenting
+			# Calculatethe precise transform for reparenting
 			var precise_transform = global_transform
 
 			# Reparent to the holder with precise transform
@@ -454,7 +454,7 @@ func _do_precise_grab() -> void:
 			global_transform = precise_transform
 
 	# Emit the picked up signal
-	emit_signal("picked_up", self)
+	emit_signal("picked_up",  self)
 
 
 ## Find the first grab-point for the grabber

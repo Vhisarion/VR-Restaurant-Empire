@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://c3n7mspk1jai5"]
+
+[ext_resource type="Script" path="res://objects/Stage_1/Products/Finished/Fruits/Pear.gd" id="1_jwegg"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/objects/pickable.gd" id="1_x71jy"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand.gd" id="3_6ra2w"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4gcul"]
+size = Vector3(0.1, 0.1, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2ilp3"]
+albedo_color = Color(0.698039, 1, 0.670588, 1)
+
+[node name="PickablePear" type="RigidBody3D" groups=["Product"]]
+collision_layer = 4
+collision_mask = 3221422087
+freeze_mode = 1
+script = ExtResource("1_x71jy")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_4gcul")
+
+[node name="Pear" type="Node3D" parent="."]
+script = ExtResource("1_jwegg")
+
+[node name="Pear" type="CSGBox3D" parent="Pear"]
+size = Vector3(0.1, 0.1, 0.1)
+material = SubResource("StandardMaterial3D_2ilp3")
+
+[node name="XRToolsGrabPointHand" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0414715, 0.0482692, -0.0741088)
+script = ExtResource("3_6ra2w")
+
+[node name="XRToolsGrabPointHand2" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0425891, 0.0487265, -0.0755536)
+script = ExtResource("3_6ra2w")
+hand = 1

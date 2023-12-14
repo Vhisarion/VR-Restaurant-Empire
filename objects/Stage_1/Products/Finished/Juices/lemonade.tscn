@@ -1,21 +1,54 @@
-[gd_scene load_steps=4 format=3 uid="uid://cvvipg8eanrkt"]
+[gd_scene load_steps=9 format=3 uid="uid://cvvipg8eanrkt"]
 
+[ext_resource type="Script" path="res://addons/godot-xr-tools/objects/pickable.gd" id="1_5uxtx"]
 [ext_resource type="Script" path="res://objects/Stage_1/Products/Finished/Juices/Lemonade.gd" id="1_7u2q7"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand.gd" id="3_ajuvh"]
+[ext_resource type="PackedScene" uid="uid://ce7vysyvondf8" path="res://addons/godot-xr-tools/objects/snap_zone.tscn" id="3_jdgwd"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y7xt2"]
-albedo_color = Color(1, 0, 0, 1)
+[sub_resource type="BoxShape3D" id="BoxShape3D_t75co"]
+size = Vector3(0.125, 0.25, 0.125)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ytdoa"]
+albedo_color = Color(1, 0, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_8grm1"]
+material = SubResource("StandardMaterial3D_ytdoa")
+size = Vector3(0.013, 0.25, 0.013)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jhhyk"]
 albedo_color = Color(1, 1, 0, 1)
 
-[node name="Lemonade" type="Node3D"]
+[node name="PickableLemonade" type="RigidBody3D" groups=["Product"]]
+collision_layer = 4
+collision_mask = 3221422087
+freeze_mode = 1
+script = ExtResource("1_5uxtx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_t75co")
+
+[node name="Lemonade" type="Node3D" parent="."]
 script = ExtResource("1_7u2q7")
 
-[node name="Straw" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.156083, 0)
-size = Vector3(0.013, 0.25, 0.013)
-material = SubResource("StandardMaterial3D_y7xt2")
+[node name="Straw" type="MeshInstance3D" parent="Lemonade"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0877236, 0)
+mesh = SubResource("BoxMesh_8grm1")
 
-[node name="Glass" type="CSGBox3D" parent="."]
+[node name="Glass" type="CSGBox3D" parent="Lemonade"]
 size = Vector3(0.125, 0.25, 0.125)
 material = SubResource("StandardMaterial3D_jhhyk")
+
+[node name="StrawSnapZone" parent="Lemonade" instance=ExtResource("3_jdgwd")]
+snap_mode = 1
+snap_require = "Straw"
+
+[node name="XRToolsGrabPointHand" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0414715, 0.0482692, -0.0741088)
+script = ExtResource("3_ajuvh")
+
+[node name="XRToolsGrabPointHand2" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0425891, 0.0487265, -0.0755536)
+script = ExtResource("3_ajuvh")
+hand = 1
+
+[connection signal="has_picked_up" from="Lemonade/StrawSnapZone" to="Lemonade" method="_on_straw_snap_zone_has_picked_up"]

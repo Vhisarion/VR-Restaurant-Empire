@@ -2,6 +2,8 @@ class_name Customer
 
 extends Node3D
 
+signal on_customer_left(customer, location)
+
 # The products the customer wants
 var order: Array[Product]
 # Copy of the original order to keep track of remaining items
@@ -10,20 +12,22 @@ var pending_products: Array[Product]
 # The time the customer will wait for their order (seconds)
 @export var max_patience: int
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+# Reference to the level controller
+var level_controller: LevelController
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+# Reference to the location the customer is waiting at
+var location: Node3D
 
-func init(max_patience: int, products: Array[Product]):
-	$PatienceTimer.wait_time = max_patience
+func init(max_patience: int, products: Array[Product], level_controller: LevelController):
 	order = products
 	pending_products = order
+	self.max_patience = max_patience
+	self.level_controller = level_controller
 
+func _process(delta):
+	_update_customer_color()
 
+# Sum of the price of all products + tip
 func calculate_price_of_order() -> int:
 	return add_tip(calculate_price_of_products())
 
@@ -31,7 +35,14 @@ func calculate_price_of_order() -> int:
 func calculate_price_of_products() -> int:
 	var sum = 0
 	for product in order:
-		sum += product.price
+		sum += product.get_price()
+	return sum
+
+# Sum of the price of all pending products
+func calculate_price_of_pending_products() -> int:
+	var sum = 0
+	for product in pending_products:
+		sum += product.get_price()
 	return sum
 
 # Extra money depending on the customer's remaining patience
@@ -49,29 +60,76 @@ func add_tip(total: int) -> int:
 	
 	return total + tip
 
+# Show the order to the player and start the timer
 func make_order():
 	# TODO- Display the order they want and activate snap_zones/area3Ds
 	# Start the patience timer
-	$PatienceTimer.start()
-	print("The customer is now asking for: ")
-	print(order)
+	$PatienceTimer.start(max_patience)
 
+# Customer leaves without fulfilling the order
 func leave():
-	# TODO - anything related to the customer leaving
-	self.queue_free()
+	level_controller.lose_points(calculate_price_of_products())
+	on_customer_left.emit(self, location)
+	destroy()
 
+# Checks if the received product is part of the 
 func product_received(received_product: Product):
 	print("The customer received: ", received_product)
-	for product in order:
-		if (product.equals(received_product)):
-			order.remove_at(order.find(product))
-			print("The product ", product, " was removed from the order")
-			# Increase if there are still products left
-			if (order.size() > 0):
-				print("There are still products in the order")
-				$PatienceTimer.time_left += max_patience * 0.1
-			return
-	
-	print ("The product received wasn't in the order")
-	# The product received isn't wanted
-	# TODO - Anything related to a wrong product delivery
+	var product_index = find_product_index(pending_products, received_product)
+	if (product_index != -1):
+		# Remove product from pending products list
+		pending_products.remove_at(product_index)
+		print("The product ", received_product, " was removed from the order")
+		
+		# Increase patience if there are still products left
+		if (pending_products.size() > 0):
+			print("There are still products in the order")
+			$PatienceTimer.start($PatienceTimer.time_left + max_patience * 0.1)
+		else:
+			# Complete order if no products left
+			pay()
+		return
+	else:
+		print ("The product received wasn't in the order")
+		# The product received isn't wanted
+		level_controller.lose_points(1)
+
+func find_product_index(array: Array[Product], product: Product) -> int:
+	for index in range(array.size()):
+		if (product.equals(array[index])):
+			return index
+	return -1
+
+# The customer awards points to the player
+func pay():
+	level_controller.gain_points(calculate_price_of_order())
+	destroy()
+
+# Customer is removed from the scene
+func destroy():
+	self.queue_free()
+
+func _on_patience_timer_timeout():
+	leave()
+
+func set_location(location: Node3D):
+	self.location = location
+	if (location != null):
+		transform = location.transform
+
+func _update_customer_color():
+	if is_inside_tree():
+		var color_value = $PatienceTimer.time_left/max_patience
+		$CustomerBody.mesh.material.albedo_color = Color(1-color_value,color_value,0,0)
+
+func _on_tray_snap_zone_has_picked_up(what):
+	var product = find_product_child(what)
+	product_received(product)
+	($Tray/TraySnapZone as XRToolsSnapZone).picked_up_object = null
+	printerr(($Tray/TraySnapZone as XRToolsSnapZone).picked_up_object)
+
+func find_product_child(parent) -> Product:
+	for child in parent.get_children():
+		if child is Product:
+			return child
+	return null
