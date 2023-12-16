@@ -5,7 +5,7 @@
 	},
 	"customers": [
 		{
-			"arrival": 10,
+			"arrival": 2,
 			"max_patience": 50,
 			"order": [
 				{
@@ -13,8 +13,17 @@
 					"modifiers": {
 						"straw_type": "RED_STRAW"
 					}
+				},
+				{
+					"product": "OrangeJuice",
+					"modifiers": {
+						"straw_type": "BLUE_STRAW"
+					}
+				},
+				{
+					"product": "Apple",
 				}
-			]
+			],
 		},
 		{
 			"arrival": 120,

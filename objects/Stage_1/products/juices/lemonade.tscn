@@ -1,0 +1,53 @@
+[gd_scene load_steps=9 format=3 uid="uid://cvvipg8eanrkt"]
+
+[ext_resource type="Script" path="res://objects/stage_1/products/juices/lemonade.gd" id="1_7u2q7"]
+[ext_resource type="PackedScene" uid="uid://ce7vysyvondf8" path="res://addons/godot-xr-tools/objects/snap_zone.tscn" id="3_jdgwd"]
+[ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="4_8n8ef"]
+[ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="5_2410s"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_t75co"]
+size = Vector3(0.125, 0.25, 0.125)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ytdoa"]
+albedo_color = Color(1, 0, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_8grm1"]
+material = SubResource("StandardMaterial3D_ytdoa")
+size = Vector3(0.013, 0.25, 0.013)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jhhyk"]
+albedo_color = Color(1, 1, 0, 1)
+
+[node name="PickableLemonade" type="RigidBody3D" groups=["Product"]]
+collision_layer = 4
+collision_mask = 3221422087
+freeze_mode = 1
+script = ExtResource("1_7u2q7")
+scene = null
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_t75co")
+
+[node name="Lemonade" type="Node3D" parent="."]
+
+[node name="Straw" type="MeshInstance3D" parent="Lemonade"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0877236, 0)
+mesh = SubResource("BoxMesh_8grm1")
+
+[node name="Glass" type="CSGBox3D" parent="Lemonade"]
+size = Vector3(0.125, 0.25, 0.125)
+material = SubResource("StandardMaterial3D_jhhyk")
+
+[node name="StrawSnapZone" parent="Lemonade" instance=ExtResource("3_jdgwd")]
+snap_mode = 1
+snap_require = "Straw"
+
+[node name="GrabPointHandLeft" parent="." instance=ExtResource("4_8n8ef")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0619809, 0.0701306, -0.105336)
+visible = true
+
+[node name="GrabPointHandRight" parent="." instance=ExtResource("5_2410s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0590256, 0.0701741, -0.121438)
+visible = true
+
+[connection signal="has_picked_up" from="Lemonade/StrawSnapZone" to="Lemonade" method="_on_straw_snap_zone_has_picked_up"]

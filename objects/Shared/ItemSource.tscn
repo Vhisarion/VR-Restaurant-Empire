@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://cxnstg76t0o3h"]
+
+[ext_resource type="Script" path="res://objects/shared/ItemSource.gd" id="1_rrb1y"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/objects/snap_zone.gd" id="2_nidax"]
+
+[sub_resource type="SphereShape3D" id="1"]
+radius = 0.3
+
+[node name="ItemSource" type="Node3D"]
+script = ExtResource("1_rrb1y")
+
+[node name="SnapZone" type="Area3D" parent="."]
+collision_layer = 4
+collision_mask = 65540
+script = ExtResource("2_nidax")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SnapZone"]
+shape = SubResource("1")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="SnapZone"]
+unit_size = 3.0
+max_db = 1.0
+max_distance = 100.0
+
+[connection signal="body_entered" from="SnapZone" to="SnapZone" method="_on_snap_zone_body_entered" flags=18]
+[connection signal="body_exited" from="SnapZone" to="SnapZone" method="_on_snap_zone_body_exited" flags=18]
+[connection signal="has_dropped" from="SnapZone" to="." method="_on_snap_zone_has_dropped"]

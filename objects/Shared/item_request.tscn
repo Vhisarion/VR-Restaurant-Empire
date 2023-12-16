@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dnyxl414hsrt2"]
+
+[ext_resource type="Script" path="res://objects/shared/item_request.gd" id="1_prf6g"]
+
+[node name="ItemRequest" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00268484, -5.96046e-08, 0.117092)
+script = ExtResource("1_prf6g")

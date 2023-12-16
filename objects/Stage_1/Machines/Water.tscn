@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://dp7h3tvs3lhuq"]
+[gd_scene load_steps=7 format=3 uid="uid://dp7h3tvs3lhuq"]
 
-[ext_resource type="Script" path="res://objects/Stage_1/Machines/Water.gd" id="1_wtipe"]
+[ext_resource type="Script" path="res://objects/stage_1/machines/water.gd" id="1_wtipe"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand.gd" id="2_f1ptf"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5jwnl"]
 size = Vector3(0.1, 0.4, 0.1)
@@ -33,6 +34,15 @@ collision_mask = 65540
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55504, 0)
 shape = SubResource("BoxShape3D_h1kby")
+
+[node name="XRToolsGrabPointHand" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0275377, -0.0137689, -0.0986771)
+script = ExtResource("2_f1ptf")
+hand = 1
+
+[node name="XRToolsGrabPointHand2" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0413066, -0.0137689, -0.0894978)
+script = ExtResource("2_f1ptf")
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
