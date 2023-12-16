@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://d1k321cvdlh3x"]
+
+[ext_resource type="Script" path="res://LevelController.gd" id="1_re0la"]
+
+[node name="Testing_Level" type="Node3D"]
+script = ExtResource("1_re0la")

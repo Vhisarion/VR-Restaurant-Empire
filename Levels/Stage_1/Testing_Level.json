@@ -1,0 +1,53 @@
+{
+	"settings": {
+		"max_time": 30,
+		"required_score": 20
+	},
+	"customers": [
+		{
+			"arrival": 2,
+			"max_patience": 50,
+			"order": [
+				{
+					"product": "Lemonade",
+					"modifiers": {
+						"straw_type": "RED_STRAW"
+					}
+				},
+				{
+					"product": "OrangeJuice",
+					"modifiers": {
+						"straw_type": "BLUE_STRAW"
+					}
+				},
+				{
+					"product": "Apple",
+				}
+			],
+		},
+		{
+			"arrival": 120,
+			"max_patience": 10,
+			"order": [
+				{
+					"product": "OrangeJuice",
+					"modifiers": {
+						"straw_type": "BLUE_STRAW"
+					}
+				}
+			]
+		},
+		{
+			"arrival": 75,
+			"max_patience": 7,
+			"order": [
+				{
+					"product": "OrangeJuice",
+					"modifiers": {
+						"straw_type": "BLUE_STRAW"
+					}
+				}
+			]
+		}
+	]
+}

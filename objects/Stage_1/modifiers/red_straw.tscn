@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=3 uid="uid://cgplqy743cl23"]
+
+[ext_resource type="Script" path="res://objects/stage_1/modifiers/red_straw.gd" id="1_aod2m"]
+[ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="2_tvgap"]
+[ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="3_4h8qt"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3u31s"]
+size = Vector3(0.025, 0.2, 0.025)
+
+[sub_resource type="BoxMesh" id="BoxMesh_4vovn"]
+size = Vector3(0.025, 0.2, 0.025)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p6nvy"]
+albedo_color = Color(1, 0, 0, 1)
+
+[node name="RedStraw" type="RigidBody3D" groups=["Straw"]]
+collision_layer = 4
+collision_mask = 3221422087
+freeze_mode = 1
+script = ExtResource("1_aod2m")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_3u31s")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_4vovn")
+surface_material_override/0 = SubResource("StandardMaterial3D_p6nvy")
+
+[node name="GrabPointHandRight" parent="." instance=ExtResource("2_tvgap")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00587735, 0.0720322, -0.0948686)
+visible = true
+
+[node name="GrabPointHandLeft" parent="." instance=ExtResource("3_4h8qt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0142002, 0.0720322, -0.0948686)
+visible = true

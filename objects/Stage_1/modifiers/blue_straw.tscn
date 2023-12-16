@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://bw7lwiff3esh3"]
+
+[ext_resource type="Script" path="res://objects/stage_1/modifiers/blue_straw.gd" id="1_x82si"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand.gd" id="2_8k3qt"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3u31s"]
+size = Vector3(0.025, 0.2, 0.025)
+
+[sub_resource type="BoxMesh" id="BoxMesh_4vovn"]
+size = Vector3(0.025, 0.2, 0.025)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p6nvy"]
+albedo_color = Color(0, 0, 1, 1)
+
+[node name="BlueStraw" type="RigidBody3D" groups=["Straw"]]
+collision_layer = 4
+collision_mask = 3221422087
+freeze_mode = 1
+script = ExtResource("1_x82si")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_3u31s")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_4vovn")
+surface_material_override/0 = SubResource("StandardMaterial3D_p6nvy")
+
+[node name="XRToolsGrabPointHand" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0179152, 0.0854261, -0.103042)
+script = ExtResource("2_8k3qt")
+
+[node name="XRToolsGrabPointHand2" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00598256, 0.0843194, -0.11117)
+script = ExtResource("2_8k3qt")
+hand = 1

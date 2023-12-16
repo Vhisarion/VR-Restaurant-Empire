@@ -14,5 +14,6 @@ func _ready():
 
 		# Change our main viewport to output to the HMD
 		get_viewport().use_xr = true
+		get_tree().change_scene_to_file.bind("res://levels/stage_1/testing_Level.tscn").call_deferred()
 	else:
 		print("OpenXR not initialized, please check if your headset is connected")

@@ -1,0 +1,56 @@
+[gd_scene load_steps=11 format=3 uid="uid://d1k321cvdlh3x"]
+
+[ext_resource type="Script" path="res://LevelController.gd" id="1_re0la"]
+[ext_resource type="PackedScene" uid="uid://de0xjyc00xb3h" path="res://Levels/Stage_1/Environment.tscn" id="2_njvmh"]
+[ext_resource type="PackedScene" uid="uid://o7e8qsgryg7y" path="res://Player.tscn" id="3_ckomq"]
+[ext_resource type="PackedScene" uid="uid://fo70a732j1c7" path="res://Customer.tscn" id="3_vis4h"]
+[ext_resource type="PackedScene" uid="uid://cvvipg8eanrkt" path="res://objects/Stage_1/Products/Finished/Juices/lemonade.tscn" id="4_2kg64"]
+[ext_resource type="PackedScene" uid="uid://dk3x174taxp54" path="res://objects/Stage_1/Products/Finished/Juices/OrangeJuice.tscn" id="5_whsux"]
+[ext_resource type="PackedScene" uid="uid://djm8fjd5lqa4m" path="res://objects/Stage_1/Products/Finished/Fruits/Apple.tscn" id="6_2awuj"]
+[ext_resource type="PackedScene" uid="uid://c3n7mspk1jai5" path="res://objects/Stage_1/Products/Finished/Fruits/Pear.tscn" id="7_7nmso"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_2yw0t"]
+size = Vector3(4.123, 0.75, 0.4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_seu67"]
+size = Vector3(4.123, 1, 1)
+
+[node name="Testing_Level" type="Node3D"]
+script = ExtResource("1_re0la")
+
+[node name="Environment" parent="." instance=ExtResource("2_njvmh")]
+
+[node name="CustomerLocation1" type="Node3D" parent="Environment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.803518, 1.19209e-07, -0.892037)
+
+[node name="Customer" parent="Environment/CustomerLocation1" instance=ExtResource("3_vis4h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.165466)
+
+[node name="CustomerLocation2" type="Node3D" parent="Environment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.551422, -0.0582396, -0.938597)
+
+[node name="Player" parent="." instance=ExtResource("3_ckomq")]
+
+[node name="Counter" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.375, -0.524539)
+collision_layer = 65536
+mass = 100.0
+freeze = true
+
+[node name="Counter" type="MeshInstance3D" parent="Counter"]
+mesh = SubResource("BoxMesh_2yw0t")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Counter"]
+shape = SubResource("BoxShape3D_seu67")
+
+[node name="PickableLemonade" parent="." instance=ExtResource("4_2kg64")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.775025, 2.70154, -0.532323)
+
+[node name="PickableOrangeJuice" parent="." instance=ExtResource("5_whsux")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.825232, 0.971931, -0.533288)
+
+[node name="Apple" parent="." instance=ExtResource("6_2awuj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.57979, 0.794371, -0.446711)
+
+[node name="Pear" parent="." instance=ExtResource("7_7nmso")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.36235, 0.779171, -0.438661)
