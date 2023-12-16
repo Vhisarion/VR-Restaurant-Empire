@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://fo70a732j1c7"]
 
-[ext_resource type="Script" path="res://objects/shared/Customer.gd" id="1_qdvgl"]
+[ext_resource type="Script" path="res://objects/shared/customer.gd" id="1_qdvgl"]
 [ext_resource type="PackedScene" uid="uid://ce7vysyvondf8" path="res://addons/godot-xr-tools/objects/snap_zone.tscn" id="2_mjyil"]
 [ext_resource type="PackedScene" uid="uid://dnyxl414hsrt2" path="res://objects/shared/item_request.tscn" id="3_xonr1"]
 

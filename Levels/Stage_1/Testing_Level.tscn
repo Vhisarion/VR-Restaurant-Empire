@@ -1,18 +1,18 @@
 [gd_scene load_steps=18 format=3 uid="uid://c0mwchluekyjw"]
 
-[ext_resource type="Script" path="res://scripts/level_controller.gd" id="1_pslii"]
-[ext_resource type="JSON" path="res://levels/stage_1/testing_Level.json" id="2_o6idw"]
-[ext_resource type="PackedScene" uid="uid://de0xjyc00xb3h" path="res://levels/stage_1/environment.tscn" id="3_v8kfr"]
-[ext_resource type="PackedScene" uid="uid://o7e8qsgryg7y" path="res://objects/shared/Player.tscn" id="4_x8cj6"]
-[ext_resource type="PackedScene" uid="uid://clid6pryr5sf5" path="res://objects/stage_1/machines/manual_squeezer.tscn" id="5_xxppp"]
-[ext_resource type="PackedScene" uid="uid://dp7h3tvs3lhuq" path="res://objects/stage_1/machines/water.tscn" id="6_vhkkd"]
-[ext_resource type="PackedScene" uid="uid://cxnstg76t0o3h" path="res://objects/shared/ItemSource.tscn" id="7_d6qcd"]
-[ext_resource type="PackedScene" uid="uid://cyt57ukl0puk5" path="res://objects/stage_1/products/fruits/orange.tscn" id="8_q42l3"]
-[ext_resource type="PackedScene" uid="uid://dij0c6twfyfnp" path="res://objects/stage_1/products/fruits/lemon.tscn" id="9_mc556"]
-[ext_resource type="PackedScene" uid="uid://djm8fjd5lqa4m" path="res://objects/stage_1/products/fruits/apple.tscn" id="10_j576f"]
-[ext_resource type="PackedScene" uid="uid://c3n7mspk1jai5" path="res://objects/stage_1/products/fruits/pear.tscn" id="11_4r32g"]
-[ext_resource type="PackedScene" uid="uid://cgplqy743cl23" path="res://objects/stage_1/modifiers/red_straw.tscn" id="12_ypogm"]
-[ext_resource type="PackedScene" uid="uid://bw7lwiff3esh3" path="res://objects/stage_1/modifiers/blue_straw.tscn" id="13_2p2ia"]
+[ext_resource type="Script" path="res://scripts/level_controller.gd" id="1_umssm"]
+[ext_resource type="JSON" path="res://levels/stage_1/testing_level.json" id="2_ahw8f"]
+[ext_resource type="PackedScene" uid="uid://de0xjyc00xb3h" path="res://levels/stage_1/environment.tscn" id="3_fmhgc"]
+[ext_resource type="PackedScene" uid="uid://o7e8qsgryg7y" path="res://objects/shared/player.tscn" id="4_wgmau"]
+[ext_resource type="PackedScene" uid="uid://clid6pryr5sf5" path="res://objects/stage_1/machines/manual_squeezer.tscn" id="5_tt8hj"]
+[ext_resource type="PackedScene" uid="uid://dp7h3tvs3lhuq" path="res://objects/stage_1/machines/water.tscn" id="6_p45ih"]
+[ext_resource type="PackedScene" uid="uid://cxnstg76t0o3h" path="res://objects/shared/item_source.tscn" id="7_mbud3"]
+[ext_resource type="PackedScene" uid="uid://cyt57ukl0puk5" path="res://objects/stage_1/products/fruits/orange.tscn" id="8_kefot"]
+[ext_resource type="PackedScene" uid="uid://dij0c6twfyfnp" path="res://objects/stage_1/products/fruits/lemon.tscn" id="9_jp8xd"]
+[ext_resource type="PackedScene" uid="uid://djm8fjd5lqa4m" path="res://objects/stage_1/products/fruits/apple.tscn" id="10_n7p3b"]
+[ext_resource type="PackedScene" uid="uid://c3n7mspk1jai5" path="res://objects/stage_1/products/fruits/pear.tscn" id="11_sxxcy"]
+[ext_resource type="PackedScene" uid="uid://cgplqy743cl23" path="res://objects/stage_1/modifiers/red_straw.tscn" id="12_ixbso"]
+[ext_resource type="PackedScene" uid="uid://bw7lwiff3esh3" path="res://objects/stage_1/modifiers/blue_straw.tscn" id="13_j0as7"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_2yw0t"]
 size = Vector3(2, 0.75, 0.4)
@@ -27,10 +27,10 @@ size = Vector3(1.5, 0.75, 0.4)
 size = Vector3(1.5, 0.75, 0.4)
 
 [node name="Testing_Level" type="Node3D"]
-script = ExtResource("1_pslii")
-json_file = ExtResource("2_o6idw")
+script = ExtResource("1_umssm")
+json_file = ExtResource("2_ahw8f")
 
-[node name="Environment" parent="." instance=ExtResource("3_v8kfr")]
+[node name="Environment" parent="." instance=ExtResource("3_fmhgc")]
 
 [node name="CustomerLocation1" type="Node3D" parent="Environment"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.803518, 1.19209e-07, -0.892037)
@@ -38,7 +38,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.803518, 1.19209e-07, -0.89
 [node name="CustomerLocation2" type="Node3D" parent="Environment"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.551422, -0.0582396, -0.938597)
 
-[node name="Player" parent="." instance=ExtResource("4_x8cj6")]
+[node name="Player" parent="." instance=ExtResource("4_wgmau")]
 
 [node name="Counter" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.375, -0.524539)
@@ -80,13 +80,13 @@ skeleton = NodePath("../../Counter3")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Counter3"]
 shape = SubResource("BoxShape3D_seu67")
 
-[node name="ManualSqueezer" parent="." instance=ExtResource("5_xxppp")]
+[node name="ManualSqueezer" parent="." instance=ExtResource("5_tt8hj")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.837422, 0.777604, -0.146518)
 
-[node name="ManualSqueezer2" parent="." instance=ExtResource("5_xxppp")]
+[node name="ManualSqueezer2" parent="." instance=ExtResource("5_tt8hj")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.841819, 0.777604, 0.793199)
 
-[node name="Water" parent="." instance=ExtResource("6_vhkkd")]
+[node name="Water" parent="." instance=ExtResource("6_p45ih")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.746224, 1.0045, -0.197081)
 enabled = null
 press_to_hold = null
@@ -98,27 +98,27 @@ ranged_grab_speed = null
 picked_by_exclude = null
 picked_by_require = null
 
-[node name="OrangeSource" parent="." instance=ExtResource("7_d6qcd")]
+[node name="OrangeSource" parent="." instance=ExtResource("7_mbud3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.726858, 0.86044, 0.187861)
-item = ExtResource("8_q42l3")
+item = ExtResource("8_kefot")
 
-[node name="LemonSource" parent="." instance=ExtResource("7_d6qcd")]
+[node name="LemonSource" parent="." instance=ExtResource("7_mbud3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.730708, 0.853817, 0.468606)
-item = ExtResource("9_mc556")
+item = ExtResource("9_jp8xd")
 
-[node name="AppleSource" parent="." instance=ExtResource("7_d6qcd")]
+[node name="AppleSource" parent="." instance=ExtResource("7_mbud3")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.791952, 0.777604, 0.038358)
-item = ExtResource("10_j576f")
+item = ExtResource("10_n7p3b")
 
-[node name="PearSource" parent="." instance=ExtResource("7_d6qcd")]
+[node name="PearSource" parent="." instance=ExtResource("7_mbud3")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.836818, 0.777604, 0.286861)
-item = ExtResource("11_4r32g")
+item = ExtResource("11_sxxcy")
 
-[node name="RedStrawSource" parent="." instance=ExtResource("7_d6qcd")]
+[node name="RedStrawSource" parent="." instance=ExtResource("7_mbud3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.776089, 0.806225, 0.710184)
-item = ExtResource("12_ypogm")
+item = ExtResource("12_ixbso")
 
-[node name="BlueStrawSource" parent="." instance=ExtResource("7_d6qcd")]
+[node name="BlueStrawSource" parent="." instance=ExtResource("7_mbud3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.774837, 0.809165, 0.99707)
 visible = false
-item = ExtResource("13_2p2ia")
+item = ExtResource("13_j0as7")
