@@ -12,7 +12,7 @@ func _process(delta):
 		
 		if (tracked_object.motions_remaining == 0):
 			print_rich("Object ", tracked_object.object, " has no motions remaining")
-			_squeeze(tracked_object)
+			process_tracked_object(tracked_object)
 
 func check_rotation(tracked_object):
 	var angle_difference = abs(tracked_object.last_motion_rotation) - abs(tracked_object.object.global_rotation.y)
@@ -21,15 +21,12 @@ func check_rotation(tracked_object):
 		tracked_object.motions_remaining -= 1
 		tracked_object.last_motion_rotation = tracked_object.object.rotation.y
 	
-func _squeeze(tracked_object):
+func process_tracked_object(tracked_object):
 	var object = tracked_object.object
 	var type = tracked_object.type
-	print("Squeezing object ", object, " of type ", type)
-	var product = squeeze_outcome[type].instantiate()
+	super.squeeze(type)
 	tracked_objects.remove_at(find_body_in_tracked_objects(object))
 	object.queue_free()
-	product.transform = $ProductLocation.transform
-	add_child(product)
 
 func _on_area_3d_body_entered(body):
 	var type

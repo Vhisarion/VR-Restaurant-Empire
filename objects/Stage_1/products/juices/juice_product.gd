@@ -7,6 +7,7 @@ enum StrawType {NO_STRAW, RED_STRAW, BLUE_STRAW}
 @export var straw_type: StrawType
 
 func _ready():
+	super._ready()
 	if (straw_type != StrawType.NO_STRAW):
 		_show_straw()
 		_change_straw_color(straw_type)
@@ -32,27 +33,31 @@ func set_straw_from_pickable(pickable):
 		push_error("Added an unknown straw! Not implemented!")
 
 func _hide_straw():
-	if (has_node("Straw")):
-		$Straw.visible = false
+	if (%Straw != null):
+		%Straw.visible = false
 
 func _show_straw():
-	if (has_node("Straw")):
-		$Straw.visible = true
+	if (%Straw != null):
+		%Straw.visible = true
 
 func _change_straw_color(type: StrawType):
-	var hasnode = has_node("Straw")
-	if (!has_node("Straw")):
+	if (%Straw == null):
 		return
 	
 	# Change straw color to the corresponding type
 	match type:
 		StrawType.RED_STRAW:
 			print("Changing color to red")
-			var strawMesh = $Straw.mesh
-			$Straw.mesh.material.albedo_color = Color(255,0,0,0,)
+			var material = StandardMaterial3D.new()
+			material.albedo_color = Color(255,0,0,0,)
+			%Straw.set_surface_override_material(0, material)
+			#straw.mesh.material.albedo_color = Color(255,0,0,0,)
 		StrawType.BLUE_STRAW:
 			print("Changing color to blue")
-			$Straw.mesh.material.albedo_color = Color(0,0,255,0,)
+			var material = StandardMaterial3D.new()
+			material.albedo_color = Color(0,0,255,0,)
+			%Straw.set_surface_override_material(0, material)
+			#straw.mesh.material.albedo_color = Color(0,0,255,0,)
 		_:
 			# No straw or unknown straw -> hide the straw.
 			print("Uknown straw, hiding the straw")

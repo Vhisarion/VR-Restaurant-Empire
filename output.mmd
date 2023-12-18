@@ -1,0 +1,498 @@
+classDiagram
+	class Area_audio
+	Area_audio: +is_xr_class()
+	class Pickable_audio
+	Pickable_audio: +is_xr_class()
+	class Surface_audio
+	Surface_audio: +is_xr_class()
+	class Vignette
+	Vignette: +set_radius()
+	Vignette: +set_fade()
+	Vignette: +set_steps()
+	Vignette: +set_auto_adjust()
+	Vignette: +set_auto_rotation_limit()
+	Vignette: +is_xr_class()
+	class Fall_damage
+	Fall_damage: +is_xr_class()
+	Fall_damage: +physics_movement()
+	class Function_pickup
+	Function_pickup: +is_xr_class()
+	Function_pickup: +get_controller()
+	Function_pickup: +drop_object()
+	class Function_pointer
+	Function_pointer: +is_xr_class()
+	Function_pointer: +set_enabled()
+	Function_pointer: +set_y_offset()
+	Function_pointer: +set_distance()
+	Function_pointer: +set_show_laser()
+	Function_pointer: +set_laser_length()
+	Function_pointer: +set_laser_material()
+	Function_pointer: +set_laser_hit_material()
+	Function_pointer: +set_show_target()
+	Function_pointer: +set_target_radius()
+	Function_pointer: +set_target_material()
+	Function_pointer: +set_collision_mask()
+	Function_pointer: +set_collide_with_bodies()
+	Function_pointer: +set_collide_with_areas()
+	Function_pointer: +set_suppress_radius()
+	Function_pointer: +set_suppress_mask()
+	class Function_pose_detector
+	Function_pose_detector: +is_xr_class()
+	Function_pose_detector: +set_collision_mask()
+	class Function_teleport
+	Function_teleport: +is_xr_class()
+	Function_teleport: +set_enabled()
+	Function_teleport: +set_arc_texture()
+	Function_teleport: +set_target_texture()
+	Function_teleport: +set_player_height()
+	Function_teleport: +set_player_radius()
+	Function_teleport: +set_player_scene()
+	Function_teleport: +set_player_material()
+	class Movement_climb
+	Movement_climb: +is_xr_class()
+	Movement_climb: +physics_movement()
+	class Movement_crouch
+	Movement_crouch: +is_xr_class()
+	Movement_crouch: +physics_movement()
+	class Movement_direct
+	Movement_direct: +is_xr_class()
+	Movement_direct: +physics_movement()
+	class Movement_flight
+	Movement_flight: +is_xr_class()
+	Movement_flight: +physics_movement()
+	Movement_flight: +set_flying()
+	class Movement_footstep
+	Movement_footstep: +is_xr_class()
+	Movement_footstep: +physics_movement()
+	class Movement_glide
+	Movement_glide: +is_xr_class()
+	Movement_glide: +physics_movement()
+	class Movement_grapple
+	Movement_grapple: +is_xr_class()
+	Movement_grapple: +physics_movement()
+	class Movement_jump
+	Movement_jump: +is_xr_class()
+	Movement_jump: +physics_movement()
+	class Movement_physical_jump
+	Movement_physical_jump: +is_xr_class()
+	Movement_physical_jump: +physics_movement()
+	class Movement_sprint
+	Movement_sprint: +is_xr_class()
+	Movement_sprint: +physics_movement()
+	Movement_sprint: +set_sprinting()
+	class Movement_turn
+	Movement_turn: +is_xr_class()
+	Movement_turn: +physics_movement()
+	class Movement_wall_walk
+	Movement_wall_walk: +physics_pre_movement()
+	class Movement_wind
+	Movement_wind: +is_xr_class()
+	Movement_wind: +set_collision_mask()
+	Movement_wind: +physics_movement()
+	class AnimationPlayer
+	class AnimationPlayer
+	class Collision_hand_left
+	Collision_hand_left: +is_xr_class()
+	Collision_hand_left: +add_target_override()
+	Collision_hand_left: +remove_target_override()
+	class Collision_hand_right
+	Collision_hand_right: +is_xr_class()
+	Collision_hand_right: +add_target_override()
+	Collision_hand_right: +remove_target_override()
+	class Left_fullglove_hand
+	Left_fullglove_hand <|-- AnimationPlayer
+	Left_fullglove_hand <|-- Hand_l.Gltf
+	Left_fullglove_hand: +is_xr_class()
+	Left_fullglove_hand: +set_hand_blend_tree()
+	Left_fullglove_hand: +set_hand_material_override()
+	Left_fullglove_hand: +set_default_pose()
+	Left_fullglove_hand: +add_pose_override()
+	Left_fullglove_hand: +remove_pose_override()
+	Left_fullglove_hand: +force_grip_trigger()
+	class Left_fullglove_physics_hand
+	Left_fullglove_physics_hand <|-- Hand_l.Gltf
+	Left_fullglove_physics_hand <|-- AnimationPlayer
+	Left_fullglove_physics_hand: +is_xr_class()
+	class Left_hand
+	Left_hand <|-- Hand_Nails_L.Gltf
+	Left_hand <|-- AnimationPlayer
+	Left_hand: +is_xr_class()
+	Left_hand: +set_hand_blend_tree()
+	Left_hand: +set_hand_material_override()
+	Left_hand: +set_default_pose()
+	Left_hand: +add_pose_override()
+	Left_hand: +remove_pose_override()
+	Left_hand: +force_grip_trigger()
+	class Left_physics_hand
+	Left_physics_hand <|-- AnimationPlayer
+	Left_physics_hand <|-- Hand_Nails_L.Gltf
+	Left_physics_hand: +is_xr_class()
+	class Left_physics_tac_glove
+	Left_physics_tac_glove <|-- Hand_Glove_L.Gltf
+	Left_physics_tac_glove <|-- AnimationPlayer
+	Left_physics_tac_glove: +is_xr_class()
+	class Left_tac_glove
+	Left_tac_glove <|-- Hand_Glove_L.Gltf
+	Left_tac_glove <|-- AnimationPlayer
+	Left_tac_glove: +is_xr_class()
+	Left_tac_glove: +set_hand_blend_tree()
+	Left_tac_glove: +set_hand_material_override()
+	Left_tac_glove: +set_default_pose()
+	Left_tac_glove: +add_pose_override()
+	Left_tac_glove: +remove_pose_override()
+	Left_tac_glove: +force_grip_trigger()
+	class Right_fullglove_hand
+	Right_fullglove_hand <|-- Hand_r.Gltf
+	Right_fullglove_hand <|-- AnimationPlayer
+	Right_fullglove_hand: +is_xr_class()
+	Right_fullglove_hand: +set_hand_blend_tree()
+	Right_fullglove_hand: +set_hand_material_override()
+	Right_fullglove_hand: +set_default_pose()
+	Right_fullglove_hand: +add_pose_override()
+	Right_fullglove_hand: +remove_pose_override()
+	Right_fullglove_hand: +force_grip_trigger()
+	class Right_fullglove_physics_hand
+	Right_fullglove_physics_hand <|-- Hand_r.Gltf
+	Right_fullglove_physics_hand <|-- AnimationPlayer
+	Right_fullglove_physics_hand: +is_xr_class()
+	class Right_hand
+	Right_hand <|-- Hand_Nails_R.Gltf
+	Right_hand <|-- AnimationPlayer
+	Right_hand: +is_xr_class()
+	Right_hand: +set_hand_blend_tree()
+	Right_hand: +set_hand_material_override()
+	Right_hand: +set_default_pose()
+	Right_hand: +add_pose_override()
+	Right_hand: +remove_pose_override()
+	Right_hand: +force_grip_trigger()
+	class Right_physics_hand
+	Right_physics_hand <|-- AnimationPlayer
+	Right_physics_hand <|-- Hand_Nails_R.Gltf
+	Right_physics_hand: +is_xr_class()
+	class Right_physics_tac_glove
+	Right_physics_tac_glove <|-- AnimationPlayer
+	Right_physics_tac_glove <|-- Hand_Glove_R.Gltf
+	Right_physics_tac_glove: +is_xr_class()
+	class Right_tac_glove
+	Right_tac_glove <|-- AnimationPlayer
+	Right_tac_glove <|-- Hand_Glove_R.Gltf
+	Right_tac_glove: +is_xr_class()
+	Right_tac_glove: +set_hand_blend_tree()
+	Right_tac_glove: +set_hand_material_override()
+	Right_tac_glove: +set_default_pose()
+	Right_tac_glove: +add_pose_override()
+	Right_tac_glove: +remove_pose_override()
+	Right_tac_glove: +force_grip_trigger()
+	class Left_fullglove_low
+	Left_fullglove_low <|-- AnimationPlayer
+	Left_fullglove_low <|-- Hand_low_L.Gltf
+	Left_fullglove_low: +is_xr_class()
+	Left_fullglove_low: +set_hand_blend_tree()
+	Left_fullglove_low: +set_hand_material_override()
+	Left_fullglove_low: +set_default_pose()
+	Left_fullglove_low: +add_pose_override()
+	Left_fullglove_low: +remove_pose_override()
+	Left_fullglove_low: +force_grip_trigger()
+	class Left_hand_low
+	Left_hand_low <|-- Hand_Nails_low_L.Gltf
+	Left_hand_low <|-- AnimationPlayer
+	Left_hand_low: +is_xr_class()
+	Left_hand_low: +set_hand_blend_tree()
+	Left_hand_low: +set_hand_material_override()
+	Left_hand_low: +set_default_pose()
+	Left_hand_low: +add_pose_override()
+	Left_hand_low: +remove_pose_override()
+	Left_hand_low: +force_grip_trigger()
+	class Left_physics_fullglove_low
+	Left_physics_fullglove_low <|-- Hand_low_L.Gltf
+	Left_physics_fullglove_low <|-- AnimationPlayer
+	Left_physics_fullglove_low: +is_xr_class()
+	class Left_physics_hand_low
+	Left_physics_hand_low <|-- AnimationPlayer
+	Left_physics_hand_low <|-- Hand_Nails_low_L.Gltf
+	Left_physics_hand_low: +is_xr_class()
+	class Left_physics_tac_glove_low
+	Left_physics_tac_glove_low <|-- AnimationPlayer
+	Left_physics_tac_glove_low <|-- Hand_Glove_low_L.Gltf
+	Left_physics_tac_glove_low: +is_xr_class()
+	class Left_tac_glove_low
+	Left_tac_glove_low <|-- Hand_Glove_low_L.Gltf
+	Left_tac_glove_low <|-- AnimationPlayer
+	Left_tac_glove_low: +is_xr_class()
+	Left_tac_glove_low: +set_hand_blend_tree()
+	Left_tac_glove_low: +set_hand_material_override()
+	Left_tac_glove_low: +set_default_pose()
+	Left_tac_glove_low: +add_pose_override()
+	Left_tac_glove_low: +remove_pose_override()
+	Left_tac_glove_low: +force_grip_trigger()
+	class Right_fullglove_low
+	Right_fullglove_low <|-- AnimationPlayer
+	Right_fullglove_low <|-- Hand_low_R.Gltf
+	Right_fullglove_low: +is_xr_class()
+	Right_fullglove_low: +set_hand_blend_tree()
+	Right_fullglove_low: +set_hand_material_override()
+	Right_fullglove_low: +set_default_pose()
+	Right_fullglove_low: +add_pose_override()
+	Right_fullglove_low: +remove_pose_override()
+	Right_fullglove_low: +force_grip_trigger()
+	class Right_hand_low
+	Right_hand_low <|-- AnimationPlayer
+	Right_hand_low <|-- Hand_Nails_low_R.Gltf
+	Right_hand_low: +is_xr_class()
+	Right_hand_low: +set_hand_blend_tree()
+	Right_hand_low: +set_hand_material_override()
+	Right_hand_low: +set_default_pose()
+	Right_hand_low: +add_pose_override()
+	Right_hand_low: +remove_pose_override()
+	Right_hand_low: +force_grip_trigger()
+	class Right_physics_fullglove_low
+	Right_physics_fullglove_low <|-- AnimationPlayer
+	Right_physics_fullglove_low <|-- Hand_low_R.Gltf
+	Right_physics_fullglove_low: +is_xr_class()
+	class Right_physics_hand_low
+	Right_physics_hand_low <|-- AnimationPlayer
+	Right_physics_hand_low <|-- Hand_Nails_low_R.Gltf
+	Right_physics_hand_low: +is_xr_class()
+	class Right_physics_tac_glove_low
+	Right_physics_tac_glove_low <|-- AnimationPlayer
+	Right_physics_tac_glove_low <|-- Hand_Glove_low_R.Gltf
+	Right_physics_tac_glove_low: +is_xr_class()
+	class Right_tac_glove_low
+	Right_tac_glove_low <|-- Hand_Glove_low_R.Gltf
+	Right_tac_glove_low <|-- AnimationPlayer
+	Right_tac_glove_low: +is_xr_class()
+	Right_tac_glove_low: +set_hand_blend_tree()
+	Right_tac_glove_low: +set_hand_material_override()
+	Right_tac_glove_low: +set_default_pose()
+	Right_tac_glove_low: +add_pose_override()
+	Right_tac_glove_low: +remove_pose_override()
+	Right_tac_glove_low: +force_grip_trigger()
+	class Interactable_area_button
+	Interactable_area_button: +is_xr_class()
+	class Interactable_handle
+	Interactable_handle: +is_xr_class()
+	Interactable_handle: +pick_up()
+	Interactable_handle: +let_go()
+	class Interactable_hinge
+	Interactable_hinge: +is_xr_class()
+	Interactable_hinge: +move_hinge()
+	class Interactable_joystick
+	Interactable_joystick: +is_xr_class()
+	Interactable_joystick: +move_joystick()
+	class Interactable_slider
+	Interactable_slider: +is_xr_class()
+	Interactable_slider: +move_slider()
+	class Hold_button
+	Hold_button: +is_xr_class()
+	Hold_button: +set_enabled()
+	Hold_button: +set_size()
+	Hold_button: +set_color()
+	class Vr_common_shader_cache
+	class Climbable
+	Climbable: +is_xr_class()
+	Climbable: +is_picked_up()
+	Climbable: +can_pick_up()
+	Climbable: +action()
+	Climbable: +request_highlight()
+	Climbable: +pick_up()
+	Climbable: +let_go()
+	Climbable: +get_grab_handle()
+	class Grab_point_hand_left
+	Grab_point_hand_left: +can_grab()
+	class Grab_point_hand_right
+	Grab_point_hand_right: +can_grab()
+	class Grab_point_snap
+	Grab_point_snap: +can_grab()
+	class Hand_pose_area
+	Hand_pose_area: +is_xr_class()
+	class Highlight_ring
+	Highlight_ring: +is_xr_class()
+	class Virtual_keyboard_2d
+	Virtual_keyboard_2d: +is_xr_class()
+	Virtual_keyboard_2d: +on_key_pressed()
+	class Pickable
+	Pickable: +is_xr_class()
+	Pickable: +can_pick_up()
+	Pickable: +is_picked_up()
+	Pickable: +action()
+	Pickable: +request_highlight()
+	Pickable: +drop_and_free()
+	Pickable: +pick_up()
+	Pickable: +let_go()
+	Pickable: +get_picked_up_by_controller()
+	Pickable: +get_picked_up_by_hand()
+	Pickable: +get_active_grab_point()
+	Pickable: +switch_active_grab_point()
+	class Snap_zone
+	Snap_zone: +is_xr_class()
+	Snap_zone: +can_pick_up()
+	Snap_zone: +is_picked_up()
+	Snap_zone: +action()
+	Snap_zone: +request_highlight()
+	Snap_zone: +pick_up()
+	Snap_zone: +let_go()
+	Snap_zone: +drop_object()
+	Snap_zone: +has_snapped_object()
+	Snap_zone: +pick_up_object()
+	class Teleport_area
+	Teleport_area: +is_xr_class()
+	class Viewport_2d_in_3d
+	Viewport_2d_in_3d: +get_scene_instance()
+	Viewport_2d_in_3d: +connect_scene_signal()
+	Viewport_2d_in_3d: +set_screen_size()
+	Viewport_2d_in_3d: +set_enabled()
+	Viewport_2d_in_3d: +set_collision_layer()
+	Viewport_2d_in_3d: +set_scene()
+	Viewport_2d_in_3d: +set_viewport_size()
+	Viewport_2d_in_3d: +set_update_mode()
+	Viewport_2d_in_3d: +set_material()
+	Viewport_2d_in_3d: +set_transparent()
+	Viewport_2d_in_3d: +set_alpha_scissor_threshold()
+	Viewport_2d_in_3d: +set_unshaded()
+	Viewport_2d_in_3d: +set_filter()
+	class Virtual_keyboard
+	Virtual_keyboard <|-- Viewport_2d_in_3d
+	Virtual_keyboard <|-- Virtual_keyboard_2d
+	class Wind_area
+	Wind_area: +is_xr_class()
+	class Ground_physics
+	Ground_physics: +is_xr_class()
+	class Player_body
+	Player_body: +sort_by_order()
+	Player_body: +is_xr_class()
+	Player_body: +set_enabled()
+	Player_body: +set_player_radius()
+	Player_body: +set_physics()
+	Player_body: +teleport()
+	Player_body: +request_jump()
+	Player_body: +move_body()
+	Player_body: +rotate_player()
+	Player_body: +slew_up()
+	Player_body: +calibrate_player_height()
+	Player_body: +override_player_height()
+	class Poke
+	Poke: +set_enabled()
+	Poke: +set_radius()
+	Poke: +set_teleport_distance()
+	Poke: +set_push_bodies()
+	Poke: +set_layer()
+	Poke: +set_mask()
+	Poke: +set_stiffness()
+	Poke: +set_maximum_force()
+	Poke: +set_color()
+	Poke: +is_xr_class()
+	class Loading_screen
+	Loading_screen: +set_camera()
+	Loading_screen: +set_follow_camera()
+	Loading_screen: +set_splash_screen()
+	Loading_screen: +set_progress_bar()
+	Loading_screen: +set_enable_press_to_continue()
+	Loading_screen <|-- Hold_button
+	class Scene_base
+	Scene_base: +is_xr_class()
+	Scene_base: +center_player_on()
+	Scene_base: +scene_loaded()
+	Scene_base: +scene_visible()
+	Scene_base: +scene_pre_exiting()
+	Scene_base: +scene_exiting()
+	Scene_base: +exit_to_main_menu()
+	Scene_base: +load_scene()
+	Scene_base: +reset_scene()
+	class Staging
+	Staging: +is_xr_class()
+	Staging: +load_scene()
+	Staging: +set_fade()
+	Staging <|-- Loading_screen
+	Staging <|-- Vr_common_shader_cache
+	Staging <|-- Start_xr
+	class User_settings_ui
+	class Start_xr
+	Start_xr: +initialize()
+	class Customer
+	Customer: +init()
+	Customer: +calculate_price_of_order()
+	Customer: +calculate_price_of_products()
+	Customer: +calculate_price_of_pending_products()
+	Customer: +add_tip()
+	Customer: +make_order()
+	Customer: +leave()
+	Customer: +product_received()
+	Customer: +find_product_index()
+	Customer: +pay()
+	Customer: +destroy()
+	Customer: +set_location()
+	Customer: +find_product_child()
+	Customer <|-- Snap_zone
+	Customer <|-- Item_request
+	class Player
+	Player <|-- Left_tac_glove_low
+	Player <|-- Function_pickup
+	Player <|-- Right_tac_glove_low
+	Player <|-- Player_body
+	class Environment
+	class Testing_level
+	Testing_level: +initialize_customers()
+	Testing_level: +create_customer()
+	Testing_level: +parse_order()
+	Testing_level: +create_customer_arrival_timer()
+	Testing_level: +spawn_customer()
+	Testing_level: +start_arrival_timers()
+	Testing_level: +read_json_file()
+	Testing_level: +gain_points()
+	Testing_level: +lose_points()
+	Testing_level: +enter_queue()
+	Testing_level <|-- Environment
+	Testing_level <|-- Player
+	Testing_level <|-- Manual_squeezer
+	Testing_level <|-- Water
+	Testing_level <|-- Item_source
+	Testing_level <|-- Orange
+	Testing_level <|-- Lemon
+	Testing_level <|-- Apple
+	Testing_level <|-- Pear
+	Testing_level <|-- Red_straw
+	Testing_level <|-- Blue_straw
+	class Main
+	class Item_request
+	Item_request: +set_item()
+	class Item_source
+	class Automatic_squeezer
+	Automatic_squeezer <|-- Snap_zone
+	class Manual_squeezer
+	Manual_squeezer: +check_rotation()
+	Manual_squeezer: +find_body_in_tracked_objects()
+	class Water
+	class Blue_straw
+	class Red_straw
+	Red_straw <|-- Grab_point_hand_right
+	Red_straw <|-- Grab_point_hand_left
+	class Apple
+	Apple: +get_price()
+	Apple: +equals()
+	Apple: +get_instance()
+	class Lemon
+	class Orange
+	Orange <|-- Pickable
+	Orange <|-- Orange.Glb
+	class Pear
+	Pear: +get_price()
+	Pear: +equals()
+	Pear: +get_instance()
+	class Lemonade
+	Lemonade: +get_price()
+	Lemonade: +equals()
+	Lemonade: +get_instance()
+	Lemonade <|-- Snap_zone
+	Lemonade <|-- Grab_point_hand_left
+	Lemonade <|-- Grab_point_hand_right
+	class Lemon_juice
+	Lemon_juice: +fill()
+	Lemon_juice <|-- Grab_point_hand_right
+	Lemon_juice <|-- Grab_point_hand_left
+	class Orange_juice
+	Orange_juice: +get_price()
+	Orange_juice: +equals()
+	Orange_juice: +get_instance()
+	Orange_juice <|-- Snap_zone
+	Orange_juice <|-- Grab_point_hand_left
+	Orange_juice <|-- Grab_point_hand_right

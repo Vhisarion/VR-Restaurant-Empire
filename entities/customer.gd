@@ -23,7 +23,7 @@ var item_request_locations: Array[Node3D] = []
 
 func init(max_patience: int, products: Array[Product], level_controller: LevelController):
 	order = products
-	pending_products = order
+	pending_products = order.duplicate()
 	self.max_patience = max_patience
 	self.level_controller = level_controller
 
@@ -45,14 +45,14 @@ func calculate_price_of_order() -> int:
 func calculate_price_of_products() -> int:
 	var sum = 0
 	for product in order:
-		sum += product.get_price()
+		sum += product.price
 	return sum
 
 # Sum of the price of all pending products
 func calculate_price_of_pending_products() -> int:
 	var sum = 0
 	for product in pending_products:
-		sum += product.get_price()
+		sum += product.price
 	return sum
 
 # Extra money depending on the customer's remaining patience
@@ -73,8 +73,8 @@ func add_tip(total: int) -> int:
 # Show the order to the player and start the timer
 func make_order():
 	# Display the order in the ItemRequests
-	for item in order:
-		item_request_locations.pop_back().set_item(item)
+	for item_index in range(order.size()):
+		item_request_locations[item_index].set_item(order[item_index])
 		
 	# Start the patience timer
 	$PatienceTimer.start(max_patience)
@@ -97,7 +97,8 @@ func product_received(received_product: Product):
 		print("The product ", received_product, " was removed from the order")
 		
 		# Remove the item request
-		item_request_locations[product_index_in_order].queue_free()
+		order[product_index_in_order].visible = false
+		item_request_locations.remove_at(product_index)
 		
 		# Increase patience if there are still products left
 		if (pending_products.size() > 0):
@@ -114,7 +115,7 @@ func product_received(received_product: Product):
 
 func find_product_index(array: Array[Product], product: Product) -> int:
 	for index in range(array.size()):
-		if (product.equals(array[index])):
+		if (array[index] != null && product.equals(array[index])):
 			return index
 	return -1
 
@@ -141,10 +142,9 @@ func _update_customer_color():
 		$CustomerBody.mesh.material.albedo_color = Color(1-color_value,color_value,0,0)
 
 func _on_tray_snap_zone_has_picked_up(what):
-	var product = find_product_child(what)
-	product_received(product)
+	#var product = find_product_child(what)
+	product_received(what)
 	($Tray/TraySnapZone as XRToolsSnapZone).picked_up_object = null
-	printerr(($Tray/TraySnapZone as XRToolsSnapZone).picked_up_object)
 
 func find_product_child(parent) -> Product:
 	for child in parent.get_children():
