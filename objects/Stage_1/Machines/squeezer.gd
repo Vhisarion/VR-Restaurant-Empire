@@ -6,3 +6,8 @@ var squeeze_outcome = {
 	"Orange": load(SceneUtils.product_scenes["OrangeJuice"]),
 	"Lemon": load(SceneUtils.product_scenes["LemonJuice"])
 }
+
+func squeeze(type: String) -> void:
+	var product = squeeze_outcome[type].instantiate()
+	product.transform = $ProductLocation.transform
+	add_child(product)

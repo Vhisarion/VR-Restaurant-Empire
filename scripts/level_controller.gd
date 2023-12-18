@@ -1,6 +1,6 @@
 class_name LevelController
 
-extends Node3D
+extends Node
 
 # Level settings
 var max_time : int
@@ -48,7 +48,7 @@ func _ready():
 	
 	# Look for customer locations in the current environment
 	for number in range(9):
-		var location = get_node_or_null("Environment/CustomerLocation"+str(number+1))
+		var location = get_node_or_null("CustomerLocations/CustomerLocation"+str(number+1))
 		if (location != null):
 			customer_locations.push_back(location)
 			occupied_locations.push_back(false)
@@ -61,7 +61,7 @@ func initialize_customers(json_customers: Array):
 		customers.push_back(customer)
 
 func create_customer(settings) -> Customer:
-	var customer = load("res://Objects/Shared/Customer.tscn").instantiate()
+	var customer = load("res://entities/customer.tscn").instantiate()
 	customer.init(settings.max_patience, parse_order(settings.order), self)
 	return customer
 
@@ -71,15 +71,15 @@ func parse_order(json_orders) -> Array[Product]:
 		var product : Product = null
 		match(json_product.product):
 			"Lemonade":
-				product = Lemonade.new()
+				product = load(SceneUtils.product_scenes["Lemonade"]).instantiate()
 				product.set_straw(JuiceProduct.StrawType[json_product.modifiers.straw_type])
 			"OrangeJuice":
-				product = OrangeJuice.new()
+				product = load(SceneUtils.product_scenes["OrangeJuice"]).instantiate()
 				product.set_straw(JuiceProduct.StrawType[json_product.modifiers.straw_type])
 			"Apple":
-				product = Apple.new()
+				product = load(SceneUtils.product_scenes["Apple"]).instantiate()
 			"Pear": 
-				product = Pear.new()
+				product = load(SceneUtils.product_scenes["Pear"]).instantiate()
 		if (product != null):
 			order.push_back(product)
 		else:

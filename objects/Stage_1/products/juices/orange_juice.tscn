@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dk3x174taxp54"]
+[gd_scene load_steps=10 format=3 uid="uid://dk3x174taxp54"]
 
 [ext_resource type="Script" path="res://objects/stage_1/products/juices/orange_juice.gd" id="1_w8cmn"]
 [ext_resource type="PackedScene" uid="uid://ce7vysyvondf8" path="res://addons/godot-xr-tools/objects/snap_zone.tscn" id="3_s34c2"]
@@ -11,32 +11,36 @@ size = Vector3(0.125, 0.25, 0.125)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fb6qc"]
 albedo_color = Color(1, 0, 0, 1)
 
+[sub_resource type="BoxMesh" id="BoxMesh_6kbuo"]
+material = SubResource("StandardMaterial3D_fb6qc")
+size = Vector3(0.013, 0.25, 0.013)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hs3m0"]
 albedo_color = Color(0.823529, 0.466667, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_y6x41"]
+material = SubResource("StandardMaterial3D_hs3m0")
+size = Vector3(0.125, 0.25, 0.125)
 
 [node name="PickableOrangeJuice" type="RigidBody3D" groups=["Product"]]
 collision_layer = 4
 collision_mask = 3221422087
 freeze_mode = 1
 script = ExtResource("1_w8cmn")
-scene = null
+price = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_rs5ng")
 
 [node name="OrangeJuice" type="Node3D" parent="."]
 
-[node name="Straw" type="CSGBox3D" parent="OrangeJuice"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.156083, 0)
-size = Vector3(0.013, 0.25, 0.013)
-material = SubResource("StandardMaterial3D_fb6qc")
+[node name="Straw" type="MeshInstance3D" parent="OrangeJuice"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.088, 0)
+mesh = SubResource("BoxMesh_6kbuo")
 
-[node name="Glass" type="CSGBox3D" parent="OrangeJuice"]
-size = Vector3(0.125, 0.25, 0.125)
-material = SubResource("StandardMaterial3D_hs3m0")
-
-[node name="StrawSnapZone" parent="OrangeJuice" instance=ExtResource("3_s34c2")]
-snap_require = "Straw"
+[node name="Glass" type="MeshInstance3D" parent="OrangeJuice"]
+mesh = SubResource("BoxMesh_y6x41")
 
 [node name="GrabPointHandLeft" parent="." instance=ExtResource("4_fpbh5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0572898, 0.0814288, -0.0892952)
@@ -46,4 +50,7 @@ visible = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0503897, 0.0814288, -0.0900864)
 visible = true
 
-[connection signal="has_picked_up" from="OrangeJuice/StrawSnapZone" to="OrangeJuice" method="_on_straw_snap_zone_has_picked_up"]
+[node name="StrawSnapZone" parent="." instance=ExtResource("3_s34c2")]
+snap_require = "Straw"
+
+[connection signal="has_picked_up" from="StrawSnapZone" to="." method="_on_straw_snap_zone_has_picked_up"]

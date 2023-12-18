@@ -9,15 +9,15 @@
 			"max_patience": 50,
 			"order": [
 				{
-					"product": "Lemonade",
-					"modifiers": {
-						"straw_type": "RED_STRAW"
-					}
-				},
-				{
 					"product": "OrangeJuice",
 					"modifiers": {
 						"straw_type": "BLUE_STRAW"
+					}
+				},
+				{
+					"product": "Lemonade",
+					"modifiers": {
+						"straw_type": "RED_STRAW"
 					}
 				},
 				{
