@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://b50h42iat71di"]
+
+[ext_resource type="PackedScene" uid="uid://cirjt7jfjib04" path="res://assets/models/juice/content.glb" id="1_bncjt"]
+[ext_resource type="Material" uid="uid://1co567k42srs" path="res://assets/models/juice/lemon.tres" id="2_ap6oe"]
+
+[node name="content" instance=ExtResource("1_bncjt")]
+
+[node name="Milkshake" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_ap6oe")

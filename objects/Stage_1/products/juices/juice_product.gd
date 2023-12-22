@@ -33,31 +33,29 @@ func set_straw_from_pickable(pickable):
 		push_error("Added an unknown straw! Not implemented!")
 
 func _hide_straw():
-	if (%Straw != null):
-		%Straw.visible = false
+	if (%RedStraw != null):
+		%RedStraw.visible = false
+	if (%BlueStraw != null):
+		%BlueStraw.visible = false
 
 func _show_straw():
-	if (%Straw != null):
-		%Straw.visible = true
+	if (%RedStraw != null):
+		%RedStraw.visible = true
+	if (%BlueStraw != null):
+		%BlueStraw.visible = true
 
 func _change_straw_color(type: StrawType):
-	if (%Straw == null):
+	if (%RedStraw == null || %BlueStraw == null):
 		return
 	
 	# Change straw color to the corresponding type
 	match type:
 		StrawType.RED_STRAW:
-			print("Changing color to red")
-			var material = StandardMaterial3D.new()
-			material.albedo_color = Color(255,0,0,0,)
-			%Straw.set_surface_override_material(0, material)
-			#straw.mesh.material.albedo_color = Color(255,0,0,0,)
+			%RedStraw.visible = true
+			%BlueStraw.visible = false
 		StrawType.BLUE_STRAW:
-			print("Changing color to blue")
-			var material = StandardMaterial3D.new()
-			material.albedo_color = Color(0,0,255,0,)
-			%Straw.set_surface_override_material(0, material)
-			#straw.mesh.material.albedo_color = Color(0,0,255,0,)
+			%RedStraw.visible = false
+			%BlueStraw.visible = true
 		_:
 			# No straw or unknown straw -> hide the straw.
 			print("Uknown straw, hiding the straw")

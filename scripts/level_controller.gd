@@ -29,6 +29,7 @@ func _process(delta):
 			if (!occupied_locations[index]):
 				var customer = customer_queue.pop_front()
 				customer.set_location(customer_locations[index])
+				add_child(customer)
 				customer.make_order()
 				occupied_locations[index] = true
 				break
@@ -78,8 +79,8 @@ func parse_order(json_orders) -> Array[Product]:
 				product.set_straw(JuiceProduct.StrawType[json_product.modifiers.straw_type])
 			"Apple":
 				product = load(SceneUtils.product_scenes["Apple"]).instantiate()
-			"Pear": 
-				product = load(SceneUtils.product_scenes["Pear"]).instantiate()
+			"Banana": 
+				product = load(SceneUtils.product_scenes["Banana"]).instantiate()
 		if (product != null):
 			order.push_back(product)
 		else:
@@ -95,7 +96,6 @@ func create_customer_arrival_timer(arrival: int, customer: Customer):
 	arrival_timers.push_back(arrival_timer)
 
 func spawn_customer(customer):
-	add_child(customer)
 	enter_queue(customer)
 
 func start_arrival_timers():

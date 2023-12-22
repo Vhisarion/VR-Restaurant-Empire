@@ -1,0 +1,82 @@
+[gd_scene load_steps=5 format=3 uid="uid://blfteqg2wfj0v"]
+
+[ext_resource type="PackedScene" uid="uid://dmta066iw7m18" path="res://assets/models/furniture/box/box.glb" id="1_a1mbb"]
+[ext_resource type="PackedScene" uid="uid://dsywqcqxjhj1k" path="res://assets/models/fruits/banana_group.glb" id="2_fm5be"]
+[ext_resource type="PackedScene" uid="uid://cxnstg76t0o3h" path="res://objects/shared/item_source.tscn" id="3_lgkpu"]
+[ext_resource type="PackedScene" uid="uid://c3n7mspk1jai5" path="res://objects/stage_1/products/fruits/banana.tscn" id="4_icxqh"]
+
+[node name="BananaBox" type="Node3D"]
+
+[node name="box" parent="." instance=ExtResource("1_a1mbb")]
+
+[node name="fruits" type="Node3D" parent="."]
+
+[node name="banana_group" parent="fruits" instance=ExtResource("2_fm5be")]
+transform = Transform3D(0.69814, -0.715961, 0, 0.715961, 0.69814, 0, 0, 0, 1, -0.0986745, 0.113554, 0.178036)
+
+[node name="banana_group2" parent="fruits" instance=ExtResource("2_fm5be")]
+transform = Transform3D(0.69814, -0.715961, 0, 0.715961, 0.69814, 0, 0, 0, 1, -0.0986745, 0.113554, 0.0870906)
+
+[node name="banana_group3" parent="fruits" instance=ExtResource("2_fm5be")]
+transform = Transform3D(0.69814, -0.715961, 0, 0.715961, 0.69814, 0, 0, 0, 1, -0.0986745, 0.113554, -0.00996365)
+
+[node name="banana_group4" parent="fruits" instance=ExtResource("2_fm5be")]
+transform = Transform3D(0.69814, -0.715961, 0, 0.715961, 0.69814, 0, 0, 0, 1, -0.0986745, 0.113554, -0.107957)
+
+[node name="banana_group5" parent="fruits" instance=ExtResource("2_fm5be")]
+transform = Transform3D(0.69814, -0.715961, 0, 0.715961, 0.69814, 0, 0, 0, 1, -0.0203251, 0.113554, -0.185311)
+
+[node name="banana_group6" parent="fruits" instance=ExtResource("2_fm5be")]
+transform = Transform3D(0.69814, -0.715961, 0, 0.715961, 0.69814, 0, 0, 0, 1, 0.0686903, 0.113554, -0.182672)
+
+[node name="banana_group7" parent="fruits" instance=ExtResource("2_fm5be")]
+transform = Transform3D(0.69814, -0.715961, 0, 0.715961, 0.69814, 0, 0, 0, 1, 0.00393814, 0.113554, -0.102113)
+
+[node name="banana_group8" parent="fruits" instance=ExtResource("2_fm5be")]
+transform = Transform3D(0.69814, -0.715961, 0, 0.715961, 0.69814, 0, 0, 0, 1, 0.10279, 0.113554, -0.104444)
+
+[node name="banana_group9" parent="fruits" instance=ExtResource("2_fm5be")]
+transform = Transform3D(0.69814, -0.715961, 0, 0.715961, 0.69814, 0, 0, 0, 1, 0.0452253, 0.113554, -0.0206368)
+
+[node name="banana_group10" parent="fruits" instance=ExtResource("2_fm5be")]
+transform = Transform3D(0.69814, -0.715961, 0, 0.715961, 0.69814, 0, 0, 0, 1, -0.0296218, 0.113554, -0.0143531)
+
+[node name="banana_group11" parent="fruits" instance=ExtResource("2_fm5be")]
+transform = Transform3D(0.69814, -0.715961, 0, 0.715961, 0.69814, 0, 0, 0, 1, -0.00557508, 0.113554, 0.0755163)
+
+[node name="banana_group12" parent="fruits" instance=ExtResource("2_fm5be")]
+transform = Transform3D(0.69814, -0.715961, 0, 0.715961, 0.69814, 0, 0, 0, 1, -0.0348334, 0.113554, 0.173262)
+
+[node name="banana_group13" parent="fruits" instance=ExtResource("2_fm5be")]
+transform = Transform3D(0.69814, -0.715961, 0, 0.715961, 0.69814, 0, 0, 0, 1, 0.0334246, 0.113554, 0.169364)
+
+[node name="banana_group14" parent="fruits" instance=ExtResource("2_fm5be")]
+transform = Transform3D(0.69814, -0.715961, 0, 0.715961, 0.69814, 0, 0, 0, 1, 0.0570233, 0.113554, 0.0748519)
+
+[node name="banana_group15" parent="fruits" instance=ExtResource("2_fm5be")]
+transform = Transform3D(0.69814, -0.715961, 0, 0.715961, 0.69814, 0, 0, 0, 1, 0.109475, 0.113554, 0.160996)
+
+[node name="banana_group16" parent="fruits" instance=ExtResource("2_fm5be")]
+transform = Transform3D(0.69814, -0.715961, 0, 0.715961, 0.69814, 0, 0, 0, 1, 0.119885, 0.113554, 0.0154522)
+
+[node name="banana_group17" parent="fruits" instance=ExtResource("2_fm5be")]
+transform = Transform3D(0.69814, -0.715961, 0, 0.576465, 0.562117, 0.593054, -0.424603, -0.414035, 0.805163, -0.0826769, 0.200052, 0.140236)
+
+[node name="banana_group18" parent="fruits" instance=ExtResource("2_fm5be")]
+transform = Transform3D(0.844069, -0.113974, 0.523983, 0.432808, 0.721693, -0.540219, -0.316584, 0.682765, 0.658487, -0.0421241, 0.206048, 0.050215)
+
+[node name="banana_group19" parent="fruits" instance=ExtResource("2_fm5be")]
+transform = Transform3D(0.364785, -0.927169, -0.0853737, 0.613445, 0.170346, 0.771147, -0.700441, -0.333675, 0.630908, 0.0410573, 0.176737, 0.112981)
+
+[node name="banana_group20" parent="fruits" instance=ExtResource("2_fm5be")]
+transform = Transform3D(0.668595, -0.691985, -0.272281, -0.46329, -0.101208, -0.880408, 0.581673, 0.714782, -0.388258, 0.0657276, 0.157671, -0.0251564)
+
+[node name="banana_group21" parent="fruits" instance=ExtResource("2_fm5be")]
+transform = Transform3D(-0.116683, -0.433389, 0.893622, 0.992685, -0.0789852, 0.0913114, 0.0310094, 0.897739, 0.439435, -0.086367, 0.171324, -0.126514)
+
+[node name="banana_group22" parent="fruits" instance=ExtResource("2_fm5be")]
+transform = Transform3D(-0.168944, -0.855547, -0.489385, -0.977702, 0.208303, -0.0266382, 0.124731, 0.473972, -0.871661, 0.0679326, 0.165694, -0.148336)
+
+[node name="ItemSource" parent="." instance=ExtResource("3_lgkpu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.148249, 0)
+item = ExtResource("4_icxqh")

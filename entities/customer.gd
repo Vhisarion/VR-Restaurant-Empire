@@ -122,6 +122,7 @@ func find_product_index(array: Array[Product], product: Product) -> int:
 # The customer awards points to the player
 func pay():
 	level_controller.gain_points(calculate_price_of_order())
+	on_customer_left.emit(self, location)
 	destroy()
 
 # Customer is removed from the scene
@@ -139,7 +140,11 @@ func set_location(location: Node3D):
 func _update_customer_color():
 	if is_inside_tree():
 		var color_value = $PatienceTimer.time_left/max_patience
-		$CustomerBody.mesh.material.albedo_color = Color(1-color_value,color_value,0,0)
+		var material = $CustomerBody.get_surface_override_material(0)
+		if (material == null):
+			material = StandardMaterial3D.new()
+		material.albedo_color = Color(1-color_value,color_value,0,0)
+		$CustomerBody.set_surface_override_material(0, material)
 
 func _on_tray_snap_zone_has_picked_up(what):
 	#var product = find_product_child(what)

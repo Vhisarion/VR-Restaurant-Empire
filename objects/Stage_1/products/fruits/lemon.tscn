@@ -1,40 +1,25 @@
-[gd_scene load_steps=13 format=3 uid="uid://dij0c6twfyfnp"]
+[gd_scene load_steps=12 format=3 uid="uid://dij0c6twfyfnp"]
 
 [ext_resource type="Script" path="res://objects/stage_1/products/fruits/lemon.gd" id="1_vjo77"]
-[ext_resource type="Script" path="res://addons/godot-xr-tools/objects/highlight/highlight_visible.gd" id="2_uxvjp"]
-[ext_resource type="Animation" uid="uid://nq3xh1olqipq" path="res://addons/godot-xr-tools/hands/animations/left/Grip Shaft.res" id="4_7um24"]
+[ext_resource type="PackedScene" uid="uid://b3vn2fetp3c8v" path="res://assets/models/fruits/half_lemon.glb" id="2_c5o44"]
 [ext_resource type="Animation" uid="uid://dgfeikrugfewi" path="res://addons/godot-xr-tools/hands/animations/left/Cup.res" id="5_aujx7"]
+[ext_resource type="Animation" uid="uid://db62hs5s4n2b3" path="res://addons/godot-xr-tools/hands/animations/left/Grip 4.res" id="5_dtdnq"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand.gd" id="5_i1egd"]
+[ext_resource type="Animation" uid="uid://rs7vpclot07o" path="res://addons/godot-xr-tools/hands/animations/right/Grip 3.res" id="7_2gdtn"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/hands/poses/hand_pose_settings.gd" id="7_m818p"]
+[ext_resource type="PackedScene" uid="uid://da2qgxxwwitl6" path="res://addons/godot-xr-tools/objects/highlight/highlight_ring.tscn" id="7_n56l5"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_64aji"]
 radius = 0.04
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wq6to"]
-albedo_color = Color(1, 1, 0, 1)
-
-[sub_resource type="SphereMesh" id="SphereMesh_ameom"]
-material = SubResource("StandardMaterial3D_wq6to")
-radius = 0.038
-height = 0.075
-radial_segments = 8
-rings = 8
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b1b24"]
-shading_mode = 0
-
-[sub_resource type="SphereMesh" id="SphereMesh_d6yqb"]
-material = SubResource("StandardMaterial3D_b1b24")
-flip_faces = true
-radius = 0.04
-height = 0.08
-radial_segments = 12
-rings = 7
-
 [sub_resource type="Resource" id="Resource_x4oo3"]
 script = ExtResource("7_m818p")
 open_pose = ExtResource("5_aujx7")
-closed_pose = ExtResource("4_7um24")
+closed_pose = ExtResource("5_dtdnq")
+
+[sub_resource type="Resource" id="Resource_nkg2d"]
+script = ExtResource("7_m818p")
+closed_pose = ExtResource("7_2gdtn")
 
 [node name="Lemon" type="RigidBody3D" groups=["Lemon", "Squeezable"]]
 collision_layer = 4
@@ -46,22 +31,24 @@ script = ExtResource("1_vjo77")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.005)
 shape = SubResource("SphereShape3D_64aji")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("SphereMesh_ameom")
+[node name="half_lemon" parent="." instance=ExtResource("2_c5o44")]
 
-[node name="XRToolsHighlightVisible" type="Node3D" parent="."]
-script = ExtResource("2_uxvjp")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="XRToolsHighlightVisible"]
-transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 0, 0)
-mesh = SubResource("SphereMesh_d6yqb")
+[node name="Lemon Slice" parent="half_lemon" index="0"]
+transform = Transform3D(2.22566e-08, 0, -0.0414894, 0, 0.0541084, 0, 0.0414894, 0, 2.22566e-08, 0, 0, 0)
 
 [node name="XRToolsGrabPointHand" type="Marker3D" parent="."]
-transform = Transform3D(0.944359, -0.328916, 0, 0.328916, 0.944359, 0, 0, 0, 1, -0.0263084, 0.0382344, -0.0992299)
+transform = Transform3D(0.944359, -0.328916, 0, 0.328916, 0.944359, 0, 0, 0, 1, -0.0263084, 0.0382344, -0.0797862)
+visible = false
 script = ExtResource("5_i1egd")
 hand_pose = SubResource("Resource_x4oo3")
 
 [node name="XRToolsGrabPointHand2" type="Marker3D" parent="."]
-transform = Transform3D(0.805515, 0.592576, 0, -0.592576, 0.805515, 0, 0, 0, 1, 0.0365294, 0.0382344, -0.0978918)
+transform = Transform3D(-0.963064, -0.269273, -8.17689e-08, -0.269273, 0.963064, 3.09289e-08, 7.04204e-08, 5.18046e-08, -1, -0.016846, 0.0314928, 0.0771413)
+visible = false
 script = ExtResource("5_i1egd")
 hand = 1
+hand_pose = SubResource("Resource_nkg2d")
+
+[node name="HighlightRing" parent="." instance=ExtResource("7_n56l5")]
+
+[editable path="half_lemon"]
