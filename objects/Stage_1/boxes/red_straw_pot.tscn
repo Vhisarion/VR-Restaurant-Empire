@@ -1,0 +1,93 @@
+[gd_scene load_steps=6 format=3 uid="uid://2lwxgxu7brug"]
+
+[ext_resource type="PackedScene" uid="uid://dvsy7dh75kyse" path="res://assets/models/furniture/pot/pot.glb" id="1_ra2nf"]
+[ext_resource type="PackedScene" uid="uid://cxnstg76t0o3h" path="res://objects/shared/item_source.tscn" id="2_62p8l"]
+[ext_resource type="PackedScene" uid="uid://cgplqy743cl23" path="res://objects/stage_1/modifiers/red_straw.tscn" id="3_qnupu"]
+[ext_resource type="PackedScene" uid="uid://wwe7y3rs0yxx" path="res://assets/models/juice/red_straw.glb" id="4_1e061"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ge00q"]
+radius = 0.3
+height = 0.6
+
+[node name="RedStrawPot" type="Node3D"]
+
+[node name="Straws" type="Node3D" parent="."]
+
+[node name="red_straw" parent="Straws" instance=ExtResource("4_1e061")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0584423, 0.173462, -0.000285566)
+
+[node name="red_straw2" parent="Straws" instance=ExtResource("4_1e061")]
+transform = Transform3D(0.762476, 0, 0.647016, 0, 1, 0, -0.647016, 0, 0.762476, -0.0507557, 0.173462, 0.0354428)
+
+[node name="red_straw3" parent="Straws" instance=ExtResource("4_1e061")]
+transform = Transform3D(0.265691, 0, 0.964058, 0, 1, 0, -0.964058, 0, 0.265691, -0.024815, 0.173462, 0.0517992)
+
+[node name="red_straw4" parent="Straws" instance=ExtResource("4_1e061")]
+transform = Transform3D(-0.249518, 0, 0.96837, 0, 1, 0, -0.96837, 0, -0.249518, 0.00745342, 0.173462, 0.0566229)
+
+[node name="red_straw5" parent="Straws" instance=ExtResource("4_1e061")]
+transform = Transform3D(-0.781052, 0, 0.624466, 0, 1, 0, -0.624466, 0, -0.781052, 0.0451578, 0.173462, 0.0458835)
+
+[node name="red_straw6" parent="Straws" instance=ExtResource("4_1e061")]
+transform = Transform3D(-0.998994, 0, 0.04484, 0, 1, 0, -0.04484, 0, -0.998994, 0.0521743, 0.174789, 0.0263152)
+
+[node name="red_straw7" parent="Straws" instance=ExtResource("4_1e061")]
+transform = Transform3D(-0.952321, 0, 0.305097, 0, 1, 0, -0.305097, 0, -0.952321, 0.046764, 0.174789, 0.0346657)
+
+[node name="red_straw8" parent="Straws" instance=ExtResource("4_1e061")]
+transform = Transform3D(-0.537417, 0, 0.843317, 0, 1, 0, -0.843317, 0, -0.537417, 0.0261125, 0.174789, 0.0519869)
+
+[node name="red_straw9" parent="Straws" instance=ExtResource("4_1e061")]
+transform = Transform3D(-0.0703831, 0, 0.99752, 0, 1, 0, -0.99752, 0, -0.0703831, -0.00857482, 0.174789, 0.0604488)
+
+[node name="red_straw10" parent="Straws" instance=ExtResource("4_1e061")]
+transform = Transform3D(-0.50641, 0, 0.862293, 0, 1, 0, -0.862293, 0, -0.50641, 0.00585612, 0.174789, 0.0481347)
+
+[node name="red_straw11" parent="Straws" instance=ExtResource("4_1e061")]
+transform = Transform3D(0.246999, 0, 0.969016, 0, 1, 0, -0.969016, 0, 0.246999, -0.0152277, 0.174789, 0.0514645)
+
+[node name="red_straw12" parent="Straws" instance=ExtResource("4_1e061")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.0631155, 0.173462, 0.00325187)
+
+[node name="red_straw13" parent="Straws" instance=ExtResource("4_1e061")]
+transform = Transform3D(-0.762476, 0, -0.647016, 0, 1, 0, 0.647016, 0, -0.762476, 0.0554289, 0.173462, -0.0324765)
+
+[node name="red_straw14" parent="Straws" instance=ExtResource("4_1e061")]
+transform = Transform3D(-0.265691, 0, -0.964058, 0, 1, 0, 0.964058, 0, -0.265691, 0.0294882, 0.173462, -0.0488329)
+
+[node name="red_straw15" parent="Straws" instance=ExtResource("4_1e061")]
+transform = Transform3D(0.249518, 0, -0.96837, 0, 1, 0, 0.96837, 0, 0.249518, -0.00278022, 0.173462, -0.0536566)
+
+[node name="red_straw16" parent="Straws" instance=ExtResource("4_1e061")]
+transform = Transform3D(0.781052, 0, -0.624466, 0, 1, 0, 0.624466, 0, 0.781052, -0.0404846, 0.173462, -0.0429172)
+
+[node name="red_straw17" parent="Straws" instance=ExtResource("4_1e061")]
+transform = Transform3D(0.998994, 0, -0.0448401, 0, 1, 0, 0.0448401, 0, 0.998994, -0.0475011, 0.174789, -0.0233489)
+
+[node name="red_straw18" parent="Straws" instance=ExtResource("4_1e061")]
+transform = Transform3D(0.952321, 0, -0.305097, 0, 1, 0, 0.305097, 0, 0.952321, -0.0420908, 0.174789, -0.0316994)
+
+[node name="red_straw19" parent="Straws" instance=ExtResource("4_1e061")]
+transform = Transform3D(0.537417, 0, -0.843317, 0, 1, 0, 0.843317, 0, 0.537417, -0.0214394, 0.174789, -0.0490206)
+
+[node name="red_straw20" parent="Straws" instance=ExtResource("4_1e061")]
+transform = Transform3D(0.070383, 0, -0.99752, 0, 1, 0, 0.99752, 0, 0.070383, 0.013248, 0.174789, -0.0574825)
+
+[node name="red_straw21" parent="Straws" instance=ExtResource("4_1e061")]
+transform = Transform3D(0.50641, 0, -0.862293, 0, 1, 0, 0.862293, 0, 0.50641, -0.00118293, 0.174789, -0.0451684)
+
+[node name="red_straw22" parent="Straws" instance=ExtResource("4_1e061")]
+transform = Transform3D(-0.246999, 0, -0.969016, 0, 1, 0, 0.969016, 0, -0.246999, 0.0199009, 0.174789, -0.0484982)
+
+[node name="pot" parent="." instance=ExtResource("1_ra2nf")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="ItemSource" parent="." instance=ExtResource("2_62p8l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0554303, 0)
+item = ExtResource("3_qnupu")
+
+[node name="CollisionShape3D" parent="ItemSource/SnapZone" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.128, 0)
+shape = SubResource("CapsuleShape3D_ge00q")
+
+[editable path="ItemSource"]

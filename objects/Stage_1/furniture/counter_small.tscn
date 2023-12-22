@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://cvvhnuv0lq2tt"]
+
+[ext_resource type="PackedScene" uid="uid://benpk10p2y6xp" path="res://assets/models/furniture/counter/counter.glb" id="1_372jp"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8bmsl"]
+size = Vector3(0.322434, 0.695953, 0.601501)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_f0dlv"]
+size = Vector3(0.582947, 0.0685196, 1.26275)
+
+[node name="SmallCounter" type="Node3D"]
+
+[node name="counter" parent="." instance=ExtResource("1_372jp")]
+transform = Transform3D(0.520096, 0, 0, 0, 1.05001, 0, 0, 0, 0.983663, 0, 0, 0)
+
+[node name="LegCollision" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LegCollision"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00215915, 0.347824, -9.15527e-05)
+shape = SubResource("BoxShape3D_8bmsl")
+
+[node name="BoardCollision" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BoardCollision"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.734463, 0.0044136)
+shape = SubResource("BoxShape3D_f0dlv")

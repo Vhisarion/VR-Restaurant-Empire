@@ -1,16 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://fo70a732j1c7"]
+[gd_scene load_steps=12 format=3 uid="uid://fo70a732j1c7"]
 
 [ext_resource type="Script" path="res://entities/customer.gd" id="1_qdvgl"]
+[ext_resource type="Script" path="res://entities/RandomCustomerBody.gd" id="2_4gx62"]
 [ext_resource type="PackedScene" uid="uid://ce7vysyvondf8" path="res://addons/godot-xr-tools/objects/snap_zone.tscn" id="2_mjyil"]
+[ext_resource type="PackedScene" uid="uid://b405r878hxe03" path="res://assets/characters/character1.glb" id="3_1bex6"]
 [ext_resource type="PackedScene" uid="uid://dnyxl414hsrt2" path="res://objects/shared/item_request.tscn" id="3_xonr1"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qlxxd"]
-albedo_color = Color(0, 1, 0, 1)
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_f0r1i"]
-material = SubResource("StandardMaterial3D_qlxxd")
-radius = 0.3
-height = 1.7
+[ext_resource type="PackedScene" uid="uid://b2ummm8esasn8" path="res://assets/characters/character2.glb" id="4_26x51"]
+[ext_resource type="PackedScene" uid="uid://dfhtwkboun8hi" path="res://assets/characters/character3.glb" id="5_y6uha"]
+[ext_resource type="PackedScene" uid="uid://b0hwhdyhsk0oo" path="res://assets/characters/character4.glb" id="6_mu8ko"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1cstt"]
 size = Vector3(0.5, 0.01, 0.5)
@@ -19,18 +16,19 @@ size = Vector3(0.5, 0.01, 0.5)
 size = Vector3(0.5, 0.01, 0.5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vhl6v"]
-size = Vector3(0.615541, 0.464178, 0.726843)
+size = Vector3(0.512345, 0.242831, 0.518503)
 
 [node name="Customer" type="Node3D"]
 script = ExtResource("1_qdvgl")
 max_patience = 10
 
 [node name="CustomerBody" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-mesh = SubResource("CapsuleMesh_f0r1i")
+transform = Transform3D(0.01, 0, 0, 0, -4.37114e-10, -0.01, 0, 0.01, -4.37114e-10, 0, 0, 0)
+script = ExtResource("2_4gx62")
+availableBodies = Array[PackedScene]([ExtResource("3_1bex6"), ExtResource("4_26x51"), ExtResource("5_y6uha"), ExtResource("6_mu8ko")])
 
 [node name="Tray" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.941086, 0.529565)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.78, 0.53)
 
 [node name="TrayBody" type="RigidBody3D" parent="Tray"]
 collision_layer = 1073741824
@@ -43,12 +41,11 @@ shape = SubResource("BoxShape3D_1cstt")
 mesh = SubResource("BoxMesh_uxe6t")
 
 [node name="TraySnapZone" parent="Tray" instance=ExtResource("2_mjyil")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.941086, -0.765419)
 snap_mode = 1
 snap_require = "Product"
 
 [node name="TraySnapZoneCollider" type="CollisionShape3D" parent="Tray/TraySnapZone"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.11554, 0.765419)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0031206, 0.110673, 0.00192714)
 shape = SubResource("BoxShape3D_vhl6v")
 
 [node name="ItemRequest1" parent="Tray" instance=ExtResource("3_xonr1")]

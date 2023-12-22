@@ -1,0 +1,97 @@
+[gd_scene load_steps=5 format=3 uid="uid://rgtsg8clr6jt"]
+
+[ext_resource type="PackedScene" uid="uid://dmta066iw7m18" path="res://assets/models/furniture/box/box.glb" id="1_ojpdj"]
+[ext_resource type="PackedScene" uid="uid://cxnstg76t0o3h" path="res://objects/shared/item_source.tscn" id="3_fwh71"]
+[ext_resource type="PackedScene" uid="uid://dij0c6twfyfnp" path="res://objects/stage_1/products/fruits/lemon.tscn" id="4_1fsbs"]
+[ext_resource type="PackedScene" uid="uid://cxwt2dda202ju" path="res://assets/models/fruits/lemon.glb" id="4_wu8ec"]
+
+[node name="LemonBox" type="Node3D"]
+
+[node name="box" parent="." instance=ExtResource("1_ojpdj")]
+
+[node name="Fruits" type="Node3D" parent="."]
+
+[node name="lemon" parent="Fruits" instance=ExtResource("4_wu8ec")]
+transform = Transform3D(0.420269, 0.906647, -0.0369405, 0.339934, -0.119567, 0.932817, 0.84132, -0.404592, -0.358451, -0.0831463, 0.0946352, 0.174815)
+
+[node name="lemon2" parent="Fruits" instance=ExtResource("4_wu8ec")]
+transform = Transform3D(0.420269, 0.906647, -0.0369405, 0.339934, -0.119567, 0.932817, 0.84132, -0.404592, -0.358451, -0.0831463, 0.0946352, 0.174815)
+
+[node name="lemon3" parent="Fruits" instance=ExtResource("4_wu8ec")]
+transform = Transform3D(-0.304332, -0.928417, -0.213129, 0.465857, 0.0500981, -0.883441, 0.830879, -0.368147, 0.417263, -0.0868718, 0.0890445, 0.0763268)
+
+[node name="lemon4" parent="Fruits" instance=ExtResource("4_wu8ec")]
+transform = Transform3D(-0.304332, -0.928417, -0.213129, 0.465857, 0.0500981, -0.883441, 0.830879, -0.368147, 0.417263, 0.0855272, 0.0890445, -0.1409)
+
+[node name="lemon5" parent="Fruits" instance=ExtResource("4_wu8ec")]
+transform = Transform3D(-0.304332, -0.928417, -0.213129, 0.465857, 0.0500981, -0.883441, 0.830879, -0.368147, 0.417263, 0.0862742, 0.0890445, 0.131838)
+
+[node name="lemon6" parent="Fruits" instance=ExtResource("4_wu8ec")]
+transform = Transform3D(-0.138083, 0.267062, 0.953735, -0.666594, -0.737269, 0.109937, 0.73252, -0.620574, 0.279826, 0.0947185, 0.0890445, 0.0473216)
+
+[node name="lemon7" parent="Fruits" instance=ExtResource("4_wu8ec")]
+transform = Transform3D(-0.138083, 0.267062, 0.953735, -0.666594, -0.737269, 0.109937, 0.73252, -0.620574, 0.279826, -0.0686847, 0.0890445, -0.166461)
+
+[node name="lemon8" parent="Fruits" instance=ExtResource("4_wu8ec")]
+transform = Transform3D(-0.138083, 0.267062, 0.953735, -0.666594, -0.737269, 0.109937, 0.73252, -0.620574, 0.279826, -0.00401022, 0.0890445, 0.0462125)
+
+[node name="lemon9" parent="Fruits" instance=ExtResource("4_wu8ec")]
+transform = Transform3D(-0.138083, 0.267062, 0.953735, -0.666594, -0.737269, 0.109937, 0.73252, -0.620574, 0.279826, -0.105656, 0.149253, 0.125247)
+
+[node name="lemon10" parent="Fruits" instance=ExtResource("4_wu8ec")]
+transform = Transform3D(-0.223794, -0.969987, 0.0950855, -0.972838, 0.216392, -0.082223, 0.05918, -0.110904, -0.992068, 0.0965433, 0.149253, 0.182805)
+
+[node name="lemon11" parent="Fruits" instance=ExtResource("4_wu8ec")]
+transform = Transform3D(-0.080859, -0.650481, -0.755206, -0.972838, 0.216392, -0.082223, 0.216905, 0.728045, -0.65031, 0.00374775, 0.149253, 0.152626)
+
+[node name="lemon12" parent="Fruits" instance=ExtResource("4_wu8ec")]
+transform = Transform3D(-0.146001, -0.84921, -0.50747, -0.972838, 0.216392, -0.082223, 0.179637, 0.481681, -0.857738, -0.104744, 0.149253, 0.034393)
+
+[node name="lemon13" parent="Fruits" instance=ExtResource("4_wu8ec")]
+transform = Transform3D(-0.228108, -0.835674, 0.499615, -0.972838, 0.216392, -0.082223, -0.0394002, -0.5048, -0.862337, -0.0162984, 0.149253, 0.0473073)
+
+[node name="lemon18" parent="Fruits" instance=ExtResource("4_wu8ec")]
+transform = Transform3D(0.420269, 0.906647, -0.0369405, 0.339934, -0.119567, 0.932817, 0.84132, -0.404592, -0.358451, -0.0831463, 0.0946352, -0.0355293)
+
+[node name="lemon19" parent="Fruits" instance=ExtResource("4_wu8ec")]
+transform = Transform3D(-0.304332, -0.928417, -0.213129, 0.465857, 0.0500981, -0.883441, 0.830879, -0.368147, 0.417263, -0.0868718, 0.0890445, -0.134017)
+
+[node name="lemon20" parent="Fruits" instance=ExtResource("4_wu8ec")]
+transform = Transform3D(-0.138083, 0.267062, 0.953735, -0.666594, -0.737269, 0.109937, 0.73252, -0.620574, 0.279826, -0.00401022, 0.0890445, -0.164132)
+
+[node name="lemon21" parent="Fruits" instance=ExtResource("4_wu8ec")]
+transform = Transform3D(-0.138083, 0.267062, 0.953735, -0.666594, -0.737269, 0.109937, 0.73252, -0.620574, 0.279826, -0.105656, 0.149253, -0.0850974)
+
+[node name="lemon22" parent="Fruits" instance=ExtResource("4_wu8ec")]
+transform = Transform3D(-0.080859, -0.650481, -0.755206, -0.972838, 0.216392, -0.082223, 0.216905, 0.728045, -0.65031, 0.00374775, 0.149253, -0.0577181)
+
+[node name="lemon23" parent="Fruits" instance=ExtResource("4_wu8ec")]
+transform = Transform3D(-0.146001, -0.84921, -0.50747, -0.972838, 0.216392, -0.082223, 0.179637, 0.481681, -0.857738, -0.104744, 0.149253, -0.175951)
+
+[node name="lemon24" parent="Fruits" instance=ExtResource("4_wu8ec")]
+transform = Transform3D(-0.228108, -0.835674, 0.499615, -0.972838, 0.216392, -0.082223, -0.0394002, -0.5048, -0.862337, -0.0162984, 0.149253, -0.163037)
+
+[node name="lemon14" parent="Fruits" instance=ExtResource("4_wu8ec")]
+transform = Transform3D(-0.166924, -0.409674, 0.89683, -0.972838, 0.216392, -0.082223, -0.160381, -0.886195, -0.434668, 0.0683023, 0.149253, 0.0874586)
+
+[node name="lemon15" parent="Fruits" instance=ExtResource("4_wu8ec")]
+transform = Transform3D(-0.227129, -0.823696, 0.519555, -0.972838, 0.216392, -0.082223, -0.0447, -0.524118, -0.850472, 0.0977531, 0.149755, -0.014119)
+
+[node name="lemon25" parent="Fruits" instance=ExtResource("4_wu8ec")]
+transform = Transform3D(-0.499255, 0.846662, 0.18414, -0.854295, -0.445522, -0.267752, -0.144657, -0.290986, 0.945728, -0.0625524, 0.19483, -0.011925)
+
+[node name="lemon26" parent="Fruits" instance=ExtResource("4_wu8ec")]
+transform = Transform3D(-0.170828, -0.245856, 0.954135, -0.854295, -0.445522, -0.267752, 0.490917, -0.860851, -0.133926, -0.0625524, 0.19483, 0.106114)
+
+[node name="lemon27" parent="Fruits" instance=ExtResource("4_wu8ec")]
+transform = Transform3D(-0.43987, 0.3452, 0.829067, -0.854295, -0.445522, -0.267752, 0.27694, -0.826043, 0.490874, -0.0076477, 0.207425, -0.125752)
+
+[node name="lemon16" parent="Fruits" instance=ExtResource("4_wu8ec")]
+transform = Transform3D(0.147037, 0.851979, 0.502507, -0.972838, 0.216392, -0.082223, -0.178791, -0.476767, 0.860655, 0.112064, 0.149755, -0.194125)
+
+[node name="lemon17" parent="Fruits" instance=ExtResource("4_wu8ec")]
+transform = Transform3D(0.657101, -0.713657, 0.242718, 0.753729, 0.626567, -0.198259, -0.0105907, 0.31322, 0.949622, 0.0572712, 0.161125, -0.0981903)
+
+[node name="ItemSource" parent="." instance=ExtResource("3_fwh71")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.148249, 0)
+item = ExtResource("4_1fsbs")

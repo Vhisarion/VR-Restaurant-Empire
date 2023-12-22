@@ -1,16 +1,22 @@
-[gd_scene load_steps=6 format=3 uid="uid://bw7lwiff3esh3"]
+[gd_scene load_steps=10 format=3 uid="uid://bw7lwiff3esh3"]
 
 [ext_resource type="Script" path="res://objects/stage_1/modifiers/blue_straw.gd" id="1_x82si"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand.gd" id="2_8k3qt"]
+[ext_resource type="Animation" uid="uid://f5k0gh4qnmv5" path="res://addons/godot-xr-tools/hands/animations/left/OK.res" id="3_840sf"]
+[ext_resource type="PackedScene" uid="uid://dq43wdjb13qeh" path="res://assets/models/juice/blue_straw.glb" id="3_dbg4c"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/hands/poses/hand_pose_settings.gd" id="4_sknkr"]
+[ext_resource type="Animation" uid="uid://c3isimdlxg54a" path="res://addons/godot-xr-tools/hands/animations/right/OK.res" id="5_hp7c4"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3u31s"]
 size = Vector3(0.025, 0.2, 0.025)
 
-[sub_resource type="BoxMesh" id="BoxMesh_4vovn"]
-size = Vector3(0.025, 0.2, 0.025)
+[sub_resource type="Resource" id="Resource_w78eo"]
+script = ExtResource("4_sknkr")
+closed_pose = ExtResource("3_840sf")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p6nvy"]
-albedo_color = Color(0, 0, 1, 1)
+[sub_resource type="Resource" id="Resource_0lwol"]
+script = ExtResource("4_sknkr")
+closed_pose = ExtResource("5_hp7c4")
 
 [node name="BlueStraw" type="RigidBody3D" groups=["Straw"]]
 collision_layer = 4
@@ -21,15 +27,16 @@ script = ExtResource("1_x82si")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_3u31s")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("BoxMesh_4vovn")
-surface_material_override/0 = SubResource("StandardMaterial3D_p6nvy")
-
 [node name="XRToolsGrabPointHand" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0179152, 0.0854261, -0.103042)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0531059, 0.107584, -0.0584232)
+visible = false
 script = ExtResource("2_8k3qt")
+hand_pose = SubResource("Resource_w78eo")
 
 [node name="XRToolsGrabPointHand2" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00598256, 0.0843194, -0.11117)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.0546536, 0.108, 0.0614632)
 script = ExtResource("2_8k3qt")
 hand = 1
+hand_pose = SubResource("Resource_0lwol")
+
+[node name="blue_straw" parent="." instance=ExtResource("3_dbg4c")]

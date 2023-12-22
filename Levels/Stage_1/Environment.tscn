@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://de0xjyc00xb3h"]
+[gd_scene load_steps=7 format=3 uid="uid://de0xjyc00xb3h"]
 
 [ext_resource type="Texture2D" uid="uid://blwjhk4l31m1t" path="res://XR Testing Sandbox_1m x 1m.png" id="1_r60v7"]
 
@@ -19,6 +19,9 @@ size = Vector2(25, 25)
 margin = 0.01
 size = Vector3(25, 0.5, 25)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pyoma"]
+albedo_color = Color(0.203922, 0.203922, 0.203922, 1)
+
 [node name="Environment" type="Node3D"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
@@ -28,6 +31,7 @@ transform = Transform3D(1, 0, 0, 0, -0.5, 0.866025, 0, -0.866025, -0.5, 0, 10, 0
 environment = SubResource("Environment_fn5ye")
 
 [node name="Floor" type="StaticBody3D" parent="."]
+visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
 mesh = SubResource("PlaneMesh_kxyqx")
@@ -35,3 +39,8 @@ mesh = SubResource("PlaneMesh_kxyqx")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
 shape = SubResource("BoxShape3D_x35i1")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+size = Vector3(50, 0.05, 50)
+material = SubResource("StandardMaterial3D_pyoma")

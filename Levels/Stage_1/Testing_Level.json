@@ -5,7 +5,7 @@
 	},
 	"customers": [
 		{
-			"arrival": 2,
+			"arrival": 1,
 			"max_patience": 50,
 			"order": [
 				{
@@ -26,26 +26,95 @@
 			],
 		},
 		{
-			"arrival": 120,
-			"max_patience": 10,
+			"arrival": 1,
+			"max_patience": 180,
 			"order": [
 				{
 					"product": "OrangeJuice",
 					"modifiers": {
 						"straw_type": "BLUE_STRAW"
 					}
+				},
+				{
+					"product": "Lemonade",
+					"modifiers": {
+						"straw_type": "RED_STRAW"
+					}
+				},
+				{
+					"product": "Apple",
 				}
 			]
 		},
 		{
-			"arrival": 75,
-			"max_patience": 7,
+			"arrival": 1,
+			"max_patience": 15,
+			"order": [
+				{
+					"product": "Apple",
+				}
+			]
+		},
+		{
+			"arrival": 1,
+			"max_patience": 180,
 			"order": [
 				{
 					"product": "OrangeJuice",
 					"modifiers": {
 						"straw_type": "BLUE_STRAW"
 					}
+				},
+				{
+					"product": "Lemonade",
+					"modifiers": {
+						"straw_type": "RED_STRAW"
+					}
+				},
+				{
+					"product": "Apple",
+				}
+			]
+		},
+		{
+			"arrival": 1,
+			"max_patience": 180,
+			"order": [
+				{
+					"product": "OrangeJuice",
+					"modifiers": {
+						"straw_type": "BLUE_STRAW"
+					}
+				},
+				{
+					"product": "Lemonade",
+					"modifiers": {
+						"straw_type": "RED_STRAW"
+					}
+				},
+				{
+					"product": "Apple",
+				}
+			]
+		},
+		{
+			"arrival": 1,
+			"max_patience": 180,
+			"order": [
+				{
+					"product": "OrangeJuice",
+					"modifiers": {
+						"straw_type": "BLUE_STRAW"
+					}
+				},
+				{
+					"product": "Lemonade",
+					"modifiers": {
+						"straw_type": "RED_STRAW"
+					}
+				},
+				{
+					"product": "Apple",
 				}
 			]
 		}

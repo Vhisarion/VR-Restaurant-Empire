@@ -1,0 +1,159 @@
+[gd_scene load_steps=6 format=3 uid="uid://bt2qyw6irwvmk"]
+
+[ext_resource type="PackedScene" uid="uid://dq43wdjb13qeh" path="res://assets/models/juice/blue_straw.glb" id="1_b0ox5"]
+[ext_resource type="PackedScene" uid="uid://dvsy7dh75kyse" path="res://assets/models/furniture/pot/pot.glb" id="2_k86ay"]
+[ext_resource type="PackedScene" uid="uid://cxnstg76t0o3h" path="res://objects/shared/item_source.tscn" id="3_g0wbt"]
+[ext_resource type="PackedScene" uid="uid://bw7lwiff3esh3" path="res://objects/stage_1/modifiers/blue_straw.tscn" id="4_jx1ey"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_blb1d"]
+radius = 0.3
+height = 0.6
+
+[node name="BlueStrawPot" type="Node3D"]
+
+[node name="Straws" type="Node3D" parent="."]
+
+[node name="blue_straw" parent="Straws" instance=ExtResource("1_b0ox5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.052778, 0.149729, 0.00199538)
+
+[node name="blue_straw2" parent="Straws" instance=ExtResource("1_b0ox5")]
+transform = Transform3D(0.805298, 0, 0.592871, 0, 1, 0, -0.592871, 0, 0.805298, -0.0421794, 0.149729, 0.0327796)
+
+[node name="blue_straw3" parent="Straws" instance=ExtResource("1_b0ox5")]
+transform = Transform3D(0.402219, 0, 0.915543, 0, 1, 0, -0.915543, 0, 0.402219, -0.0215082, 0.149729, 0.0462238)
+
+[node name="blue_straw4" parent="Straws" instance=ExtResource("1_b0ox5")]
+transform = Transform3D(0.035231, 0, 0.999379, 0, 1, 0, -0.999379, 0, 0.035231, 0.000407523, 0.149729, 0.0522904)
+
+[node name="blue_straw5" parent="Straws" instance=ExtResource("1_b0ox5")]
+transform = Transform3D(-0.508681, 0, 0.860955, 0, 1, 0, -0.860955, 0, -0.508681, 0.0233894, 0.149729, 0.0459816)
+
+[node name="blue_straw6" parent="Straws" instance=ExtResource("1_b0ox5")]
+transform = Transform3D(-0.547359, 0, 0.836898, 0, 1, 0, -0.836898, 0, -0.547359, 0.0353455, 0.150254, 0.0412246)
+
+[node name="blue_straw7" parent="Straws" instance=ExtResource("1_b0ox5")]
+transform = Transform3D(-0.710885, 0, 0.703308, 0, 1, 0, -0.703308, 0, -0.710885, 0.0440934, 0.150254, 0.0368342)
+
+[node name="blue_straw8" parent="Straws" instance=ExtResource("1_b0ox5")]
+transform = Transform3D(-0.246424, 0, 0.969162, 0, 1, 0, -0.969162, 0, -0.246424, 0.0133319, 0.150254, 0.0423023)
+
+[node name="blue_straw9" parent="Straws" instance=ExtResource("1_b0ox5")]
+transform = Transform3D(0.530733, 0, 0.847539, 0, 1, 0, -0.847539, 0, 0.530733, -0.0243142, 0.150254, 0.0321883)
+
+[node name="blue_straw10" parent="Straws" instance=ExtResource("1_b0ox5")]
+transform = Transform3D(0.310876, 0, 0.950451, 0, 1, 0, -0.950451, 0, 0.310876, -0.0119504, 0.150254, 0.0459807)
+
+[node name="blue_straw11" parent="Straws" instance=ExtResource("1_b0ox5")]
+transform = Transform3D(0.947333, 0, 0.320249, 0, 1, 0, -0.320249, 0, 0.947333, -0.0487037, 0.152164, 0.0177463)
+
+[node name="blue_straw12" parent="Straws" instance=ExtResource("1_b0ox5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.052778, 0.149729, 0.00199538)
+
+[node name="blue_straw13" parent="Straws" instance=ExtResource("1_b0ox5")]
+transform = Transform3D(0.805298, 0, 0.592871, 0, 1, 0, -0.592871, 0, 0.805298, -0.0421794, 0.149729, 0.0327796)
+
+[node name="blue_straw14" parent="Straws" instance=ExtResource("1_b0ox5")]
+transform = Transform3D(0.402219, 0, 0.915543, 0, 1, 0, -0.915543, 0, 0.402219, -0.0215082, 0.149729, 0.0462238)
+
+[node name="blue_straw15" parent="Straws" instance=ExtResource("1_b0ox5")]
+transform = Transform3D(0.035231, 0, 0.999379, 0, 1, 0, -0.999379, 0, 0.035231, 0.000407523, 0.149729, 0.0522904)
+
+[node name="blue_straw16" parent="Straws" instance=ExtResource("1_b0ox5")]
+transform = Transform3D(-0.508681, 0, 0.860955, 0, 1, 0, -0.860955, 0, -0.508681, 0.0233894, 0.149729, 0.0459816)
+
+[node name="blue_straw17" parent="Straws" instance=ExtResource("1_b0ox5")]
+transform = Transform3D(-0.547359, 0, 0.836898, 0, 1, 0, -0.836898, 0, -0.547359, 0.0353455, 0.150254, 0.0412246)
+
+[node name="blue_straw18" parent="Straws" instance=ExtResource("1_b0ox5")]
+transform = Transform3D(-0.710885, 0, 0.703308, 0, 1, 0, -0.703308, 0, -0.710885, 0.0440934, 0.150254, 0.0368342)
+
+[node name="blue_straw23" parent="Straws" instance=ExtResource("1_b0ox5")]
+transform = Transform3D(-0.836544, 0, 0.547899, 0, 1, 0, -0.547899, 0, -0.836544, 0.0486457, 0.150254, 0.025612)
+
+[node name="blue_straw24" parent="Straws" instance=ExtResource("1_b0ox5")]
+transform = Transform3D(-0.910727, 0, 0.413009, 0, 1, 0, -0.413009, 0, -0.910727, 0.0513911, 0.150254, 0.00605291)
+
+[node name="blue_straw25" parent="Straws" instance=ExtResource("1_b0ox5")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.0529721, 0.149729, -0.00440086)
+
+[node name="blue_straw26" parent="Straws" instance=ExtResource("1_b0ox5")]
+transform = Transform3D(-0.805298, 0, -0.592871, 0, 1, 0, 0.592871, 0, -0.805298, 0.0423735, 0.149729, -0.0351851)
+
+[node name="blue_straw27" parent="Straws" instance=ExtResource("1_b0ox5")]
+transform = Transform3D(-0.40222, 0, -0.915543, 0, 1, 0, 0.915543, 0, -0.40222, 0.0217022, 0.149729, -0.0486293)
+
+[node name="blue_straw28" parent="Straws" instance=ExtResource("1_b0ox5")]
+transform = Transform3D(-0.035231, 0, -0.999379, 0, 1, 0, 0.999379, 0, -0.035231, -0.000213434, 0.149729, -0.0546959)
+
+[node name="blue_straw29" parent="Straws" instance=ExtResource("1_b0ox5")]
+transform = Transform3D(0.508681, 0, -0.860955, 0, 1, 0, 0.860955, 0, 0.508681, -0.0231953, 0.149729, -0.0483871)
+
+[node name="blue_straw30" parent="Straws" instance=ExtResource("1_b0ox5")]
+transform = Transform3D(0.547359, 0, -0.836898, 0, 1, 0, 0.836898, 0, 0.547359, -0.0351514, 0.150254, -0.0436301)
+
+[node name="blue_straw31" parent="Straws" instance=ExtResource("1_b0ox5")]
+transform = Transform3D(0.710885, 0, -0.703308, 0, 1, 0, 0.703308, 0, 0.710885, -0.0438993, 0.150254, -0.0392397)
+
+[node name="blue_straw32" parent="Straws" instance=ExtResource("1_b0ox5")]
+transform = Transform3D(0.246424, 0, -0.969162, 0, 1, 0, 0.969162, 0, 0.246424, -0.0131378, 0.150254, -0.0447078)
+
+[node name="blue_straw33" parent="Straws" instance=ExtResource("1_b0ox5")]
+transform = Transform3D(-0.530733, 0, -0.847539, 0, 1, 0, 0.847539, 0, -0.530733, 0.0245083, 0.150254, -0.0345938)
+
+[node name="blue_straw34" parent="Straws" instance=ExtResource("1_b0ox5")]
+transform = Transform3D(-0.310876, 0, -0.950451, 0, 1, 0, 0.950451, 0, -0.310876, 0.0121445, 0.150254, -0.0483861)
+
+[node name="blue_straw35" parent="Straws" instance=ExtResource("1_b0ox5")]
+transform = Transform3D(-0.947333, 0, -0.320249, 0, 1, 0, 0.320249, 0, -0.947333, 0.0488978, 0.152164, -0.0201518)
+
+[node name="blue_straw36" parent="Straws" instance=ExtResource("1_b0ox5")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.0529721, 0.149729, -0.00440086)
+
+[node name="blue_straw37" parent="Straws" instance=ExtResource("1_b0ox5")]
+transform = Transform3D(-0.805298, 0, -0.592871, 0, 1, 0, 0.592871, 0, -0.805298, 0.0423735, 0.149729, -0.0351851)
+
+[node name="blue_straw38" parent="Straws" instance=ExtResource("1_b0ox5")]
+transform = Transform3D(-0.40222, 0, -0.915543, 0, 1, 0, 0.915543, 0, -0.40222, 0.0217022, 0.149729, -0.0486293)
+
+[node name="blue_straw39" parent="Straws" instance=ExtResource("1_b0ox5")]
+transform = Transform3D(-0.035231, 0, -0.999379, 0, 1, 0, 0.999379, 0, -0.035231, -0.000213434, 0.149729, -0.0546959)
+
+[node name="blue_straw40" parent="Straws" instance=ExtResource("1_b0ox5")]
+transform = Transform3D(0.508681, 0, -0.860955, 0, 1, 0, 0.860955, 0, 0.508681, -0.0231953, 0.149729, -0.0483871)
+
+[node name="blue_straw41" parent="Straws" instance=ExtResource("1_b0ox5")]
+transform = Transform3D(0.547359, 0, -0.836898, 0, 1, 0, 0.836898, 0, 0.547359, -0.0351514, 0.150254, -0.0436301)
+
+[node name="blue_straw42" parent="Straws" instance=ExtResource("1_b0ox5")]
+transform = Transform3D(0.710885, 0, -0.703308, 0, 1, 0, 0.703308, 0, 0.710885, -0.0438993, 0.150254, -0.0392397)
+
+[node name="blue_straw43" parent="Straws" instance=ExtResource("1_b0ox5")]
+transform = Transform3D(0.836544, 0, -0.547899, 0, 1, 0, 0.547899, 0, 0.836544, -0.0484516, 0.150254, -0.0280175)
+
+[node name="blue_straw44" parent="Straws" instance=ExtResource("1_b0ox5")]
+transform = Transform3D(0.910727, 0, -0.413009, 0, 1, 0, 0.413009, 0, 0.910727, -0.051197, 0.150254, -0.00845841)
+
+[node name="blue_straw19" parent="Straws" instance=ExtResource("1_b0ox5")]
+transform = Transform3D(-0.246424, 0, 0.969162, 0, 1, 0, -0.969162, 0, -0.246424, 0.0133319, 0.150254, 0.0423023)
+
+[node name="blue_straw20" parent="Straws" instance=ExtResource("1_b0ox5")]
+transform = Transform3D(0.530733, 0, 0.847539, 0, 1, 0, -0.847539, 0, 0.530733, -0.0243142, 0.150254, 0.0321883)
+
+[node name="blue_straw21" parent="Straws" instance=ExtResource("1_b0ox5")]
+transform = Transform3D(0.310876, 0, 0.950451, 0, 1, 0, -0.950451, 0, 0.310876, -0.0119504, 0.150254, 0.0459807)
+
+[node name="blue_straw22" parent="Straws" instance=ExtResource("1_b0ox5")]
+transform = Transform3D(0.947333, 0, 0.320249, 0, 1, 0, -0.320249, 0, 0.947333, -0.0487037, 0.152164, 0.0177463)
+
+[node name="pot" parent="." instance=ExtResource("2_k86ay")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="ItemSource" parent="." instance=ExtResource("3_g0wbt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0554303, 0)
+item = ExtResource("4_jx1ey")
+
+[node name="CollisionShape3D" parent="ItemSource/SnapZone" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.12784, 0)
+shape = SubResource("CapsuleShape3D_blb1d")
+
+[editable path="ItemSource"]

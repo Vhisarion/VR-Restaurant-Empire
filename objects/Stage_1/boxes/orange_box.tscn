@@ -1,0 +1,58 @@
+[gd_scene load_steps=5 format=3 uid="uid://buhep2w1a83i5"]
+
+[ext_resource type="PackedScene" uid="uid://dmta066iw7m18" path="res://assets/models/furniture/box/box.glb" id="1_wmuse"]
+[ext_resource type="PackedScene" uid="uid://ce5ojl6wwnukn" path="res://assets/models/fruits/orange.glb" id="2_cr7ep"]
+[ext_resource type="PackedScene" uid="uid://cxnstg76t0o3h" path="res://objects/shared/item_source.tscn" id="3_gtyo6"]
+[ext_resource type="PackedScene" uid="uid://cyt57ukl0puk5" path="res://objects/stage_1/products/fruits/orange.tscn" id="4_6dgdj"]
+
+[node name="OrangeBox" type="Node3D"]
+
+[node name="box" parent="." instance=ExtResource("1_wmuse")]
+
+[node name="Fruits" type="Node3D" parent="."]
+
+[node name="orange" parent="Fruits" instance=ExtResource("2_cr7ep")]
+transform = Transform3D(0.999263, 0.000224198, 0.0383849, 0.000435193, 0.999853, -0.0171696, -0.0383831, 0.0171736, 0.999116, -0.0854037, 0.0989186, 0.147698)
+
+[node name="orange2" parent="Fruits" instance=ExtResource("2_cr7ep")]
+transform = Transform3D(-0.628678, 0.680169, 0.377008, 0.762333, 0.634812, 0.125946, -0.153664, 0.366585, -0.917607, -0.0522985, 0.0989186, -0.00892434)
+
+[node name="orange3" parent="Fruits" instance=ExtResource("2_cr7ep")]
+transform = Transform3D(-0.796754, 0.0263705, -0.603728, -0.45856, 0.624292, 0.632441, 0.39358, 0.780746, -0.485314, -0.0788173, 0.076002, -0.16336)
+
+[node name="orange4" parent="Fruits" instance=ExtResource("2_cr7ep")]
+transform = Transform3D(-0.796754, 0.0263705, -0.603728, -0.45856, 0.624292, 0.632441, 0.39358, 0.780746, -0.485314, 0.0725371, 0.076002, 0.162602)
+
+[node name="orange5" parent="Fruits" instance=ExtResource("2_cr7ep")]
+transform = Transform3D(-0.796754, 0.0263705, -0.603728, -0.45856, 0.624292, 0.632441, 0.39358, 0.780746, -0.485314, -0.016932, 0.159359, 0.0823138)
+
+[node name="orange12" parent="Fruits" instance=ExtResource("2_cr7ep")]
+transform = Transform3D(-0.660566, 0.257466, -0.70524, -0.519893, 0.520817, 0.677098, 0.541631, 0.813917, -0.210179, -0.0843077, 0.204757, -0.0389294)
+
+[node name="orange13" parent="Fruits" instance=ExtResource("2_cr7ep")]
+transform = Transform3D(-0.532418, -0.400016, 0.746002, -0.574023, 0.818321, 0.0291167, -0.622117, -0.41272, -0.665307, -0.0230439, 0.204757, -0.158538)
+
+[node name="orange14" parent="Fruits" instance=ExtResource("2_cr7ep")]
+transform = Transform3D(0.0151035, 0.972527, 0.232301, -0.824999, 0.143385, -0.546643, -0.564933, -0.183392, 0.804499, -0.0852095, 0.204757, 0.175377)
+
+[node name="orange6" parent="Fruits" instance=ExtResource("2_cr7ep")]
+transform = Transform3D(0.297149, 0.735373, 0.609039, -0.946505, 0.310911, 0.0863932, -0.125826, -0.60213, 0.788421, 0.0192339, 0.0664644, -0.136813)
+
+[node name="orange7" parent="Fruits" instance=ExtResource("2_cr7ep")]
+transform = Transform3D(-0.796754, 0.0263705, -0.603728, -0.45856, 0.624292, 0.632441, 0.39358, 0.780746, -0.485314, 0.075458, 0.0664644, 0.000499561)
+
+[node name="orange8" parent="Fruits" instance=ExtResource("2_cr7ep")]
+transform = Transform3D(-0.13898, 0.8296, -0.540784, -0.753509, 0.265753, 0.601332, 0.64258, 0.491059, 0.588177, 0.0967744, 0.126618, -0.175243)
+
+[node name="orange9" parent="Fruits" instance=ExtResource("2_cr7ep")]
+transform = Transform3D(-0.796754, 0.0263705, -0.603728, -0.45856, 0.624292, 0.632441, 0.39358, 0.780746, -0.485314, 0.0245524, 0.159073, -0.0580738)
+
+[node name="orange10" parent="Fruits" instance=ExtResource("2_cr7ep")]
+transform = Transform3D(0.63236, -0.629748, -0.451154, -0.70809, -0.233656, -0.666344, 0.314214, 0.740826, -0.593672, 0.0978034, 0.175298, 0.0174452)
+
+[node name="orange11" parent="Fruits" instance=ExtResource("2_cr7ep")]
+transform = Transform3D(0.2659, 0.624751, 0.734155, -0.932196, 0.360648, 0.030724, -0.245576, -0.692546, 0.678287, 0.103923, 0.175298, 0.155542)
+
+[node name="ItemSource" parent="." instance=ExtResource("3_gtyo6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.148249, 0)
+item = ExtResource("4_6dgdj")

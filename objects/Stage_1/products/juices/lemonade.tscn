@@ -1,27 +1,28 @@
-[gd_scene load_steps=10 format=3 uid="uid://cvvipg8eanrkt"]
+[gd_scene load_steps=15 format=3 uid="uid://cvvipg8eanrkt"]
 
 [ext_resource type="Script" path="res://objects/stage_1/products/juices/lemonade.gd" id="1_7u2q7"]
+[ext_resource type="PackedScene" uid="uid://ctq5fcbv37cjc" path="res://assets/models/juice/glass.glb" id="2_jx5kc"]
+[ext_resource type="PackedScene" uid="uid://b50h42iat71di" path="res://assets/models/juice/content_lemon.tscn" id="3_3pmev"]
 [ext_resource type="PackedScene" uid="uid://ce7vysyvondf8" path="res://addons/godot-xr-tools/objects/snap_zone.tscn" id="3_jdgwd"]
 [ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="4_8n8ef"]
+[ext_resource type="PackedScene" uid="uid://wwe7y3rs0yxx" path="res://assets/models/juice/red_straw.glb" id="4_f6s8b"]
+[ext_resource type="PackedScene" uid="uid://dq43wdjb13qeh" path="res://assets/models/juice/blue_straw.glb" id="5_4ivbd"]
 [ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="5_2410s"]
+[ext_resource type="Animation" uid="uid://plad1r85f7ws" path="res://addons/godot-xr-tools/hands/animations/left/Grip.res" id="7_catpi"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/hands/poses/hand_pose_settings.gd" id="8_0ingc"]
+[ext_resource type="Animation" uid="uid://ccds2u22gbxn7" path="res://addons/godot-xr-tools/hands/animations/right/Grip.res" id="10_t260u"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lx3w7"]
-resource_local_to_scene = true
-albedo_color = Color(1, 0, 1, 1)
+[sub_resource type="Resource" id="Resource_vmrrv"]
+script = ExtResource("8_0ingc")
+closed_pose = ExtResource("7_catpi")
 
-[sub_resource type="BoxMesh" id="BoxMesh_wew2m"]
-material = SubResource("StandardMaterial3D_lx3w7")
-size = Vector3(0.013, 0.25, 0.013)
+[sub_resource type="Resource" id="Resource_3bkuk"]
+script = ExtResource("8_0ingc")
+closed_pose = ExtResource("10_t260u")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jhhyk"]
-albedo_color = Color(1, 1, 0, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_jtugf"]
-material = SubResource("StandardMaterial3D_jhhyk")
-size = Vector3(0.125, 0.25, 0.125)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_t75co"]
-size = Vector3(0.125, 0.25, 0.125)
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ypllv"]
+height = 0.25
+radius = 0.0629248
 
 [node name="Lemonade" type="RigidBody3D" groups=["Product"]]
 collision_layer = 4
@@ -32,29 +33,34 @@ price = 3
 
 [node name="Model" type="Node3D" parent="."]
 
-[node name="Straw" type="MeshInstance3D" parent="Model"]
+[node name="glass" parent="Model" instance=ExtResource("2_jx5kc")]
+
+[node name="content" parent="Model" instance=ExtResource("3_3pmev")]
+
+[node name="RedStraw" parent="Model" instance=ExtResource("4_f6s8b")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0877236, 0)
-mesh = SubResource("BoxMesh_wew2m")
-skeleton = NodePath("")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0169902, 0.262782, -1.49012e-08)
+visible = false
 
-[node name="Glass" type="MeshInstance3D" parent="Model"]
-mesh = SubResource("BoxMesh_jtugf")
-skeleton = NodePath("../..")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("BoxShape3D_t75co")
+[node name="BlueStraw" parent="Model" instance=ExtResource("5_4ivbd")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0169902, 0.262782, -1.49012e-08)
+visible = false
 
 [node name="GrabPointHandLeft" parent="." instance=ExtResource("4_8n8ef")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0619809, 0.0701306, -0.105336)
-visible = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0136543, 0.102504, -0.0913479)
+hand_pose = SubResource("Resource_vmrrv")
 
 [node name="GrabPointHandRight" parent="." instance=ExtResource("5_2410s")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0590256, 0.0701741, -0.121438)
-visible = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0243879, 0.101507, -0.0924575)
+hand_pose = SubResource("Resource_3bkuk")
 
 [node name="StrawSnapZone" parent="." instance=ExtResource("3_jdgwd")]
 snap_mode = 1
 snap_require = "Straw"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.127068, 0)
+shape = SubResource("CylinderShape3D_ypllv")
 
 [connection signal="has_picked_up" from="StrawSnapZone" to="." method="_on_straw_snap_zone_has_picked_up"]

@@ -1,20 +1,25 @@
-[gd_scene load_steps=7 format=3 uid="uid://dp7h3tvs3lhuq"]
+[gd_scene load_steps=11 format=3 uid="uid://dp7h3tvs3lhuq"]
 
 [ext_resource type="Script" path="res://objects/stage_1/machines/water.gd" id="1_wtipe"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand.gd" id="2_f1ptf"]
+[ext_resource type="Animation" uid="uid://do01jton6rk42" path="res://addons/godot-xr-tools/hands/animations/right/Cup.res" id="3_yj3dm"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/hands/poses/hand_pose_settings.gd" id="4_q36dq"]
+[ext_resource type="PackedScene" uid="uid://wxscx4c5afcp" path="res://assets/models/machines/water.glb" id="5_bfq8o"]
+[ext_resource type="Animation" uid="uid://dgfeikrugfewi" path="res://addons/godot-xr-tools/hands/animations/left/Cup.res" id="5_ppdcp"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5jwnl"]
-size = Vector3(0.1, 0.4, 0.1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ctyhb"]
-albedo_color = Color(0, 0, 1, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_uk73y"]
-material = SubResource("StandardMaterial3D_ctyhb")
-size = Vector3(0.1, 0.4, 0.1)
+size = Vector3(0.1, 0.259912, 0.1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_h1kby"]
-size = Vector3(0.183899, 0.645945, 0.253501)
+size = Vector3(0.150429, 0.495343, 0.253501)
+
+[sub_resource type="Resource" id="Resource_cohoj"]
+script = ExtResource("4_q36dq")
+closed_pose = ExtResource("3_yj3dm")
+
+[sub_resource type="Resource" id="Resource_gqgu6"]
+script = ExtResource("4_q36dq")
+closed_pose = ExtResource("5_ppdcp")
 
 [node name="Water" type="RigidBody3D"]
 collision_layer = 4
@@ -23,26 +28,31 @@ freeze_mode = 1
 script = ExtResource("1_wtipe")
 
 [node name="BottleCollider" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0170166, 0)
 shape = SubResource("BoxShape3D_5jwnl")
-
-[node name="BottleMesh" type="MeshInstance3D" parent="."]
-mesh = SubResource("BoxMesh_uk73y")
 
 [node name="Area3D" type="Area3D" parent="."]
 collision_mask = 65540
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55504, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000675179, 0.398725, 0)
 shape = SubResource("BoxShape3D_h1kby")
 
 [node name="XRToolsGrabPointHand" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0275377, -0.0137689, -0.0986771)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00855757, 0.0342341, -0.0718847)
+visible = false
 script = ExtResource("2_f1ptf")
 hand = 1
+hand_pose = SubResource("Resource_cohoj")
 
 [node name="XRToolsGrabPointHand2" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0413066, -0.0137689, -0.0894978)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0180381, 0.032613, -0.0677116)
+visible = false
 script = ExtResource("2_f1ptf")
+hand_pose = SubResource("Resource_gqgu6")
+
+[node name="water" parent="." instance=ExtResource("5_bfq8o")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

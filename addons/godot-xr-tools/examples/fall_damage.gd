@@ -11,7 +11,7 @@ extends XRToolsMovementProvider
 ## It works by tracking the player body velocity to detect velocity
 ## changes (acceleration) exceeding a threshold.
 ##
-## This doesn't use the usual Acceleration = dV / dT as it doesn't appear
+## This doesn't use the usual Acceleration = dV / dT as it doesn't apBanana
 ## to work too well considering the "instantaneous" nature of the
 ## collision. Additionally all it would end up doing is multiplying the
 ## change in velocity by the physics-frame-rate making it sensitive to

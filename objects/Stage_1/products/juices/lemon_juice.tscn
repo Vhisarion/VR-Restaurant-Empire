@@ -1,16 +1,25 @@
-[gd_scene load_steps=7 format=3 uid="uid://dh6q43jbuxmj2"]
+[gd_scene load_steps=12 format=3 uid="uid://dh6q43jbuxmj2"]
 
 [ext_resource type="Script" path="res://objects/stage_1/products/juices/lemon_juice.gd" id="1_si3bl"]
+[ext_resource type="PackedScene" uid="uid://ctq5fcbv37cjc" path="res://assets/models/juice/glass.glb" id="2_jyors"]
 [ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="2_k1m2v"]
 [ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="3_n8y1a"]
+[ext_resource type="PackedScene" uid="uid://c4cl1vqri07cm" path="res://assets/models/juice/low_content.glb" id="3_qh8j0"]
+[ext_resource type="Animation" uid="uid://plad1r85f7ws" path="res://addons/godot-xr-tools/hands/animations/left/Grip.res" id="5_4x0bh"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/hands/poses/hand_pose_settings.gd" id="6_in5we"]
+[ext_resource type="Animation" uid="uid://ccds2u22gbxn7" path="res://addons/godot-xr-tools/hands/animations/right/Grip.res" id="8_3nokp"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_nnh4m"]
-size = Vector3(0.125, 0.25, 0.125)
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_c3m11"]
+height = 0.25
+radius = 0.0629248
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mk573"]
+[sub_resource type="Resource" id="Resource_3wlcm"]
+script = ExtResource("6_in5we")
+closed_pose = ExtResource("5_4x0bh")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2c5f8"]
-albedo_color = Color(1, 1, 0, 1)
+[sub_resource type="Resource" id="Resource_22uea"]
+script = ExtResource("6_in5we")
+closed_pose = ExtResource("8_3nokp")
 
 [node name="LemonJuice" type="RigidBody3D"]
 collision_layer = 4
@@ -19,24 +28,19 @@ freeze_mode = 1
 script = ExtResource("1_si3bl")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("BoxShape3D_nnh4m")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.127068, 0)
+shape = SubResource("CylinderShape3D_c3m11")
 
-[node name="Lemonade" type="Node3D" parent="."]
+[node name="Model" type="Node3D" parent="."]
 
-[node name="Glass" type="CSGBox3D" parent="Lemonade"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.101013, 0)
-size = Vector3(0.125, 0.2, 0.125)
-material = SubResource("StandardMaterial3D_mk573")
+[node name="glass" parent="Model" instance=ExtResource("2_jyors")]
 
-[node name="LemonJuice" type="CSGBox3D" parent="Lemonade"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.025, 0)
-size = Vector3(0.125, 0.05, 0.125)
-material = SubResource("StandardMaterial3D_2c5f8")
-
-[node name="GrabPointHandRight" parent="." instance=ExtResource("2_k1m2v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0423341, 0.162542, -0.0948686)
-visible = true
+[node name="low_content" parent="Model" instance=ExtResource("3_qh8j0")]
 
 [node name="GrabPointHandLeft" parent="." instance=ExtResource("3_n8y1a")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0464659, 0.157536, -0.0948686)
-visible = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0136543, 0.102504, -0.0913479)
+hand_pose = SubResource("Resource_3wlcm")
+
+[node name="GrabPointHandRight" parent="." instance=ExtResource("2_k1m2v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0243879, 0.101507, -0.0924575)
+hand_pose = SubResource("Resource_22uea")

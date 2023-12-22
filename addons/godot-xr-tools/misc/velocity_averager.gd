@@ -108,7 +108,7 @@ func angular_velocity() -> Vector3:
 	for dt in _time_deltas:
 		total_time += dt
 
-	# At first glance the following operations may look incorrect as they appear
+	# At first glance the following operations may look incorrect as they apBanana
 	# to involve scaling of euler angles which isn't a valid operation.
 	#
 	# They are actually correct due to the value being a euler-velocity rather

@@ -1,0 +1,127 @@
+[gd_scene load_steps=5 format=3 uid="uid://c2bhx33te01l7"]
+
+[ext_resource type="PackedScene" uid="uid://dmta066iw7m18" path="res://assets/models/furniture/box/box.glb" id="1_gxk1i"]
+[ext_resource type="PackedScene" uid="uid://c0sx45hsuyai5" path="res://assets/models/fruits/apple.glb" id="2_rle88"]
+[ext_resource type="PackedScene" uid="uid://cxnstg76t0o3h" path="res://objects/shared/item_source.tscn" id="3_36rq5"]
+[ext_resource type="PackedScene" uid="uid://djm8fjd5lqa4m" path="res://objects/stage_1/products/fruits/apple.tscn" id="4_w534e"]
+
+[node name="AppleBox" type="Node3D"]
+
+[node name="box" parent="." instance=ExtResource("1_gxk1i")]
+
+[node name="fruits" type="Node3D" parent="."]
+
+[node name="apple" parent="fruits" instance=ExtResource("2_rle88")]
+transform = Transform3D(0.902149, 0.304071, 0.306052, -0.431425, 0.635841, 0.639983, 0, -0.709399, 0.704808, -0.102898, 0.0787991, 0.17216)
+
+[node name="apple2" parent="fruits" instance=ExtResource("2_rle88")]
+transform = Transform3D(0.902149, 0.304071, 0.306052, -0.431425, 0.635841, 0.639983, 0, -0.709399, 0.704808, -0.0943935, 0.0787991, -0.13187)
+
+[node name="apple3" parent="fruits" instance=ExtResource("2_rle88")]
+transform = Transform3D(0.902149, 0.304071, 0.306052, -0.431425, 0.635841, 0.639983, 0, -0.709399, 0.704808, 0.0677254, 0.0787991, 0.0969588)
+
+[node name="apple4" parent="fruits" instance=ExtResource("2_rle88")]
+transform = Transform3D(0.902149, 0.304071, 0.306052, -0.431425, 0.635841, 0.639983, 0, -0.709399, 0.704808, -0.0272495, 0.0787991, -0.00575067)
+
+[node name="apple5" parent="fruits" instance=ExtResource("2_rle88")]
+transform = Transform3D(0.902149, 0.304071, 0.306052, -0.431425, 0.635841, 0.639983, 0, -0.709399, 0.704808, 0.113686, 0.0787991, -0.146659)
+
+[node name="apple6" parent="fruits" instance=ExtResource("2_rle88")]
+transform = Transform3D(0.902149, 0.304071, 0.306052, -0.431425, 0.635841, 0.639983, 0, -0.709399, 0.704808, 0.134229, 0.0787991, -0.00297439)
+
+[node name="apple7" parent="fruits" instance=ExtResource("2_rle88")]
+transform = Transform3D(0.902149, 0.304071, 0.306052, -0.431425, 0.635841, 0.639983, 0, -0.709399, 0.704808, 0.0117166, 0.0787991, -0.134446)
+
+[node name="apple8" parent="fruits" instance=ExtResource("2_rle88")]
+transform = Transform3D(0.902149, 0.304071, 0.306052, -0.431425, 0.635841, 0.639983, 0, -0.709399, 0.704808, 0.0959486, 0.0787991, -0.0686742)
+
+[node name="apple9" parent="fruits" instance=ExtResource("2_rle88")]
+transform = Transform3D(0.902149, 0.304071, 0.306052, -0.431425, 0.635841, 0.639983, 0, -0.709399, 0.704808, 0.0574506, 0.0787991, 0.00380975)
+
+[node name="apple10" parent="fruits" instance=ExtResource("2_rle88")]
+transform = Transform3D(0.902149, 0.304071, 0.306052, -0.431425, 0.635841, 0.639983, 0, -0.709399, 0.704808, -0.0184153, 0.0787991, 0.160424)
+
+[node name="apple11" parent="fruits" instance=ExtResource("2_rle88")]
+transform = Transform3D(0.481544, -0.400123, -0.779755, -0.100111, 0.858767, -0.502491, 0.870685, 0.320034, 0.373477, -0.0541195, 0.0763825, 0.0890506)
+
+[node name="apple12" parent="fruits" instance=ExtResource("2_rle88")]
+transform = Transform3D(0.481544, -0.400123, -0.779755, -0.100111, 0.858767, -0.502491, 0.870685, 0.320034, 0.373477, 0.130809, 0.0763825, 0.0451325)
+
+[node name="apple13" parent="fruits" instance=ExtResource("2_rle88")]
+transform = Transform3D(0.481544, -0.400123, -0.779755, -0.100111, 0.858767, -0.502491, 0.870685, 0.320034, 0.373477, 0.119237, 0.0763825, 0.146032)
+
+[node name="apple14" parent="fruits" instance=ExtResource("2_rle88")]
+transform = Transform3D(0.481544, -0.400123, -0.779755, -0.100111, 0.858767, -0.502491, 0.870685, 0.320034, 0.373477, 0.0128671, 0.0763825, 0.0576428)
+
+[node name="apple15" parent="fruits" instance=ExtResource("2_rle88")]
+transform = Transform3D(0.481544, -0.400123, -0.779755, -0.100111, 0.858767, -0.502491, 0.870685, 0.320034, 0.373477, 0.0536928, 0.0763825, 0.162937)
+
+[node name="apple16" parent="fruits" instance=ExtResource("2_rle88")]
+transform = Transform3D(0.481544, -0.400123, -0.779755, -0.100111, 0.858767, -0.502491, 0.870685, 0.320034, 0.373477, 0.0286191, 0.0763825, -0.0775238)
+
+[node name="apple17" parent="fruits" instance=ExtResource("2_rle88")]
+transform = Transform3D(0.481544, -0.400123, -0.779755, -0.100111, 0.858767, -0.502491, 0.870685, 0.320034, 0.373477, -0.0777401, 0.0763825, -0.0740901)
+
+[node name="apple18" parent="fruits" instance=ExtResource("2_rle88")]
+transform = Transform3D(0.481544, -0.400123, -0.779755, -0.100111, 0.858767, -0.502491, 0.870685, 0.320034, 0.373477, -0.0782993, 0.0763825, 0.0218116)
+
+[node name="apple19" parent="fruits" instance=ExtResource("2_rle88")]
+transform = Transform3D(-0.408174, -0.668951, -0.621207, 0.851796, -0.0343012, -0.522749, 0.328385, -0.742515, 0.583811, 0.0256115, 0.120955, 0.116939)
+
+[node name="apple20" parent="fruits" instance=ExtResource("2_rle88")]
+transform = Transform3D(-0.408174, -0.668951, -0.621207, 0.851796, -0.0343012, -0.522749, 0.328385, -0.742515, 0.583811, 0.0745705, 0.120955, 0.0384839)
+
+[node name="apple21" parent="fruits" instance=ExtResource("2_rle88")]
+transform = Transform3D(-0.408174, -0.668951, -0.621207, 0.851796, -0.0343012, -0.522749, 0.328385, -0.742515, 0.583811, 0.0639743, 0.114345, -0.114491)
+
+[node name="apple22" parent="fruits" instance=ExtResource("2_rle88")]
+transform = Transform3D(-0.408174, -0.668951, -0.621207, 0.851796, -0.0343012, -0.522749, 0.328385, -0.742515, 0.583811, 0.150821, 0.114345, -0.0876452)
+
+[node name="apple23" parent="fruits" instance=ExtResource("2_rle88")]
+transform = Transform3D(-0.408174, -0.668951, -0.621207, 0.851796, -0.0343012, -0.522749, 0.328385, -0.742515, 0.583811, -0.0276354, 0.114345, -0.0892069)
+
+[node name="apple24" parent="fruits" instance=ExtResource("2_rle88")]
+transform = Transform3D(0.351805, -0.70192, 0.619308, 0.851796, -0.0343012, -0.522749, 0.388171, 0.711429, 0.585825, 0.0276701, 0.133516, -0.031982)
+
+[node name="apple25" parent="fruits" instance=ExtResource("2_rle88")]
+transform = Transform3D(0.351805, -0.70192, 0.619308, 0.851796, -0.0343012, -0.522749, 0.388171, 0.711429, 0.585825, -0.0864172, 0.133516, 0.0696707)
+
+[node name="apple26" parent="fruits" instance=ExtResource("2_rle88")]
+transform = Transform3D(0.351805, -0.70192, 0.619308, 0.851796, -0.0343012, -0.522749, 0.388171, 0.711429, 0.585825, 0.00755348, 0.151216, 0.0387915)
+
+[node name="apple27" parent="fruits" instance=ExtResource("2_rle88")]
+transform = Transform3D(0.351805, -0.70192, 0.619308, 0.851796, -0.0343012, -0.522749, 0.388171, 0.711429, 0.585825, 0.0865111, 0.151216, 0.0813526)
+
+[node name="apple28" parent="fruits" instance=ExtResource("2_rle88")]
+transform = Transform3D(-0.468031, 0.398458, -0.788782, 0.291867, 0.91219, 0.287617, 0.834122, -0.0956057, -0.54323, 0.13754, 0.121208, 0.109467)
+
+[node name="apple30" parent="fruits" instance=ExtResource("2_rle88")]
+transform = Transform3D(-0.260693, -0.881441, -0.393829, 0.286799, 0.318811, -0.903386, 0.921838, -0.348456, 0.169685, 0.0793357, 0.121208, -0.0291667)
+
+[node name="apple31" parent="fruits" instance=ExtResource("2_rle88")]
+transform = Transform3D(0.86631, -0.379568, 0.324708, 0.291867, 0.91219, 0.287617, -0.405366, -0.154394, 0.901022, -0.0678791, 0.121208, -0.0307757)
+
+[node name="apple32" parent="fruits" instance=ExtResource("2_rle88")]
+transform = Transform3D(-0.167373, -0.433365, -0.88554, 0.953869, 0.155892, -0.256578, 0.249241, -0.887633, 0.387282, 0.0301817, 0.155235, -0.072253)
+
+[node name="apple33" parent="fruits" instance=ExtResource("2_rle88")]
+transform = Transform3D(-0.25895, -0.884462, -0.388164, -0.283298, 0.453745, -0.844901, 0.923411, -0.108821, -0.368063, 0.0574563, 0.155235, 0.0108554)
+
+[node name="apple34" parent="fruits" instance=ExtResource("2_rle88")]
+transform = Transform3D(-0.464896, -0.127499, 0.876136, 0.291867, 0.91219, 0.287617, -0.835874, 0.389427, -0.386861, -0.0540336, 0.155235, 0.0158718)
+
+[node name="apple35" parent="fruits" instance=ExtResource("2_rle88")]
+transform = Transform3D(0.812535, -0.0778322, -0.577693, 0.291867, 0.91219, 0.287617, 0.50458, -0.402308, 0.763903, 0.0191709, 0.155235, 0.0894145)
+
+[node name="apple36" parent="fruits" instance=ExtResource("2_rle88")]
+transform = Transform3D(-0.468031, 0.398458, -0.788782, 0.291867, 0.91219, 0.287617, 0.834122, -0.0956057, -0.54323, 0.121053, 0.155235, 0.0256906)
+
+[node name="apple37" parent="fruits" instance=ExtResource("2_rle88")]
+transform = Transform3D(-0.155654, -0.251401, 0.955285, 0.291867, 0.91219, 0.287617, -0.943709, 0.323584, -0.06861, 0.121053, 0.155235, 0.0256906)
+
+[node name="apple29" parent="fruits" instance=ExtResource("2_rle88")]
+transform = Transform3D(-0.0962093, 0.97064, -0.220459, 0.851796, -0.0343013, -0.522749, -0.514963, -0.23808, -0.823487, 0.135067, 0.121208, -0.0474702)
+
+[node name="ItemSource" parent="." instance=ExtResource("3_36rq5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.148249, 0)
+item = ExtResource("4_w534e")
