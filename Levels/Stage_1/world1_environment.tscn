@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://clwdncfwnjiyl"]
+[gd_scene load_steps=37 format=3 uid="uid://clwdncfwnjiyl"]
 
 [ext_resource type="Script" path="res://scripts/level_controller.gd" id="1_ywhge"]
 [ext_resource type="PackedScene" uid="uid://o7e8qsgryg7y" path="res://entities/player.tscn" id="3_a0kes"]
@@ -23,6 +23,8 @@
 [ext_resource type="PackedScene" uid="uid://b8iabtvk8avvm" path="res://objects/stage_1/furniture/counter_large.tscn" id="21_y5g2k"]
 [ext_resource type="PackedScene" uid="uid://cvvhnuv0lq2tt" path="res://objects/stage_1/furniture/counter_small.tscn" id="22_gihdr"]
 [ext_resource type="PackedScene" uid="uid://csdvwhjuyr5ob" path="res://assets/models/furniture/cabinet/cabinet.glb" id="23_mj50x"]
+[ext_resource type="PackedScene" uid="uid://qps81sspj75w" path="res://objects/shared/tip_jar.tscn" id="24_re2vq"]
+[ext_resource type="Script" path="res://levels/stage_1/SubViewport.gd" id="25_36oud"]
 
 [sub_resource type="Environment" id="Environment_fn5ye"]
 background_mode = 1
@@ -101,6 +103,9 @@ shadow_mesh = SubResource("ArrayMesh_d0860")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dt6va"]
 size = Vector3(0.265442, 0.0597076, 1.04724)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_bgl5p"]
+viewport_path = NodePath("EOLSprite/SubViewport")
 
 [node name="World1Environment" type="Node3D"]
 script = ExtResource("1_ywhge")
@@ -485,10 +490,10 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.2598
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.22689, 0, 1.00434)
 
 [node name="RedStrawPot" parent="Sources" instance=ExtResource("19_ac314")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.84064, 0.759526, 0.80263)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.643, 0.76, 0.8)
 
 [node name="BlueStrawPot" parent="Sources" instance=ExtResource("20_gng0u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.81461, 0.762728, 0.44648)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.916567, 0.763, 0.8)
 
 [node name="Counters" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.49859, 1.19209e-07, 1.58257)
@@ -512,6 +517,43 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.8299
 shape = SubResource("BoxShape3D_dt6va")
 
 [node name="Debug" type="Node3D" parent="."]
+
+[node name="TipJar" parent="." instance=ExtResource("24_re2vq")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.69608, 0.75586, 0.835993)
+
+[node name="EOLSprite" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.964359, -0.264597, 0, 0.264597, 0.964359, 3.58047, 7.19033, -8)
+texture = SubResource("ViewportTexture_bgl5p")
+
+[node name="SubViewport" type="SubViewport" parent="EOLSprite"]
+disable_3d = true
+transparent_bg = true
+size = Vector2i(2560, 512)
+script = ExtResource("25_36oud")
+
+[node name="EndOfLevelMessage" type="Label" parent="EOLSprite/SubViewport"]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -984.5
+offset_top = -174.5
+offset_right = 984.5
+offset_bottom = 174.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 256
+text = "LEVEL CLEARED!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="on_score_updated" from="." to="TipJar" method="_on_world_1_environment_on_score_updated"]
 
 [editable path="Machines/ManualSqueezer"]
 [editable path="Machines/ManualSqueezer2"]

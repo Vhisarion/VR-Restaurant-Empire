@@ -33,7 +33,7 @@ size = Vector3(5, 0.075, 5)
 size = Vector3(5, 0.075, 5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_y8mqt"]
-size = Vector3(0.4, 0.01, 0.220996)
+size = Vector3(0.4, 0.01, 0.4)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yer8r"]
 albedo_color = Color(0.164706, 0.0941176, 0, 1)
@@ -148,7 +148,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0386441, 0.727827, -0.55216
 collision_layer = 1073741824
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Shelf"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0895019)
 shape = SubResource("BoxShape3D_y8mqt")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Shelf"]
@@ -1272,14 +1271,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.42827, 0, 0.238375)
 level = ExtResource("14_8vh1k")
 world_environment = ExtResource("15_kgjgs")
 level_number = 1
-world_number = 1
 
 [node name="LevelSelector2" parent="World1Levels" instance=ExtResource("13_cm5qa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.921788, 0, -0.190071)
 level = ExtResource("15_ehdfo")
 world_environment = ExtResource("15_kgjgs")
 level_number = 2
-world_number = 1
 
 [node name="LevelPath" type="CSGBox3D" parent="World1Levels/LevelSelector2"]
 transform = Transform3D(0.997512, 0, -1.24372, 0, 1, 0, 1.24372, 0, 0.997512, -0.386866, 0.00515926, 0.321052)
@@ -1306,7 +1303,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.427173, 0, 0.246518)
 level = ExtResource("16_fbms3")
 world_environment = ExtResource("15_kgjgs")
 level_number = 3
-world_number = 1
 
 [node name="LevelPath5" type="CSGBox3D" parent="World1Levels/LevelSelector3"]
 transform = Transform3D(-1.08437, 0, -1.16876, 0, 1, 0, 1.16876, 0, -1.08437, -0.376216, 0.00515926, -0.334958)
@@ -1333,7 +1329,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0857942, 0, -0.186384)
 level = ExtResource("17_21bro")
 world_environment = ExtResource("15_kgjgs")
 level_number = 4
-world_number = 1
 
 [node name="LevelPath9" type="CSGBox3D" parent="World1Levels/LevelSelector4"]
 transform = Transform3D(1.09657, 0, -1.15732, 0, 1, 0, 1.15732, 0, 1.09657, -0.378471, 0.00515926, 0.342018)
@@ -1360,7 +1355,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.573223, 0, 0.25123)
 level = ExtResource("18_72iot")
 world_environment = ExtResource("15_kgjgs")
 level_number = 5
-world_number = 1
 
 [node name="LevelPath13" type="CSGBox3D" parent="World1Levels/LevelSelector5"]
 transform = Transform3D(-1.03475, 0, -1.21291, 0, 1, 0, 1.21291, 0, -1.03475, -0.367665, 0.00515926, -0.327219)
@@ -1387,7 +1381,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.25453, -1.19209e-07, -0.187
 level = ExtResource("19_mw7gf")
 world_environment = ExtResource("15_kgjgs")
 level_number = 6
-world_number = 1
 
 [node name="LevelPath17" type="CSGBox3D" parent="World1Levels/LevelSelector6"]
 transform = Transform3D(0.849107, 0, -1.3494, 0, 1, 0, 1.3494, 0, 0.849107, -0.534677, 0.00515938, 0.341253)
@@ -1415,7 +1408,7 @@ size = Vector3(0.01, 0.005, 0.05)
 material = SubResource("StandardMaterial3D_ahpcu")
 
 [node name="World1LevelSelectorObject" parent="." instance=ExtResource("20_8epvj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0317369, 1.00256, -0.467144)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0967985, 1.00256, -1.08522)
 
 [node name="LevelPaths" type="Node3D" parent="."]
 

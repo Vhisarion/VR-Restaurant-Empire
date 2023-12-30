@@ -1,13 +1,10 @@
-[gd_scene load_steps=29 format=3 uid="uid://k7p1w0fj745x"]
+[gd_scene load_steps=27 format=3 uid="uid://k7p1w0fj745x"]
 
 [ext_resource type="Script" path="res://addons/godot-xr-tools/objects/pickable.gd" id="1_xskhu"]
 [ext_resource type="PackedScene" uid="uid://benpk10p2y6xp" path="res://assets/models/furniture/counter/counter.glb" id="2_aq45f"]
 [ext_resource type="PackedScene" uid="uid://csdvwhjuyr5ob" path="res://assets/models/furniture/cabinet/cabinet.glb" id="4_gj8gv"]
-[ext_resource type="Script" path="res://objects/stage_1/machines/manual_squeezer.gd" id="4_vvv4r"]
 [ext_resource type="PackedScene" uid="uid://l5hyx300jyiq" path="res://objects/stage_1/machines/squeezer.tscn" id="5_yl4ot"]
-[ext_resource type="Script" path="res://objects/stage_1/machines/water.gd" id="6_sw320"]
 [ext_resource type="PackedScene" uid="uid://wxscx4c5afcp" path="res://assets/models/machines/water.glb" id="7_py663"]
-[ext_resource type="Script" path="res://objects/stage_1/machines/automatic_squeezer.gd" id="8_wl8dg"]
 [ext_resource type="PackedScene" uid="uid://r682umd2ffwh" path="res://assets/models/machines/blender.glb" id="9_p28d1"]
 [ext_resource type="PackedScene" uid="uid://dmta066iw7m18" path="res://assets/models/furniture/box/box.glb" id="10_jlw5v"]
 [ext_resource type="PackedScene" uid="uid://ce5ojl6wwnukn" path="res://assets/models/fruits/orange.glb" id="11_nckkr"]
@@ -23,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://dq43wdjb13qeh" path="res://assets/models/juice/blue_straw.glb" id="17_qak6g"]
 [ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="21_taitp"]
 [ext_resource type="Animation" uid="uid://dd67rufxwj2u" path="res://addons/godot-xr-tools/hands/animations/left/Grip 3.res" id="22_fv3l7"]
+[ext_resource type="PackedScene" uid="uid://da2qgxxwwitl6" path="res://addons/godot-xr-tools/objects/highlight/highlight_ring.tscn" id="22_y71m2"]
 [ext_resource type="PackedScene" uid="uid://b4kad2kuba1yn" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_hand_low.tscn" id="23_fi65d"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yg0bd"]
@@ -39,10 +37,10 @@ closed_pose = ExtResource("15_j2j0o")
 script = ExtResource("16_gjsdg")
 closed_pose = ExtResource("22_fv3l7")
 
-[node name="World1LevelSelectorObject" type="RigidBody3D"]
+[node name="World1LevelSelectorObject" type="RigidBody3D" groups=["LevelSelector"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0147511, 0.735483, -0.478045)
 collision_layer = 4
-collision_mask = 196615
+collision_mask = 1073938439
 freeze_mode = 1
 script = ExtResource("1_xskhu")
 
@@ -84,40 +82,34 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.825555, 0, -0.401719)
 
 [node name="ManualSqueezer" type="Node3D" parent="MiniatureStation/Machines"]
 transform = Transform3D(-0.99996, 0, -0.0089359, 0, 1, 0, 0.0089359, 0, -0.99996, 0.887084, 0.777604, -0.0533023)
-script = ExtResource("4_vvv4r")
 
 [node name="Squeezer" parent="MiniatureStation/Machines/ManualSqueezer" instance=ExtResource("5_yl4ot")]
 
 [node name="ManualSqueezer2" type="Node3D" parent="MiniatureStation/Machines"]
 transform = Transform3D(-0.99996, 0, -0.0089359, 0, 1, 0, 0.0089359, 0, -0.99996, 0.887084, 0.777604, 0.343968)
-script = ExtResource("4_vvv4r")
 
 [node name="Squeezer" parent="MiniatureStation/Machines/ManualSqueezer2" instance=ExtResource("5_yl4ot")]
 
 [node name="Water" type="Node3D" parent="MiniatureStation/Machines"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.398152, 1.16817, 1.42064)
-script = ExtResource("6_sw320")
 
 [node name="water" parent="MiniatureStation/Machines/Water" instance=ExtResource("7_py663")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
 
 [node name="Water3" type="Node3D" parent="MiniatureStation/Machines"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.398152, 1.16817, 1.25952)
-script = ExtResource("6_sw320")
 
 [node name="water" parent="MiniatureStation/Machines/Water3" instance=ExtResource("7_py663")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
 
 [node name="Water2" type="Node3D" parent="MiniatureStation/Machines"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25247, 1.16817, 1.31105)
-script = ExtResource("6_sw320")
 
 [node name="water" parent="MiniatureStation/Machines/Water2" instance=ExtResource("7_py663")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
 
 [node name="AutomaticSqueezer" type="Node3D" parent="MiniatureStation/Machines"]
 transform = Transform3D(-3.27835e-08, 0, -0.75, 0, 0.75, 0, 0.75, 0, -3.27835e-08, 0.923898, 0.69841, 0.767094)
-script = ExtResource("8_wl8dg")
 
 [node name="blender" parent="MiniatureStation/Machines/AutomaticSqueezer" instance=ExtResource("9_p28d1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.204337, 0)
@@ -676,13 +668,15 @@ transform = Transform3D(0.947333, 0, 0.320249, 0, 1, 0, -0.320249, 0, 0.947333, 
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 
 [node name="GrabPointHandRight" parent="." instance=ExtResource("14_dms0v")]
-transform = Transform3D(0.595987, 0.802994, 0, -0.802994, 0.595987, 0, 0, 0, 1, 0.0561553, 0.0360892, -0.0910363)
+transform = Transform3D(0.39742, -0.917637, 0, 0.917637, 0.39742, 0, 0, 0, 1, -0.032283, 0.0659263, -0.0743702)
 hand_pose = SubResource("Resource_ag05q")
 
 [node name="RightHand2" parent="GrabPointHandRight" instance=ExtResource("17_8ftnp")]
 
 [node name="GrabPointHandLeft" parent="." instance=ExtResource("21_taitp")]
-transform = Transform3D(0.692634, -0.721289, 0, 0.721289, 0.692634, 0, 0, 0, 1, -0.0565305, 0.04869, -0.0867055)
+transform = Transform3D(0.721289, 0.692634, 0, -0.692634, 0.721289, 0, 0, 0, 1, -0.016229, 0.059533, -0.0867055)
 hand_pose = SubResource("Resource_50g13")
 
 [node name="LeftHand2" parent="GrabPointHandLeft" instance=ExtResource("23_fi65d")]
+
+[node name="HighlightRing" parent="." instance=ExtResource("22_y71m2")]

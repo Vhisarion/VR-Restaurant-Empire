@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dyjwtaftumixa"]
+[gd_scene load_steps=18 format=3 uid="uid://dyjwtaftumixa"]
 
 [ext_resource type="PackedScene" uid="uid://ce7vysyvondf8" path="res://addons/godot-xr-tools/objects/snap_zone.tscn" id="1_3u62c"]
 [ext_resource type="Script" path="res://levels/level_selector.gd" id="1_quixu"]
@@ -38,7 +38,10 @@ albedo_color = Color(1, 0, 0, 1)
 material = SubResource("StandardMaterial3D_c1fmc")
 size = Vector3(0.03, 0.05, 0.003)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iy5c1"]
+
 [sub_resource type="CylinderMesh" id="CylinderMesh_vf21y"]
+material = SubResource("StandardMaterial3D_iy5c1")
 top_radius = 0.04
 bottom_radius = 0.04
 height = 0.01
@@ -93,7 +96,8 @@ script = ExtResource("3_7660b")
 [node name="ClearedLevelNumber" type="Label" parent="Flag/ClearedFlag/Sprite3D/SubViewport"]
 unique_name_in_owner = true
 offset_right = 40.0
-offset_bottom = 23.0
+offset_bottom = 348.0
+text = "1"
 label_settings = SubResource("LabelSettings_ef1fc")
 
 [node name="UnclearedFlag" type="MeshInstance3D" parent="Flag"]
@@ -118,6 +122,7 @@ label_settings = SubResource("LabelSettings_ef1fc")
 [node name="LevelSelectorBase" type="Node3D" parent="."]
 
 [node name="UpperBase" type="MeshInstance3D" parent="LevelSelectorBase"]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.01, 0)
 mesh = SubResource("CylinderMesh_vf21y")
 

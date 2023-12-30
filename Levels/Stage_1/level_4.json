@@ -7,7 +7,7 @@
 	"customers": [
 		{
 			"arrival": 1,
-			"max_patience": 20,
+			"max_patience": 1,
 			"order": [
 				{
 					"product": "Lemonade",
@@ -18,8 +18,8 @@
 			],
 		},
 		{
-			"arrival": 5,
-			"max_patience": 10,
+			"arrival": 1,
+			"max_patience": 1,
 			"order": [
 				{
 					"product": "Apple",
@@ -27,8 +27,8 @@
 			],
 		},
 		{
-			"arrival": 9,
-			"max_patience": 10,
+			"arrival": 1,
+			"max_patience": 1,
 			"order": [
 				{
 					"product": "Apple",
@@ -36,8 +36,8 @@
 			],
 		},
 		{
-			"arrival": 17,
-			"max_patience": 20,
+			"arrival": 1,
+			"max_patience": 1,
 			"order": [
 				{
 					"product": "Lemonade",
@@ -48,8 +48,8 @@
 			],
 		},
 		{
-			"arrival": 25,
-			"max_patience": 20,
+			"arrival": 1,
+			"max_patience": 1,
 			"order": [
 				{
 					"product": "Lemonade",

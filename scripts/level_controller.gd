@@ -2,6 +2,8 @@ class_name LevelController
 
 extends Node
 
+signal on_score_updated(height_percentage: float)
+
 # Level settings
 var required_score : int
 
@@ -50,14 +52,12 @@ func _ready():
 		if (!json.settings.machines.has(machine.name)):
 			print("removing ", machine.name)
 			machine.queue_free()
-			#remove_child(machine)
 	
 	var sources = %Sources.get_children()
 	for source in sources:
 		if (!json.settings.sources.has(source.name)):
 			source.queue_free()
 			print("removing ", source.name)
-			#remove_child(source)
 	
 	# Look for customer locations in the current environment
 	for number in range(9):
@@ -72,6 +72,7 @@ func initialize_customers(json_customers: Array):
 		create_customer_arrival_timer(customer_settings.arrival, customer)
 		customer.on_customer_left.connect(_on_customer_left)
 		customers.push_back(customer)
+	customer_total = customers.size()
 
 func create_customer(settings) -> Customer:
 	var customer = load("res://entities/customer.tscn").instantiate()
@@ -121,9 +122,11 @@ func read_json_file():
 
 func gain_points(amount: int):
 	current_score += amount
+	on_score_updated.emit(float(current_score)/float(required_score*1.1))
 
 func lose_points(amount: int):
 	current_score = clamp(current_score-amount,0,INT_MAX)
+	on_score_updated.emit(float(current_score)/float(required_score*1.1))
 
 func _on_customer_left(customer, location):
 	var location_index = customer_locations.find(customer.location)
@@ -137,4 +140,16 @@ func enter_queue(customer: Customer):
 	customer_queue.push_back(customer)
 
 func end_level() -> void:
+	if (current_score >= required_score):
+		# Win
+		Main.complete_current_level()
+		%EndOfLevelMessage.text = "LEVEL CLEARED!"
+	else:
+		# Lose
+		%EndOfLevelMessage.text = "LEVEL FAILED!"
+	%EndOfLevelMessage.visible = true
+	
+	#TODO start timer to go back to level selection
+	var return_timer = get_tree().create_timer(5.0)
+	return_timer.connect("timeout", Main.return_to_level_selection)
 	print("End of level! Total score: ", current_score)

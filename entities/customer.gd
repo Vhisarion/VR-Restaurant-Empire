@@ -142,15 +142,10 @@ func set_location(location: Node3D):
 
 func _update_customer_color():
 	if is_inside_tree():
-		var color_value = $PatienceTimer.time_left/max_patience
-		var material = $CustomerBody.get_surface_override_material(0)
-		if (material == null):
-			material = StandardMaterial3D.new()
-		material.albedo_color = Color(1-color_value,color_value,0,0)
-		$CustomerBody.set_surface_override_material(0, material)
+		print($PatienceTimer.time_left/max_patience)
+		%PatienceBar.value = $PatienceTimer.time_left/max_patience*100
 
 func _on_tray_snap_zone_has_picked_up(what):
-	#var product = find_product_child(what)
 	product_received(what)
 	($Tray/TraySnapZone as XRToolsSnapZone).picked_up_object = null
 
