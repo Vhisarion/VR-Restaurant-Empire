@@ -1,0 +1,1444 @@
+[gd_scene load_steps=37 format=3 uid="uid://cwhatattyrdig"]
+
+[ext_resource type="Environment" uid="uid://ckiwtcdsam7ed" path="res://addons/godot-xr-tools/staging/staging_env.tres" id="1_jqjvl"]
+[ext_resource type="PackedScene" uid="uid://o7e8qsgryg7y" path="res://entities/player.tscn" id="1_u5v4o"]
+[ext_resource type="PackedScene" uid="uid://d0yj88rv0ucqe" path="res://assets/models/kenney_set/house_type13.glb" id="2_5uctk"]
+[ext_resource type="PackedScene" uid="uid://dlbt848q6h5e8" path="res://assets/models/kenney_set/house_type05.glb" id="3_3nmce"]
+[ext_resource type="PackedScene" uid="uid://b1m3qc3ko5g8e" path="res://assets/models/kenney_set/house_type02.glb" id="4_pp15s"]
+[ext_resource type="PackedScene" uid="uid://wiej8os8f0v6" path="res://assets/models/kenney_set/house_type01.glb" id="5_tloc1"]
+[ext_resource type="PackedScene" uid="uid://dhk8ookpth5kg" path="res://assets/models/kenney_set/house_type09.glb" id="6_6r5tb"]
+[ext_resource type="PackedScene" uid="uid://dbhmimfgvy502" path="res://assets/models/kenney_set/house_type16.glb" id="7_iki1l"]
+[ext_resource type="PackedScene" uid="uid://vp4y1hdtknjl" path="res://assets/models/kenney_set/path_long.glb" id="8_5f2wg"]
+[ext_resource type="PackedScene" uid="uid://ub8fx2bjffis" path="res://assets/models/kenney_set/path_tilesLong.glb" id="9_88ej4"]
+[ext_resource type="PackedScene" uid="uid://dqvkhawmj4kdi" path="res://assets/models/park/bush_house_separator.tscn" id="10_jd7kj"]
+[ext_resource type="PackedScene" uid="uid://b8iabtvk8avvm" path="res://objects/stage_1/furniture/counter_large.tscn" id="12_vd1yd"]
+[ext_resource type="PackedScene" uid="uid://dyjwtaftumixa" path="res://levels/level_selector.tscn" id="13_cm5qa"]
+[ext_resource type="JSON" path="res://levels/stage_1/level_1.json" id="14_8vh1k"]
+[ext_resource type="JSON" path="res://levels/stage_1/level_2.json" id="15_ehdfo"]
+[ext_resource type="PackedScene" uid="uid://clwdncfwnjiyl" path="res://levels/stage_1/world1_environment.tscn" id="15_kgjgs"]
+[ext_resource type="JSON" path="res://levels/stage_1/level_3.json" id="16_fbms3"]
+[ext_resource type="JSON" path="res://levels/stage_1/level_4.json" id="17_21bro"]
+[ext_resource type="JSON" path="res://levels/stage_1/level_5.json" id="18_72iot"]
+[ext_resource type="JSON" path="res://levels/stage_1/level_6.json" id="19_mw7gf"]
+[ext_resource type="PackedScene" uid="uid://k7p1w0fj745x" path="res://levels/world_1_level_selector_object.tscn" id="20_8epvj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2kl1o"]
+albedo_color = Color(0.2, 0.2, 0.2, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_b2lm6"]
+material = SubResource("StandardMaterial3D_2kl1o")
+size = Vector3(5, 0.075, 5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8mto8"]
+size = Vector3(5, 0.075, 5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_y8mqt"]
+size = Vector3(0.4, 0.01, 0.4)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yer8r"]
+albedo_color = Color(0.164706, 0.0941176, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_r0kci"]
+material = SubResource("StandardMaterial3D_yer8r")
+size = Vector3(0.4, 0.01, 0.4)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cmwfp"]
+albedo_color = Color(0.203922, 0.203922, 0.203922, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_am26y"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ys7lt"]
+albedo_color = Color(0.211765, 0.356863, 0.0745098, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mu6s4"]
+size = Vector3(50, 0.05, 54.2322)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_532to"]
+albedo_color = Color(0.0431373, 0.298039, 0.00784314, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_82dj3"]
+albedo_color = Color(0.396078, 0.270588, 0.113725, 1)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_36qhk"]
+_surfaces = [{
+"aabb": AABB(-0.129904, 0, -0.15, 0.259808, 0.946914, 0.3),
+"format": 34896613377,
+"index_count": 114,
+"index_data": PackedByteArray(2, 0, 0, 0, 1, 0, 1, 0, 3, 0, 2, 0, 3, 0, 1, 0, 4, 0, 4, 0, 5, 0, 3, 0, 8, 0, 6, 0, 7, 0, 7, 0, 9, 0, 8, 0, 2, 0, 9, 0, 7, 0, 7, 0, 0, 0, 2, 0, 12, 0, 10, 0, 11, 0, 11, 0, 13, 0, 12, 0, 13, 0, 14, 0, 12, 0, 13, 0, 15, 0, 14, 0, 1, 0, 0, 0, 7, 0, 7, 0, 16, 0, 1, 0, 16, 0, 17, 0, 1, 0, 17, 0, 4, 0, 1, 0, 17, 0, 18, 0, 4, 0, 19, 0, 16, 0, 7, 0, 7, 0, 6, 0, 19, 0, 6, 0, 18, 0, 19, 0, 6, 0, 20, 0, 18, 0, 20, 0, 4, 0, 18, 0, 21, 0, 20, 0, 6, 0, 6, 0, 8, 0, 21, 0, 20, 0, 21, 0, 5, 0, 5, 0, 4, 0, 20, 0, 11, 0, 2, 0, 3, 0, 3, 0, 13, 0, 11, 0, 13, 0, 3, 0, 5, 0, 5, 0, 15, 0, 13, 0, 14, 0, 21, 0, 8, 0, 8, 0, 12, 0, 14, 0, 12, 0, 8, 0, 9, 0, 9, 0, 10, 0, 12, 0, 10, 0, 9, 0, 2, 0, 2, 0, 11, 0, 10, 0, 5, 0, 21, 0, 14, 0, 14, 0, 15, 0, 5, 0),
+"name": "roof",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 26,
+"vertex_data": PackedByteArray(170, 42, 215, 108, 85, 85, 0, 0, 255, 127, 215, 108, 170, 42, 0, 0, 0, 0, 115, 142, 255, 63, 0, 0, 255, 127, 115, 142, 0, 0, 0, 0, 84, 213, 215, 108, 85, 85, 0, 0, 255, 255, 115, 142, 255, 63, 0, 0, 255, 127, 215, 108, 84, 213, 0, 0, 170, 42, 215, 108, 169, 170, 0, 0, 255, 127, 115, 142, 255, 255, 0, 0, 0, 0, 115, 142, 255, 191, 0, 0, 85, 85, 255, 255, 84, 149, 0, 0, 85, 85, 255, 255, 170, 106, 0, 0, 255, 127, 255, 255, 169, 170, 0, 0, 255, 127, 255, 255, 85, 85, 0, 0, 170, 170, 255, 255, 84, 149, 0, 0, 170, 170, 255, 255, 170, 106, 0, 0, 78, 107, 215, 108, 20, 110, 0, 0, 176, 148, 215, 108, 20, 110, 0, 0, 176, 148, 215, 108, 234, 145, 0, 0, 78, 107, 215, 108, 234, 145, 0, 0, 84, 213, 215, 108, 169, 170, 0, 0, 255, 255, 115, 142, 255, 191, 0, 0, 56, 96, 0, 0, 122, 100, 0, 0, 198, 159, 0, 0, 122, 100, 0, 0, 198, 159, 0, 0, 132, 155, 0, 0, 56, 96, 0, 0, 132, 155, 0, 0)
+}, {
+"aabb": AABB(-0.129904, 0, -0.15, 0.259808, 0.946914, 0.3),
+"format": 34896613377,
+"index_count": 30,
+"index_data": PackedByteArray(16, 0, 22, 0, 23, 0, 23, 0, 17, 0, 16, 0, 18, 0, 24, 0, 25, 0, 25, 0, 19, 0, 18, 0, 23, 0, 24, 0, 18, 0, 18, 0, 17, 0, 23, 0, 23, 0, 22, 0, 25, 0, 25, 0, 24, 0, 23, 0, 19, 0, 25, 0, 22, 0, 22, 0, 16, 0, 19, 0),
+"name": "wood",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 26,
+"vertex_data": PackedByteArray(170, 42, 215, 108, 85, 85, 0, 0, 255, 127, 215, 108, 170, 42, 0, 0, 0, 0, 115, 142, 255, 63, 0, 0, 255, 127, 115, 142, 0, 0, 0, 0, 84, 213, 215, 108, 85, 85, 0, 0, 255, 255, 115, 142, 255, 63, 0, 0, 255, 127, 215, 108, 84, 213, 0, 0, 170, 42, 215, 108, 169, 170, 0, 0, 255, 127, 115, 142, 255, 255, 0, 0, 0, 0, 115, 142, 255, 191, 0, 0, 85, 85, 255, 255, 84, 149, 0, 0, 85, 85, 255, 255, 170, 106, 0, 0, 255, 127, 255, 255, 169, 170, 0, 0, 255, 127, 255, 255, 85, 85, 0, 0, 170, 170, 255, 255, 84, 149, 0, 0, 170, 170, 255, 255, 170, 106, 0, 0, 78, 107, 215, 108, 20, 110, 0, 0, 176, 148, 215, 108, 20, 110, 0, 0, 176, 148, 215, 108, 234, 145, 0, 0, 78, 107, 215, 108, 234, 145, 0, 0, 84, 213, 215, 108, 169, 170, 0, 0, 255, 255, 115, 142, 255, 191, 0, 0, 56, 96, 0, 0, 122, 100, 0, 0, 198, 159, 0, 0, 122, 100, 0, 0, 198, 159, 0, 0, 132, 155, 0, 0, 56, 96, 0, 0, 132, 155, 0, 0)
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_hak0p"]
+resource_name = "tree_large_Mesh tree_large"
+_surfaces = [{
+"aabb": AABB(-0.129904, 0, -0.15, 0.259808, 0.946914, 0.3),
+"attribute_data": PackedByteArray(229, 201, 19, 73, 25, 54, 19, 73, 216, 238, 54, 54, 38, 17, 54, 54, 229, 201, 19, 73, 25, 54, 19, 73, 216, 238, 54, 54, 38, 17, 54, 54, 229, 201, 19, 73, 25, 54, 19, 73, 216, 238, 54, 54, 38, 17, 54, 54, 216, 238, 54, 54, 229, 201, 19, 73, 38, 17, 54, 54, 25, 54, 19, 73, 255, 63, 56, 135, 255, 63, 14, 128, 255, 127, 205, 138, 255, 127, 121, 124, 255, 191, 56, 135, 255, 191, 14, 128, 255, 255, 121, 124, 255, 255, 205, 138, 255, 127, 78, 117, 9, 159, 160, 128, 245, 96, 160, 128, 0, 0, 121, 124, 245, 96, 165, 134, 9, 159, 165, 134, 255, 127, 247, 145, 0, 0, 205, 138, 229, 201, 19, 73, 25, 54, 19, 73, 216, 238, 54, 54, 38, 17, 54, 54, 38, 17, 54, 54, 216, 238, 54, 54, 25, 54, 19, 73, 229, 201, 19, 73, 216, 238, 115, 61, 38, 17, 115, 61, 242, 164, 0, 0, 12, 91, 0, 0, 216, 238, 115, 61, 38, 17, 115, 61, 242, 164, 0, 0, 12, 91, 0, 0, 216, 238, 115, 61, 38, 17, 115, 61, 242, 164, 0, 0, 12, 91, 0, 0, 216, 238, 115, 61, 38, 17, 115, 61, 242, 164, 0, 0, 12, 91, 0, 0, 216, 238, 115, 61, 38, 17, 115, 61, 242, 164, 0, 0, 12, 91, 0, 0, 38, 17, 115, 61, 12, 91, 0, 0, 216, 238, 115, 61, 242, 164, 0, 0, 169, 175, 196, 131, 85, 80, 196, 131, 9, 159, 14, 74, 245, 96, 14, 74, 169, 175, 196, 131, 85, 80, 196, 131, 9, 159, 14, 74, 245, 96, 14, 74, 85, 80, 196, 131, 245, 96, 14, 74, 169, 175, 196, 131, 9, 159, 14, 74, 169, 175, 4, 127, 169, 175, 66, 136, 85, 80, 4, 127, 85, 80, 66, 136, 169, 175, 196, 131, 85, 80, 196, 131, 9, 159, 14, 74, 245, 96, 14, 74),
+"format": 34896613399,
+"index_count": 114,
+"index_data": PackedByteArray(2, 0, 0, 0, 1, 0, 1, 0, 3, 0, 2, 0, 6, 0, 4, 0, 5, 0, 5, 0, 7, 0, 6, 0, 10, 0, 8, 0, 9, 0, 9, 0, 11, 0, 10, 0, 14, 0, 12, 0, 13, 0, 13, 0, 15, 0, 14, 0, 18, 0, 16, 0, 17, 0, 17, 0, 19, 0, 18, 0, 19, 0, 20, 0, 18, 0, 19, 0, 21, 0, 20, 0, 24, 0, 22, 0, 23, 0, 23, 0, 25, 0, 24, 0, 25, 0, 26, 0, 24, 0, 26, 0, 27, 0, 24, 0, 26, 0, 28, 0, 27, 0, 29, 0, 25, 0, 23, 0, 23, 0, 30, 0, 29, 0, 30, 0, 28, 0, 29, 0, 30, 0, 31, 0, 28, 0, 31, 0, 27, 0, 28, 0, 34, 0, 32, 0, 33, 0, 33, 0, 35, 0, 34, 0, 38, 0, 36, 0, 37, 0, 37, 0, 39, 0, 38, 0, 42, 0, 40, 0, 41, 0, 41, 0, 43, 0, 42, 0, 46, 0, 44, 0, 45, 0, 45, 0, 47, 0, 46, 0, 50, 0, 48, 0, 49, 0, 49, 0, 51, 0, 50, 0, 54, 0, 52, 0, 53, 0, 53, 0, 55, 0, 54, 0, 58, 0, 56, 0, 57, 0, 57, 0, 59, 0, 58, 0, 62, 0, 60, 0, 61, 0, 61, 0, 63, 0, 62, 0),
+"material": SubResource("StandardMaterial3D_532to"),
+"name": "roof",
+"primitive": 3,
+"uv_scale": Vector4(6.8191, 70.3354, 0, 0),
+"vertex_count": 84,
+"vertex_data": PackedByteArray(170, 42, 215, 108, 85, 85, 15, 216, 255, 127, 215, 108, 170, 42, 91, 254, 0, 0, 115, 142, 255, 63, 107, 213, 255, 127, 115, 142, 0, 0, 241, 255, 255, 127, 215, 108, 170, 42, 91, 254, 84, 213, 215, 108, 85, 85, 15, 216, 255, 127, 115, 142, 0, 0, 241, 255, 255, 255, 115, 142, 255, 63, 107, 213, 255, 127, 215, 108, 84, 213, 202, 145, 170, 42, 215, 108, 169, 170, 88, 172, 255, 127, 115, 142, 255, 255, 50, 131, 0, 0, 115, 142, 255, 191, 183, 170, 0, 0, 115, 142, 255, 191, 211, 170, 170, 42, 215, 108, 169, 170, 106, 175, 0, 0, 115, 142, 255, 63, 79, 213, 170, 42, 215, 108, 85, 85, 206, 212, 85, 85, 255, 255, 84, 149, 255, 191, 85, 85, 255, 255, 170, 106, 255, 191, 255, 127, 255, 255, 169, 170, 255, 191, 255, 127, 255, 255, 85, 85, 255, 191, 170, 170, 255, 255, 84, 149, 255, 191, 170, 170, 255, 255, 170, 106, 255, 191, 170, 42, 215, 108, 85, 85, 255, 255, 170, 42, 215, 108, 169, 170, 255, 255, 255, 127, 215, 108, 170, 42, 255, 255, 78, 107, 215, 108, 20, 110, 255, 255, 176, 148, 215, 108, 20, 110, 255, 255, 84, 213, 215, 108, 85, 85, 255, 255, 176, 148, 215, 108, 234, 145, 255, 255, 78, 107, 215, 108, 234, 145, 255, 255, 255, 127, 215, 108, 84, 213, 255, 255, 84, 213, 215, 108, 169, 170, 255, 255, 84, 213, 215, 108, 169, 170, 88, 172, 255, 127, 215, 108, 84, 213, 202, 145, 255, 255, 115, 142, 255, 191, 183, 170, 255, 127, 115, 142, 255, 255, 50, 131, 255, 255, 115, 142, 255, 191, 211, 170, 255, 255, 115, 142, 255, 63, 79, 213, 84, 213, 215, 108, 169, 170, 106, 175, 84, 213, 215, 108, 85, 85, 206, 212, 0, 0, 115, 142, 255, 63, 107, 213, 255, 127, 115, 142, 0, 0, 241, 255, 85, 85, 255, 255, 170, 106, 97, 214, 255, 127, 255, 255, 85, 85, 93, 255, 255, 127, 115, 142, 0, 0, 241, 255, 255, 255, 115, 142, 255, 63, 107, 213, 255, 127, 255, 255, 85, 85, 93, 255, 170, 170, 255, 255, 170, 106, 97, 214, 255, 255, 115, 142, 255, 191, 183, 170, 255, 127, 115, 142, 255, 255, 50, 131, 170, 170, 255, 255, 84, 149, 77, 171, 255, 127, 255, 255, 169, 170, 242, 138, 255, 127, 115, 142, 255, 255, 50, 131, 0, 0, 115, 142, 255, 191, 183, 170, 255, 127, 255, 255, 169, 170, 242, 138, 85, 85, 255, 255, 84, 149, 77, 171, 0, 0, 115, 142, 255, 191, 211, 170, 0, 0, 115, 142, 255, 63, 79, 213, 85, 85, 255, 255, 84, 149, 135, 172, 85, 85, 255, 255, 170, 106, 31, 213, 255, 255, 115, 142, 255, 191, 211, 170, 170, 170, 255, 255, 84, 149, 135, 172, 255, 255, 115, 142, 255, 63, 79, 213, 170, 170, 255, 255, 170, 106, 31, 213, 56, 96, 0, 0, 122, 100, 48, 255, 198, 159, 0, 0, 122, 100, 48, 255, 78, 107, 215, 108, 20, 110, 48, 255, 176, 148, 215, 108, 20, 110, 48, 255, 198, 159, 0, 0, 132, 155, 1, 192, 56, 96, 0, 0, 132, 155, 1, 192, 176, 148, 215, 108, 234, 145, 1, 192, 78, 107, 215, 108, 234, 145, 1, 192, 198, 159, 0, 0, 132, 155, 84, 213, 176, 148, 215, 108, 234, 145, 84, 213, 198, 159, 0, 0, 122, 100, 84, 213, 176, 148, 215, 108, 20, 110, 84, 213, 56, 96, 0, 0, 122, 100, 84, 213, 56, 96, 0, 0, 132, 155, 84, 213, 198, 159, 0, 0, 122, 100, 84, 213, 198, 159, 0, 0, 132, 155, 84, 213, 56, 96, 0, 0, 132, 155, 84, 213, 56, 96, 0, 0, 122, 100, 84, 213, 78, 107, 215, 108, 234, 145, 84, 213, 78, 107, 215, 108, 20, 110, 84, 213, 207, 101, 119, 255, 116, 98, 130, 245, 113, 122, 254, 255, 123, 121, 156, 253, 131, 117, 138, 29, 120, 127, 48, 26, 157, 125, 132, 6, 254, 127, 142, 5, 58, 8, 188, 178, 56, 87, 10, 216, 146, 1, 204, 175, 168, 118, 169, 246, 154, 115, 116, 251, 182, 80, 43, 238, 134, 120, 66, 251, 126, 94, 31, 235, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 127, 255, 63, 255, 127, 255, 63, 255, 127, 255, 63, 255, 127, 255, 63, 255, 127, 255, 63, 255, 127, 255, 63, 255, 127, 255, 63, 255, 127, 255, 63, 255, 127, 255, 63, 255, 127, 255, 63, 10, 88, 199, 40, 188, 50, 197, 119, 170, 118, 86, 9, 205, 47, 108, 126, 116, 123, 101, 12, 67, 123, 120, 7, 43, 110, 73, 47, 32, 107, 128, 33, 113, 122, 254, 255, 123, 121, 156, 253, 33, 128, 176, 238, 49, 135, 27, 236, 157, 125, 132, 6, 254, 127, 142, 5, 227, 147, 50, 7, 78, 145, 34, 0, 170, 118, 86, 9, 205, 47, 108, 126, 170, 155, 115, 27, 199, 250, 91, 78, 146, 1, 204, 175, 168, 118, 169, 246, 90, 206, 54, 133, 115, 155, 84, 228, 154, 115, 116, 251, 134, 120, 66, 251, 168, 140, 204, 221, 57, 142, 104, 233, 116, 123, 101, 12, 49, 162, 168, 12, 67, 123, 120, 7, 150, 150, 57, 14, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 122, 131, 122, 3, 122, 131, 122, 3, 122, 131, 122, 3, 122, 131, 122, 3, 0, 0, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 122, 131, 132, 252, 122, 131, 132, 252, 122, 131, 132, 252, 122, 131, 132, 252)
+}, {
+"aabb": AABB(-0.129904, 0, -0.15, 0.259808, 0.946914, 0.3),
+"attribute_data": PackedByteArray(229, 201, 19, 73, 25, 54, 19, 73, 216, 238, 54, 54, 38, 17, 54, 54, 229, 201, 19, 73, 25, 54, 19, 73, 216, 238, 54, 54, 38, 17, 54, 54, 229, 201, 19, 73, 25, 54, 19, 73, 216, 238, 54, 54, 38, 17, 54, 54, 216, 238, 54, 54, 229, 201, 19, 73, 38, 17, 54, 54, 25, 54, 19, 73, 255, 63, 56, 135, 255, 63, 14, 128, 255, 127, 205, 138, 255, 127, 121, 124, 255, 191, 56, 135, 255, 191, 14, 128, 255, 255, 121, 124, 255, 255, 205, 138, 255, 127, 78, 117, 9, 159, 160, 128, 245, 96, 160, 128, 0, 0, 121, 124, 245, 96, 165, 134, 9, 159, 165, 134, 255, 127, 247, 145, 0, 0, 205, 138, 229, 201, 19, 73, 25, 54, 19, 73, 216, 238, 54, 54, 38, 17, 54, 54, 38, 17, 54, 54, 216, 238, 54, 54, 25, 54, 19, 73, 229, 201, 19, 73, 216, 238, 115, 61, 38, 17, 115, 61, 242, 164, 0, 0, 12, 91, 0, 0, 216, 238, 115, 61, 38, 17, 115, 61, 242, 164, 0, 0, 12, 91, 0, 0, 216, 238, 115, 61, 38, 17, 115, 61, 242, 164, 0, 0, 12, 91, 0, 0, 216, 238, 115, 61, 38, 17, 115, 61, 242, 164, 0, 0, 12, 91, 0, 0, 216, 238, 115, 61, 38, 17, 115, 61, 242, 164, 0, 0, 12, 91, 0, 0, 38, 17, 115, 61, 12, 91, 0, 0, 216, 238, 115, 61, 242, 164, 0, 0, 169, 175, 196, 131, 85, 80, 196, 131, 9, 159, 14, 74, 245, 96, 14, 74, 169, 175, 196, 131, 85, 80, 196, 131, 9, 159, 14, 74, 245, 96, 14, 74, 85, 80, 196, 131, 245, 96, 14, 74, 169, 175, 196, 131, 9, 159, 14, 74, 169, 175, 4, 127, 169, 175, 66, 136, 85, 80, 4, 127, 85, 80, 66, 136, 169, 175, 196, 131, 85, 80, 196, 131, 9, 159, 14, 74, 245, 96, 14, 74),
+"format": 34896613399,
+"index_count": 30,
+"index_data": PackedByteArray(66, 0, 64, 0, 65, 0, 65, 0, 67, 0, 66, 0, 70, 0, 68, 0, 69, 0, 69, 0, 71, 0, 70, 0, 74, 0, 72, 0, 73, 0, 73, 0, 75, 0, 74, 0, 78, 0, 76, 0, 77, 0, 77, 0, 79, 0, 78, 0, 82, 0, 80, 0, 81, 0, 81, 0, 83, 0, 82, 0),
+"material": SubResource("StandardMaterial3D_82dj3"),
+"name": "wood",
+"primitive": 3,
+"uv_scale": Vector4(6.8191, 70.3354, 0, 0),
+"vertex_count": 84,
+"vertex_data": PackedByteArray(170, 42, 215, 108, 85, 85, 116, 225, 255, 127, 215, 108, 170, 42, 3, 245, 0, 0, 115, 142, 255, 63, 131, 226, 255, 127, 115, 142, 0, 0, 9, 254, 255, 127, 215, 108, 170, 42, 3, 245, 84, 213, 215, 108, 85, 85, 116, 225, 255, 127, 115, 142, 0, 0, 9, 254, 255, 255, 115, 142, 255, 63, 131, 226, 255, 127, 215, 108, 84, 213, 119, 193, 170, 42, 215, 108, 169, 170, 13, 203, 255, 127, 115, 142, 255, 255, 11, 192, 0, 0, 115, 142, 255, 191, 80, 202, 0, 0, 115, 142, 255, 191, 80, 202, 170, 42, 215, 108, 169, 170, 13, 203, 0, 0, 115, 142, 255, 63, 131, 226, 170, 42, 215, 108, 85, 85, 116, 225, 85, 85, 255, 255, 84, 149, 84, 213, 85, 85, 255, 255, 170, 106, 84, 213, 255, 127, 255, 255, 169, 170, 84, 213, 255, 127, 255, 255, 85, 85, 84, 213, 170, 170, 255, 255, 84, 149, 84, 213, 170, 170, 255, 255, 170, 106, 84, 213, 170, 42, 215, 108, 85, 85, 84, 213, 170, 42, 215, 108, 169, 170, 84, 213, 255, 127, 215, 108, 170, 42, 84, 213, 78, 107, 215, 108, 20, 110, 84, 213, 176, 148, 215, 108, 20, 110, 84, 213, 84, 213, 215, 108, 85, 85, 84, 213, 176, 148, 215, 108, 234, 145, 84, 213, 78, 107, 215, 108, 234, 145, 84, 213, 255, 127, 215, 108, 84, 213, 84, 213, 84, 213, 215, 108, 169, 170, 84, 213, 84, 213, 215, 108, 169, 170, 13, 203, 255, 127, 215, 108, 84, 213, 119, 193, 255, 255, 115, 142, 255, 191, 80, 202, 255, 127, 115, 142, 255, 255, 11, 192, 255, 255, 115, 142, 255, 191, 80, 202, 255, 255, 115, 142, 255, 63, 131, 226, 84, 213, 215, 108, 169, 170, 13, 203, 84, 213, 215, 108, 85, 85, 116, 225, 0, 0, 115, 142, 255, 63, 131, 226, 255, 127, 115, 142, 0, 0, 9, 254, 85, 85, 255, 255, 170, 106, 34, 226, 255, 127, 255, 255, 85, 85, 69, 249, 255, 127, 115, 142, 0, 0, 9, 254, 255, 255, 115, 142, 255, 63, 131, 226, 255, 127, 255, 255, 85, 85, 69, 249, 170, 170, 255, 255, 170, 106, 34, 226, 255, 255, 115, 142, 255, 191, 80, 202, 255, 127, 115, 142, 255, 255, 11, 192, 170, 170, 255, 255, 84, 149, 148, 202, 255, 127, 255, 255, 169, 170, 141, 192, 255, 127, 115, 142, 255, 255, 11, 192, 0, 0, 115, 142, 255, 191, 80, 202, 255, 127, 255, 255, 169, 170, 141, 192, 85, 85, 255, 255, 84, 149, 148, 202, 0, 0, 115, 142, 255, 191, 80, 202, 0, 0, 115, 142, 255, 63, 131, 226, 85, 85, 255, 255, 84, 149, 148, 202, 85, 85, 255, 255, 170, 106, 34, 226, 255, 255, 115, 142, 255, 191, 80, 202, 170, 170, 255, 255, 84, 149, 148, 202, 255, 255, 115, 142, 255, 63, 131, 226, 170, 170, 255, 255, 170, 106, 34, 226, 56, 96, 0, 0, 122, 100, 255, 255, 198, 159, 0, 0, 122, 100, 255, 255, 78, 107, 215, 108, 20, 110, 255, 255, 176, 148, 215, 108, 20, 110, 255, 255, 198, 159, 0, 0, 132, 155, 34, 129, 56, 96, 0, 0, 132, 155, 34, 129, 176, 148, 215, 108, 234, 145, 34, 129, 78, 107, 215, 108, 234, 145, 34, 129, 198, 159, 0, 0, 132, 155, 1, 192, 176, 148, 215, 108, 234, 145, 1, 192, 198, 159, 0, 0, 122, 100, 1, 192, 176, 148, 215, 108, 20, 110, 1, 192, 56, 96, 0, 0, 122, 100, 255, 255, 56, 96, 0, 0, 132, 155, 255, 255, 198, 159, 0, 0, 122, 100, 255, 255, 198, 159, 0, 0, 132, 155, 255, 255, 56, 96, 0, 0, 132, 155, 1, 192, 56, 96, 0, 0, 122, 100, 1, 192, 78, 107, 215, 108, 234, 145, 1, 192, 78, 107, 215, 108, 20, 110, 1, 192, 103, 87, 103, 215, 0, 0, 255, 127, 169, 118, 168, 246, 0, 0, 255, 127, 0, 0, 255, 127, 103, 87, 151, 40, 0, 0, 255, 127, 169, 118, 86, 9, 0, 0, 255, 127, 103, 87, 103, 215, 0, 0, 255, 127, 169, 118, 168, 246, 169, 118, 168, 246, 103, 87, 103, 215, 169, 118, 168, 246, 103, 87, 103, 215, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 103, 87, 151, 40, 0, 0, 255, 127, 169, 118, 86, 9, 0, 0, 255, 127, 169, 118, 86, 9, 169, 118, 86, 9, 103, 87, 151, 40, 103, 87, 151, 40, 169, 118, 168, 246, 0, 0, 255, 127, 153, 155, 100, 228, 255, 255, 255, 127, 0, 0, 255, 127, 169, 118, 86, 9, 255, 255, 255, 127, 153, 155, 154, 27, 169, 118, 86, 9, 0, 0, 255, 127, 153, 155, 154, 27, 255, 255, 255, 127, 0, 0, 255, 127, 169, 118, 168, 246, 255, 255, 255, 127, 153, 155, 100, 228, 169, 118, 168, 246, 169, 118, 168, 246, 153, 155, 100, 228, 153, 155, 100, 228, 169, 118, 86, 9, 153, 155, 154, 27, 169, 118, 86, 9, 153, 155, 154, 27, 255, 127, 59, 254, 255, 127, 59, 254, 255, 127, 59, 254, 255, 127, 59, 254, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 122, 131, 189, 1, 122, 131, 189, 1, 122, 131, 189, 1, 122, 131, 189, 1, 255, 127, 255, 63, 255, 127, 255, 63, 255, 127, 255, 63, 255, 127, 255, 63, 188, 129, 132, 252, 188, 129, 132, 252, 188, 129, 132, 252, 188, 129, 132, 252)
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_36qhk")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ahpcu"]
+albedo_color = Color(0, 0, 0, 1)
+
+[node name="SelectionWorld" type="Node3D"]
+
+[node name="Player" parent="." instance=ExtResource("1_u5v4o")]
+
+[node name="Lighting" type="Node3D" parent="."]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Lighting"]
+transform = Transform3D(1, 0, 0, 0, -0.653117, 0.757257, 0, -0.757257, -0.653117, 0, 10, 0)
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="Lighting"]
+transform = Transform3D(1, 0, 0, 0, 0.761719, 0.647907, 0, -0.647907, 0.761719, 0, 10, 0)
+
+[node name="DirectionalLight3D3" type="DirectionalLight3D" parent="Lighting"]
+transform = Transform3D(0.530544, -0.308322, 0.789595, -0.708701, 0.349701, 0.612741, -0.465044, -0.884673, -0.0329758, 0, 10, 0)
+
+[node name="DirectionalLight3D4" type="DirectionalLight3D" parent="Lighting"]
+transform = Transform3D(0.256256, 6.87332e-08, -0.966609, 0.626273, 0.761719, 0.16603, 0.736285, -0.647907, 0.195195, 0, 10, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Lighting"]
+environment = ExtResource("1_jqjvl")
+
+[node name="Floor" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
+mesh = SubResource("BoxMesh_b2lm6")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+shape = SubResource("BoxShape3D_8mto8")
+
+[node name="Shelf" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0386441, 0.727827, -0.552164)
+collision_layer = 1073741824
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Shelf"]
+shape = SubResource("BoxShape3D_y8mqt")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Shelf"]
+mesh = SubResource("BoxMesh_r0kci")
+
+[node name="LargeCounter" parent="." instance=ExtResource("12_vd1yd")]
+transform = Transform3D(1.68469, 0, 0, 0, 1, 0, 0, 0, 1.47471, 0.0386441, 0, -0.959096)
+
+[node name="World1Map" type="Node3D" parent="."]
+transform = Transform3D(0.0125445, 0, 0, 0, 0.02, 0, 0, 0, 0.0125445, -0.670459, 0.766101, -0.840776)
+
+[node name="Tile1" type="Node3D" parent="World1Map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.3766, 0, 0)
+
+[node name="Floor" type="Node3D" parent="World1Map/Tile1"]
+
+[node name="Road" type="CSGBox3D" parent="World1Map/Tile1/Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, -8.688)
+size = Vector3(50, 0.05, 54.2322)
+material = SubResource("StandardMaterial3D_cmwfp")
+
+[node name="Lines" type="Node3D" parent="World1Map/Tile1/Floor/Road"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.48665)
+
+[node name="RoadLane" type="CSGBox3D" parent="World1Map/Tile1/Floor/Road/Lines"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.5164, 0, 3.59472)
+size = Vector3(2.96729, 0.06, 0.25)
+material = SubResource("StandardMaterial3D_am26y")
+
+[node name="RoadLane2" type="CSGBox3D" parent="World1Map/Tile1/Floor/Road/Lines"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.0741, 0, 3.59472)
+size = Vector3(2.96729, 0.06, 0.25)
+material = SubResource("StandardMaterial3D_am26y")
+
+[node name="RoadLane3" type="CSGBox3D" parent="World1Map/Tile1/Floor/Road/Lines"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.1706, 0, 3.59472)
+size = Vector3(2.96729, 0.06, 0.25)
+material = SubResource("StandardMaterial3D_am26y")
+
+[node name="RoadLane4" type="CSGBox3D" parent="World1Map/Tile1/Floor/Road/Lines"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.72833, 0, 3.59472)
+size = Vector3(2.96729, 0.06, 0.25)
+material = SubResource("StandardMaterial3D_am26y")
+
+[node name="RoadLane5" type="CSGBox3D" parent="World1Map/Tile1/Floor/Road/Lines"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.86355, 0, 3.59472)
+size = Vector3(2.96729, 0.06, 0.25)
+material = SubResource("StandardMaterial3D_am26y")
+
+[node name="RoadLane6" type="CSGBox3D" parent="World1Map/Tile1/Floor/Road/Lines"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.421307, 0, 3.59472)
+size = Vector3(2.96729, 0.06, 0.25)
+material = SubResource("StandardMaterial3D_am26y")
+
+[node name="RoadLane7" type="CSGBox3D" parent="World1Map/Tile1/Floor/Road/Lines"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.48224, 0, 3.59472)
+size = Vector3(2.96729, 0.06, 0.25)
+material = SubResource("StandardMaterial3D_am26y")
+
+[node name="RoadLane8" type="CSGBox3D" parent="World1Map/Tile1/Floor/Road/Lines"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.92448, 0, 3.59472)
+size = Vector3(2.96729, 0.06, 0.25)
+material = SubResource("StandardMaterial3D_am26y")
+
+[node name="RoadLane9" type="CSGBox3D" parent="World1Map/Tile1/Floor/Road/Lines"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.7676, 0, 3.59472)
+size = Vector3(2.96729, 0.06, 0.25)
+material = SubResource("StandardMaterial3D_am26y")
+
+[node name="RoadLane10" type="CSGBox3D" parent="World1Map/Tile1/Floor/Road/Lines"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.2098, 0, 3.59472)
+size = Vector3(2.96729, 0.06, 0.25)
+material = SubResource("StandardMaterial3D_am26y")
+
+[node name="RoadLane11" type="CSGBox3D" parent="World1Map/Tile1/Floor/Road/Lines"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.1134, 0, 3.59472)
+size = Vector3(2.96729, 0.06, 0.25)
+material = SubResource("StandardMaterial3D_am26y")
+
+[node name="Sidewalk2" type="CSGBox3D" parent="World1Map/Tile1/Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.035, -14.6801)
+size = Vector3(50, 0.05, 1.73035)
+material = SubResource("StandardMaterial3D_cmwfp")
+
+[node name="Sidewalk" type="CSGBox3D" parent="World1Map/Tile1/Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.035, -2.79788)
+size = Vector3(50, 0.05, 1.69818)
+material = SubResource("StandardMaterial3D_cmwfp")
+
+[node name="Grass" type="CSGBox3D" parent="World1Map/Tile1/Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.04, 7.09739)
+size = Vector3(50, 0.05, 23.0978)
+material = SubResource("StandardMaterial3D_ys7lt")
+
+[node name="Grass2" type="CSGBox3D" parent="World1Map/Tile1/Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.04, -24.2001)
+size = Vector3(50, 0.05, 23.0978)
+material = SubResource("StandardMaterial3D_ys7lt")
+
+[node name="FloorCollision" type="RigidBody3D" parent="World1Map/Tile1/Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, -8.688)
+freeze = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World1Map/Tile1/Floor/FloorCollision"]
+shape = SubResource("BoxShape3D_mu6s4")
+
+[node name="Houses" type="Node3D" parent="World1Map/Tile1"]
+
+[node name="house_type132" parent="World1Map/Tile1/Houses" instance=ExtResource("2_5uctk")]
+transform = Transform3D(-9, 0, -1.35896e-06, 0, 9, 0, 1.35896e-06, 0, -9, 0.0106173, 0, 11.2582)
+
+[node name="house_type052" parent="World1Map/Tile1/Houses" instance=ExtResource("3_3nmce")]
+transform = Transform3D(-9, 0, -1.35896e-06, 0, 9, 0, 1.35896e-06, 0, -9, -14.3965, 0, 11.2582)
+
+[node name="house_type022" parent="World1Map/Tile1/Houses" instance=ExtResource("4_pp15s")]
+transform = Transform3D(-9, 0, -1.35896e-06, 0, 9, 0, 1.35896e-06, 0, -9, 15.6038, 0, 11.2582)
+
+[node name="house_type012" parent="World1Map/Tile1/Houses" instance=ExtResource("5_tloc1")]
+transform = Transform3D(9, 0, 0, 0, 9, 0, 0, 0, 9, -3.31553, 0, -24.6152)
+
+[node name="house_type092" parent="World1Map/Tile1/Houses" instance=ExtResource("6_6r5tb")]
+transform = Transform3D(9, 0, 0, 0, 9, 0, 0, 0, 9, -15.5377, 0, -27.6601)
+
+[node name="house_type162" parent="World1Map/Tile1/Houses" instance=ExtResource("7_iki1l")]
+transform = Transform3D(9, 0, 0, 0, 9, 0, 0, 0, 9, 15.2564, 0, -27.2365)
+
+[node name="Paths" type="Node3D" parent="World1Map/Tile1/Houses"]
+
+[node name="path_long2" parent="World1Map/Tile1/Houses/Paths" instance=ExtResource("8_5f2wg")]
+transform = Transform3D(-3.80775e-07, 0, -124.643, 0, 6, 0, 8.71112, 0, -5.44831e-06, 0.026907, 0, -2.80518)
+
+[node name="path_long3" parent="World1Map/Tile1/Houses/Paths" instance=ExtResource("8_5f2wg")]
+transform = Transform3D(-3.80775e-07, 0, -124.643, 0, 6, 0, 8.71112, 0, -5.44831e-06, 0.026907, 0, -14.6873)
+
+[node name="path_tilesLong6" parent="World1Map/Tile1/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(-6, 0, 5.24537e-07, 0, 6, 0, -5.24537e-07, 0, -6, -0.0655905, -0.0665046, 2.85645)
+
+[node name="path_tilesLong8" parent="World1Map/Tile1/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, -0.0655905, -0.0665046, 7.64533)
+
+[node name="path_tilesLong9" parent="World1Map/Tile1/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, -0.0655905, -0.0665046, 5.25186)
+
+[node name="path_tilesLong12" parent="World1Map/Tile1/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(-6, 0, 5.24537e-07, 0, 6, 0, -5.24537e-07, 0, -6, -0.0655905, -0.0665046, 0.458566)
+
+[node name="path_tilesLong13" parent="World1Map/Tile1/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(-6, 0, 5.24537e-07, 0, 6, 0, -5.24537e-07, 0, -6, -0.0655905, -0.0665046, -0.741706)
+
+[node name="path_tilesLong7" parent="World1Map/Tile1/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(-6, 0, 5.24537e-07, 0, 6, 0, -5.24537e-07, 0, -6, -14.4548, -0.0665046, 2.92947)
+
+[node name="path_tilesLong10" parent="World1Map/Tile1/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, -14.4548, -0.0665046, 7.71835)
+
+[node name="path_tilesLong11" parent="World1Map/Tile1/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, -14.4548, -0.0665046, 5.32488)
+
+[node name="path_tilesLong14" parent="World1Map/Tile1/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(-6, 0, 5.24537e-07, 0, 6, 0, -5.24537e-07, 0, -6, -14.4548, -0.0665046, 0.531586)
+
+[node name="path_tilesLong15" parent="World1Map/Tile1/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(-6, 0, 5.24537e-07, 0, 6, 0, -5.24537e-07, 0, -6, -14.4548, -0.0665046, -0.668686)
+
+[node name="path_tilesLong16" parent="World1Map/Tile1/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(-6, 0, 5.24537e-07, 0, 6, 0, -5.24537e-07, 0, -6, 15.5818, -0.0665046, 2.92947)
+
+[node name="path_tilesLong17" parent="World1Map/Tile1/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 15.5818, -0.0665046, 7.71835)
+
+[node name="path_tilesLong18" parent="World1Map/Tile1/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 15.5818, -0.0665046, 5.32488)
+
+[node name="path_tilesLong19" parent="World1Map/Tile1/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(-6, 0, 5.24537e-07, 0, 6, 0, -5.24537e-07, 0, -6, 15.5818, -0.0665046, 0.531586)
+
+[node name="path_tilesLong20" parent="World1Map/Tile1/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(-6, 0, 5.24537e-07, 0, 6, 0, -5.24537e-07, 0, -6, 15.5818, -0.0665046, -0.668686)
+
+[node name="path_tilesLong21" parent="World1Map/Tile1/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(-6, 0, 5.24537e-07, 0, 6, 0, -5.24537e-07, 0, -6, 16.4512, -0.0665046, -21.6101)
+
+[node name="path_tilesLong22" parent="World1Map/Tile1/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 16.4512, -0.0665046, -16.8212)
+
+[node name="path_tilesLong23" parent="World1Map/Tile1/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 16.4512, -0.0665046, -19.2146)
+
+[node name="path_tilesLong24" parent="World1Map/Tile1/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(-6, 0, 5.24537e-07, 0, 6, 0, -5.24537e-07, 0, -6, 16.4512, -0.0665046, -24.0079)
+
+[node name="path_tilesLong25" parent="World1Map/Tile1/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(-6, 0, 5.24537e-07, 0, 6, 0, -5.24537e-07, 0, -6, 16.4512, -0.0665046, -25.2082)
+
+[node name="path_tilesLong26" parent="World1Map/Tile1/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(-6, 0, 5.24537e-07, 0, 6, 0, -5.24537e-07, 0, -6, 0.552336, -0.0665046, -21.6101)
+
+[node name="path_tilesLong27" parent="World1Map/Tile1/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0.552336, -0.0665046, -16.8212)
+
+[node name="path_tilesLong28" parent="World1Map/Tile1/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0.552336, -0.0665046, -19.2146)
+
+[node name="path_tilesLong29" parent="World1Map/Tile1/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(-6, 0, 5.24537e-07, 0, 6, 0, -5.24537e-07, 0, -6, 0.552336, -0.0665046, -24.0079)
+
+[node name="path_tilesLong30" parent="World1Map/Tile1/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(-6, 0, 5.24537e-07, 0, 6, 0, -5.24537e-07, 0, -6, 0.552336, -0.0665046, -25.2082)
+
+[node name="path_tilesLong31" parent="World1Map/Tile1/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(-6, 0, 5.24537e-07, 0, 6, 0, -5.24537e-07, 0, -6, -15.5411, -0.0665046, -21.6101)
+
+[node name="path_tilesLong32" parent="World1Map/Tile1/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, -15.5411, -0.0665046, -16.8212)
+
+[node name="path_tilesLong33" parent="World1Map/Tile1/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, -15.5411, -0.0665046, -19.2146)
+
+[node name="path_tilesLong34" parent="World1Map/Tile1/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(-6, 0, 5.24537e-07, 0, 6, 0, -5.24537e-07, 0, -6, -15.5411, -0.0665046, -24.0079)
+
+[node name="path_tilesLong35" parent="World1Map/Tile1/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(-6, 0, 5.24537e-07, 0, 6, 0, -5.24537e-07, 0, -6, -15.5411, -0.0665046, -25.2082)
+
+[node name="Bushes" type="Node3D" parent="World1Map/Tile1"]
+
+[node name="BushHouseSeparator" parent="World1Map/Tile1/Bushes" instance=ExtResource("10_jd7kj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.01561, 0, 10.1249)
+
+[node name="BushHouseSeparator2" parent="World1Map/Tile1/Bushes" instance=ExtResource("10_jd7kj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.31565, 0, 11.0682)
+
+[node name="BushHouseSeparator4" parent="World1Map/Tile1/Bushes" instance=ExtResource("10_jd7kj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.4543, 0, 10.7732)
+
+[node name="BushHouseSeparator5" parent="World1Map/Tile1/Bushes" instance=ExtResource("10_jd7kj")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -7.56327, -9.53674e-07, -28.774)
+
+[node name="BushHouseSeparator6" parent="World1Map/Tile1/Bushes" instance=ExtResource("10_jd7kj")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 8.31565, 0, -28.6136)
+
+[node name="BushHouseSeparator8" parent="World1Map/Tile1/Bushes" instance=ExtResource("10_jd7kj")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -26.1196, 0, -28.9085)
+
+[node name="Trees" type="Node3D" parent="World1Map/Tile1"]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, -4.19959, 0, 3.8568)
+
+[node name="tmpParent" type="Node3D" parent="World1Map/Tile1/Trees"]
+
+[node name="tree_large" type="MeshInstance3D" parent="World1Map/Tile1/Trees/tmpParent"]
+transform = Transform3D(0.81, 0, 0, 0, 0.81, 0, 0, 0, 0.81, 0, 0, 0)
+mesh = SubResource("ArrayMesh_hak0p")
+skeleton = NodePath("")
+
+[node name="tree_large2" type="MeshInstance3D" parent="World1Map/Tile1/Trees/tmpParent"]
+transform = Transform3D(0.81, 0, 0, 0, 0.81, 0, 0, 0, 0.81, -0.789739, 0, 0.427833)
+mesh = SubResource("ArrayMesh_hak0p")
+skeleton = NodePath("")
+
+[node name="tree_large3" type="MeshInstance3D" parent="World1Map/Tile1/Trees/tmpParent"]
+transform = Transform3D(0.81, 0, 0, 0, 0.81, 0, 0, 0, 0.81, -2.74839, 0, -0.224975)
+mesh = SubResource("ArrayMesh_hak0p")
+skeleton = NodePath("")
+
+[node name="tree_large4" type="MeshInstance3D" parent="World1Map/Tile1/Trees/tmpParent"]
+transform = Transform3D(0.81, 0, 0, 0, 0.81, 0, 0, 0, 0.81, 4.29683, 0, 0.452932)
+mesh = SubResource("ArrayMesh_hak0p")
+skeleton = NodePath("")
+
+[node name="tree_large5" type="MeshInstance3D" parent="World1Map/Tile1/Trees/tmpParent"]
+transform = Transform3D(0.81, 0, 0, 0, 0.81, 0, 0, 0, 0.81, 3.99781, 1.58946e-07, -0.343753)
+mesh = SubResource("ArrayMesh_hak0p")
+skeleton = NodePath("")
+
+[node name="tree_large6" type="MeshInstance3D" parent="World1Map/Tile1/Trees/tmpParent"]
+transform = Transform3D(0.81, 0, 0, 0, 0.81, 0, 0, 0, 0.81, 3.68044, 1.58946e-07, -4.21119)
+mesh = SubResource("ArrayMesh_hak0p")
+skeleton = NodePath("")
+
+[node name="tree_large7" type="MeshInstance3D" parent="World1Map/Tile1/Trees/tmpParent"]
+transform = Transform3D(0.81, 0, 0, 0, 0.81, 0, 0, 0, 0.81, -0.242985, 1.58946e-07, -5.02338)
+mesh = SubResource("ArrayMesh_hak0p")
+skeleton = NodePath("")
+
+[node name="tree_large8" type="MeshInstance3D" parent="World1Map/Tile1/Trees/tmpParent"]
+transform = Transform3D(0.81, 0, 0, 0, 0.81, 0, 0, 0, 0.81, -1.23124, 1.58946e-07, -4.36438)
+mesh = SubResource("ArrayMesh_hak0p")
+skeleton = NodePath("")
+
+[node name="tree_large9" type="MeshInstance3D" parent="World1Map/Tile1/Trees/tmpParent"]
+transform = Transform3D(0.81, 0, 0, 0, 0.81, 0, 0, 0, 0.81, -2.45449, 1.58946e-07, -4.36795)
+mesh = SubResource("ArrayMesh_hak0p")
+skeleton = NodePath("")
+
+[node name="Tile2" type="Node3D" parent="World1Map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.6233, 0, 0)
+
+[node name="Floor" type="Node3D" parent="World1Map/Tile2"]
+
+[node name="Road" type="CSGBox3D" parent="World1Map/Tile2/Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, -8.688)
+size = Vector3(50, 0.05, 54.2322)
+material = SubResource("StandardMaterial3D_cmwfp")
+
+[node name="Lines" type="Node3D" parent="World1Map/Tile2/Floor/Road"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.48665)
+
+[node name="RoadLane" type="CSGBox3D" parent="World1Map/Tile2/Floor/Road/Lines"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.5164, 0, 3.59472)
+size = Vector3(2.96729, 0.06, 0.25)
+material = SubResource("StandardMaterial3D_am26y")
+
+[node name="RoadLane2" type="CSGBox3D" parent="World1Map/Tile2/Floor/Road/Lines"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.0741, 0, 3.59472)
+size = Vector3(2.96729, 0.06, 0.25)
+material = SubResource("StandardMaterial3D_am26y")
+
+[node name="RoadLane3" type="CSGBox3D" parent="World1Map/Tile2/Floor/Road/Lines"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.1706, 0, 3.59472)
+size = Vector3(2.96729, 0.06, 0.25)
+material = SubResource("StandardMaterial3D_am26y")
+
+[node name="RoadLane4" type="CSGBox3D" parent="World1Map/Tile2/Floor/Road/Lines"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.72833, 0, 3.59472)
+size = Vector3(2.96729, 0.06, 0.25)
+material = SubResource("StandardMaterial3D_am26y")
+
+[node name="RoadLane5" type="CSGBox3D" parent="World1Map/Tile2/Floor/Road/Lines"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.86355, 0, 3.59472)
+size = Vector3(2.96729, 0.06, 0.25)
+material = SubResource("StandardMaterial3D_am26y")
+
+[node name="RoadLane6" type="CSGBox3D" parent="World1Map/Tile2/Floor/Road/Lines"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.421307, 0, 3.59472)
+size = Vector3(2.96729, 0.06, 0.25)
+material = SubResource("StandardMaterial3D_am26y")
+
+[node name="RoadLane7" type="CSGBox3D" parent="World1Map/Tile2/Floor/Road/Lines"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.48224, 0, 3.59472)
+size = Vector3(2.96729, 0.06, 0.25)
+material = SubResource("StandardMaterial3D_am26y")
+
+[node name="RoadLane8" type="CSGBox3D" parent="World1Map/Tile2/Floor/Road/Lines"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.92448, 0, 3.59472)
+size = Vector3(2.96729, 0.06, 0.25)
+material = SubResource("StandardMaterial3D_am26y")
+
+[node name="RoadLane9" type="CSGBox3D" parent="World1Map/Tile2/Floor/Road/Lines"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.7676, 0, 3.59472)
+size = Vector3(2.96729, 0.06, 0.25)
+material = SubResource("StandardMaterial3D_am26y")
+
+[node name="RoadLane10" type="CSGBox3D" parent="World1Map/Tile2/Floor/Road/Lines"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.2098, 0, 3.59472)
+size = Vector3(2.96729, 0.06, 0.25)
+material = SubResource("StandardMaterial3D_am26y")
+
+[node name="RoadLane11" type="CSGBox3D" parent="World1Map/Tile2/Floor/Road/Lines"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.1134, 0, 3.59472)
+size = Vector3(2.96729, 0.06, 0.25)
+material = SubResource("StandardMaterial3D_am26y")
+
+[node name="Sidewalk2" type="CSGBox3D" parent="World1Map/Tile2/Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.035, -14.6801)
+size = Vector3(50, 0.05, 1.73035)
+material = SubResource("StandardMaterial3D_cmwfp")
+
+[node name="Sidewalk" type="CSGBox3D" parent="World1Map/Tile2/Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.035, -2.79788)
+size = Vector3(50, 0.05, 1.69818)
+material = SubResource("StandardMaterial3D_cmwfp")
+
+[node name="Grass" type="CSGBox3D" parent="World1Map/Tile2/Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.04, 7.09739)
+size = Vector3(50, 0.05, 23.0978)
+material = SubResource("StandardMaterial3D_ys7lt")
+
+[node name="Grass2" type="CSGBox3D" parent="World1Map/Tile2/Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.04, -24.2001)
+size = Vector3(50, 0.05, 23.0978)
+material = SubResource("StandardMaterial3D_ys7lt")
+
+[node name="FloorCollision" type="RigidBody3D" parent="World1Map/Tile2/Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, -8.688)
+freeze = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World1Map/Tile2/Floor/FloorCollision"]
+shape = SubResource("BoxShape3D_mu6s4")
+
+[node name="Houses" type="Node3D" parent="World1Map/Tile2"]
+
+[node name="house_type132" parent="World1Map/Tile2/Houses" instance=ExtResource("2_5uctk")]
+transform = Transform3D(-9, 0, -1.35896e-06, 0, 9, 0, 1.35896e-06, 0, -9, 0.0106173, 0, 11.2582)
+
+[node name="house_type052" parent="World1Map/Tile2/Houses" instance=ExtResource("3_3nmce")]
+transform = Transform3D(-9, 0, -1.35896e-06, 0, 9, 0, 1.35896e-06, 0, -9, -14.3965, 0, 11.2582)
+
+[node name="house_type022" parent="World1Map/Tile2/Houses" instance=ExtResource("4_pp15s")]
+transform = Transform3D(-9, 0, -1.35896e-06, 0, 9, 0, 1.35896e-06, 0, -9, 15.6038, 0, 11.2582)
+
+[node name="house_type012" parent="World1Map/Tile2/Houses" instance=ExtResource("5_tloc1")]
+transform = Transform3D(9, 0, 0, 0, 9, 0, 0, 0, 9, -3.31553, 0, -24.6152)
+
+[node name="house_type092" parent="World1Map/Tile2/Houses" instance=ExtResource("6_6r5tb")]
+transform = Transform3D(9, 0, 0, 0, 9, 0, 0, 0, 9, -15.5377, 0, -27.6601)
+
+[node name="house_type162" parent="World1Map/Tile2/Houses" instance=ExtResource("7_iki1l")]
+transform = Transform3D(9, 0, 0, 0, 9, 0, 0, 0, 9, 15.2564, 0, -27.2365)
+
+[node name="Paths" type="Node3D" parent="World1Map/Tile2/Houses"]
+
+[node name="path_long2" parent="World1Map/Tile2/Houses/Paths" instance=ExtResource("8_5f2wg")]
+transform = Transform3D(-3.80775e-07, 0, -124.643, 0, 6, 0, 8.71112, 0, -5.44831e-06, 0.026907, 0, -2.80518)
+
+[node name="path_long3" parent="World1Map/Tile2/Houses/Paths" instance=ExtResource("8_5f2wg")]
+transform = Transform3D(-3.80775e-07, 0, -124.643, 0, 6, 0, 8.71112, 0, -5.44831e-06, 0.026907, 0, -14.6873)
+
+[node name="path_tilesLong6" parent="World1Map/Tile2/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(-6, 0, 5.24537e-07, 0, 6, 0, -5.24537e-07, 0, -6, -0.0655905, -0.0665046, 2.85645)
+
+[node name="path_tilesLong8" parent="World1Map/Tile2/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, -0.0655905, -0.0665046, 7.64533)
+
+[node name="path_tilesLong9" parent="World1Map/Tile2/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, -0.0655905, -0.0665046, 5.25186)
+
+[node name="path_tilesLong12" parent="World1Map/Tile2/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(-6, 0, 5.24537e-07, 0, 6, 0, -5.24537e-07, 0, -6, -0.0655905, -0.0665046, 0.458566)
+
+[node name="path_tilesLong13" parent="World1Map/Tile2/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(-6, 0, 5.24537e-07, 0, 6, 0, -5.24537e-07, 0, -6, -0.0655905, -0.0665046, -0.741706)
+
+[node name="path_tilesLong7" parent="World1Map/Tile2/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(-6, 0, 5.24537e-07, 0, 6, 0, -5.24537e-07, 0, -6, -14.4548, -0.0665046, 2.92947)
+
+[node name="path_tilesLong10" parent="World1Map/Tile2/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, -14.4548, -0.0665046, 7.71835)
+
+[node name="path_tilesLong11" parent="World1Map/Tile2/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, -14.4548, -0.0665046, 5.32488)
+
+[node name="path_tilesLong14" parent="World1Map/Tile2/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(-6, 0, 5.24537e-07, 0, 6, 0, -5.24537e-07, 0, -6, -14.4548, -0.0665046, 0.531586)
+
+[node name="path_tilesLong15" parent="World1Map/Tile2/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(-6, 0, 5.24537e-07, 0, 6, 0, -5.24537e-07, 0, -6, -14.4548, -0.0665046, -0.668686)
+
+[node name="path_tilesLong16" parent="World1Map/Tile2/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(-6, 0, 5.24537e-07, 0, 6, 0, -5.24537e-07, 0, -6, 15.5818, -0.0665046, 2.92947)
+
+[node name="path_tilesLong17" parent="World1Map/Tile2/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 15.5818, -0.0665046, 7.71835)
+
+[node name="path_tilesLong18" parent="World1Map/Tile2/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 15.5818, -0.0665046, 5.32488)
+
+[node name="path_tilesLong19" parent="World1Map/Tile2/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(-6, 0, 5.24537e-07, 0, 6, 0, -5.24537e-07, 0, -6, 15.5818, -0.0665046, 0.531586)
+
+[node name="path_tilesLong20" parent="World1Map/Tile2/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(-6, 0, 5.24537e-07, 0, 6, 0, -5.24537e-07, 0, -6, 15.5818, -0.0665046, -0.668686)
+
+[node name="path_tilesLong21" parent="World1Map/Tile2/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(-6, 0, 5.24537e-07, 0, 6, 0, -5.24537e-07, 0, -6, 16.4512, -0.0665046, -21.6101)
+
+[node name="path_tilesLong22" parent="World1Map/Tile2/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 16.4512, -0.0665046, -16.8212)
+
+[node name="path_tilesLong23" parent="World1Map/Tile2/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 16.4512, -0.0665046, -19.2146)
+
+[node name="path_tilesLong24" parent="World1Map/Tile2/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(-6, 0, 5.24537e-07, 0, 6, 0, -5.24537e-07, 0, -6, 16.4512, -0.0665046, -24.0079)
+
+[node name="path_tilesLong25" parent="World1Map/Tile2/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(-6, 0, 5.24537e-07, 0, 6, 0, -5.24537e-07, 0, -6, 16.4512, -0.0665046, -25.2082)
+
+[node name="path_tilesLong26" parent="World1Map/Tile2/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(-6, 0, 5.24537e-07, 0, 6, 0, -5.24537e-07, 0, -6, 0.552336, -0.0665046, -21.6101)
+
+[node name="path_tilesLong27" parent="World1Map/Tile2/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0.552336, -0.0665046, -16.8212)
+
+[node name="path_tilesLong28" parent="World1Map/Tile2/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0.552336, -0.0665046, -19.2146)
+
+[node name="path_tilesLong29" parent="World1Map/Tile2/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(-6, 0, 5.24537e-07, 0, 6, 0, -5.24537e-07, 0, -6, 0.552336, -0.0665046, -24.0079)
+
+[node name="path_tilesLong30" parent="World1Map/Tile2/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(-6, 0, 5.24537e-07, 0, 6, 0, -5.24537e-07, 0, -6, 0.552336, -0.0665046, -25.2082)
+
+[node name="path_tilesLong31" parent="World1Map/Tile2/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(-6, 0, 5.24537e-07, 0, 6, 0, -5.24537e-07, 0, -6, -15.5411, -0.0665046, -21.6101)
+
+[node name="path_tilesLong32" parent="World1Map/Tile2/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, -15.5411, -0.0665046, -16.8212)
+
+[node name="path_tilesLong33" parent="World1Map/Tile2/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, -15.5411, -0.0665046, -19.2146)
+
+[node name="path_tilesLong34" parent="World1Map/Tile2/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(-6, 0, 5.24537e-07, 0, 6, 0, -5.24537e-07, 0, -6, -15.5411, -0.0665046, -24.0079)
+
+[node name="path_tilesLong35" parent="World1Map/Tile2/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(-6, 0, 5.24537e-07, 0, 6, 0, -5.24537e-07, 0, -6, -15.5411, -0.0665046, -25.2082)
+
+[node name="Bushes" type="Node3D" parent="World1Map/Tile2"]
+
+[node name="BushHouseSeparator" parent="World1Map/Tile2/Bushes" instance=ExtResource("10_jd7kj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.01561, 0, 10.1249)
+
+[node name="BushHouseSeparator2" parent="World1Map/Tile2/Bushes" instance=ExtResource("10_jd7kj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.31565, 0, 11.0682)
+
+[node name="BushHouseSeparator4" parent="World1Map/Tile2/Bushes" instance=ExtResource("10_jd7kj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.4543, 0, 10.7732)
+
+[node name="BushHouseSeparator5" parent="World1Map/Tile2/Bushes" instance=ExtResource("10_jd7kj")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -7.56327, -9.53674e-07, -28.774)
+
+[node name="BushHouseSeparator6" parent="World1Map/Tile2/Bushes" instance=ExtResource("10_jd7kj")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 8.31565, 0, -28.6136)
+
+[node name="BushHouseSeparator8" parent="World1Map/Tile2/Bushes" instance=ExtResource("10_jd7kj")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -26.1196, 0, -28.9085)
+
+[node name="Trees" type="Node3D" parent="World1Map/Tile2"]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, -4.19959, 0, 3.8568)
+
+[node name="tmpParent" type="Node3D" parent="World1Map/Tile2/Trees"]
+
+[node name="tree_large" type="MeshInstance3D" parent="World1Map/Tile2/Trees/tmpParent"]
+transform = Transform3D(0.81, 0, 0, 0, 0.81, 0, 0, 0, 0.81, 0, 0, 0)
+mesh = SubResource("ArrayMesh_hak0p")
+skeleton = NodePath("")
+
+[node name="tree_large2" type="MeshInstance3D" parent="World1Map/Tile2/Trees/tmpParent"]
+transform = Transform3D(0.81, 0, 0, 0, 0.81, 0, 0, 0, 0.81, -0.789739, 0, 0.427833)
+mesh = SubResource("ArrayMesh_hak0p")
+skeleton = NodePath("")
+
+[node name="tree_large3" type="MeshInstance3D" parent="World1Map/Tile2/Trees/tmpParent"]
+transform = Transform3D(0.81, 0, 0, 0, 0.81, 0, 0, 0, 0.81, -2.74839, 0, -0.224975)
+mesh = SubResource("ArrayMesh_hak0p")
+skeleton = NodePath("")
+
+[node name="tree_large4" type="MeshInstance3D" parent="World1Map/Tile2/Trees/tmpParent"]
+transform = Transform3D(0.81, 0, 0, 0, 0.81, 0, 0, 0, 0.81, 4.29683, 0, 0.452932)
+mesh = SubResource("ArrayMesh_hak0p")
+skeleton = NodePath("")
+
+[node name="tree_large5" type="MeshInstance3D" parent="World1Map/Tile2/Trees/tmpParent"]
+transform = Transform3D(0.81, 0, 0, 0, 0.81, 0, 0, 0, 0.81, 3.99781, 1.58946e-07, -0.343753)
+mesh = SubResource("ArrayMesh_hak0p")
+skeleton = NodePath("")
+
+[node name="tree_large6" type="MeshInstance3D" parent="World1Map/Tile2/Trees/tmpParent"]
+transform = Transform3D(0.81, 0, 0, 0, 0.81, 0, 0, 0, 0.81, 3.68044, 1.58946e-07, -4.21119)
+mesh = SubResource("ArrayMesh_hak0p")
+skeleton = NodePath("")
+
+[node name="tree_large7" type="MeshInstance3D" parent="World1Map/Tile2/Trees/tmpParent"]
+transform = Transform3D(0.81, 0, 0, 0, 0.81, 0, 0, 0, 0.81, -0.242985, 1.58946e-07, -5.02338)
+mesh = SubResource("ArrayMesh_hak0p")
+skeleton = NodePath("")
+
+[node name="tree_large8" type="MeshInstance3D" parent="World1Map/Tile2/Trees/tmpParent"]
+transform = Transform3D(0.81, 0, 0, 0, 0.81, 0, 0, 0, 0.81, -1.23124, 1.58946e-07, -4.36438)
+mesh = SubResource("ArrayMesh_hak0p")
+skeleton = NodePath("")
+
+[node name="tree_large9" type="MeshInstance3D" parent="World1Map/Tile2/Trees/tmpParent"]
+transform = Transform3D(0.81, 0, 0, 0, 0.81, 0, 0, 0, 0.81, -2.45449, 1.58946e-07, -4.36795)
+mesh = SubResource("ArrayMesh_hak0p")
+skeleton = NodePath("")
+
+[node name="Tile3" type="Node3D" parent="World1Map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 81.6233, 0, 0)
+
+[node name="Floor" type="Node3D" parent="World1Map/Tile3"]
+
+[node name="Road" type="CSGBox3D" parent="World1Map/Tile3/Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, -8.688)
+size = Vector3(50, 0.05, 54.2322)
+material = SubResource("StandardMaterial3D_cmwfp")
+
+[node name="Lines" type="Node3D" parent="World1Map/Tile3/Floor/Road"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.48665)
+
+[node name="RoadLane" type="CSGBox3D" parent="World1Map/Tile3/Floor/Road/Lines"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.5164, 0, 3.59472)
+size = Vector3(2.96729, 0.06, 0.25)
+material = SubResource("StandardMaterial3D_am26y")
+
+[node name="RoadLane2" type="CSGBox3D" parent="World1Map/Tile3/Floor/Road/Lines"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.0741, 0, 3.59472)
+size = Vector3(2.96729, 0.06, 0.25)
+material = SubResource("StandardMaterial3D_am26y")
+
+[node name="RoadLane3" type="CSGBox3D" parent="World1Map/Tile3/Floor/Road/Lines"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.1706, 0, 3.59472)
+size = Vector3(2.96729, 0.06, 0.25)
+material = SubResource("StandardMaterial3D_am26y")
+
+[node name="RoadLane4" type="CSGBox3D" parent="World1Map/Tile3/Floor/Road/Lines"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.72833, 0, 3.59472)
+size = Vector3(2.96729, 0.06, 0.25)
+material = SubResource("StandardMaterial3D_am26y")
+
+[node name="RoadLane5" type="CSGBox3D" parent="World1Map/Tile3/Floor/Road/Lines"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.86355, 0, 3.59472)
+size = Vector3(2.96729, 0.06, 0.25)
+material = SubResource("StandardMaterial3D_am26y")
+
+[node name="RoadLane6" type="CSGBox3D" parent="World1Map/Tile3/Floor/Road/Lines"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.421307, 0, 3.59472)
+size = Vector3(2.96729, 0.06, 0.25)
+material = SubResource("StandardMaterial3D_am26y")
+
+[node name="RoadLane7" type="CSGBox3D" parent="World1Map/Tile3/Floor/Road/Lines"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.48224, 0, 3.59472)
+size = Vector3(2.96729, 0.06, 0.25)
+material = SubResource("StandardMaterial3D_am26y")
+
+[node name="RoadLane8" type="CSGBox3D" parent="World1Map/Tile3/Floor/Road/Lines"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.92448, 0, 3.59472)
+size = Vector3(2.96729, 0.06, 0.25)
+material = SubResource("StandardMaterial3D_am26y")
+
+[node name="RoadLane9" type="CSGBox3D" parent="World1Map/Tile3/Floor/Road/Lines"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.7676, 0, 3.59472)
+size = Vector3(2.96729, 0.06, 0.25)
+material = SubResource("StandardMaterial3D_am26y")
+
+[node name="RoadLane10" type="CSGBox3D" parent="World1Map/Tile3/Floor/Road/Lines"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.2098, 0, 3.59472)
+size = Vector3(2.96729, 0.06, 0.25)
+material = SubResource("StandardMaterial3D_am26y")
+
+[node name="RoadLane11" type="CSGBox3D" parent="World1Map/Tile3/Floor/Road/Lines"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.1134, 0, 3.59472)
+size = Vector3(2.96729, 0.06, 0.25)
+material = SubResource("StandardMaterial3D_am26y")
+
+[node name="Sidewalk2" type="CSGBox3D" parent="World1Map/Tile3/Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.035, -14.6801)
+size = Vector3(50, 0.05, 1.73035)
+material = SubResource("StandardMaterial3D_cmwfp")
+
+[node name="Sidewalk" type="CSGBox3D" parent="World1Map/Tile3/Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.035, -2.79788)
+size = Vector3(50, 0.05, 1.69818)
+material = SubResource("StandardMaterial3D_cmwfp")
+
+[node name="Grass" type="CSGBox3D" parent="World1Map/Tile3/Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.04, 7.09739)
+size = Vector3(50, 0.05, 23.0978)
+material = SubResource("StandardMaterial3D_ys7lt")
+
+[node name="Grass2" type="CSGBox3D" parent="World1Map/Tile3/Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.04, -24.2001)
+size = Vector3(50, 0.05, 23.0978)
+material = SubResource("StandardMaterial3D_ys7lt")
+
+[node name="FloorCollision" type="RigidBody3D" parent="World1Map/Tile3/Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, -8.688)
+freeze = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World1Map/Tile3/Floor/FloorCollision"]
+shape = SubResource("BoxShape3D_mu6s4")
+
+[node name="Houses" type="Node3D" parent="World1Map/Tile3"]
+
+[node name="house_type132" parent="World1Map/Tile3/Houses" instance=ExtResource("2_5uctk")]
+transform = Transform3D(-9, 0, -1.35896e-06, 0, 9, 0, 1.35896e-06, 0, -9, 0.0106173, 0, 11.2582)
+
+[node name="house_type052" parent="World1Map/Tile3/Houses" instance=ExtResource("3_3nmce")]
+transform = Transform3D(-9, 0, -1.35896e-06, 0, 9, 0, 1.35896e-06, 0, -9, -14.3965, 0, 11.2582)
+
+[node name="house_type022" parent="World1Map/Tile3/Houses" instance=ExtResource("4_pp15s")]
+transform = Transform3D(-9, 0, -1.35896e-06, 0, 9, 0, 1.35896e-06, 0, -9, 15.6038, 0, 11.2582)
+
+[node name="house_type012" parent="World1Map/Tile3/Houses" instance=ExtResource("5_tloc1")]
+transform = Transform3D(9, 0, 0, 0, 9, 0, 0, 0, 9, -3.31553, 0, -24.6152)
+
+[node name="house_type092" parent="World1Map/Tile3/Houses" instance=ExtResource("6_6r5tb")]
+transform = Transform3D(9, 0, 0, 0, 9, 0, 0, 0, 9, -15.5377, 0, -27.6601)
+
+[node name="house_type162" parent="World1Map/Tile3/Houses" instance=ExtResource("7_iki1l")]
+transform = Transform3D(9, 0, 0, 0, 9, 0, 0, 0, 9, 15.2564, 0, -27.2365)
+
+[node name="Paths" type="Node3D" parent="World1Map/Tile3/Houses"]
+
+[node name="path_long2" parent="World1Map/Tile3/Houses/Paths" instance=ExtResource("8_5f2wg")]
+transform = Transform3D(-3.80775e-07, 0, -124.643, 0, 6, 0, 8.71112, 0, -5.44831e-06, 0.026907, 0, -2.80518)
+
+[node name="path_long3" parent="World1Map/Tile3/Houses/Paths" instance=ExtResource("8_5f2wg")]
+transform = Transform3D(-3.80775e-07, 0, -124.643, 0, 6, 0, 8.71112, 0, -5.44831e-06, 0.026907, 0, -14.6873)
+
+[node name="path_tilesLong6" parent="World1Map/Tile3/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(-6, 0, 5.24537e-07, 0, 6, 0, -5.24537e-07, 0, -6, -0.0655905, -0.0665046, 2.85645)
+
+[node name="path_tilesLong8" parent="World1Map/Tile3/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, -0.0655905, -0.0665046, 7.64533)
+
+[node name="path_tilesLong9" parent="World1Map/Tile3/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, -0.0655905, -0.0665046, 5.25186)
+
+[node name="path_tilesLong12" parent="World1Map/Tile3/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(-6, 0, 5.24537e-07, 0, 6, 0, -5.24537e-07, 0, -6, -0.0655905, -0.0665046, 0.458566)
+
+[node name="path_tilesLong13" parent="World1Map/Tile3/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(-6, 0, 5.24537e-07, 0, 6, 0, -5.24537e-07, 0, -6, -0.0655905, -0.0665046, -0.741706)
+
+[node name="path_tilesLong7" parent="World1Map/Tile3/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(-6, 0, 5.24537e-07, 0, 6, 0, -5.24537e-07, 0, -6, -14.4548, -0.0665046, 2.92947)
+
+[node name="path_tilesLong10" parent="World1Map/Tile3/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, -14.4548, -0.0665046, 7.71835)
+
+[node name="path_tilesLong11" parent="World1Map/Tile3/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, -14.4548, -0.0665046, 5.32488)
+
+[node name="path_tilesLong14" parent="World1Map/Tile3/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(-6, 0, 5.24537e-07, 0, 6, 0, -5.24537e-07, 0, -6, -14.4548, -0.0665046, 0.531586)
+
+[node name="path_tilesLong15" parent="World1Map/Tile3/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(-6, 0, 5.24537e-07, 0, 6, 0, -5.24537e-07, 0, -6, -14.4548, -0.0665046, -0.668686)
+
+[node name="path_tilesLong16" parent="World1Map/Tile3/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(-6, 0, 5.24537e-07, 0, 6, 0, -5.24537e-07, 0, -6, 15.5818, -0.0665046, 2.92947)
+
+[node name="path_tilesLong17" parent="World1Map/Tile3/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 15.5818, -0.0665046, 7.71835)
+
+[node name="path_tilesLong18" parent="World1Map/Tile3/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 15.5818, -0.0665046, 5.32488)
+
+[node name="path_tilesLong19" parent="World1Map/Tile3/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(-6, 0, 5.24537e-07, 0, 6, 0, -5.24537e-07, 0, -6, 15.5818, -0.0665046, 0.531586)
+
+[node name="path_tilesLong20" parent="World1Map/Tile3/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(-6, 0, 5.24537e-07, 0, 6, 0, -5.24537e-07, 0, -6, 15.5818, -0.0665046, -0.668686)
+
+[node name="path_tilesLong21" parent="World1Map/Tile3/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(-6, 0, 5.24537e-07, 0, 6, 0, -5.24537e-07, 0, -6, 16.4512, -0.0665046, -21.6101)
+
+[node name="path_tilesLong22" parent="World1Map/Tile3/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 16.4512, -0.0665046, -16.8212)
+
+[node name="path_tilesLong23" parent="World1Map/Tile3/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 16.4512, -0.0665046, -19.2146)
+
+[node name="path_tilesLong24" parent="World1Map/Tile3/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(-6, 0, 5.24537e-07, 0, 6, 0, -5.24537e-07, 0, -6, 16.4512, -0.0665046, -24.0079)
+
+[node name="path_tilesLong25" parent="World1Map/Tile3/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(-6, 0, 5.24537e-07, 0, 6, 0, -5.24537e-07, 0, -6, 16.4512, -0.0665046, -25.2082)
+
+[node name="path_tilesLong26" parent="World1Map/Tile3/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(-6, 0, 5.24537e-07, 0, 6, 0, -5.24537e-07, 0, -6, 0.552336, -0.0665046, -21.6101)
+
+[node name="path_tilesLong27" parent="World1Map/Tile3/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0.552336, -0.0665046, -16.8212)
+
+[node name="path_tilesLong28" parent="World1Map/Tile3/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0.552336, -0.0665046, -19.2146)
+
+[node name="path_tilesLong29" parent="World1Map/Tile3/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(-6, 0, 5.24537e-07, 0, 6, 0, -5.24537e-07, 0, -6, 0.552336, -0.0665046, -24.0079)
+
+[node name="path_tilesLong30" parent="World1Map/Tile3/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(-6, 0, 5.24537e-07, 0, 6, 0, -5.24537e-07, 0, -6, 0.552336, -0.0665046, -25.2082)
+
+[node name="path_tilesLong31" parent="World1Map/Tile3/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(-6, 0, 5.24537e-07, 0, 6, 0, -5.24537e-07, 0, -6, -15.5411, -0.0665046, -21.6101)
+
+[node name="path_tilesLong32" parent="World1Map/Tile3/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, -15.5411, -0.0665046, -16.8212)
+
+[node name="path_tilesLong33" parent="World1Map/Tile3/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, -15.5411, -0.0665046, -19.2146)
+
+[node name="path_tilesLong34" parent="World1Map/Tile3/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(-6, 0, 5.24537e-07, 0, 6, 0, -5.24537e-07, 0, -6, -15.5411, -0.0665046, -24.0079)
+
+[node name="path_tilesLong35" parent="World1Map/Tile3/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(-6, 0, 5.24537e-07, 0, 6, 0, -5.24537e-07, 0, -6, -15.5411, -0.0665046, -25.2082)
+
+[node name="Bushes" type="Node3D" parent="World1Map/Tile3"]
+
+[node name="BushHouseSeparator" parent="World1Map/Tile3/Bushes" instance=ExtResource("10_jd7kj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.01561, 0, 10.1249)
+
+[node name="BushHouseSeparator2" parent="World1Map/Tile3/Bushes" instance=ExtResource("10_jd7kj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.31565, 0, 11.0682)
+
+[node name="BushHouseSeparator4" parent="World1Map/Tile3/Bushes" instance=ExtResource("10_jd7kj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.4543, 0, 10.7732)
+
+[node name="BushHouseSeparator5" parent="World1Map/Tile3/Bushes" instance=ExtResource("10_jd7kj")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -7.56327, -9.53674e-07, -28.774)
+
+[node name="BushHouseSeparator6" parent="World1Map/Tile3/Bushes" instance=ExtResource("10_jd7kj")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 8.31565, 0, -28.6136)
+
+[node name="BushHouseSeparator8" parent="World1Map/Tile3/Bushes" instance=ExtResource("10_jd7kj")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -26.1196, 0, -28.9085)
+
+[node name="Trees" type="Node3D" parent="World1Map/Tile3"]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, -4.19959, 0, 3.8568)
+
+[node name="tmpParent" type="Node3D" parent="World1Map/Tile3/Trees"]
+
+[node name="tree_large" type="MeshInstance3D" parent="World1Map/Tile3/Trees/tmpParent"]
+transform = Transform3D(0.81, 0, 0, 0, 0.81, 0, 0, 0, 0.81, 0, 0, 0)
+mesh = SubResource("ArrayMesh_hak0p")
+skeleton = NodePath("")
+
+[node name="tree_large2" type="MeshInstance3D" parent="World1Map/Tile3/Trees/tmpParent"]
+transform = Transform3D(0.81, 0, 0, 0, 0.81, 0, 0, 0, 0.81, -0.789739, 0, 0.427833)
+mesh = SubResource("ArrayMesh_hak0p")
+skeleton = NodePath("")
+
+[node name="tree_large3" type="MeshInstance3D" parent="World1Map/Tile3/Trees/tmpParent"]
+transform = Transform3D(0.81, 0, 0, 0, 0.81, 0, 0, 0, 0.81, -2.74839, 0, -0.224975)
+mesh = SubResource("ArrayMesh_hak0p")
+skeleton = NodePath("")
+
+[node name="tree_large4" type="MeshInstance3D" parent="World1Map/Tile3/Trees/tmpParent"]
+transform = Transform3D(0.81, 0, 0, 0, 0.81, 0, 0, 0, 0.81, 4.29683, 0, 0.452932)
+mesh = SubResource("ArrayMesh_hak0p")
+skeleton = NodePath("")
+
+[node name="tree_large5" type="MeshInstance3D" parent="World1Map/Tile3/Trees/tmpParent"]
+transform = Transform3D(0.81, 0, 0, 0, 0.81, 0, 0, 0, 0.81, 3.99781, 1.58946e-07, -0.343753)
+mesh = SubResource("ArrayMesh_hak0p")
+skeleton = NodePath("")
+
+[node name="tree_large6" type="MeshInstance3D" parent="World1Map/Tile3/Trees/tmpParent"]
+transform = Transform3D(0.81, 0, 0, 0, 0.81, 0, 0, 0, 0.81, 3.68044, 1.58946e-07, -4.21119)
+mesh = SubResource("ArrayMesh_hak0p")
+skeleton = NodePath("")
+
+[node name="tree_large7" type="MeshInstance3D" parent="World1Map/Tile3/Trees/tmpParent"]
+transform = Transform3D(0.81, 0, 0, 0, 0.81, 0, 0, 0, 0.81, -0.242985, 1.58946e-07, -5.02338)
+mesh = SubResource("ArrayMesh_hak0p")
+skeleton = NodePath("")
+
+[node name="tree_large8" type="MeshInstance3D" parent="World1Map/Tile3/Trees/tmpParent"]
+transform = Transform3D(0.81, 0, 0, 0, 0.81, 0, 0, 0, 0.81, -1.23124, 1.58946e-07, -4.36438)
+mesh = SubResource("ArrayMesh_hak0p")
+skeleton = NodePath("")
+
+[node name="tree_large9" type="MeshInstance3D" parent="World1Map/Tile3/Trees/tmpParent"]
+transform = Transform3D(0.81, 0, 0, 0, 0.81, 0, 0, 0, 0.81, -2.45449, 1.58946e-07, -4.36795)
+mesh = SubResource("ArrayMesh_hak0p")
+skeleton = NodePath("")
+
+[node name="Tile4" type="Node3D" parent="World1Map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 131.623, 0, 0)
+
+[node name="Floor" type="Node3D" parent="World1Map/Tile4"]
+
+[node name="Road" type="CSGBox3D" parent="World1Map/Tile4/Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, -8.688)
+size = Vector3(50, 0.05, 54.2322)
+material = SubResource("StandardMaterial3D_cmwfp")
+
+[node name="Lines" type="Node3D" parent="World1Map/Tile4/Floor/Road"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.48665)
+
+[node name="RoadLane" type="CSGBox3D" parent="World1Map/Tile4/Floor/Road/Lines"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.5164, 0, 3.59472)
+size = Vector3(2.96729, 0.06, 0.25)
+material = SubResource("StandardMaterial3D_am26y")
+
+[node name="RoadLane2" type="CSGBox3D" parent="World1Map/Tile4/Floor/Road/Lines"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.0741, 0, 3.59472)
+size = Vector3(2.96729, 0.06, 0.25)
+material = SubResource("StandardMaterial3D_am26y")
+
+[node name="RoadLane3" type="CSGBox3D" parent="World1Map/Tile4/Floor/Road/Lines"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.1706, 0, 3.59472)
+size = Vector3(2.96729, 0.06, 0.25)
+material = SubResource("StandardMaterial3D_am26y")
+
+[node name="RoadLane4" type="CSGBox3D" parent="World1Map/Tile4/Floor/Road/Lines"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.72833, 0, 3.59472)
+size = Vector3(2.96729, 0.06, 0.25)
+material = SubResource("StandardMaterial3D_am26y")
+
+[node name="RoadLane5" type="CSGBox3D" parent="World1Map/Tile4/Floor/Road/Lines"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.86355, 0, 3.59472)
+size = Vector3(2.96729, 0.06, 0.25)
+material = SubResource("StandardMaterial3D_am26y")
+
+[node name="RoadLane6" type="CSGBox3D" parent="World1Map/Tile4/Floor/Road/Lines"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.421307, 0, 3.59472)
+size = Vector3(2.96729, 0.06, 0.25)
+material = SubResource("StandardMaterial3D_am26y")
+
+[node name="RoadLane7" type="CSGBox3D" parent="World1Map/Tile4/Floor/Road/Lines"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.48224, 0, 3.59472)
+size = Vector3(2.96729, 0.06, 0.25)
+material = SubResource("StandardMaterial3D_am26y")
+
+[node name="RoadLane8" type="CSGBox3D" parent="World1Map/Tile4/Floor/Road/Lines"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.92448, 0, 3.59472)
+size = Vector3(2.96729, 0.06, 0.25)
+material = SubResource("StandardMaterial3D_am26y")
+
+[node name="RoadLane9" type="CSGBox3D" parent="World1Map/Tile4/Floor/Road/Lines"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.7676, 0, 3.59472)
+size = Vector3(2.96729, 0.06, 0.25)
+material = SubResource("StandardMaterial3D_am26y")
+
+[node name="RoadLane10" type="CSGBox3D" parent="World1Map/Tile4/Floor/Road/Lines"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.2098, 0, 3.59472)
+size = Vector3(2.96729, 0.06, 0.25)
+material = SubResource("StandardMaterial3D_am26y")
+
+[node name="RoadLane11" type="CSGBox3D" parent="World1Map/Tile4/Floor/Road/Lines"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.1134, 0, 3.59472)
+size = Vector3(2.96729, 0.06, 0.25)
+material = SubResource("StandardMaterial3D_am26y")
+
+[node name="Sidewalk2" type="CSGBox3D" parent="World1Map/Tile4/Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.035, -14.6801)
+size = Vector3(50, 0.05, 1.73035)
+material = SubResource("StandardMaterial3D_cmwfp")
+
+[node name="Sidewalk" type="CSGBox3D" parent="World1Map/Tile4/Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.035, -2.79788)
+size = Vector3(50, 0.05, 1.69818)
+material = SubResource("StandardMaterial3D_cmwfp")
+
+[node name="Grass" type="CSGBox3D" parent="World1Map/Tile4/Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.04, 7.09739)
+size = Vector3(50, 0.05, 23.0978)
+material = SubResource("StandardMaterial3D_ys7lt")
+
+[node name="Grass2" type="CSGBox3D" parent="World1Map/Tile4/Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.04, -24.2001)
+size = Vector3(50, 0.05, 23.0978)
+material = SubResource("StandardMaterial3D_ys7lt")
+
+[node name="FloorCollision" type="RigidBody3D" parent="World1Map/Tile4/Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, -8.688)
+freeze = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World1Map/Tile4/Floor/FloorCollision"]
+shape = SubResource("BoxShape3D_mu6s4")
+
+[node name="Houses" type="Node3D" parent="World1Map/Tile4"]
+
+[node name="house_type132" parent="World1Map/Tile4/Houses" instance=ExtResource("2_5uctk")]
+transform = Transform3D(-9, 0, -1.35896e-06, 0, 9, 0, 1.35896e-06, 0, -9, 0.0106173, 0, 11.2582)
+
+[node name="house_type052" parent="World1Map/Tile4/Houses" instance=ExtResource("3_3nmce")]
+transform = Transform3D(-9, 0, -1.35896e-06, 0, 9, 0, 1.35896e-06, 0, -9, -14.3965, 0, 11.2582)
+
+[node name="house_type022" parent="World1Map/Tile4/Houses" instance=ExtResource("4_pp15s")]
+transform = Transform3D(-9, 0, -1.35896e-06, 0, 9, 0, 1.35896e-06, 0, -9, 15.6038, 0, 11.2582)
+
+[node name="house_type012" parent="World1Map/Tile4/Houses" instance=ExtResource("5_tloc1")]
+transform = Transform3D(9, 0, 0, 0, 9, 0, 0, 0, 9, -3.31553, 0, -24.6152)
+
+[node name="house_type092" parent="World1Map/Tile4/Houses" instance=ExtResource("6_6r5tb")]
+transform = Transform3D(9, 0, 0, 0, 9, 0, 0, 0, 9, -15.5377, 0, -27.6601)
+
+[node name="house_type162" parent="World1Map/Tile4/Houses" instance=ExtResource("7_iki1l")]
+transform = Transform3D(9, 0, 0, 0, 9, 0, 0, 0, 9, 15.2564, 0, -27.2365)
+
+[node name="Paths" type="Node3D" parent="World1Map/Tile4/Houses"]
+
+[node name="path_long2" parent="World1Map/Tile4/Houses/Paths" instance=ExtResource("8_5f2wg")]
+transform = Transform3D(-3.80775e-07, 0, -124.643, 0, 6, 0, 8.71112, 0, -5.44831e-06, 0.026907, 0, -2.80518)
+
+[node name="path_long3" parent="World1Map/Tile4/Houses/Paths" instance=ExtResource("8_5f2wg")]
+transform = Transform3D(-3.80775e-07, 0, -124.643, 0, 6, 0, 8.71112, 0, -5.44831e-06, 0.026907, 0, -14.6873)
+
+[node name="path_tilesLong6" parent="World1Map/Tile4/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(-6, 0, 5.24537e-07, 0, 6, 0, -5.24537e-07, 0, -6, -0.0655905, -0.0665046, 2.85645)
+
+[node name="path_tilesLong8" parent="World1Map/Tile4/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, -0.0655905, -0.0665046, 7.64533)
+
+[node name="path_tilesLong9" parent="World1Map/Tile4/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, -0.0655905, -0.0665046, 5.25186)
+
+[node name="path_tilesLong12" parent="World1Map/Tile4/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(-6, 0, 5.24537e-07, 0, 6, 0, -5.24537e-07, 0, -6, -0.0655905, -0.0665046, 0.458566)
+
+[node name="path_tilesLong13" parent="World1Map/Tile4/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(-6, 0, 5.24537e-07, 0, 6, 0, -5.24537e-07, 0, -6, -0.0655905, -0.0665046, -0.741706)
+
+[node name="path_tilesLong7" parent="World1Map/Tile4/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(-6, 0, 5.24537e-07, 0, 6, 0, -5.24537e-07, 0, -6, -14.4548, -0.0665046, 2.92947)
+
+[node name="path_tilesLong10" parent="World1Map/Tile4/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, -14.4548, -0.0665046, 7.71835)
+
+[node name="path_tilesLong11" parent="World1Map/Tile4/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, -14.4548, -0.0665046, 5.32488)
+
+[node name="path_tilesLong14" parent="World1Map/Tile4/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(-6, 0, 5.24537e-07, 0, 6, 0, -5.24537e-07, 0, -6, -14.4548, -0.0665046, 0.531586)
+
+[node name="path_tilesLong15" parent="World1Map/Tile4/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(-6, 0, 5.24537e-07, 0, 6, 0, -5.24537e-07, 0, -6, -14.4548, -0.0665046, -0.668686)
+
+[node name="path_tilesLong16" parent="World1Map/Tile4/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(-6, 0, 5.24537e-07, 0, 6, 0, -5.24537e-07, 0, -6, 15.5818, -0.0665046, 2.92947)
+
+[node name="path_tilesLong17" parent="World1Map/Tile4/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 15.5818, -0.0665046, 7.71835)
+
+[node name="path_tilesLong18" parent="World1Map/Tile4/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 15.5818, -0.0665046, 5.32488)
+
+[node name="path_tilesLong19" parent="World1Map/Tile4/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(-6, 0, 5.24537e-07, 0, 6, 0, -5.24537e-07, 0, -6, 15.5818, -0.0665046, 0.531586)
+
+[node name="path_tilesLong20" parent="World1Map/Tile4/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(-6, 0, 5.24537e-07, 0, 6, 0, -5.24537e-07, 0, -6, 15.5818, -0.0665046, -0.668686)
+
+[node name="path_tilesLong21" parent="World1Map/Tile4/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(-6, 0, 5.24537e-07, 0, 6, 0, -5.24537e-07, 0, -6, 16.4512, -0.0665046, -21.6101)
+
+[node name="path_tilesLong22" parent="World1Map/Tile4/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 16.4512, -0.0665046, -16.8212)
+
+[node name="path_tilesLong23" parent="World1Map/Tile4/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 16.4512, -0.0665046, -19.2146)
+
+[node name="path_tilesLong24" parent="World1Map/Tile4/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(-6, 0, 5.24537e-07, 0, 6, 0, -5.24537e-07, 0, -6, 16.4512, -0.0665046, -24.0079)
+
+[node name="path_tilesLong25" parent="World1Map/Tile4/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(-6, 0, 5.24537e-07, 0, 6, 0, -5.24537e-07, 0, -6, 16.4512, -0.0665046, -25.2082)
+
+[node name="path_tilesLong26" parent="World1Map/Tile4/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(-6, 0, 5.24537e-07, 0, 6, 0, -5.24537e-07, 0, -6, 0.552336, -0.0665046, -21.6101)
+
+[node name="path_tilesLong27" parent="World1Map/Tile4/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0.552336, -0.0665046, -16.8212)
+
+[node name="path_tilesLong28" parent="World1Map/Tile4/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0.552336, -0.0665046, -19.2146)
+
+[node name="path_tilesLong29" parent="World1Map/Tile4/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(-6, 0, 5.24537e-07, 0, 6, 0, -5.24537e-07, 0, -6, 0.552336, -0.0665046, -24.0079)
+
+[node name="path_tilesLong30" parent="World1Map/Tile4/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(-6, 0, 5.24537e-07, 0, 6, 0, -5.24537e-07, 0, -6, 0.552336, -0.0665046, -25.2082)
+
+[node name="path_tilesLong31" parent="World1Map/Tile4/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(-6, 0, 5.24537e-07, 0, 6, 0, -5.24537e-07, 0, -6, -15.5411, -0.0665046, -21.6101)
+
+[node name="path_tilesLong32" parent="World1Map/Tile4/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, -15.5411, -0.0665046, -16.8212)
+
+[node name="path_tilesLong33" parent="World1Map/Tile4/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, -15.5411, -0.0665046, -19.2146)
+
+[node name="path_tilesLong34" parent="World1Map/Tile4/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(-6, 0, 5.24537e-07, 0, 6, 0, -5.24537e-07, 0, -6, -15.5411, -0.0665046, -24.0079)
+
+[node name="path_tilesLong35" parent="World1Map/Tile4/Houses/Paths" instance=ExtResource("9_88ej4")]
+transform = Transform3D(-6, 0, 5.24537e-07, 0, 6, 0, -5.24537e-07, 0, -6, -15.5411, -0.0665046, -25.2082)
+
+[node name="Bushes" type="Node3D" parent="World1Map/Tile4"]
+
+[node name="BushHouseSeparator" parent="World1Map/Tile4/Bushes" instance=ExtResource("10_jd7kj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.01561, 0, 10.1249)
+
+[node name="BushHouseSeparator2" parent="World1Map/Tile4/Bushes" instance=ExtResource("10_jd7kj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.31565, 0, 11.0682)
+
+[node name="BushHouseSeparator4" parent="World1Map/Tile4/Bushes" instance=ExtResource("10_jd7kj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.4543, 0, 10.7732)
+
+[node name="BushHouseSeparator5" parent="World1Map/Tile4/Bushes" instance=ExtResource("10_jd7kj")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -7.56327, -9.53674e-07, -28.774)
+
+[node name="BushHouseSeparator6" parent="World1Map/Tile4/Bushes" instance=ExtResource("10_jd7kj")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 8.31565, 0, -28.6136)
+
+[node name="BushHouseSeparator8" parent="World1Map/Tile4/Bushes" instance=ExtResource("10_jd7kj")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -26.1196, 0, -28.9085)
+
+[node name="Trees" type="Node3D" parent="World1Map/Tile4"]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, -4.19959, 0, 3.8568)
+
+[node name="tmpParent" type="Node3D" parent="World1Map/Tile4/Trees"]
+
+[node name="tree_large" type="MeshInstance3D" parent="World1Map/Tile4/Trees/tmpParent"]
+transform = Transform3D(0.81, 0, 0, 0, 0.81, 0, 0, 0, 0.81, 0, 0, 0)
+mesh = SubResource("ArrayMesh_hak0p")
+skeleton = NodePath("")
+
+[node name="tree_large2" type="MeshInstance3D" parent="World1Map/Tile4/Trees/tmpParent"]
+transform = Transform3D(0.81, 0, 0, 0, 0.81, 0, 0, 0, 0.81, -0.789739, 0, 0.427833)
+mesh = SubResource("ArrayMesh_hak0p")
+skeleton = NodePath("")
+
+[node name="tree_large3" type="MeshInstance3D" parent="World1Map/Tile4/Trees/tmpParent"]
+transform = Transform3D(0.81, 0, 0, 0, 0.81, 0, 0, 0, 0.81, -2.74839, 0, -0.224975)
+mesh = SubResource("ArrayMesh_hak0p")
+skeleton = NodePath("")
+
+[node name="tree_large4" type="MeshInstance3D" parent="World1Map/Tile4/Trees/tmpParent"]
+transform = Transform3D(0.81, 0, 0, 0, 0.81, 0, 0, 0, 0.81, 4.29683, 0, 0.452932)
+mesh = SubResource("ArrayMesh_hak0p")
+skeleton = NodePath("")
+
+[node name="tree_large5" type="MeshInstance3D" parent="World1Map/Tile4/Trees/tmpParent"]
+transform = Transform3D(0.81, 0, 0, 0, 0.81, 0, 0, 0, 0.81, 3.99781, 1.58946e-07, -0.343753)
+mesh = SubResource("ArrayMesh_hak0p")
+skeleton = NodePath("")
+
+[node name="tree_large6" type="MeshInstance3D" parent="World1Map/Tile4/Trees/tmpParent"]
+transform = Transform3D(0.81, 0, 0, 0, 0.81, 0, 0, 0, 0.81, 3.68044, 1.58946e-07, -4.21119)
+mesh = SubResource("ArrayMesh_hak0p")
+skeleton = NodePath("")
+
+[node name="tree_large7" type="MeshInstance3D" parent="World1Map/Tile4/Trees/tmpParent"]
+transform = Transform3D(0.81, 0, 0, 0, 0.81, 0, 0, 0, 0.81, -0.242985, 1.58946e-07, -5.02338)
+mesh = SubResource("ArrayMesh_hak0p")
+skeleton = NodePath("")
+
+[node name="tree_large8" type="MeshInstance3D" parent="World1Map/Tile4/Trees/tmpParent"]
+transform = Transform3D(0.81, 0, 0, 0, 0.81, 0, 0, 0, 0.81, -1.23124, 1.58946e-07, -4.36438)
+mesh = SubResource("ArrayMesh_hak0p")
+skeleton = NodePath("")
+
+[node name="tree_large9" type="MeshInstance3D" parent="World1Map/Tile4/Trees/tmpParent"]
+transform = Transform3D(0.81, 0, 0, 0, 0.81, 0, 0, 0, 0.81, -2.45449, 1.58946e-07, -4.36795)
+mesh = SubResource("ArrayMesh_hak0p")
+skeleton = NodePath("")
+
+[node name="World1Levels" type="Node3D" parent="."]
+transform = Transform3D(0.627225, 0, 0, 0, 1, 0, 0, 0, 0.627225, 0.0386441, 0.766364, -0.962134)
+
+[node name="LevelSelector1" parent="World1Levels" instance=ExtResource("13_cm5qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.42827, 0, 0.238375)
+level = ExtResource("14_8vh1k")
+world_environment = ExtResource("15_kgjgs")
+level_number = 1
+
+[node name="LevelSelector2" parent="World1Levels" instance=ExtResource("13_cm5qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.921788, 0, -0.190071)
+level = ExtResource("15_ehdfo")
+world_environment = ExtResource("15_kgjgs")
+level_number = 2
+
+[node name="LevelPath" type="CSGBox3D" parent="World1Levels/LevelSelector2"]
+transform = Transform3D(0.997512, 0, -1.24372, 0, 1, 0, 1.24372, 0, 0.997512, -0.386866, 0.00515926, 0.321052)
+size = Vector3(0.01, 0.005, 0.05)
+material = SubResource("StandardMaterial3D_ahpcu")
+
+[node name="LevelPath2" type="CSGBox3D" parent="World1Levels/LevelSelector2"]
+transform = Transform3D(0.997512, 0, -1.24372, 0, 1, 0, 1.24372, 0, 0.997512, -0.299589, 0.00515926, 0.251053)
+size = Vector3(0.01, 0.005, 0.05)
+material = SubResource("StandardMaterial3D_ahpcu")
+
+[node name="LevelPath3" type="CSGBox3D" parent="World1Levels/LevelSelector2"]
+transform = Transform3D(0.997512, 0, -1.24372, 0, 1, 0, 1.24372, 0, 0.997512, -0.204393, 0.00515926, 0.174702)
+size = Vector3(0.01, 0.005, 0.05)
+material = SubResource("StandardMaterial3D_ahpcu")
+
+[node name="LevelPath4" type="CSGBox3D" parent="World1Levels/LevelSelector2"]
+transform = Transform3D(0.997512, 0, -1.24372, 0, 1, 0, 1.24372, 0, 0.997512, -0.111367, 0.00515926, 0.100091)
+size = Vector3(0.01, 0.005, 0.05)
+material = SubResource("StandardMaterial3D_ahpcu")
+
+[node name="LevelSelector3" parent="World1Levels" instance=ExtResource("13_cm5qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.427173, 0, 0.246518)
+level = ExtResource("16_fbms3")
+world_environment = ExtResource("15_kgjgs")
+level_number = 3
+
+[node name="LevelPath5" type="CSGBox3D" parent="World1Levels/LevelSelector3"]
+transform = Transform3D(-1.08437, 0, -1.16876, 0, 1, 0, 1.16876, 0, -1.08437, -0.376216, 0.00515926, -0.334958)
+size = Vector3(0.01, 0.005, 0.05)
+material = SubResource("StandardMaterial3D_ahpcu")
+
+[node name="LevelPath6" type="CSGBox3D" parent="World1Levels/LevelSelector3"]
+transform = Transform3D(-1.08437, 0, -1.16876, 0, 1, 0, 1.16876, 0, -1.08437, -0.294199, 0.00515926, -0.258864)
+size = Vector3(0.01, 0.005, 0.05)
+material = SubResource("StandardMaterial3D_ahpcu")
+
+[node name="LevelPath7" type="CSGBox3D" parent="World1Levels/LevelSelector3"]
+transform = Transform3D(-1.08437, 0, -1.16876, 0, 1, 0, 1.16876, 0, -1.08437, -0.20474, 0.00515926, -0.175864)
+size = Vector3(0.01, 0.005, 0.05)
+material = SubResource("StandardMaterial3D_ahpcu")
+
+[node name="LevelPath8" type="CSGBox3D" parent="World1Levels/LevelSelector3"]
+transform = Transform3D(-1.08437, 0, -1.16876, 0, 1, 0, 1.16876, 0, -1.08437, -0.117321, 0.00515926, -0.0947568)
+size = Vector3(0.01, 0.005, 0.05)
+material = SubResource("StandardMaterial3D_ahpcu")
+
+[node name="LevelSelector4" parent="World1Levels" instance=ExtResource("13_cm5qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0857942, 0, -0.186384)
+level = ExtResource("17_21bro")
+world_environment = ExtResource("15_kgjgs")
+level_number = 4
+
+[node name="LevelPath9" type="CSGBox3D" parent="World1Levels/LevelSelector4"]
+transform = Transform3D(1.09657, 0, -1.15732, 0, 1, 0, 1.15732, 0, 1.09657, -0.378471, 0.00515926, 0.342018)
+size = Vector3(0.01, 0.005, 0.05)
+material = SubResource("StandardMaterial3D_ahpcu")
+
+[node name="LevelPath10" type="CSGBox3D" parent="World1Levels/LevelSelector4"]
+transform = Transform3D(1.09657, 0, -1.15732, 0, 1, 0, 1.15732, 0, 1.09657, -0.297257, 0.00515926, 0.265067)
+size = Vector3(0.01, 0.005, 0.05)
+material = SubResource("StandardMaterial3D_ahpcu")
+
+[node name="LevelPath11" type="CSGBox3D" parent="World1Levels/LevelSelector4"]
+transform = Transform3D(1.09657, 0, -1.15732, 0, 1, 0, 1.15732, 0, 1.09657, -0.208673, 0.00515926, 0.181134)
+size = Vector3(0.01, 0.005, 0.05)
+material = SubResource("StandardMaterial3D_ahpcu")
+
+[node name="LevelPath12" type="CSGBox3D" parent="World1Levels/LevelSelector4"]
+transform = Transform3D(1.09657, 0, -1.15732, 0, 1, 0, 1.15732, 0, 1.09657, -0.12211, 0.00515926, 0.0991144)
+size = Vector3(0.01, 0.005, 0.05)
+material = SubResource("StandardMaterial3D_ahpcu")
+
+[node name="LevelSelector5" parent="World1Levels" instance=ExtResource("13_cm5qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.573223, 0, 0.25123)
+level = ExtResource("18_72iot")
+world_environment = ExtResource("15_kgjgs")
+level_number = 5
+
+[node name="LevelPath13" type="CSGBox3D" parent="World1Levels/LevelSelector5"]
+transform = Transform3D(-1.03475, 0, -1.21291, 0, 1, 0, 1.21291, 0, -1.03475, -0.367665, 0.00515926, -0.327219)
+size = Vector3(0.01, 0.005, 0.05)
+material = SubResource("StandardMaterial3D_ahpcu")
+
+[node name="LevelPath14" type="CSGBox3D" parent="World1Levels/LevelSelector5"]
+transform = Transform3D(-1.03475, 0, -1.21291, 0, 1, 0, 1.21291, 0, -1.03475, -0.28255, 0.00515926, -0.254606)
+size = Vector3(0.01, 0.005, 0.05)
+material = SubResource("StandardMaterial3D_ahpcu")
+
+[node name="LevelPath15" type="CSGBox3D" parent="World1Levels/LevelSelector5"]
+transform = Transform3D(-1.03475, 0, -1.21291, 0, 1, 0, 1.21291, 0, -1.03475, -0.189712, 0.00515926, -0.175404)
+size = Vector3(0.01, 0.005, 0.05)
+material = SubResource("StandardMaterial3D_ahpcu")
+
+[node name="LevelPath16" type="CSGBox3D" parent="World1Levels/LevelSelector5"]
+transform = Transform3D(-1.03475, 0, -1.21291, 0, 1, 0, 1.21291, 0, -1.03475, -0.0989907, 0.00515926, -0.0980088)
+size = Vector3(0.01, 0.005, 0.05)
+material = SubResource("StandardMaterial3D_ahpcu")
+
+[node name="LevelSelector6" parent="World1Levels" instance=ExtResource("13_cm5qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.25453, -1.19209e-07, -0.187051)
+level = ExtResource("19_mw7gf")
+world_environment = ExtResource("15_kgjgs")
+level_number = 6
+
+[node name="LevelPath17" type="CSGBox3D" parent="World1Levels/LevelSelector6"]
+transform = Transform3D(0.849107, 0, -1.3494, 0, 1, 0, 1.3494, 0, 0.849107, -0.534677, 0.00515938, 0.341253)
+size = Vector3(0.01, 0.005, 0.05)
+material = SubResource("StandardMaterial3D_ahpcu")
+
+[node name="LevelPath18" type="CSGBox3D" parent="World1Levels/LevelSelector6"]
+transform = Transform3D(0.849107, 0, -1.3494, 0, 1, 0, 1.3494, 0, 0.849107, -0.439985, 0.00515938, 0.281668)
+size = Vector3(0.01, 0.005, 0.05)
+material = SubResource("StandardMaterial3D_ahpcu")
+
+[node name="LevelPath19" type="CSGBox3D" parent="World1Levels/LevelSelector6"]
+transform = Transform3D(0.849107, 0, -1.3494, 0, 1, 0, 1.3494, 0, 0.849107, -0.336699, 0.00515938, 0.216676)
+size = Vector3(0.01, 0.005, 0.05)
+material = SubResource("StandardMaterial3D_ahpcu")
+
+[node name="LevelPath20" type="CSGBox3D" parent="World1Levels/LevelSelector6"]
+transform = Transform3D(0.849107, 0, -1.3494, 0, 1, 0, 1.3494, 0, 0.849107, -0.235769, 0.00515938, 0.153166)
+size = Vector3(0.01, 0.005, 0.05)
+material = SubResource("StandardMaterial3D_ahpcu")
+
+[node name="LevelPath21" type="CSGBox3D" parent="World1Levels/LevelSelector6"]
+transform = Transform3D(0.849107, 0, -1.3494, 0, 1, 0, 1.3494, 0, 0.849107, -0.12652, 0.00515938, 0.0926195)
+size = Vector3(0.01, 0.005, 0.05)
+material = SubResource("StandardMaterial3D_ahpcu")
+
+[node name="World1LevelSelectorObject" parent="." instance=ExtResource("20_8epvj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0493282, 0.735483, -0.465485)
+
+[node name="LevelPaths" type="Node3D" parent="."]

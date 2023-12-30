@@ -49,13 +49,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0031206, 0.110673, 0.00192
 shape = SubResource("BoxShape3D_vhl6v")
 
 [node name="ItemRequest1" parent="Tray" instance=ExtResource("3_xonr1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.121681, -1.19209e-07, 0.0986757)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.121681, 0.042877, 0.0986757)
 
 [node name="ItemRequest2" parent="Tray" instance=ExtResource("3_xonr1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.165936, -5.96046e-08, 0.111923)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.165936, 0.042877, 0.111923)
 
 [node name="ItemRequest3" parent="Tray" instance=ExtResource("3_xonr1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00626296, -1.19209e-07, -0.126465)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00626296, 0.042877, -0.126465)
 
 [node name="PatienceTimer" type="Timer" parent="."]
 one_shot = true

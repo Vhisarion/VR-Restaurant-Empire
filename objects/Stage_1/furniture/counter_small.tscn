@@ -14,12 +14,14 @@ size = Vector3(0.582947, 0.0685196, 1.26275)
 transform = Transform3D(0.520096, 0, 0, 0, 1.05001, 0, 0, 0, 0.983663, 0, 0, 0)
 
 [node name="LegCollision" type="StaticBody3D" parent="."]
+collision_layer = 1073741824
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="LegCollision"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00215915, 0.347824, -9.15527e-05)
 shape = SubResource("BoxShape3D_8bmsl")
 
 [node name="BoardCollision" type="StaticBody3D" parent="."]
+collision_layer = 1073741824
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BoardCollision"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.734463, 0.0044136)

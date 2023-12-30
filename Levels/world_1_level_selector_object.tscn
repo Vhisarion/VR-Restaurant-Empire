@@ -1,0 +1,688 @@
+[gd_scene load_steps=29 format=3 uid="uid://k7p1w0fj745x"]
+
+[ext_resource type="Script" path="res://addons/godot-xr-tools/objects/pickable.gd" id="1_xskhu"]
+[ext_resource type="PackedScene" uid="uid://benpk10p2y6xp" path="res://assets/models/furniture/counter/counter.glb" id="2_aq45f"]
+[ext_resource type="PackedScene" uid="uid://csdvwhjuyr5ob" path="res://assets/models/furniture/cabinet/cabinet.glb" id="4_gj8gv"]
+[ext_resource type="Script" path="res://objects/stage_1/machines/manual_squeezer.gd" id="4_vvv4r"]
+[ext_resource type="PackedScene" uid="uid://l5hyx300jyiq" path="res://objects/stage_1/machines/squeezer.tscn" id="5_yl4ot"]
+[ext_resource type="Script" path="res://objects/stage_1/machines/water.gd" id="6_sw320"]
+[ext_resource type="PackedScene" uid="uid://wxscx4c5afcp" path="res://assets/models/machines/water.glb" id="7_py663"]
+[ext_resource type="Script" path="res://objects/stage_1/machines/automatic_squeezer.gd" id="8_wl8dg"]
+[ext_resource type="PackedScene" uid="uid://r682umd2ffwh" path="res://assets/models/machines/blender.glb" id="9_p28d1"]
+[ext_resource type="PackedScene" uid="uid://dmta066iw7m18" path="res://assets/models/furniture/box/box.glb" id="10_jlw5v"]
+[ext_resource type="PackedScene" uid="uid://ce5ojl6wwnukn" path="res://assets/models/fruits/orange.glb" id="11_nckkr"]
+[ext_resource type="PackedScene" uid="uid://cxwt2dda202ju" path="res://assets/models/fruits/lemon.glb" id="12_qrh7q"]
+[ext_resource type="PackedScene" uid="uid://c0sx45hsuyai5" path="res://assets/models/fruits/apple.glb" id="13_hjvmw"]
+[ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="14_dms0v"]
+[ext_resource type="PackedScene" uid="uid://dsywqcqxjhj1k" path="res://assets/models/fruits/banana_group.glb" id="14_nucyb"]
+[ext_resource type="Animation" uid="uid://rs7vpclot07o" path="res://addons/godot-xr-tools/hands/animations/right/Grip 3.res" id="15_j2j0o"]
+[ext_resource type="PackedScene" uid="uid://wwe7y3rs0yxx" path="res://assets/models/juice/red_straw.glb" id="15_yjuho"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/hands/poses/hand_pose_settings.gd" id="16_gjsdg"]
+[ext_resource type="PackedScene" uid="uid://dvsy7dh75kyse" path="res://assets/models/furniture/pot/pot.glb" id="16_l54qh"]
+[ext_resource type="PackedScene" uid="uid://l2n30mpbkdyw" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_hand_low.tscn" id="17_8ftnp"]
+[ext_resource type="PackedScene" uid="uid://dq43wdjb13qeh" path="res://assets/models/juice/blue_straw.glb" id="17_qak6g"]
+[ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="21_taitp"]
+[ext_resource type="Animation" uid="uid://dd67rufxwj2u" path="res://addons/godot-xr-tools/hands/animations/left/Grip 3.res" id="22_fv3l7"]
+[ext_resource type="PackedScene" uid="uid://b4kad2kuba1yn" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_hand_low.tscn" id="23_fi65d"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yg0bd"]
+size = Vector3(0.892334, 0.703125, 0.924409)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1nx8h"]
+albedo_color = Color(0.635294, 0.635294, 0.635294, 1)
+
+[sub_resource type="Resource" id="Resource_ag05q"]
+script = ExtResource("16_gjsdg")
+closed_pose = ExtResource("15_j2j0o")
+
+[sub_resource type="Resource" id="Resource_50g13"]
+script = ExtResource("16_gjsdg")
+closed_pose = ExtResource("22_fv3l7")
+
+[node name="World1LevelSelectorObject" type="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0147511, 0.735483, -0.478045)
+collision_layer = 4
+collision_mask = 196615
+freeze_mode = 1
+script = ExtResource("1_xskhu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.00784565, 0.034668, 0.00798953)
+shape = SubResource("BoxShape3D_yg0bd")
+
+[node name="MiniatureStation" type="Node3D" parent="."]
+transform = Transform3D(0.04, 0, 0, 0, 0.04, 0, 0, 0, 0.04, -0.0417805, 0, 0.00731862)
+
+[node name="Counters" type="Node3D" parent="MiniatureStation"]
+
+[node name="LargeCounter" type="Node3D" parent="MiniatureStation/Counters"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.828821, -1.19209e-07, -0.893432)
+
+[node name="counter" parent="MiniatureStation/Counters/LargeCounter" instance=ExtResource("2_aq45f")]
+transform = Transform3D(-2.27341e-08, 0, -1.15063, 0, 1.05001, 0, 0.520096, 0, -5.02958e-08, 0, 0, 0)
+
+[node name="SmallCounter" type="Node3D" parent="MiniatureStation/Counters"]
+
+[node name="counter" parent="MiniatureStation/Counters/SmallCounter" instance=ExtResource("2_aq45f")]
+transform = Transform3D(0.520096, 0, 0, 0, 1.05001, 0, 0, 0, 0.983663, 0, 0, 0)
+
+[node name="SmallCounter2" type="Node3D" parent="MiniatureStation/Counters"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.70314, -3.57628e-07, -0.00414693)
+
+[node name="counter" parent="MiniatureStation/Counters/SmallCounter2" instance=ExtResource("2_aq45f")]
+transform = Transform3D(0.520096, 0, 0, 0, 1.05001, 0, 0, 0, 0.983663, 0, 0, 0)
+
+[node name="Cabinet" type="Node3D" parent="MiniatureStation/Counters"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.19209e-07)
+
+[node name="CabinetModel" parent="MiniatureStation/Counters/Cabinet" instance=ExtResource("4_gj8gv")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.828821, -1.19209e-07, 0.721089)
+
+[node name="Machines" type="Node3D" parent="MiniatureStation"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.825555, 0, -0.401719)
+
+[node name="ManualSqueezer" type="Node3D" parent="MiniatureStation/Machines"]
+transform = Transform3D(-0.99996, 0, -0.0089359, 0, 1, 0, 0.0089359, 0, -0.99996, 0.887084, 0.777604, -0.0533023)
+script = ExtResource("4_vvv4r")
+
+[node name="Squeezer" parent="MiniatureStation/Machines/ManualSqueezer" instance=ExtResource("5_yl4ot")]
+
+[node name="ManualSqueezer2" type="Node3D" parent="MiniatureStation/Machines"]
+transform = Transform3D(-0.99996, 0, -0.0089359, 0, 1, 0, 0.0089359, 0, -0.99996, 0.887084, 0.777604, 0.343968)
+script = ExtResource("4_vvv4r")
+
+[node name="Squeezer" parent="MiniatureStation/Machines/ManualSqueezer2" instance=ExtResource("5_yl4ot")]
+
+[node name="Water" type="Node3D" parent="MiniatureStation/Machines"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.398152, 1.16817, 1.42064)
+script = ExtResource("6_sw320")
+
+[node name="water" parent="MiniatureStation/Machines/Water" instance=ExtResource("7_py663")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+
+[node name="Water3" type="Node3D" parent="MiniatureStation/Machines"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.398152, 1.16817, 1.25952)
+script = ExtResource("6_sw320")
+
+[node name="water" parent="MiniatureStation/Machines/Water3" instance=ExtResource("7_py663")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+
+[node name="Water2" type="Node3D" parent="MiniatureStation/Machines"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25247, 1.16817, 1.31105)
+script = ExtResource("6_sw320")
+
+[node name="water" parent="MiniatureStation/Machines/Water2" instance=ExtResource("7_py663")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+
+[node name="AutomaticSqueezer" type="Node3D" parent="MiniatureStation/Machines"]
+transform = Transform3D(-3.27835e-08, 0, -0.75, 0, 0.75, 0, 0.75, 0, -3.27835e-08, 0.923898, 0.69841, 0.767094)
+script = ExtResource("8_wl8dg")
+
+[node name="blender" parent="MiniatureStation/Machines/AutomaticSqueezer" instance=ExtResource("9_p28d1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.204337, 0)
+
+[node name="CenterPiece" type="CSGSphere3D" parent="MiniatureStation/Machines/AutomaticSqueezer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.395481, 0)
+radius = 0.07
+radial_segments = 6
+smooth_faces = false
+material = SubResource("StandardMaterial3D_1nx8h")
+
+[node name="Sources" type="Node3D" parent="MiniatureStation"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.781735, 0, -0.376866)
+
+[node name="OrangeBox" type="Node3D" parent="MiniatureStation/Sources"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.344957, 0.527242, 0.990983)
+
+[node name="box" parent="MiniatureStation/Sources/OrangeBox" instance=ExtResource("10_jlw5v")]
+
+[node name="Fruits" type="Node3D" parent="MiniatureStation/Sources/OrangeBox"]
+
+[node name="orange" parent="MiniatureStation/Sources/OrangeBox/Fruits" instance=ExtResource("11_nckkr")]
+transform = Transform3D(0.999263, 0.000224198, 0.0383849, 0.000435193, 0.999853, -0.0171696, -0.0383831, 0.0171736, 0.999116, -0.0854037, 0.0989186, 0.147698)
+
+[node name="orange2" parent="MiniatureStation/Sources/OrangeBox/Fruits" instance=ExtResource("11_nckkr")]
+transform = Transform3D(-0.628678, 0.680169, 0.377008, 0.762333, 0.634812, 0.125946, -0.153664, 0.366585, -0.917607, -0.0522985, 0.0989186, -0.00892434)
+
+[node name="orange3" parent="MiniatureStation/Sources/OrangeBox/Fruits" instance=ExtResource("11_nckkr")]
+transform = Transform3D(-0.796754, 0.0263705, -0.603728, -0.45856, 0.624292, 0.632441, 0.39358, 0.780746, -0.485314, -0.0788173, 0.076002, -0.16336)
+
+[node name="orange4" parent="MiniatureStation/Sources/OrangeBox/Fruits" instance=ExtResource("11_nckkr")]
+transform = Transform3D(-0.796754, 0.0263705, -0.603728, -0.45856, 0.624292, 0.632441, 0.39358, 0.780746, -0.485314, 0.0725371, 0.076002, 0.162602)
+
+[node name="orange5" parent="MiniatureStation/Sources/OrangeBox/Fruits" instance=ExtResource("11_nckkr")]
+transform = Transform3D(-0.796754, 0.0263705, -0.603728, -0.45856, 0.624292, 0.632441, 0.39358, 0.780746, -0.485314, -0.016932, 0.159359, 0.0823138)
+
+[node name="orange12" parent="MiniatureStation/Sources/OrangeBox/Fruits" instance=ExtResource("11_nckkr")]
+transform = Transform3D(-0.660566, 0.257466, -0.70524, -0.519893, 0.520817, 0.677098, 0.541631, 0.813917, -0.210179, -0.0843077, 0.204757, -0.0389294)
+
+[node name="orange13" parent="MiniatureStation/Sources/OrangeBox/Fruits" instance=ExtResource("11_nckkr")]
+transform = Transform3D(-0.532418, -0.400016, 0.746002, -0.574023, 0.818321, 0.0291167, -0.622117, -0.41272, -0.665307, -0.0230439, 0.204757, -0.158538)
+
+[node name="orange14" parent="MiniatureStation/Sources/OrangeBox/Fruits" instance=ExtResource("11_nckkr")]
+transform = Transform3D(0.0151035, 0.972527, 0.232301, -0.824999, 0.143385, -0.546643, -0.564933, -0.183392, 0.804499, -0.0852095, 0.204757, 0.175377)
+
+[node name="orange6" parent="MiniatureStation/Sources/OrangeBox/Fruits" instance=ExtResource("11_nckkr")]
+transform = Transform3D(0.297149, 0.735373, 0.609039, -0.946505, 0.310911, 0.0863932, -0.125826, -0.60213, 0.788421, 0.0192339, 0.0664644, -0.136813)
+
+[node name="orange7" parent="MiniatureStation/Sources/OrangeBox/Fruits" instance=ExtResource("11_nckkr")]
+transform = Transform3D(-0.796754, 0.0263705, -0.603728, -0.45856, 0.624292, 0.632441, 0.39358, 0.780746, -0.485314, 0.075458, 0.0664644, 0.000499561)
+
+[node name="orange8" parent="MiniatureStation/Sources/OrangeBox/Fruits" instance=ExtResource("11_nckkr")]
+transform = Transform3D(-0.13898, 0.8296, -0.540784, -0.753509, 0.265753, 0.601332, 0.64258, 0.491059, 0.588177, 0.0967744, 0.126618, -0.175243)
+
+[node name="orange9" parent="MiniatureStation/Sources/OrangeBox/Fruits" instance=ExtResource("11_nckkr")]
+transform = Transform3D(-0.796754, 0.0263705, -0.603728, -0.45856, 0.624292, 0.632441, 0.39358, 0.780746, -0.485314, 0.0245524, 0.159073, -0.0580738)
+
+[node name="orange10" parent="MiniatureStation/Sources/OrangeBox/Fruits" instance=ExtResource("11_nckkr")]
+transform = Transform3D(0.63236, -0.629748, -0.451154, -0.70809, -0.233656, -0.666344, 0.314214, 0.740826, -0.593672, 0.0978034, 0.175298, 0.0174452)
+
+[node name="orange11" parent="MiniatureStation/Sources/OrangeBox/Fruits" instance=ExtResource("11_nckkr")]
+transform = Transform3D(0.2659, 0.624751, 0.734155, -0.932196, 0.360648, 0.030724, -0.245576, -0.692546, 0.678287, 0.103923, 0.175298, 0.155542)
+
+[node name="LemonBox" type="Node3D" parent="MiniatureStation/Sources"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.263034, 0.527242, 0.994192)
+
+[node name="box" parent="MiniatureStation/Sources/LemonBox" instance=ExtResource("10_jlw5v")]
+
+[node name="Fruits" type="Node3D" parent="MiniatureStation/Sources/LemonBox"]
+
+[node name="lemon" parent="MiniatureStation/Sources/LemonBox/Fruits" instance=ExtResource("12_qrh7q")]
+transform = Transform3D(0.420269, 0.906647, -0.0369405, 0.339934, -0.119567, 0.932817, 0.84132, -0.404592, -0.358451, -0.0831463, 0.0946352, 0.174815)
+
+[node name="lemon2" parent="MiniatureStation/Sources/LemonBox/Fruits" instance=ExtResource("12_qrh7q")]
+transform = Transform3D(0.420269, 0.906647, -0.0369405, 0.339934, -0.119567, 0.932817, 0.84132, -0.404592, -0.358451, -0.0831463, 0.0946352, 0.174815)
+
+[node name="lemon3" parent="MiniatureStation/Sources/LemonBox/Fruits" instance=ExtResource("12_qrh7q")]
+transform = Transform3D(-0.304332, -0.928417, -0.213129, 0.465857, 0.0500981, -0.883441, 0.830879, -0.368147, 0.417263, -0.0868718, 0.0890445, 0.0763268)
+
+[node name="lemon4" parent="MiniatureStation/Sources/LemonBox/Fruits" instance=ExtResource("12_qrh7q")]
+transform = Transform3D(-0.304332, -0.928417, -0.213129, 0.465857, 0.0500981, -0.883441, 0.830879, -0.368147, 0.417263, 0.0855272, 0.0890445, -0.1409)
+
+[node name="lemon5" parent="MiniatureStation/Sources/LemonBox/Fruits" instance=ExtResource("12_qrh7q")]
+transform = Transform3D(-0.304332, -0.928417, -0.213129, 0.465857, 0.0500981, -0.883441, 0.830879, -0.368147, 0.417263, 0.0862742, 0.0890445, 0.131838)
+
+[node name="lemon6" parent="MiniatureStation/Sources/LemonBox/Fruits" instance=ExtResource("12_qrh7q")]
+transform = Transform3D(-0.138083, 0.267062, 0.953735, -0.666594, -0.737269, 0.109937, 0.73252, -0.620574, 0.279826, 0.0947185, 0.0890445, 0.0473216)
+
+[node name="lemon7" parent="MiniatureStation/Sources/LemonBox/Fruits" instance=ExtResource("12_qrh7q")]
+transform = Transform3D(-0.138083, 0.267062, 0.953735, -0.666594, -0.737269, 0.109937, 0.73252, -0.620574, 0.279826, -0.0686847, 0.0890445, -0.166461)
+
+[node name="lemon8" parent="MiniatureStation/Sources/LemonBox/Fruits" instance=ExtResource("12_qrh7q")]
+transform = Transform3D(-0.138083, 0.267062, 0.953735, -0.666594, -0.737269, 0.109937, 0.73252, -0.620574, 0.279826, -0.00401022, 0.0890445, 0.0462125)
+
+[node name="lemon9" parent="MiniatureStation/Sources/LemonBox/Fruits" instance=ExtResource("12_qrh7q")]
+transform = Transform3D(-0.138083, 0.267062, 0.953735, -0.666594, -0.737269, 0.109937, 0.73252, -0.620574, 0.279826, -0.105656, 0.149253, 0.125247)
+
+[node name="lemon10" parent="MiniatureStation/Sources/LemonBox/Fruits" instance=ExtResource("12_qrh7q")]
+transform = Transform3D(-0.223794, -0.969987, 0.0950855, -0.972838, 0.216392, -0.082223, 0.05918, -0.110904, -0.992068, 0.0965433, 0.149253, 0.182805)
+
+[node name="lemon11" parent="MiniatureStation/Sources/LemonBox/Fruits" instance=ExtResource("12_qrh7q")]
+transform = Transform3D(-0.080859, -0.650481, -0.755206, -0.972838, 0.216392, -0.082223, 0.216905, 0.728045, -0.65031, 0.00374775, 0.149253, 0.152626)
+
+[node name="lemon12" parent="MiniatureStation/Sources/LemonBox/Fruits" instance=ExtResource("12_qrh7q")]
+transform = Transform3D(-0.146001, -0.84921, -0.50747, -0.972838, 0.216392, -0.082223, 0.179637, 0.481681, -0.857738, -0.104744, 0.149253, 0.034393)
+
+[node name="lemon13" parent="MiniatureStation/Sources/LemonBox/Fruits" instance=ExtResource("12_qrh7q")]
+transform = Transform3D(-0.228108, -0.835674, 0.499615, -0.972838, 0.216392, -0.082223, -0.0394002, -0.5048, -0.862337, -0.0162984, 0.149253, 0.0473073)
+
+[node name="lemon18" parent="MiniatureStation/Sources/LemonBox/Fruits" instance=ExtResource("12_qrh7q")]
+transform = Transform3D(0.420269, 0.906647, -0.0369405, 0.339934, -0.119567, 0.932817, 0.84132, -0.404592, -0.358451, -0.0831463, 0.0946352, -0.0355293)
+
+[node name="lemon19" parent="MiniatureStation/Sources/LemonBox/Fruits" instance=ExtResource("12_qrh7q")]
+transform = Transform3D(-0.304332, -0.928417, -0.213129, 0.465857, 0.0500981, -0.883441, 0.830879, -0.368147, 0.417263, -0.0868718, 0.0890445, -0.134017)
+
+[node name="lemon20" parent="MiniatureStation/Sources/LemonBox/Fruits" instance=ExtResource("12_qrh7q")]
+transform = Transform3D(-0.138083, 0.267062, 0.953735, -0.666594, -0.737269, 0.109937, 0.73252, -0.620574, 0.279826, -0.00401022, 0.0890445, -0.164132)
+
+[node name="lemon21" parent="MiniatureStation/Sources/LemonBox/Fruits" instance=ExtResource("12_qrh7q")]
+transform = Transform3D(-0.138083, 0.267062, 0.953735, -0.666594, -0.737269, 0.109937, 0.73252, -0.620574, 0.279826, -0.105656, 0.149253, -0.0850974)
+
+[node name="lemon22" parent="MiniatureStation/Sources/LemonBox/Fruits" instance=ExtResource("12_qrh7q")]
+transform = Transform3D(-0.080859, -0.650481, -0.755206, -0.972838, 0.216392, -0.082223, 0.216905, 0.728045, -0.65031, 0.00374775, 0.149253, -0.0577181)
+
+[node name="lemon23" parent="MiniatureStation/Sources/LemonBox/Fruits" instance=ExtResource("12_qrh7q")]
+transform = Transform3D(-0.146001, -0.84921, -0.50747, -0.972838, 0.216392, -0.082223, 0.179637, 0.481681, -0.857738, -0.104744, 0.149253, -0.175951)
+
+[node name="lemon24" parent="MiniatureStation/Sources/LemonBox/Fruits" instance=ExtResource("12_qrh7q")]
+transform = Transform3D(-0.228108, -0.835674, 0.499615, -0.972838, 0.216392, -0.082223, -0.0394002, -0.5048, -0.862337, -0.0162984, 0.149253, -0.163037)
+
+[node name="lemon14" parent="MiniatureStation/Sources/LemonBox/Fruits" instance=ExtResource("12_qrh7q")]
+transform = Transform3D(-0.166924, -0.409674, 0.89683, -0.972838, 0.216392, -0.082223, -0.160381, -0.886195, -0.434668, 0.0683023, 0.149253, 0.0874586)
+
+[node name="lemon15" parent="MiniatureStation/Sources/LemonBox/Fruits" instance=ExtResource("12_qrh7q")]
+transform = Transform3D(-0.227129, -0.823696, 0.519555, -0.972838, 0.216392, -0.082223, -0.0447, -0.524118, -0.850472, 0.0977531, 0.149755, -0.014119)
+
+[node name="lemon25" parent="MiniatureStation/Sources/LemonBox/Fruits" instance=ExtResource("12_qrh7q")]
+transform = Transform3D(-0.499255, 0.846662, 0.18414, -0.854295, -0.445522, -0.267752, -0.144657, -0.290986, 0.945728, -0.0625524, 0.19483, -0.011925)
+
+[node name="lemon26" parent="MiniatureStation/Sources/LemonBox/Fruits" instance=ExtResource("12_qrh7q")]
+transform = Transform3D(-0.170828, -0.245856, 0.954135, -0.854295, -0.445522, -0.267752, 0.490917, -0.860851, -0.133926, -0.0625524, 0.19483, 0.106114)
+
+[node name="lemon27" parent="MiniatureStation/Sources/LemonBox/Fruits" instance=ExtResource("12_qrh7q")]
+transform = Transform3D(-0.43987, 0.3452, 0.829067, -0.854295, -0.445522, -0.267752, 0.27694, -0.826043, 0.490874, -0.0076477, 0.207425, -0.125752)
+
+[node name="lemon16" parent="MiniatureStation/Sources/LemonBox/Fruits" instance=ExtResource("12_qrh7q")]
+transform = Transform3D(0.147037, 0.851979, 0.502507, -0.972838, 0.216392, -0.082223, -0.178791, -0.476767, 0.860655, 0.112064, 0.149755, -0.194125)
+
+[node name="lemon17" parent="MiniatureStation/Sources/LemonBox/Fruits" instance=ExtResource("12_qrh7q")]
+transform = Transform3D(0.657101, -0.713657, 0.242718, 0.753729, 0.626567, -0.198259, -0.0105907, 0.31322, 0.949622, 0.0572712, 0.161125, -0.0981903)
+
+[node name="AppleBox" type="Node3D" parent="MiniatureStation/Sources"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.25984, 0, 1.00373)
+
+[node name="box" parent="MiniatureStation/Sources/AppleBox" instance=ExtResource("10_jlw5v")]
+
+[node name="fruits" type="Node3D" parent="MiniatureStation/Sources/AppleBox"]
+
+[node name="apple" parent="MiniatureStation/Sources/AppleBox/fruits" instance=ExtResource("13_hjvmw")]
+transform = Transform3D(0.902149, 0.304071, 0.306052, -0.431425, 0.635841, 0.639983, 0, -0.709399, 0.704808, -0.102898, 0.0787991, 0.17216)
+
+[node name="apple2" parent="MiniatureStation/Sources/AppleBox/fruits" instance=ExtResource("13_hjvmw")]
+transform = Transform3D(0.902149, 0.304071, 0.306052, -0.431425, 0.635841, 0.639983, 0, -0.709399, 0.704808, -0.0943935, 0.0787991, -0.13187)
+
+[node name="apple3" parent="MiniatureStation/Sources/AppleBox/fruits" instance=ExtResource("13_hjvmw")]
+transform = Transform3D(0.902149, 0.304071, 0.306052, -0.431425, 0.635841, 0.639983, 0, -0.709399, 0.704808, 0.0677254, 0.0787991, 0.0969588)
+
+[node name="apple4" parent="MiniatureStation/Sources/AppleBox/fruits" instance=ExtResource("13_hjvmw")]
+transform = Transform3D(0.902149, 0.304071, 0.306052, -0.431425, 0.635841, 0.639983, 0, -0.709399, 0.704808, -0.0272495, 0.0787991, -0.00575067)
+
+[node name="apple5" parent="MiniatureStation/Sources/AppleBox/fruits" instance=ExtResource("13_hjvmw")]
+transform = Transform3D(0.902149, 0.304071, 0.306052, -0.431425, 0.635841, 0.639983, 0, -0.709399, 0.704808, 0.113686, 0.0787991, -0.146659)
+
+[node name="apple6" parent="MiniatureStation/Sources/AppleBox/fruits" instance=ExtResource("13_hjvmw")]
+transform = Transform3D(0.902149, 0.304071, 0.306052, -0.431425, 0.635841, 0.639983, 0, -0.709399, 0.704808, 0.134229, 0.0787991, -0.00297439)
+
+[node name="apple7" parent="MiniatureStation/Sources/AppleBox/fruits" instance=ExtResource("13_hjvmw")]
+transform = Transform3D(0.902149, 0.304071, 0.306052, -0.431425, 0.635841, 0.639983, 0, -0.709399, 0.704808, 0.0117166, 0.0787991, -0.134446)
+
+[node name="apple8" parent="MiniatureStation/Sources/AppleBox/fruits" instance=ExtResource("13_hjvmw")]
+transform = Transform3D(0.902149, 0.304071, 0.306052, -0.431425, 0.635841, 0.639983, 0, -0.709399, 0.704808, 0.0959486, 0.0787991, -0.0686742)
+
+[node name="apple9" parent="MiniatureStation/Sources/AppleBox/fruits" instance=ExtResource("13_hjvmw")]
+transform = Transform3D(0.902149, 0.304071, 0.306052, -0.431425, 0.635841, 0.639983, 0, -0.709399, 0.704808, 0.0574506, 0.0787991, 0.00380975)
+
+[node name="apple10" parent="MiniatureStation/Sources/AppleBox/fruits" instance=ExtResource("13_hjvmw")]
+transform = Transform3D(0.902149, 0.304071, 0.306052, -0.431425, 0.635841, 0.639983, 0, -0.709399, 0.704808, -0.0184153, 0.0787991, 0.160424)
+
+[node name="apple11" parent="MiniatureStation/Sources/AppleBox/fruits" instance=ExtResource("13_hjvmw")]
+transform = Transform3D(0.481544, -0.400123, -0.779755, -0.100111, 0.858767, -0.502491, 0.870685, 0.320034, 0.373477, -0.0541195, 0.0763825, 0.0890506)
+
+[node name="apple12" parent="MiniatureStation/Sources/AppleBox/fruits" instance=ExtResource("13_hjvmw")]
+transform = Transform3D(0.481544, -0.400123, -0.779755, -0.100111, 0.858767, -0.502491, 0.870685, 0.320034, 0.373477, 0.130809, 0.0763825, 0.0451325)
+
+[node name="apple13" parent="MiniatureStation/Sources/AppleBox/fruits" instance=ExtResource("13_hjvmw")]
+transform = Transform3D(0.481544, -0.400123, -0.779755, -0.100111, 0.858767, -0.502491, 0.870685, 0.320034, 0.373477, 0.119237, 0.0763825, 0.146032)
+
+[node name="apple14" parent="MiniatureStation/Sources/AppleBox/fruits" instance=ExtResource("13_hjvmw")]
+transform = Transform3D(0.481544, -0.400123, -0.779755, -0.100111, 0.858767, -0.502491, 0.870685, 0.320034, 0.373477, 0.0128671, 0.0763825, 0.0576428)
+
+[node name="apple15" parent="MiniatureStation/Sources/AppleBox/fruits" instance=ExtResource("13_hjvmw")]
+transform = Transform3D(0.481544, -0.400123, -0.779755, -0.100111, 0.858767, -0.502491, 0.870685, 0.320034, 0.373477, 0.0536928, 0.0763825, 0.162937)
+
+[node name="apple16" parent="MiniatureStation/Sources/AppleBox/fruits" instance=ExtResource("13_hjvmw")]
+transform = Transform3D(0.481544, -0.400123, -0.779755, -0.100111, 0.858767, -0.502491, 0.870685, 0.320034, 0.373477, 0.0286191, 0.0763825, -0.0775238)
+
+[node name="apple17" parent="MiniatureStation/Sources/AppleBox/fruits" instance=ExtResource("13_hjvmw")]
+transform = Transform3D(0.481544, -0.400123, -0.779755, -0.100111, 0.858767, -0.502491, 0.870685, 0.320034, 0.373477, -0.0777401, 0.0763825, -0.0740901)
+
+[node name="apple18" parent="MiniatureStation/Sources/AppleBox/fruits" instance=ExtResource("13_hjvmw")]
+transform = Transform3D(0.481544, -0.400123, -0.779755, -0.100111, 0.858767, -0.502491, 0.870685, 0.320034, 0.373477, -0.0782993, 0.0763825, 0.0218116)
+
+[node name="apple19" parent="MiniatureStation/Sources/AppleBox/fruits" instance=ExtResource("13_hjvmw")]
+transform = Transform3D(-0.408174, -0.668951, -0.621207, 0.851796, -0.0343012, -0.522749, 0.328385, -0.742515, 0.583811, 0.0256115, 0.120955, 0.116939)
+
+[node name="apple20" parent="MiniatureStation/Sources/AppleBox/fruits" instance=ExtResource("13_hjvmw")]
+transform = Transform3D(-0.408174, -0.668951, -0.621207, 0.851796, -0.0343012, -0.522749, 0.328385, -0.742515, 0.583811, 0.0745705, 0.120955, 0.0384839)
+
+[node name="apple21" parent="MiniatureStation/Sources/AppleBox/fruits" instance=ExtResource("13_hjvmw")]
+transform = Transform3D(-0.408174, -0.668951, -0.621207, 0.851796, -0.0343012, -0.522749, 0.328385, -0.742515, 0.583811, 0.0639743, 0.114345, -0.114491)
+
+[node name="apple22" parent="MiniatureStation/Sources/AppleBox/fruits" instance=ExtResource("13_hjvmw")]
+transform = Transform3D(-0.408174, -0.668951, -0.621207, 0.851796, -0.0343012, -0.522749, 0.328385, -0.742515, 0.583811, 0.150821, 0.114345, -0.0876452)
+
+[node name="apple23" parent="MiniatureStation/Sources/AppleBox/fruits" instance=ExtResource("13_hjvmw")]
+transform = Transform3D(-0.408174, -0.668951, -0.621207, 0.851796, -0.0343012, -0.522749, 0.328385, -0.742515, 0.583811, -0.0276354, 0.114345, -0.0892069)
+
+[node name="apple24" parent="MiniatureStation/Sources/AppleBox/fruits" instance=ExtResource("13_hjvmw")]
+transform = Transform3D(0.351805, -0.70192, 0.619308, 0.851796, -0.0343012, -0.522749, 0.388171, 0.711429, 0.585825, 0.0276701, 0.133516, -0.031982)
+
+[node name="apple25" parent="MiniatureStation/Sources/AppleBox/fruits" instance=ExtResource("13_hjvmw")]
+transform = Transform3D(0.351805, -0.70192, 0.619308, 0.851796, -0.0343012, -0.522749, 0.388171, 0.711429, 0.585825, -0.0864172, 0.133516, 0.0696707)
+
+[node name="apple26" parent="MiniatureStation/Sources/AppleBox/fruits" instance=ExtResource("13_hjvmw")]
+transform = Transform3D(0.351805, -0.70192, 0.619308, 0.851796, -0.0343012, -0.522749, 0.388171, 0.711429, 0.585825, 0.00755348, 0.151216, 0.0387915)
+
+[node name="apple27" parent="MiniatureStation/Sources/AppleBox/fruits" instance=ExtResource("13_hjvmw")]
+transform = Transform3D(0.351805, -0.70192, 0.619308, 0.851796, -0.0343012, -0.522749, 0.388171, 0.711429, 0.585825, 0.0865111, 0.151216, 0.0813526)
+
+[node name="apple28" parent="MiniatureStation/Sources/AppleBox/fruits" instance=ExtResource("13_hjvmw")]
+transform = Transform3D(-0.468031, 0.398458, -0.788782, 0.291867, 0.91219, 0.287617, 0.834122, -0.0956057, -0.54323, 0.13754, 0.121208, 0.109467)
+
+[node name="apple30" parent="MiniatureStation/Sources/AppleBox/fruits" instance=ExtResource("13_hjvmw")]
+transform = Transform3D(-0.260693, -0.881441, -0.393829, 0.286799, 0.318811, -0.903386, 0.921838, -0.348456, 0.169685, 0.0793357, 0.121208, -0.0291667)
+
+[node name="apple31" parent="MiniatureStation/Sources/AppleBox/fruits" instance=ExtResource("13_hjvmw")]
+transform = Transform3D(0.86631, -0.379568, 0.324708, 0.291867, 0.91219, 0.287617, -0.405366, -0.154394, 0.901022, -0.0678791, 0.121208, -0.0307757)
+
+[node name="apple32" parent="MiniatureStation/Sources/AppleBox/fruits" instance=ExtResource("13_hjvmw")]
+transform = Transform3D(-0.167373, -0.433365, -0.88554, 0.953869, 0.155892, -0.256578, 0.249241, -0.887633, 0.387282, 0.0301817, 0.155235, -0.072253)
+
+[node name="apple33" parent="MiniatureStation/Sources/AppleBox/fruits" instance=ExtResource("13_hjvmw")]
+transform = Transform3D(-0.25895, -0.884462, -0.388164, -0.283298, 0.453745, -0.844901, 0.923411, -0.108821, -0.368063, 0.0574563, 0.155235, 0.0108554)
+
+[node name="apple34" parent="MiniatureStation/Sources/AppleBox/fruits" instance=ExtResource("13_hjvmw")]
+transform = Transform3D(-0.464896, -0.127499, 0.876136, 0.291867, 0.91219, 0.287617, -0.835874, 0.389427, -0.386861, -0.0540336, 0.155235, 0.0158718)
+
+[node name="apple35" parent="MiniatureStation/Sources/AppleBox/fruits" instance=ExtResource("13_hjvmw")]
+transform = Transform3D(0.812535, -0.0778322, -0.577693, 0.291867, 0.91219, 0.287617, 0.50458, -0.402308, 0.763903, 0.0191709, 0.155235, 0.0894145)
+
+[node name="apple36" parent="MiniatureStation/Sources/AppleBox/fruits" instance=ExtResource("13_hjvmw")]
+transform = Transform3D(-0.468031, 0.398458, -0.788782, 0.291867, 0.91219, 0.287617, 0.834122, -0.0956057, -0.54323, 0.121053, 0.155235, 0.0256906)
+
+[node name="apple37" parent="MiniatureStation/Sources/AppleBox/fruits" instance=ExtResource("13_hjvmw")]
+transform = Transform3D(-0.155654, -0.251401, 0.955285, 0.291867, 0.91219, 0.287617, -0.943709, 0.323584, -0.06861, 0.121053, 0.155235, 0.0256906)
+
+[node name="apple29" parent="MiniatureStation/Sources/AppleBox/fruits" instance=ExtResource("13_hjvmw")]
+transform = Transform3D(-0.0962093, 0.97064, -0.220459, 0.851796, -0.0343013, -0.522749, -0.514963, -0.23808, -0.823487, 0.135067, 0.121208, -0.0474702)
+
+[node name="BananaBox" type="Node3D" parent="MiniatureStation/Sources"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.22689, 0, 1.00434)
+
+[node name="box" parent="MiniatureStation/Sources/BananaBox" instance=ExtResource("10_jlw5v")]
+
+[node name="fruits" type="Node3D" parent="MiniatureStation/Sources/BananaBox"]
+
+[node name="banana_group" parent="MiniatureStation/Sources/BananaBox/fruits" instance=ExtResource("14_nucyb")]
+transform = Transform3D(0.69814, -0.715961, 0, 0.715961, 0.69814, 0, 0, 0, 1, -0.0986745, 0.113554, 0.178036)
+
+[node name="banana_group2" parent="MiniatureStation/Sources/BananaBox/fruits" instance=ExtResource("14_nucyb")]
+transform = Transform3D(0.69814, -0.715961, 0, 0.715961, 0.69814, 0, 0, 0, 1, -0.0986745, 0.113554, 0.0870906)
+
+[node name="banana_group3" parent="MiniatureStation/Sources/BananaBox/fruits" instance=ExtResource("14_nucyb")]
+transform = Transform3D(0.69814, -0.715961, 0, 0.715961, 0.69814, 0, 0, 0, 1, -0.0986745, 0.113554, -0.00996365)
+
+[node name="banana_group4" parent="MiniatureStation/Sources/BananaBox/fruits" instance=ExtResource("14_nucyb")]
+transform = Transform3D(0.69814, -0.715961, 0, 0.715961, 0.69814, 0, 0, 0, 1, -0.0986745, 0.113554, -0.107957)
+
+[node name="banana_group5" parent="MiniatureStation/Sources/BananaBox/fruits" instance=ExtResource("14_nucyb")]
+transform = Transform3D(0.69814, -0.715961, 0, 0.715961, 0.69814, 0, 0, 0, 1, -0.0203251, 0.113554, -0.185311)
+
+[node name="banana_group6" parent="MiniatureStation/Sources/BananaBox/fruits" instance=ExtResource("14_nucyb")]
+transform = Transform3D(0.69814, -0.715961, 0, 0.715961, 0.69814, 0, 0, 0, 1, 0.0686903, 0.113554, -0.182672)
+
+[node name="banana_group7" parent="MiniatureStation/Sources/BananaBox/fruits" instance=ExtResource("14_nucyb")]
+transform = Transform3D(0.69814, -0.715961, 0, 0.715961, 0.69814, 0, 0, 0, 1, 0.00393814, 0.113554, -0.102113)
+
+[node name="banana_group8" parent="MiniatureStation/Sources/BananaBox/fruits" instance=ExtResource("14_nucyb")]
+transform = Transform3D(0.69814, -0.715961, 0, 0.715961, 0.69814, 0, 0, 0, 1, 0.10279, 0.113554, -0.104444)
+
+[node name="banana_group9" parent="MiniatureStation/Sources/BananaBox/fruits" instance=ExtResource("14_nucyb")]
+transform = Transform3D(0.69814, -0.715961, 0, 0.715961, 0.69814, 0, 0, 0, 1, 0.0452253, 0.113554, -0.0206368)
+
+[node name="banana_group10" parent="MiniatureStation/Sources/BananaBox/fruits" instance=ExtResource("14_nucyb")]
+transform = Transform3D(0.69814, -0.715961, 0, 0.715961, 0.69814, 0, 0, 0, 1, -0.0296218, 0.113554, -0.0143531)
+
+[node name="banana_group11" parent="MiniatureStation/Sources/BananaBox/fruits" instance=ExtResource("14_nucyb")]
+transform = Transform3D(0.69814, -0.715961, 0, 0.715961, 0.69814, 0, 0, 0, 1, -0.00557508, 0.113554, 0.0755163)
+
+[node name="banana_group12" parent="MiniatureStation/Sources/BananaBox/fruits" instance=ExtResource("14_nucyb")]
+transform = Transform3D(0.69814, -0.715961, 0, 0.715961, 0.69814, 0, 0, 0, 1, -0.0348334, 0.113554, 0.173262)
+
+[node name="banana_group13" parent="MiniatureStation/Sources/BananaBox/fruits" instance=ExtResource("14_nucyb")]
+transform = Transform3D(0.69814, -0.715961, 0, 0.715961, 0.69814, 0, 0, 0, 1, 0.0334246, 0.113554, 0.169364)
+
+[node name="banana_group14" parent="MiniatureStation/Sources/BananaBox/fruits" instance=ExtResource("14_nucyb")]
+transform = Transform3D(0.69814, -0.715961, 0, 0.715961, 0.69814, 0, 0, 0, 1, 0.0570233, 0.113554, 0.0748519)
+
+[node name="banana_group15" parent="MiniatureStation/Sources/BananaBox/fruits" instance=ExtResource("14_nucyb")]
+transform = Transform3D(0.69814, -0.715961, 0, 0.715961, 0.69814, 0, 0, 0, 1, 0.109475, 0.113554, 0.160996)
+
+[node name="banana_group16" parent="MiniatureStation/Sources/BananaBox/fruits" instance=ExtResource("14_nucyb")]
+transform = Transform3D(0.69814, -0.715961, 0, 0.715961, 0.69814, 0, 0, 0, 1, 0.119885, 0.113554, 0.0154522)
+
+[node name="banana_group17" parent="MiniatureStation/Sources/BananaBox/fruits" instance=ExtResource("14_nucyb")]
+transform = Transform3D(0.69814, -0.715961, 0, 0.576465, 0.562117, 0.593054, -0.424603, -0.414035, 0.805163, -0.0826769, 0.200052, 0.140236)
+
+[node name="banana_group18" parent="MiniatureStation/Sources/BananaBox/fruits" instance=ExtResource("14_nucyb")]
+transform = Transform3D(0.844069, -0.113974, 0.523983, 0.432808, 0.721693, -0.540219, -0.316584, 0.682765, 0.658487, -0.0421241, 0.206048, 0.050215)
+
+[node name="banana_group19" parent="MiniatureStation/Sources/BananaBox/fruits" instance=ExtResource("14_nucyb")]
+transform = Transform3D(0.364785, -0.927169, -0.0853737, 0.613445, 0.170346, 0.771147, -0.700441, -0.333675, 0.630908, 0.0410573, 0.176737, 0.112981)
+
+[node name="banana_group20" parent="MiniatureStation/Sources/BananaBox/fruits" instance=ExtResource("14_nucyb")]
+transform = Transform3D(0.668595, -0.691985, -0.272281, -0.46329, -0.101208, -0.880408, 0.581673, 0.714782, -0.388258, 0.0657276, 0.157671, -0.0251564)
+
+[node name="banana_group21" parent="MiniatureStation/Sources/BananaBox/fruits" instance=ExtResource("14_nucyb")]
+transform = Transform3D(-0.116683, -0.433389, 0.893622, 0.992685, -0.0789852, 0.0913114, 0.0310094, 0.897739, 0.439435, -0.086367, 0.171324, -0.126514)
+
+[node name="banana_group22" parent="MiniatureStation/Sources/BananaBox/fruits" instance=ExtResource("14_nucyb")]
+transform = Transform3D(-0.168944, -0.855547, -0.489385, -0.977702, 0.208303, -0.0266382, 0.124731, 0.473972, -0.871661, 0.0679326, 0.165694, -0.148336)
+
+[node name="RedStrawPot" type="Node3D" parent="MiniatureStation/Sources"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.84064, 0.759526, 0.80263)
+
+[node name="Straws" type="Node3D" parent="MiniatureStation/Sources/RedStrawPot"]
+
+[node name="red_straw" parent="MiniatureStation/Sources/RedStrawPot/Straws" instance=ExtResource("15_yjuho")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0584423, 0.173462, -0.000285566)
+
+[node name="red_straw2" parent="MiniatureStation/Sources/RedStrawPot/Straws" instance=ExtResource("15_yjuho")]
+transform = Transform3D(0.762476, 0, 0.647016, 0, 1, 0, -0.647016, 0, 0.762476, -0.0507557, 0.173462, 0.0354428)
+
+[node name="red_straw3" parent="MiniatureStation/Sources/RedStrawPot/Straws" instance=ExtResource("15_yjuho")]
+transform = Transform3D(0.265691, 0, 0.964058, 0, 1, 0, -0.964058, 0, 0.265691, -0.024815, 0.173462, 0.0517992)
+
+[node name="red_straw4" parent="MiniatureStation/Sources/RedStrawPot/Straws" instance=ExtResource("15_yjuho")]
+transform = Transform3D(-0.249518, 0, 0.96837, 0, 1, 0, -0.96837, 0, -0.249518, 0.00745342, 0.173462, 0.0566229)
+
+[node name="red_straw5" parent="MiniatureStation/Sources/RedStrawPot/Straws" instance=ExtResource("15_yjuho")]
+transform = Transform3D(-0.781052, 0, 0.624466, 0, 1, 0, -0.624466, 0, -0.781052, 0.0451578, 0.173462, 0.0458835)
+
+[node name="red_straw6" parent="MiniatureStation/Sources/RedStrawPot/Straws" instance=ExtResource("15_yjuho")]
+transform = Transform3D(-0.998994, 0, 0.04484, 0, 1, 0, -0.04484, 0, -0.998994, 0.0521743, 0.174789, 0.0263152)
+
+[node name="red_straw7" parent="MiniatureStation/Sources/RedStrawPot/Straws" instance=ExtResource("15_yjuho")]
+transform = Transform3D(-0.952321, 0, 0.305097, 0, 1, 0, -0.305097, 0, -0.952321, 0.046764, 0.174789, 0.0346657)
+
+[node name="red_straw8" parent="MiniatureStation/Sources/RedStrawPot/Straws" instance=ExtResource("15_yjuho")]
+transform = Transform3D(-0.537417, 0, 0.843317, 0, 1, 0, -0.843317, 0, -0.537417, 0.0261125, 0.174789, 0.0519869)
+
+[node name="red_straw9" parent="MiniatureStation/Sources/RedStrawPot/Straws" instance=ExtResource("15_yjuho")]
+transform = Transform3D(-0.0703831, 0, 0.99752, 0, 1, 0, -0.99752, 0, -0.0703831, -0.00857482, 0.174789, 0.0604488)
+
+[node name="red_straw10" parent="MiniatureStation/Sources/RedStrawPot/Straws" instance=ExtResource("15_yjuho")]
+transform = Transform3D(-0.50641, 0, 0.862293, 0, 1, 0, -0.862293, 0, -0.50641, 0.00585612, 0.174789, 0.0481347)
+
+[node name="red_straw11" parent="MiniatureStation/Sources/RedStrawPot/Straws" instance=ExtResource("15_yjuho")]
+transform = Transform3D(0.246999, 0, 0.969016, 0, 1, 0, -0.969016, 0, 0.246999, -0.0152277, 0.174789, 0.0514645)
+
+[node name="red_straw12" parent="MiniatureStation/Sources/RedStrawPot/Straws" instance=ExtResource("15_yjuho")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.0631155, 0.173462, 0.00325187)
+
+[node name="red_straw13" parent="MiniatureStation/Sources/RedStrawPot/Straws" instance=ExtResource("15_yjuho")]
+transform = Transform3D(-0.762476, 0, -0.647016, 0, 1, 0, 0.647016, 0, -0.762476, 0.0554289, 0.173462, -0.0324765)
+
+[node name="red_straw14" parent="MiniatureStation/Sources/RedStrawPot/Straws" instance=ExtResource("15_yjuho")]
+transform = Transform3D(-0.265691, 0, -0.964058, 0, 1, 0, 0.964058, 0, -0.265691, 0.0294882, 0.173462, -0.0488329)
+
+[node name="red_straw15" parent="MiniatureStation/Sources/RedStrawPot/Straws" instance=ExtResource("15_yjuho")]
+transform = Transform3D(0.249518, 0, -0.96837, 0, 1, 0, 0.96837, 0, 0.249518, -0.00278022, 0.173462, -0.0536566)
+
+[node name="red_straw16" parent="MiniatureStation/Sources/RedStrawPot/Straws" instance=ExtResource("15_yjuho")]
+transform = Transform3D(0.781052, 0, -0.624466, 0, 1, 0, 0.624466, 0, 0.781052, -0.0404846, 0.173462, -0.0429172)
+
+[node name="red_straw17" parent="MiniatureStation/Sources/RedStrawPot/Straws" instance=ExtResource("15_yjuho")]
+transform = Transform3D(0.998994, 0, -0.0448401, 0, 1, 0, 0.0448401, 0, 0.998994, -0.0475011, 0.174789, -0.0233489)
+
+[node name="red_straw18" parent="MiniatureStation/Sources/RedStrawPot/Straws" instance=ExtResource("15_yjuho")]
+transform = Transform3D(0.952321, 0, -0.305097, 0, 1, 0, 0.305097, 0, 0.952321, -0.0420908, 0.174789, -0.0316994)
+
+[node name="red_straw19" parent="MiniatureStation/Sources/RedStrawPot/Straws" instance=ExtResource("15_yjuho")]
+transform = Transform3D(0.537417, 0, -0.843317, 0, 1, 0, 0.843317, 0, 0.537417, -0.0214394, 0.174789, -0.0490206)
+
+[node name="red_straw20" parent="MiniatureStation/Sources/RedStrawPot/Straws" instance=ExtResource("15_yjuho")]
+transform = Transform3D(0.070383, 0, -0.99752, 0, 1, 0, 0.99752, 0, 0.070383, 0.013248, 0.174789, -0.0574825)
+
+[node name="red_straw21" parent="MiniatureStation/Sources/RedStrawPot/Straws" instance=ExtResource("15_yjuho")]
+transform = Transform3D(0.50641, 0, -0.862293, 0, 1, 0, 0.862293, 0, 0.50641, -0.00118293, 0.174789, -0.0451684)
+
+[node name="red_straw22" parent="MiniatureStation/Sources/RedStrawPot/Straws" instance=ExtResource("15_yjuho")]
+transform = Transform3D(-0.246999, 0, -0.969016, 0, 1, 0, 0.969016, 0, -0.246999, 0.0199009, 0.174789, -0.0484982)
+
+[node name="pot" parent="MiniatureStation/Sources/RedStrawPot" instance=ExtResource("16_l54qh")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="BlueStrawPot" type="Node3D" parent="MiniatureStation/Sources"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.81461, 0.762728, 0.44648)
+
+[node name="Straws" type="Node3D" parent="MiniatureStation/Sources/BlueStrawPot"]
+
+[node name="blue_straw" parent="MiniatureStation/Sources/BlueStrawPot/Straws" instance=ExtResource("17_qak6g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.052778, 0.149729, 0.00199538)
+
+[node name="blue_straw2" parent="MiniatureStation/Sources/BlueStrawPot/Straws" instance=ExtResource("17_qak6g")]
+transform = Transform3D(0.805298, 0, 0.592871, 0, 1, 0, -0.592871, 0, 0.805298, -0.0421794, 0.149729, 0.0327796)
+
+[node name="blue_straw3" parent="MiniatureStation/Sources/BlueStrawPot/Straws" instance=ExtResource("17_qak6g")]
+transform = Transform3D(0.402219, 0, 0.915543, 0, 1, 0, -0.915543, 0, 0.402219, -0.0215082, 0.149729, 0.0462238)
+
+[node name="blue_straw4" parent="MiniatureStation/Sources/BlueStrawPot/Straws" instance=ExtResource("17_qak6g")]
+transform = Transform3D(0.035231, 0, 0.999379, 0, 1, 0, -0.999379, 0, 0.035231, 0.000407523, 0.149729, 0.0522904)
+
+[node name="blue_straw5" parent="MiniatureStation/Sources/BlueStrawPot/Straws" instance=ExtResource("17_qak6g")]
+transform = Transform3D(-0.508681, 0, 0.860955, 0, 1, 0, -0.860955, 0, -0.508681, 0.0233894, 0.149729, 0.0459816)
+
+[node name="blue_straw6" parent="MiniatureStation/Sources/BlueStrawPot/Straws" instance=ExtResource("17_qak6g")]
+transform = Transform3D(-0.547359, 0, 0.836898, 0, 1, 0, -0.836898, 0, -0.547359, 0.0353455, 0.150254, 0.0412246)
+
+[node name="blue_straw7" parent="MiniatureStation/Sources/BlueStrawPot/Straws" instance=ExtResource("17_qak6g")]
+transform = Transform3D(-0.710885, 0, 0.703308, 0, 1, 0, -0.703308, 0, -0.710885, 0.0440934, 0.150254, 0.0368342)
+
+[node name="blue_straw8" parent="MiniatureStation/Sources/BlueStrawPot/Straws" instance=ExtResource("17_qak6g")]
+transform = Transform3D(-0.246424, 0, 0.969162, 0, 1, 0, -0.969162, 0, -0.246424, 0.0133319, 0.150254, 0.0423023)
+
+[node name="blue_straw9" parent="MiniatureStation/Sources/BlueStrawPot/Straws" instance=ExtResource("17_qak6g")]
+transform = Transform3D(0.530733, 0, 0.847539, 0, 1, 0, -0.847539, 0, 0.530733, -0.0243142, 0.150254, 0.0321883)
+
+[node name="blue_straw10" parent="MiniatureStation/Sources/BlueStrawPot/Straws" instance=ExtResource("17_qak6g")]
+transform = Transform3D(0.310876, 0, 0.950451, 0, 1, 0, -0.950451, 0, 0.310876, -0.0119504, 0.150254, 0.0459807)
+
+[node name="blue_straw11" parent="MiniatureStation/Sources/BlueStrawPot/Straws" instance=ExtResource("17_qak6g")]
+transform = Transform3D(0.947333, 0, 0.320249, 0, 1, 0, -0.320249, 0, 0.947333, -0.0487037, 0.152164, 0.0177463)
+
+[node name="blue_straw12" parent="MiniatureStation/Sources/BlueStrawPot/Straws" instance=ExtResource("17_qak6g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.052778, 0.149729, 0.00199538)
+
+[node name="blue_straw13" parent="MiniatureStation/Sources/BlueStrawPot/Straws" instance=ExtResource("17_qak6g")]
+transform = Transform3D(0.805298, 0, 0.592871, 0, 1, 0, -0.592871, 0, 0.805298, -0.0421794, 0.149729, 0.0327796)
+
+[node name="blue_straw14" parent="MiniatureStation/Sources/BlueStrawPot/Straws" instance=ExtResource("17_qak6g")]
+transform = Transform3D(0.402219, 0, 0.915543, 0, 1, 0, -0.915543, 0, 0.402219, -0.0215082, 0.149729, 0.0462238)
+
+[node name="blue_straw15" parent="MiniatureStation/Sources/BlueStrawPot/Straws" instance=ExtResource("17_qak6g")]
+transform = Transform3D(0.035231, 0, 0.999379, 0, 1, 0, -0.999379, 0, 0.035231, 0.000407523, 0.149729, 0.0522904)
+
+[node name="blue_straw16" parent="MiniatureStation/Sources/BlueStrawPot/Straws" instance=ExtResource("17_qak6g")]
+transform = Transform3D(-0.508681, 0, 0.860955, 0, 1, 0, -0.860955, 0, -0.508681, 0.0233894, 0.149729, 0.0459816)
+
+[node name="blue_straw17" parent="MiniatureStation/Sources/BlueStrawPot/Straws" instance=ExtResource("17_qak6g")]
+transform = Transform3D(-0.547359, 0, 0.836898, 0, 1, 0, -0.836898, 0, -0.547359, 0.0353455, 0.150254, 0.0412246)
+
+[node name="blue_straw18" parent="MiniatureStation/Sources/BlueStrawPot/Straws" instance=ExtResource("17_qak6g")]
+transform = Transform3D(-0.710885, 0, 0.703308, 0, 1, 0, -0.703308, 0, -0.710885, 0.0440934, 0.150254, 0.0368342)
+
+[node name="blue_straw23" parent="MiniatureStation/Sources/BlueStrawPot/Straws" instance=ExtResource("17_qak6g")]
+transform = Transform3D(-0.836544, 0, 0.547899, 0, 1, 0, -0.547899, 0, -0.836544, 0.0486457, 0.150254, 0.025612)
+
+[node name="blue_straw24" parent="MiniatureStation/Sources/BlueStrawPot/Straws" instance=ExtResource("17_qak6g")]
+transform = Transform3D(-0.910727, 0, 0.413009, 0, 1, 0, -0.413009, 0, -0.910727, 0.0513911, 0.150254, 0.00605291)
+
+[node name="blue_straw25" parent="MiniatureStation/Sources/BlueStrawPot/Straws" instance=ExtResource("17_qak6g")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.0529721, 0.149729, -0.00440086)
+
+[node name="blue_straw26" parent="MiniatureStation/Sources/BlueStrawPot/Straws" instance=ExtResource("17_qak6g")]
+transform = Transform3D(-0.805298, 0, -0.592871, 0, 1, 0, 0.592871, 0, -0.805298, 0.0423735, 0.149729, -0.0351851)
+
+[node name="blue_straw27" parent="MiniatureStation/Sources/BlueStrawPot/Straws" instance=ExtResource("17_qak6g")]
+transform = Transform3D(-0.40222, 0, -0.915543, 0, 1, 0, 0.915543, 0, -0.40222, 0.0217022, 0.149729, -0.0486293)
+
+[node name="blue_straw28" parent="MiniatureStation/Sources/BlueStrawPot/Straws" instance=ExtResource("17_qak6g")]
+transform = Transform3D(-0.035231, 0, -0.999379, 0, 1, 0, 0.999379, 0, -0.035231, -0.000213434, 0.149729, -0.0546959)
+
+[node name="blue_straw29" parent="MiniatureStation/Sources/BlueStrawPot/Straws" instance=ExtResource("17_qak6g")]
+transform = Transform3D(0.508681, 0, -0.860955, 0, 1, 0, 0.860955, 0, 0.508681, -0.0231953, 0.149729, -0.0483871)
+
+[node name="blue_straw30" parent="MiniatureStation/Sources/BlueStrawPot/Straws" instance=ExtResource("17_qak6g")]
+transform = Transform3D(0.547359, 0, -0.836898, 0, 1, 0, 0.836898, 0, 0.547359, -0.0351514, 0.150254, -0.0436301)
+
+[node name="blue_straw31" parent="MiniatureStation/Sources/BlueStrawPot/Straws" instance=ExtResource("17_qak6g")]
+transform = Transform3D(0.710885, 0, -0.703308, 0, 1, 0, 0.703308, 0, 0.710885, -0.0438993, 0.150254, -0.0392397)
+
+[node name="blue_straw32" parent="MiniatureStation/Sources/BlueStrawPot/Straws" instance=ExtResource("17_qak6g")]
+transform = Transform3D(0.246424, 0, -0.969162, 0, 1, 0, 0.969162, 0, 0.246424, -0.0131378, 0.150254, -0.0447078)
+
+[node name="blue_straw33" parent="MiniatureStation/Sources/BlueStrawPot/Straws" instance=ExtResource("17_qak6g")]
+transform = Transform3D(-0.530733, 0, -0.847539, 0, 1, 0, 0.847539, 0, -0.530733, 0.0245083, 0.150254, -0.0345938)
+
+[node name="blue_straw34" parent="MiniatureStation/Sources/BlueStrawPot/Straws" instance=ExtResource("17_qak6g")]
+transform = Transform3D(-0.310876, 0, -0.950451, 0, 1, 0, 0.950451, 0, -0.310876, 0.0121445, 0.150254, -0.0483861)
+
+[node name="blue_straw35" parent="MiniatureStation/Sources/BlueStrawPot/Straws" instance=ExtResource("17_qak6g")]
+transform = Transform3D(-0.947333, 0, -0.320249, 0, 1, 0, 0.320249, 0, -0.947333, 0.0488978, 0.152164, -0.0201518)
+
+[node name="blue_straw36" parent="MiniatureStation/Sources/BlueStrawPot/Straws" instance=ExtResource("17_qak6g")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.0529721, 0.149729, -0.00440086)
+
+[node name="blue_straw37" parent="MiniatureStation/Sources/BlueStrawPot/Straws" instance=ExtResource("17_qak6g")]
+transform = Transform3D(-0.805298, 0, -0.592871, 0, 1, 0, 0.592871, 0, -0.805298, 0.0423735, 0.149729, -0.0351851)
+
+[node name="blue_straw38" parent="MiniatureStation/Sources/BlueStrawPot/Straws" instance=ExtResource("17_qak6g")]
+transform = Transform3D(-0.40222, 0, -0.915543, 0, 1, 0, 0.915543, 0, -0.40222, 0.0217022, 0.149729, -0.0486293)
+
+[node name="blue_straw39" parent="MiniatureStation/Sources/BlueStrawPot/Straws" instance=ExtResource("17_qak6g")]
+transform = Transform3D(-0.035231, 0, -0.999379, 0, 1, 0, 0.999379, 0, -0.035231, -0.000213434, 0.149729, -0.0546959)
+
+[node name="blue_straw40" parent="MiniatureStation/Sources/BlueStrawPot/Straws" instance=ExtResource("17_qak6g")]
+transform = Transform3D(0.508681, 0, -0.860955, 0, 1, 0, 0.860955, 0, 0.508681, -0.0231953, 0.149729, -0.0483871)
+
+[node name="blue_straw41" parent="MiniatureStation/Sources/BlueStrawPot/Straws" instance=ExtResource("17_qak6g")]
+transform = Transform3D(0.547359, 0, -0.836898, 0, 1, 0, 0.836898, 0, 0.547359, -0.0351514, 0.150254, -0.0436301)
+
+[node name="blue_straw42" parent="MiniatureStation/Sources/BlueStrawPot/Straws" instance=ExtResource("17_qak6g")]
+transform = Transform3D(0.710885, 0, -0.703308, 0, 1, 0, 0.703308, 0, 0.710885, -0.0438993, 0.150254, -0.0392397)
+
+[node name="blue_straw43" parent="MiniatureStation/Sources/BlueStrawPot/Straws" instance=ExtResource("17_qak6g")]
+transform = Transform3D(0.836544, 0, -0.547899, 0, 1, 0, 0.547899, 0, 0.836544, -0.0484516, 0.150254, -0.0280175)
+
+[node name="blue_straw44" parent="MiniatureStation/Sources/BlueStrawPot/Straws" instance=ExtResource("17_qak6g")]
+transform = Transform3D(0.910727, 0, -0.413009, 0, 1, 0, 0.413009, 0, 0.910727, -0.051197, 0.150254, -0.00845841)
+
+[node name="blue_straw19" parent="MiniatureStation/Sources/BlueStrawPot/Straws" instance=ExtResource("17_qak6g")]
+transform = Transform3D(-0.246424, 0, 0.969162, 0, 1, 0, -0.969162, 0, -0.246424, 0.0133319, 0.150254, 0.0423023)
+
+[node name="blue_straw20" parent="MiniatureStation/Sources/BlueStrawPot/Straws" instance=ExtResource("17_qak6g")]
+transform = Transform3D(0.530733, 0, 0.847539, 0, 1, 0, -0.847539, 0, 0.530733, -0.0243142, 0.150254, 0.0321883)
+
+[node name="blue_straw21" parent="MiniatureStation/Sources/BlueStrawPot/Straws" instance=ExtResource("17_qak6g")]
+transform = Transform3D(0.310876, 0, 0.950451, 0, 1, 0, -0.950451, 0, 0.310876, -0.0119504, 0.150254, 0.0459807)
+
+[node name="blue_straw22" parent="MiniatureStation/Sources/BlueStrawPot/Straws" instance=ExtResource("17_qak6g")]
+transform = Transform3D(0.947333, 0, 0.320249, 0, 1, 0, -0.320249, 0, 0.947333, -0.0487037, 0.152164, 0.0177463)
+
+[node name="pot" parent="MiniatureStation/Sources/BlueStrawPot" instance=ExtResource("16_l54qh")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="GrabPointHandRight" parent="." instance=ExtResource("14_dms0v")]
+transform = Transform3D(0.595987, 0.802994, 0, -0.802994, 0.595987, 0, 0, 0, 1, 0.0561553, 0.0360892, -0.0910363)
+hand_pose = SubResource("Resource_ag05q")
+
+[node name="RightHand2" parent="GrabPointHandRight" instance=ExtResource("17_8ftnp")]
+
+[node name="GrabPointHandLeft" parent="." instance=ExtResource("21_taitp")]
+transform = Transform3D(0.692634, -0.721289, 0, 0.721289, 0.692634, 0, 0, 0, 1, -0.0565305, 0.04869, -0.0867055)
+hand_pose = SubResource("Resource_50g13")
+
+[node name="LeftHand2" parent="GrabPointHandLeft" instance=ExtResource("23_fi65d")]

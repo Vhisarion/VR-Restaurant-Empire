@@ -150,6 +150,16 @@ func pick_up(_by: Node3D, _with_controller: XRController3D) -> void:
 func let_go(_p_linear_velocity: Vector3, _p_angular_velocity: Vector3) -> void:
 	pass
 
+func drop_object_and_free() -> void:
+	if not is_instance_valid(picked_up_object):
+		return
+
+	# let go of this object
+	picked_up_object.let_go(Vector3.ZERO, Vector3.ZERO)
+	picked_up_object.queue_free()
+	picked_up_object = null
+	emit_signal("has_dropped")
+	emit_signal("highlight_updated", self, true)
 
 # Pickup Method: Drop the currently picked up object
 func drop_object() -> void:

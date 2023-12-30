@@ -3,13 +3,14 @@ class_name LevelController
 extends Node
 
 # Level settings
-var max_time : int
 var required_score : int
 
 # Score
 var current_score: int
 
 var customers: Array[Customer] = []
+var customer_total: int
+var served_customers = 0
 var arrival_timers: Array[Timer] = []
 var customer_locations: Array[Node3D] = []
 var occupied_locations: Array[bool] = []
@@ -17,9 +18,6 @@ var customer_queue: Array[Customer] = []
 
 # Constants
 const INT_MAX = 9223372036854775807
-
-# Settings for the level to load
-@export var json_file: JSON 
 
 func _process(delta):
 	# Check if there are customers in the queue.
@@ -40,12 +38,26 @@ func _ready():
 	var json = read_json_file()
 	
 	# Initialize level settings
-	max_time = json.settings.max_time
 	required_score = json.settings.required_score
 	
 	# Initialize all customers for the level
 	initialize_customers(json.customers)
 	start_arrival_timers()
+	
+	# Remove machines and sources not enabled in the level
+	var machines = %Machines.get_children()
+	for machine in machines:
+		if (!json.settings.machines.has(machine.name)):
+			print("removing ", machine.name)
+			machine.queue_free()
+			#remove_child(machine)
+	
+	var sources = %Sources.get_children()
+	for source in sources:
+		if (!json.settings.sources.has(source.name)):
+			source.queue_free()
+			print("removing ", source.name)
+			#remove_child(source)
 	
 	# Look for customer locations in the current environment
 	for number in range(9):
@@ -103,7 +115,7 @@ func start_arrival_timers():
 		timer.start()
 
 func read_json_file():
-	var file = FileAccess.open(json_file.resource_path, FileAccess.READ)
+	var file = FileAccess.open(Main.selected_level, FileAccess.READ)
 	var content_as_dictionary = JSON.parse_string(file.get_as_text())
 	return content_as_dictionary
 
@@ -117,6 +129,12 @@ func _on_customer_left(customer, location):
 	var location_index = customer_locations.find(customer.location)
 	occupied_locations[location_index] = false
 	customer.set_location(null)
+	served_customers += 1
+	if (served_customers == customer_total) :
+		end_level()
 
 func enter_queue(customer: Customer):
 	customer_queue.push_back(customer)
+
+func end_level() -> void:
+	print("End of level! Total score: ", current_score)

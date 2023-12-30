@@ -1,0 +1,63 @@
+{
+	"settings": {
+		"required_score": 20,
+		"machines": ["ManualSqueezer", "Water", "Water2", "Water3"],
+		"sources": ["LemonBox", "AppleBox", "RedStrawPot"]
+	},
+	"customers": [
+		{
+			"arrival": 1,
+			"max_patience": 20,
+			"order": [
+				{
+					"product": "Lemonade",
+					"modifiers": {
+						"straw_type": "RED_STRAW"
+					}
+				}
+			],
+		},
+		{
+			"arrival": 5,
+			"max_patience": 10,
+			"order": [
+				{
+					"product": "Apple",
+				}
+			],
+		},
+		{
+			"arrival": 9,
+			"max_patience": 10,
+			"order": [
+				{
+					"product": "Apple",
+				}
+			],
+		},
+		{
+			"arrival": 17,
+			"max_patience": 20,
+			"order": [
+				{
+					"product": "Lemonade",
+					"modifiers": {
+						"straw_type": "RED_STRAW"
+					}
+				}
+			],
+		},
+		{
+			"arrival": 25,
+			"max_patience": 20,
+			"order": [
+				{
+					"product": "Lemonade",
+					"modifiers": {
+						"straw_type": "RED_STRAW"
+					}
+				}
+			],
+		}
+	]
+}

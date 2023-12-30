@@ -9,5 +9,6 @@ var squeeze_outcome = {
 
 func squeeze(type: String) -> void:
 	var product = squeeze_outcome[type].instantiate()
+	print("Squeezing ", type, "! Creating a ", product.name)
 	product.transform = $ProductLocation.transform
 	add_child(product)

@@ -1,28 +1,28 @@
-[gd_scene load_steps=33 format=3 uid="uid://c0mwchluekyjw"]
+[gd_scene load_steps=34 format=3 uid="uid://clwdncfwnjiyl"]
 
-[ext_resource type="Script" path="res://scripts/level_controller.gd" id="1_umssm"]
-[ext_resource type="JSON" path="res://levels/stage_1/testing_level.json" id="2_ahw8f"]
-[ext_resource type="PackedScene" uid="uid://o7e8qsgryg7y" path="res://entities/player.tscn" id="4_wgmau"]
-[ext_resource type="PackedScene" uid="uid://d0yj88rv0ucqe" path="res://assets/models/kenney_set/house_type13.glb" id="5_qri6l"]
-[ext_resource type="PackedScene" uid="uid://clid6pryr5sf5" path="res://objects/stage_1/machines/manual_squeezer.tscn" id="5_tt8hj"]
-[ext_resource type="PackedScene" uid="uid://dp7h3tvs3lhuq" path="res://objects/stage_1/machines/Water.tscn" id="6_p45ih"]
-[ext_resource type="PackedScene" uid="uid://dlbt848q6h5e8" path="res://assets/models/kenney_set/house_type05.glb" id="6_uqo3e"]
-[ext_resource type="PackedScene" uid="uid://b1m3qc3ko5g8e" path="res://assets/models/kenney_set/house_type02.glb" id="7_owooq"]
-[ext_resource type="PackedScene" uid="uid://wiej8os8f0v6" path="res://assets/models/kenney_set/house_type01.glb" id="8_7cmde"]
-[ext_resource type="PackedScene" uid="uid://dhk8ookpth5kg" path="res://assets/models/kenney_set/house_type09.glb" id="9_mn83y"]
-[ext_resource type="PackedScene" uid="uid://dbhmimfgvy502" path="res://assets/models/kenney_set/house_type16.glb" id="10_u7kvc"]
-[ext_resource type="PackedScene" uid="uid://dqvkhawmj4kdi" path="res://assets/models/park/bush_house_separator.tscn" id="11_q7wm8"]
-[ext_resource type="PackedScene" uid="uid://buhep2w1a83i5" path="res://objects/stage_1/boxes/orange_box.tscn" id="15_asfej"]
-[ext_resource type="PackedScene" uid="uid://rgtsg8clr6jt" path="res://objects/stage_1/boxes/lemon_box.tscn" id="16_is2yh"]
-[ext_resource type="PackedScene" uid="uid://c2bhx33te01l7" path="res://objects/stage_1/boxes/apple_box.tscn" id="19_ccng0"]
-[ext_resource type="PackedScene" uid="uid://blfteqg2wfj0v" path="res://objects/stage_1/boxes/banana_box.tscn" id="20_i4fr0"]
-[ext_resource type="PackedScene" uid="uid://vp4y1hdtknjl" path="res://assets/models/kenney_set/path_long.glb" id="21_0gq76"]
-[ext_resource type="PackedScene" uid="uid://2lwxgxu7brug" path="res://objects/stage_1/boxes/red_straw_pot.tscn" id="21_dyixl"]
-[ext_resource type="PackedScene" uid="uid://b8iabtvk8avvm" path="res://objects/stage_1/furniture/counter_large.tscn" id="21_gkh82"]
-[ext_resource type="PackedScene" uid="uid://cvvhnuv0lq2tt" path="res://objects/stage_1/furniture/counter_small.tscn" id="22_e0448"]
-[ext_resource type="PackedScene" uid="uid://ub8fx2bjffis" path="res://assets/models/kenney_set/path_tilesLong.glb" id="22_j1y82"]
-[ext_resource type="PackedScene" uid="uid://bt2qyw6irwvmk" path="res://objects/stage_1/boxes/blue_straw_pot.tscn" id="22_jyr4c"]
-[ext_resource type="PackedScene" uid="uid://csdvwhjuyr5ob" path="res://assets/models/furniture/cabinet/cabinet.glb" id="23_7uo7o"]
+[ext_resource type="Script" path="res://scripts/level_controller.gd" id="1_ywhge"]
+[ext_resource type="PackedScene" uid="uid://o7e8qsgryg7y" path="res://entities/player.tscn" id="3_a0kes"]
+[ext_resource type="PackedScene" uid="uid://d0yj88rv0ucqe" path="res://assets/models/kenney_set/house_type13.glb" id="4_40gfv"]
+[ext_resource type="PackedScene" uid="uid://dlbt848q6h5e8" path="res://assets/models/kenney_set/house_type05.glb" id="5_7son5"]
+[ext_resource type="PackedScene" uid="uid://b1m3qc3ko5g8e" path="res://assets/models/kenney_set/house_type02.glb" id="6_4wv1i"]
+[ext_resource type="PackedScene" uid="uid://wiej8os8f0v6" path="res://assets/models/kenney_set/house_type01.glb" id="7_6ymdk"]
+[ext_resource type="PackedScene" uid="uid://dhk8ookpth5kg" path="res://assets/models/kenney_set/house_type09.glb" id="8_6frvn"]
+[ext_resource type="PackedScene" uid="uid://dbhmimfgvy502" path="res://assets/models/kenney_set/house_type16.glb" id="9_f60wm"]
+[ext_resource type="PackedScene" uid="uid://vp4y1hdtknjl" path="res://assets/models/kenney_set/path_long.glb" id="10_r2n45"]
+[ext_resource type="PackedScene" uid="uid://ub8fx2bjffis" path="res://assets/models/kenney_set/path_tilesLong.glb" id="11_4474w"]
+[ext_resource type="PackedScene" uid="uid://dqvkhawmj4kdi" path="res://assets/models/park/bush_house_separator.tscn" id="12_qawu0"]
+[ext_resource type="PackedScene" uid="uid://clid6pryr5sf5" path="res://objects/stage_1/machines/manual_squeezer.tscn" id="13_vnkv0"]
+[ext_resource type="PackedScene" uid="uid://d3wsb48kp04ba" path="res://objects/stage_1/machines/automatic_squeezer.tscn" id="14_os1di"]
+[ext_resource type="PackedScene" uid="uid://dp7h3tvs3lhuq" path="res://objects/stage_1/machines/Water.tscn" id="14_rb1f8"]
+[ext_resource type="PackedScene" uid="uid://buhep2w1a83i5" path="res://objects/stage_1/boxes/orange_box.tscn" id="15_wjco4"]
+[ext_resource type="PackedScene" uid="uid://rgtsg8clr6jt" path="res://objects/stage_1/boxes/lemon_box.tscn" id="16_bt1w2"]
+[ext_resource type="PackedScene" uid="uid://c2bhx33te01l7" path="res://objects/stage_1/boxes/apple_box.tscn" id="17_s7i1s"]
+[ext_resource type="PackedScene" uid="uid://blfteqg2wfj0v" path="res://objects/stage_1/boxes/banana_box.tscn" id="18_3hmea"]
+[ext_resource type="PackedScene" uid="uid://2lwxgxu7brug" path="res://objects/stage_1/boxes/red_straw_pot.tscn" id="19_ac314"]
+[ext_resource type="PackedScene" uid="uid://bt2qyw6irwvmk" path="res://objects/stage_1/boxes/blue_straw_pot.tscn" id="20_gng0u"]
+[ext_resource type="PackedScene" uid="uid://b8iabtvk8avvm" path="res://objects/stage_1/furniture/counter_large.tscn" id="21_y5g2k"]
+[ext_resource type="PackedScene" uid="uid://cvvhnuv0lq2tt" path="res://objects/stage_1/furniture/counter_small.tscn" id="22_gihdr"]
+[ext_resource type="PackedScene" uid="uid://csdvwhjuyr5ob" path="res://assets/models/furniture/cabinet/cabinet.glb" id="23_mj50x"]
 
 [sub_resource type="Environment" id="Environment_fn5ye"]
 background_mode = 1
@@ -99,9 +99,11 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_d0860")
 
-[node name="Testing_Level" type="Node3D"]
-script = ExtResource("1_umssm")
-json_file = ExtResource("2_ahw8f")
+[sub_resource type="BoxShape3D" id="BoxShape3D_dt6va"]
+size = Vector3(0.265442, 0.0597076, 1.04724)
+
+[node name="World1Environment" type="Node3D"]
+script = ExtResource("1_ywhge")
 
 [node name="Lighting" type="Node3D" parent="."]
 
@@ -120,8 +122,8 @@ transform = Transform3D(0.530544, -0.308322, 0.789595, -0.708701, 0.349701, 0.61
 [node name="DirectionalLight3D4" type="DirectionalLight3D" parent="Lighting"]
 transform = Transform3D(0.256256, 6.87332e-08, -0.966609, 0.626273, 0.761719, 0.16603, 0.736285, -0.647907, 0.195195, 0, 10, 0)
 
-[node name="Player" parent="." instance=ExtResource("4_wgmau")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.35672, 0.128073, 1.22322)
+[node name="Player" parent="." instance=ExtResource("3_a0kes")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.35672, 0.128073, 1.56968)
 
 [node name="Environment" type="Node3D" parent="."]
 
@@ -219,146 +221,146 @@ shape = SubResource("BoxShape3D_2r0wj")
 
 [node name="Houses" type="Node3D" parent="Environment"]
 
-[node name="house_type132" parent="Environment/Houses" instance=ExtResource("5_qri6l")]
+[node name="house_type132" parent="Environment/Houses" instance=ExtResource("4_40gfv")]
 transform = Transform3D(-9, 0, -1.35896e-06, 0, 9, 0, 1.35896e-06, 0, -9, 0.0106173, 0, 11.2582)
 
-[node name="house_type052" parent="Environment/Houses" instance=ExtResource("6_uqo3e")]
+[node name="house_type052" parent="Environment/Houses" instance=ExtResource("5_7son5")]
 transform = Transform3D(-9, 0, -1.35896e-06, 0, 9, 0, 1.35896e-06, 0, -9, -14.3965, 0, 11.2582)
 
-[node name="house_type022" parent="Environment/Houses" instance=ExtResource("7_owooq")]
+[node name="house_type022" parent="Environment/Houses" instance=ExtResource("6_4wv1i")]
 transform = Transform3D(-9, 0, -1.35896e-06, 0, 9, 0, 1.35896e-06, 0, -9, 15.6038, 0, 11.2582)
 
-[node name="house_type012" parent="Environment/Houses" instance=ExtResource("8_7cmde")]
+[node name="house_type012" parent="Environment/Houses" instance=ExtResource("7_6ymdk")]
 transform = Transform3D(9, 0, 0, 0, 9, 0, 0, 0, 9, -3.31553, 0, -24.6152)
 
-[node name="house_type092" parent="Environment/Houses" instance=ExtResource("9_mn83y")]
+[node name="house_type092" parent="Environment/Houses" instance=ExtResource("8_6frvn")]
 transform = Transform3D(9, 0, 0, 0, 9, 0, 0, 0, 9, -15.5377, 0, -27.6601)
 
-[node name="house_type162" parent="Environment/Houses" instance=ExtResource("10_u7kvc")]
+[node name="house_type162" parent="Environment/Houses" instance=ExtResource("9_f60wm")]
 transform = Transform3D(9, 0, 0, 0, 9, 0, 0, 0, 9, 15.2564, 0, -27.2365)
 
 [node name="Paths" type="Node3D" parent="Environment/Houses"]
 
-[node name="path_long2" parent="Environment/Houses/Paths" instance=ExtResource("21_0gq76")]
+[node name="path_long2" parent="Environment/Houses/Paths" instance=ExtResource("10_r2n45")]
 transform = Transform3D(-3.80775e-07, 0, -124.643, 0, 6, 0, 8.71112, 0, -5.44831e-06, 0.026907, 0, -2.80518)
 
-[node name="path_long3" parent="Environment/Houses/Paths" instance=ExtResource("21_0gq76")]
+[node name="path_long3" parent="Environment/Houses/Paths" instance=ExtResource("10_r2n45")]
 transform = Transform3D(-3.80775e-07, 0, -124.643, 0, 6, 0, 8.71112, 0, -5.44831e-06, 0.026907, 0, -14.6873)
 
-[node name="path_tilesLong6" parent="Environment/Houses/Paths" instance=ExtResource("22_j1y82")]
+[node name="path_tilesLong6" parent="Environment/Houses/Paths" instance=ExtResource("11_4474w")]
 transform = Transform3D(-6, 0, 5.24537e-07, 0, 6, 0, -5.24537e-07, 0, -6, -0.0655905, -0.0665046, 2.85645)
 
-[node name="path_tilesLong8" parent="Environment/Houses/Paths" instance=ExtResource("22_j1y82")]
+[node name="path_tilesLong8" parent="Environment/Houses/Paths" instance=ExtResource("11_4474w")]
 transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, -0.0655905, -0.0665046, 7.64533)
 
-[node name="path_tilesLong9" parent="Environment/Houses/Paths" instance=ExtResource("22_j1y82")]
+[node name="path_tilesLong9" parent="Environment/Houses/Paths" instance=ExtResource("11_4474w")]
 transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, -0.0655905, -0.0665046, 5.25186)
 
-[node name="path_tilesLong12" parent="Environment/Houses/Paths" instance=ExtResource("22_j1y82")]
+[node name="path_tilesLong12" parent="Environment/Houses/Paths" instance=ExtResource("11_4474w")]
 transform = Transform3D(-6, 0, 5.24537e-07, 0, 6, 0, -5.24537e-07, 0, -6, -0.0655905, -0.0665046, 0.458566)
 
-[node name="path_tilesLong13" parent="Environment/Houses/Paths" instance=ExtResource("22_j1y82")]
+[node name="path_tilesLong13" parent="Environment/Houses/Paths" instance=ExtResource("11_4474w")]
 transform = Transform3D(-6, 0, 5.24537e-07, 0, 6, 0, -5.24537e-07, 0, -6, -0.0655905, -0.0665046, -0.741706)
 
-[node name="path_tilesLong7" parent="Environment/Houses/Paths" instance=ExtResource("22_j1y82")]
+[node name="path_tilesLong7" parent="Environment/Houses/Paths" instance=ExtResource("11_4474w")]
 transform = Transform3D(-6, 0, 5.24537e-07, 0, 6, 0, -5.24537e-07, 0, -6, -14.4548, -0.0665046, 2.92947)
 
-[node name="path_tilesLong10" parent="Environment/Houses/Paths" instance=ExtResource("22_j1y82")]
+[node name="path_tilesLong10" parent="Environment/Houses/Paths" instance=ExtResource("11_4474w")]
 transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, -14.4548, -0.0665046, 7.71835)
 
-[node name="path_tilesLong11" parent="Environment/Houses/Paths" instance=ExtResource("22_j1y82")]
+[node name="path_tilesLong11" parent="Environment/Houses/Paths" instance=ExtResource("11_4474w")]
 transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, -14.4548, -0.0665046, 5.32488)
 
-[node name="path_tilesLong14" parent="Environment/Houses/Paths" instance=ExtResource("22_j1y82")]
+[node name="path_tilesLong14" parent="Environment/Houses/Paths" instance=ExtResource("11_4474w")]
 transform = Transform3D(-6, 0, 5.24537e-07, 0, 6, 0, -5.24537e-07, 0, -6, -14.4548, -0.0665046, 0.531586)
 
-[node name="path_tilesLong15" parent="Environment/Houses/Paths" instance=ExtResource("22_j1y82")]
+[node name="path_tilesLong15" parent="Environment/Houses/Paths" instance=ExtResource("11_4474w")]
 transform = Transform3D(-6, 0, 5.24537e-07, 0, 6, 0, -5.24537e-07, 0, -6, -14.4548, -0.0665046, -0.668686)
 
-[node name="path_tilesLong16" parent="Environment/Houses/Paths" instance=ExtResource("22_j1y82")]
+[node name="path_tilesLong16" parent="Environment/Houses/Paths" instance=ExtResource("11_4474w")]
 transform = Transform3D(-6, 0, 5.24537e-07, 0, 6, 0, -5.24537e-07, 0, -6, 15.5818, -0.0665046, 2.92947)
 
-[node name="path_tilesLong17" parent="Environment/Houses/Paths" instance=ExtResource("22_j1y82")]
+[node name="path_tilesLong17" parent="Environment/Houses/Paths" instance=ExtResource("11_4474w")]
 transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 15.5818, -0.0665046, 7.71835)
 
-[node name="path_tilesLong18" parent="Environment/Houses/Paths" instance=ExtResource("22_j1y82")]
+[node name="path_tilesLong18" parent="Environment/Houses/Paths" instance=ExtResource("11_4474w")]
 transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 15.5818, -0.0665046, 5.32488)
 
-[node name="path_tilesLong19" parent="Environment/Houses/Paths" instance=ExtResource("22_j1y82")]
+[node name="path_tilesLong19" parent="Environment/Houses/Paths" instance=ExtResource("11_4474w")]
 transform = Transform3D(-6, 0, 5.24537e-07, 0, 6, 0, -5.24537e-07, 0, -6, 15.5818, -0.0665046, 0.531586)
 
-[node name="path_tilesLong20" parent="Environment/Houses/Paths" instance=ExtResource("22_j1y82")]
+[node name="path_tilesLong20" parent="Environment/Houses/Paths" instance=ExtResource("11_4474w")]
 transform = Transform3D(-6, 0, 5.24537e-07, 0, 6, 0, -5.24537e-07, 0, -6, 15.5818, -0.0665046, -0.668686)
 
-[node name="path_tilesLong21" parent="Environment/Houses/Paths" instance=ExtResource("22_j1y82")]
+[node name="path_tilesLong21" parent="Environment/Houses/Paths" instance=ExtResource("11_4474w")]
 transform = Transform3D(-6, 0, 5.24537e-07, 0, 6, 0, -5.24537e-07, 0, -6, 16.4512, -0.0665046, -21.6101)
 
-[node name="path_tilesLong22" parent="Environment/Houses/Paths" instance=ExtResource("22_j1y82")]
+[node name="path_tilesLong22" parent="Environment/Houses/Paths" instance=ExtResource("11_4474w")]
 transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 16.4512, -0.0665046, -16.8212)
 
-[node name="path_tilesLong23" parent="Environment/Houses/Paths" instance=ExtResource("22_j1y82")]
+[node name="path_tilesLong23" parent="Environment/Houses/Paths" instance=ExtResource("11_4474w")]
 transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 16.4512, -0.0665046, -19.2146)
 
-[node name="path_tilesLong24" parent="Environment/Houses/Paths" instance=ExtResource("22_j1y82")]
+[node name="path_tilesLong24" parent="Environment/Houses/Paths" instance=ExtResource("11_4474w")]
 transform = Transform3D(-6, 0, 5.24537e-07, 0, 6, 0, -5.24537e-07, 0, -6, 16.4512, -0.0665046, -24.0079)
 
-[node name="path_tilesLong25" parent="Environment/Houses/Paths" instance=ExtResource("22_j1y82")]
+[node name="path_tilesLong25" parent="Environment/Houses/Paths" instance=ExtResource("11_4474w")]
 transform = Transform3D(-6, 0, 5.24537e-07, 0, 6, 0, -5.24537e-07, 0, -6, 16.4512, -0.0665046, -25.2082)
 
-[node name="path_tilesLong26" parent="Environment/Houses/Paths" instance=ExtResource("22_j1y82")]
+[node name="path_tilesLong26" parent="Environment/Houses/Paths" instance=ExtResource("11_4474w")]
 transform = Transform3D(-6, 0, 5.24537e-07, 0, 6, 0, -5.24537e-07, 0, -6, 0.552336, -0.0665046, -21.6101)
 
-[node name="path_tilesLong27" parent="Environment/Houses/Paths" instance=ExtResource("22_j1y82")]
+[node name="path_tilesLong27" parent="Environment/Houses/Paths" instance=ExtResource("11_4474w")]
 transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0.552336, -0.0665046, -16.8212)
 
-[node name="path_tilesLong28" parent="Environment/Houses/Paths" instance=ExtResource("22_j1y82")]
+[node name="path_tilesLong28" parent="Environment/Houses/Paths" instance=ExtResource("11_4474w")]
 transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0.552336, -0.0665046, -19.2146)
 
-[node name="path_tilesLong29" parent="Environment/Houses/Paths" instance=ExtResource("22_j1y82")]
+[node name="path_tilesLong29" parent="Environment/Houses/Paths" instance=ExtResource("11_4474w")]
 transform = Transform3D(-6, 0, 5.24537e-07, 0, 6, 0, -5.24537e-07, 0, -6, 0.552336, -0.0665046, -24.0079)
 
-[node name="path_tilesLong30" parent="Environment/Houses/Paths" instance=ExtResource("22_j1y82")]
+[node name="path_tilesLong30" parent="Environment/Houses/Paths" instance=ExtResource("11_4474w")]
 transform = Transform3D(-6, 0, 5.24537e-07, 0, 6, 0, -5.24537e-07, 0, -6, 0.552336, -0.0665046, -25.2082)
 
-[node name="path_tilesLong31" parent="Environment/Houses/Paths" instance=ExtResource("22_j1y82")]
+[node name="path_tilesLong31" parent="Environment/Houses/Paths" instance=ExtResource("11_4474w")]
 transform = Transform3D(-6, 0, 5.24537e-07, 0, 6, 0, -5.24537e-07, 0, -6, -15.5411, -0.0665046, -21.6101)
 
-[node name="path_tilesLong32" parent="Environment/Houses/Paths" instance=ExtResource("22_j1y82")]
+[node name="path_tilesLong32" parent="Environment/Houses/Paths" instance=ExtResource("11_4474w")]
 transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, -15.5411, -0.0665046, -16.8212)
 
-[node name="path_tilesLong33" parent="Environment/Houses/Paths" instance=ExtResource("22_j1y82")]
+[node name="path_tilesLong33" parent="Environment/Houses/Paths" instance=ExtResource("11_4474w")]
 transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, -15.5411, -0.0665046, -19.2146)
 
-[node name="path_tilesLong34" parent="Environment/Houses/Paths" instance=ExtResource("22_j1y82")]
+[node name="path_tilesLong34" parent="Environment/Houses/Paths" instance=ExtResource("11_4474w")]
 transform = Transform3D(-6, 0, 5.24537e-07, 0, 6, 0, -5.24537e-07, 0, -6, -15.5411, -0.0665046, -24.0079)
 
-[node name="path_tilesLong35" parent="Environment/Houses/Paths" instance=ExtResource("22_j1y82")]
+[node name="path_tilesLong35" parent="Environment/Houses/Paths" instance=ExtResource("11_4474w")]
 transform = Transform3D(-6, 0, 5.24537e-07, 0, 6, 0, -5.24537e-07, 0, -6, -15.5411, -0.0665046, -25.2082)
 
 [node name="Bushes" type="Node3D" parent="Environment"]
 
-[node name="BushHouseSeparator" parent="Environment/Bushes" instance=ExtResource("11_q7wm8")]
+[node name="BushHouseSeparator" parent="Environment/Bushes" instance=ExtResource("12_qawu0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.01561, 0, 10.1249)
 
-[node name="BushHouseSeparator2" parent="Environment/Bushes" instance=ExtResource("11_q7wm8")]
+[node name="BushHouseSeparator2" parent="Environment/Bushes" instance=ExtResource("12_qawu0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.31565, 0, 11.0682)
 
-[node name="BushHouseSeparator3" parent="Environment/Bushes" instance=ExtResource("11_q7wm8")]
+[node name="BushHouseSeparator3" parent="Environment/Bushes" instance=ExtResource("12_qawu0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.7197, 0, 10.2233)
 
-[node name="BushHouseSeparator4" parent="Environment/Bushes" instance=ExtResource("11_q7wm8")]
+[node name="BushHouseSeparator4" parent="Environment/Bushes" instance=ExtResource("12_qawu0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.2974, 0, 10.7732)
 
-[node name="BushHouseSeparator5" parent="Environment/Bushes" instance=ExtResource("11_q7wm8")]
+[node name="BushHouseSeparator5" parent="Environment/Bushes" instance=ExtResource("12_qawu0")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -7.56327, -9.53674e-07, -28.774)
 
-[node name="BushHouseSeparator6" parent="Environment/Bushes" instance=ExtResource("11_q7wm8")]
+[node name="BushHouseSeparator6" parent="Environment/Bushes" instance=ExtResource("12_qawu0")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 8.31565, 0, -28.6136)
 
-[node name="BushHouseSeparator7" parent="Environment/Bushes" instance=ExtResource("11_q7wm8")]
+[node name="BushHouseSeparator7" parent="Environment/Bushes" instance=ExtResource("12_qawu0")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 21.9223, 0, -28.5241)
 
-[node name="BushHouseSeparator8" parent="Environment/Bushes" instance=ExtResource("11_q7wm8")]
+[node name="BushHouseSeparator8" parent="Environment/Bushes" instance=ExtResource("12_qawu0")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -23.2974, 0, -28.9085)
 
 [node name="Trees" type="Node3D" parent="Environment"]
@@ -424,13 +426,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.341704, 0, -1.03612)
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.35672, 0, 1.22322)
 
-[node name="ManualSqueezer" parent="Machines" instance=ExtResource("5_tt8hj")]
+[node name="ManualSqueezer" parent="Machines" instance=ExtResource("13_vnkv0")]
 transform = Transform3D(-0.99996, 0, -0.0089359, 0, 1, 0, 0.0089359, 0, -0.99996, 0.887084, 0.777604, -0.0533023)
 
-[node name="ManualSqueezer2" parent="Machines" instance=ExtResource("5_tt8hj")]
+[node name="ManualSqueezer2" parent="Machines" instance=ExtResource("13_vnkv0")]
 transform = Transform3D(-0.99996, 0, -0.0089359, 0, 1, 0, 0.0089359, 0, -0.99996, 0.887084, 0.777604, 0.343968)
 
-[node name="Water" parent="Machines" instance=ExtResource("6_p45ih")]
+[node name="Water" parent="Machines" instance=ExtResource("14_rb1f8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.398152, 1.16817, 1.42064)
 enabled = null
 press_to_hold = null
@@ -441,7 +443,7 @@ ranged_grab_speed = null
 picked_by_exclude = null
 picked_by_require = null
 
-[node name="Water3" parent="Machines" instance=ExtResource("6_p45ih")]
+[node name="Water3" parent="Machines" instance=ExtResource("14_rb1f8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.398152, 1.16817, 1.25952)
 enabled = null
 press_to_hold = null
@@ -452,7 +454,7 @@ ranged_grab_speed = null
 picked_by_exclude = null
 picked_by_require = null
 
-[node name="Water2" parent="Machines" instance=ExtResource("6_p45ih")]
+[node name="Water2" parent="Machines" instance=ExtResource("14_rb1f8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25247, 1.16817, 1.31105)
 enabled = null
 press_to_hold = null
@@ -463,41 +465,53 @@ ranged_grab_speed = null
 picked_by_exclude = null
 picked_by_require = null
 
+[node name="AutomaticSqueezer" parent="Machines" instance=ExtResource("14_os1di")]
+transform = Transform3D(-3.27835e-08, 0, -0.75, 0, 0.75, 0, 0.75, 0, -3.27835e-08, 0.923898, 0.69841, 0.767094)
+
 [node name="Sources" type="Node3D" parent="."]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.31318, 0, 1.22322)
 
-[node name="OrangeBox" parent="Sources" instance=ExtResource("15_asfej")]
+[node name="OrangeBox" parent="Sources" instance=ExtResource("15_wjco4")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.344957, 0.527242, 0.990983)
 
-[node name="LemonBox" parent="Sources" instance=ExtResource("16_is2yh")]
+[node name="LemonBox" parent="Sources" instance=ExtResource("16_bt1w2")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.263034, 0.527242, 0.994192)
 
-[node name="AppleBox" parent="Sources" instance=ExtResource("19_ccng0")]
+[node name="AppleBox" parent="Sources" instance=ExtResource("17_s7i1s")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.25984, 0, 1.00373)
 
-[node name="BananaBox" parent="Sources" instance=ExtResource("20_i4fr0")]
+[node name="BananaBox" parent="Sources" instance=ExtResource("18_3hmea")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.22689, 0, 1.00434)
 
-[node name="RedStrawPot" parent="Sources" instance=ExtResource("21_dyixl")]
+[node name="RedStrawPot" parent="Sources" instance=ExtResource("19_ac314")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.84064, 0.759526, 0.80263)
 
-[node name="BlueStrawPot" parent="Sources" instance=ExtResource("22_jyr4c")]
+[node name="BlueStrawPot" parent="Sources" instance=ExtResource("20_gng0u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.81461, 0.762728, 0.44648)
 
 [node name="Counters" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.49859, 1.19209e-07, 1.58257)
 
-[node name="LargeCounter" parent="Counters" instance=ExtResource("21_gkh82")]
+[node name="LargeCounter" parent="Counters" instance=ExtResource("21_y5g2k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.828821, -1.19209e-07, -0.893432)
 
-[node name="SmallCounter" parent="Counters" instance=ExtResource("22_e0448")]
+[node name="SmallCounter" parent="Counters" instance=ExtResource("22_gihdr")]
 
-[node name="SmallCounter2" parent="Counters" instance=ExtResource("22_e0448")]
+[node name="SmallCounter2" parent="Counters" instance=ExtResource("22_gihdr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.70314, -3.57628e-07, -0.00414693)
 
-[node name="Cabinet" parent="Counters" instance=ExtResource("23_7uo7o")]
+[node name="Cabinet" type="StaticBody3D" parent="Counters"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.19209e-07)
+
+[node name="CabinetModel" parent="Counters/Cabinet" instance=ExtResource("23_mj50x")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.828821, -1.19209e-07, 0.721089)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Counters/Cabinet"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.829981, 1.0148, 0.987562)
+shape = SubResource("BoxShape3D_dt6va")
+
+[node name="Debug" type="Node3D" parent="."]
 
 [editable path="Machines/ManualSqueezer"]
 [editable path="Machines/ManualSqueezer2"]
