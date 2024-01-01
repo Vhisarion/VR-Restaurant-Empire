@@ -18,6 +18,8 @@ func _on_snap_zone_has_picked_up(what):
 		return
 	
 	$PreparationTimer.start(preparation_time)
+	$SFX/Juicer.play()
+	start_particles()
 	snap_zone.enabled = false
 
 func _on_preparation_timer_timeout():
@@ -28,3 +30,19 @@ func _on_preparation_timer_timeout():
 	ingredient.queue_free()
 	
 	snap_zone.enabled = true
+	
+	stop_particles()
+
+func start_particles() -> void:
+	match (type):
+		"Lemon":
+			$VFX/LemonParticles.emitting = true
+		"Orange": 
+			$VFX/OrangeParticles.emitting = true
+
+func stop_particles() -> void:
+	match (type):
+		"Lemon":
+			$VFX/LemonParticles.emitting = false
+		"Orange": 
+			$VFX/OrangeParticles.emitting = false

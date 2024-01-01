@@ -1,18 +1,92 @@
-[gd_scene load_steps=6 format=3 uid="uid://o7e8qsgryg7y"]
+[gd_scene load_steps=13 format=3 uid="uid://o7e8qsgryg7y"]
 
 [ext_resource type="PackedScene" uid="uid://bx1xdisoqo1f6" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_tac_glove_low.tscn" id="1_24ja7"]
+[ext_resource type="Script" path="res://entities/player.gd" id="1_hdqxn"]
 [ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="2_qdm8t"]
 [ext_resource type="PackedScene" uid="uid://chumpejwiub7f" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_tac_glove_low.tscn" id="3_4v6vy"]
 [ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="4_o6lw0"]
+
+[sub_resource type="Animation" id="Animation_ibxlb"]
+resource_name = "fade_to_normal"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%TransitionCube:mesh:material:albedo_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ieugj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%TransitionCube:mesh:material:albedo_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_2sfk3"]
+resource_name = "fade_to_black"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%TransitionCube:mesh:material:albedo_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_78bsh"]
+_data = {
+"RESET": SubResource("Animation_ieugj"),
+"fade_to_black": SubResource("Animation_2sfk3"),
+"fade_to_normal": SubResource("Animation_ibxlb")
+}
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_plkm2"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_cxb4g"]
+material = SubResource("StandardMaterial3D_plkm2")
+flip_faces = true
+size = Vector3(0.25, 0.25, 0.25)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_027ib"]
 radius = 0.2
 height = 1.4
 
 [node name="Player" type="XROrigin3D"]
+script = ExtResource("1_hdqxn")
 
 [node name="XRCamera3D" type="XRCamera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
+
+[node name="TransitionAnimation" type="AnimationPlayer" parent="XRCamera3D"]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_78bsh")
+}
+
+[node name="TransitionCube" type="MeshInstance3D" parent="XRCamera3D"]
+unique_name_in_owner = true
+mesh = SubResource("BoxMesh_cxb4g")
 
 [node name="LeftHand" type="XRController3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1, -0.5)
@@ -39,3 +113,5 @@ push_rigid_bodies = false
 [node name="_CollisionShape3D_22381" type="CollisionShape3D" parent="PlayerBody"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
 shape = SubResource("CapsuleShape3D_027ib")
+
+[connection signal="animation_finished" from="XRCamera3D/TransitionAnimation" to="." method="_on_transition_animation_animation_finished"]

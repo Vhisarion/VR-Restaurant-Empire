@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cvvipg8eanrkt"]
+[gd_scene load_steps=17 format=3 uid="uid://cvvipg8eanrkt"]
 
 [ext_resource type="Script" path="res://objects/stage_1/products/juices/lemonade.gd" id="1_7u2q7"]
 [ext_resource type="PackedScene" uid="uid://ctq5fcbv37cjc" path="res://assets/models/juice/glass.glb" id="2_jx5kc"]
@@ -11,6 +11,8 @@
 [ext_resource type="Animation" uid="uid://plad1r85f7ws" path="res://addons/godot-xr-tools/hands/animations/left/Grip.res" id="7_catpi"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/hands/poses/hand_pose_settings.gd" id="8_0ingc"]
 [ext_resource type="Animation" uid="uid://ccds2u22gbxn7" path="res://addons/godot-xr-tools/hands/animations/right/Grip.res" id="10_t260u"]
+[ext_resource type="AudioStream" uid="uid://bk5cygmoeofgo" path="res://assets/sound/sfx/add_straw.mp3" id="12_t3xei"]
+[ext_resource type="PackedScene" uid="uid://bwqw5b30xfypw" path="res://vfx/lemon_particles.tscn" id="13_unjly"]
 
 [sub_resource type="Resource" id="Resource_vmrrv"]
 script = ExtResource("8_0ingc")
@@ -24,7 +26,7 @@ closed_pose = ExtResource("10_t260u")
 height = 0.25
 radius = 0.0629248
 
-[node name="Lemonade" type="RigidBody3D" groups=["Product"]]
+[node name="Lemonade" type="RigidBody3D" groups=["Dispensable", "Product"]]
 collision_layer = 4
 collision_mask = 3221422087
 freeze_mode = 1
@@ -62,5 +64,14 @@ snap_require = "Straw"
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.127068, 0)
 shape = SubResource("CylinderShape3D_ypllv")
+
+[node name="SFX" type="Node3D" parent="."]
+
+[node name="AddStraw" type="AudioStreamPlayer3D" parent="SFX"]
+stream = ExtResource("12_t3xei")
+
+[node name="VFX" type="Node3D" parent="."]
+
+[node name="LemonParticles" parent="VFX" instance=ExtResource("13_unjly")]
 
 [connection signal="has_picked_up" from="StrawSnapZone" to="." method="_on_straw_snap_zone_has_picked_up"]

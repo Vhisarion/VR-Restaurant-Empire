@@ -18,8 +18,8 @@
 			],
 		},
 		{
-			"arrival": 5,
-			"max_patience": 10,
+			"arrival": 7,
+			"max_patience": 15,
 			"order": [
 				{
 					"product": "Apple",
@@ -27,8 +27,8 @@
 			],
 		},
 		{
-			"arrival": 9,
-			"max_patience": 10,
+			"arrival": 15,
+			"max_patience": 15,
 			"order": [
 				{
 					"product": "Apple",
@@ -36,7 +36,7 @@
 			],
 		},
 		{
-			"arrival": 17,
+			"arrival": 25,
 			"max_patience": 20,
 			"order": [
 				{
@@ -48,7 +48,7 @@
 			],
 		},
 		{
-			"arrival": 25,
+			"arrival": 35,
 			"max_patience": 20,
 			"order": [
 				{

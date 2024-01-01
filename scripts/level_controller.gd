@@ -3,6 +3,7 @@ class_name LevelController
 extends Node
 
 signal on_score_updated(height_percentage: float)
+signal points_gained()
 
 # Level settings
 var required_score : int
@@ -20,6 +21,9 @@ var customer_queue: Array[Customer] = []
 
 # Constants
 const INT_MAX = 9223372036854775807
+
+# Player
+@export var player: XROrigin3D
 
 func _process(delta):
 	# Check if there are customers in the queue.
@@ -65,6 +69,8 @@ func _ready():
 		if (location != null):
 			customer_locations.push_back(location)
 			occupied_locations.push_back(false)
+	
+	player.transitioned.connect(return_to_selection_world)
 
 func initialize_customers(json_customers: Array):
 	for customer_settings in json_customers:
@@ -123,10 +129,13 @@ func read_json_file():
 func gain_points(amount: int):
 	current_score += amount
 	on_score_updated.emit(float(current_score)/float(required_score*1.1))
+	points_gained.emit()
+	$SFX/Coins.play()
 
 func lose_points(amount: int):
 	current_score = clamp(current_score-amount,0,INT_MAX)
 	on_score_updated.emit(float(current_score)/float(required_score*1.1))
+	$SFX/CustomerAngry.play()
 
 func _on_customer_left(customer, location):
 	var location_index = customer_locations.find(customer.location)
@@ -149,7 +158,12 @@ func end_level() -> void:
 		%EndOfLevelMessage.text = "LEVEL FAILED!"
 	%EndOfLevelMessage.visible = true
 	
-	#TODO start timer to go back to level selection
 	var return_timer = get_tree().create_timer(5.0)
-	return_timer.connect("timeout", Main.return_to_level_selection)
+	return_timer.connect("timeout", start_scene_transition)
 	print("End of level! Total score: ", current_score)
+
+func start_scene_transition() -> void:
+	player.transition()
+
+func return_to_selection_world() -> void:
+	get_tree().change_scene_to_packed.bind(Main.world_environments[0]).call_deferred()

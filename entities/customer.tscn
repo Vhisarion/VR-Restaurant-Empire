@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://fo70a732j1c7"]
+[gd_scene load_steps=17 format=3 uid="uid://fo70a732j1c7"]
 
 [ext_resource type="Script" path="res://entities/customer.gd" id="1_qdvgl"]
 [ext_resource type="Script" path="res://entities/RandomCustomerBody.gd" id="2_4gx62"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://b0hwhdyhsk0oo" path="res://assets/characters/character4.glb" id="6_mu8ko"]
 [ext_resource type="PackedScene" uid="uid://cyy2hqbook5wb" path="res://objects/shared/patience_bar.tscn" id="10_t2udq"]
 [ext_resource type="Script" path="res://objects/shared/patience_bar.gd" id="11_hgd8p"]
+[ext_resource type="AudioStream" uid="uid://dg6b52n2qmai1" path="res://assets/sound/sfx/door_bell.mp3" id="12_tgunf"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1cstt"]
 size = Vector3(0.5, 0.01, 0.5)
@@ -88,6 +89,13 @@ offset_right = 0.0
 offset_bottom = 0.0
 value = 100.0
 script = ExtResource("11_hgd8p")
+
+[node name="SFX" type="Node3D" parent="."]
+
+[node name="DoorBell" type="AudioStreamPlayer3D" parent="SFX"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.27626, 0)
+stream = ExtResource("12_tgunf")
+autoplay = true
 
 [connection signal="has_picked_up" from="Tray/TraySnapZone" to="." method="_on_tray_snap_zone_has_picked_up"]
 [connection signal="timeout" from="PatienceTimer" to="." method="_on_patience_timer_timeout"]

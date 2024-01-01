@@ -1,7 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://qps81sspj75w"]
+[gd_scene load_steps=9 format=3 uid="uid://qps81sspj75w"]
 
 [ext_resource type="PackedScene" uid="uid://ymrkupnc0l26" path="res://assets/models/furniture/tip_jar.glb" id="1_t5b1g"]
 [ext_resource type="Script" path="res://objects/shared/tip_jar.gd" id="1_vbm8b"]
+[ext_resource type="AudioStream" uid="uid://b1i8slb2mbo6e" path="res://assets/sound/sfx/coins.mp3" id="3_a0fbd"]
+[ext_resource type="PackedScene" uid="uid://dlwk0wobgr58b" path="res://vfx/coin_particles.tscn" id="4_3kipc"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1uup5"]
 albedo_color = Color(0.647059, 0.647059, 0, 1)
@@ -48,3 +50,13 @@ material = SubResource("StandardMaterial3D_kwnhr")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000858188, 0.115237, 0)
 shape = SubResource("CylinderShape3D_wqrkr")
+
+[node name="SFX" type="Node3D" parent="."]
+
+[node name="Coins" type="AudioStreamPlayer3D" parent="SFX"]
+stream = ExtResource("3_a0fbd")
+
+[node name="VFX" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.226447, 0)
+
+[node name="CoinParticles" parent="VFX" instance=ExtResource("4_3kipc")]

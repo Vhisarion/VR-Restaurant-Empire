@@ -13,3 +13,4 @@ func _on_straw_snap_zone_has_picked_up(straw):
 	straw.queue_free()
 	# Only allow one straw. Delete SnapZone afterwards
 	$StrawSnapZone.queue_free()
+	$VFX/LemonParticles.emitting = true

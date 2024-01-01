@@ -24,7 +24,11 @@ func _ready():
 		# Change our main viewport to output to the HMD
 		get_viewport().use_xr = true
 		
+		# Connect to transition screen
+		TransitionScreen.transitioned.connect(_on_transitioned)
+		
 		# Load saved data
+		DirAccess.remove_absolute(save_path)
 		load_progress()
 		
 		# Load Level Selector
@@ -63,4 +67,9 @@ func complete_current_level() -> void:
 func return_to_level_selection() -> void:
 	current_world = 0
 	current_level = 0
+
+func load_selection_world() -> void:
 	get_tree().change_scene_to_packed.bind(world_environments[0]).call_deferred()
+
+func _on_transitioned() -> void:
+	load_selection_world()

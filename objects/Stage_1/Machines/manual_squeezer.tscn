@@ -1,7 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://clid6pryr5sf5"]
+[gd_scene load_steps=7 format=3 uid="uid://clid6pryr5sf5"]
 
 [ext_resource type="Script" path="res://objects/stage_1/machines/manual_squeezer.gd" id="1_s1ihr"]
 [ext_resource type="PackedScene" uid="uid://l5hyx300jyiq" path="res://objects/stage_1/machines/squeezer.tscn" id="2_ggomw"]
+[ext_resource type="AudioStream" uid="uid://b1m1q5v1x0b07" path="res://assets/sound/sfx/fruit_squeeze.mp3" id="3_g3smf"]
+[ext_resource type="PackedScene" uid="uid://bwqw5b30xfypw" path="res://vfx/lemon_particles.tscn" id="4_6abtp"]
+[ext_resource type="PackedScene" uid="uid://c3jnln38exbh8" path="res://vfx/orange_particles.tscn" id="5_h4uyv"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ds5sd"]
 size = Vector3(0.381439, 0.240023, 0.3668)
@@ -21,6 +24,17 @@ shape = SubResource("BoxShape3D_ds5sd")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.23, 0, 0)
 
 [node name="Squeezer" parent="." instance=ExtResource("2_ggomw")]
+
+[node name="SFX" type="Node3D" parent="."]
+
+[node name="FruitSqueeze" type="AudioStreamPlayer3D" parent="SFX"]
+stream = ExtResource("3_g3smf")
+
+[node name="VFX" type="Node3D" parent="."]
+
+[node name="LemonParticles" parent="VFX" instance=ExtResource("4_6abtp")]
+
+[node name="OrangeParticles" parent="VFX" instance=ExtResource("5_h4uyv")]
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
