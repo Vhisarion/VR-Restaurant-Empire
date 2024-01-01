@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dk3x174taxp54"]
+[gd_scene load_steps=17 format=3 uid="uid://dk3x174taxp54"]
 
 [ext_resource type="Script" path="res://objects/stage_1/products/juices/orange_juice.gd" id="1_w8cmn"]
 [ext_resource type="PackedScene" uid="uid://ctq5fcbv37cjc" path="res://assets/models/juice/glass.glb" id="2_s0u3e"]
@@ -11,6 +11,8 @@
 [ext_resource type="Animation" uid="uid://plad1r85f7ws" path="res://addons/godot-xr-tools/hands/animations/left/Grip.res" id="7_lq1je"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/hands/poses/hand_pose_settings.gd" id="8_v6e15"]
 [ext_resource type="Animation" uid="uid://ccds2u22gbxn7" path="res://addons/godot-xr-tools/hands/animations/right/Grip.res" id="10_6flhe"]
+[ext_resource type="AudioStream" uid="uid://bk5cygmoeofgo" path="res://assets/sound/sfx/add_straw.mp3" id="12_4m8dq"]
+[ext_resource type="PackedScene" uid="uid://c3jnln38exbh8" path="res://vfx/orange_particles.tscn" id="13_6y5fr"]
 
 [sub_resource type="Resource" id="Resource_qtjd1"]
 script = ExtResource("8_v6e15")
@@ -61,5 +63,14 @@ snap_require = "Straw"
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.127068, 0)
 shape = SubResource("CylinderShape3D_l4qk0")
+
+[node name="SFX" type="Node3D" parent="."]
+
+[node name="AddStraw" type="AudioStreamPlayer3D" parent="SFX"]
+stream = ExtResource("12_4m8dq")
+
+[node name="VFX" type="Node3D" parent="."]
+
+[node name="OrangeParticles" parent="VFX" instance=ExtResource("13_6y5fr")]
 
 [connection signal="has_picked_up" from="StrawSnapZone" to="." method="_on_straw_snap_zone_has_picked_up"]

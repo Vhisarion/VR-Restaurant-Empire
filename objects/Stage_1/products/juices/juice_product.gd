@@ -19,8 +19,9 @@ func set_straw(type: StrawType):
 		_hide_straw()
 	else:
 		# Assert straw is visible
-		_change_straw_color(type)
 		_show_straw()
+		_change_straw_color(type)
+		$SFX/AddStraw.play()
 	
 	straw_type = type
 

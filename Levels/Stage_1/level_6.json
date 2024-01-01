@@ -1,0 +1,117 @@
+{
+	"settings": {
+		"required_score": 30,
+		"machines": ["ManualSqueezer", "ManualSqueezer2", "AutomaticSqueezer", "WaterDispenser", "Water", "Water2", "Water3"],
+		"sources": ["LemonBox", "AppleBox", "PearBox", "OrangeBox", "RedStrawPot", "BlueStrawPot"]
+	},
+	"customers": [
+		{
+			"arrival": 1,
+			"max_patience": 15,
+			"order": [
+				{
+					"product": "Lemonade",
+					"modifiers": {
+						"straw_type": "BLUE_STRAW"
+					}
+				}
+			],
+		},
+		{
+			"arrival": 7,
+			"max_patience": 13,
+			"order": [
+				{
+					"product": "OrangeJuice",
+					"modifiers": {
+						"straw_type": "BLUE_STRAW"
+					}
+				}
+			],
+		},
+		{
+			"arrival": 13,
+			"max_patience": 13,
+			"order": [
+				{
+					"product": "OrangeJuice",
+					"modifiers": {
+						"straw_type": "RED_STRAW"
+					}
+				}
+			],
+		},
+		{
+			"arrival": 19,
+			"max_patience": 15,
+			"order": [
+				{
+					"product": "Lemonade",
+					"modifiers": {
+						"straw_type": "RED_STRAW"
+					}
+				}
+			],
+		},
+		{
+			"arrival": 25,
+			"max_patience": 10,
+			"order": [
+				{
+					"product": "Apple",
+				},
+				{
+					"product": "Apple",
+				},
+				{
+					"product": "Apple",
+				}
+			],
+		},
+		{
+			"arrival": 25,
+			"max_patience": 10,
+			"order": [
+				{
+					"product": "Pear",
+				},
+				{
+					"product": "Pear",
+				},
+				{
+					"product": "Pear",
+				}
+			],
+		},
+		{
+			"arrival": 35,
+			"max_patience": 15,
+			"order": [
+				{
+					"product": "Lemonade",
+					"modifiers": {
+						"straw_type": "RED_STRAW"
+					}
+				},
+				{
+					"product": "Apple"
+				}
+			],
+		},
+		{
+			"arrival": 35,
+			"max_patience": 13,
+			"order": [
+				{
+					"product": "OrangeJuice",
+					"modifiers": {
+						"straw_type": "BLUE_STRAW"
+					}
+				},
+				{
+					"product": "Apple"
+				}
+			],
+		}
+	]
+}

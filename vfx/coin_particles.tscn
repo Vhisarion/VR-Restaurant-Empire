@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://dlwk0wobgr58b"]
+
+[sub_resource type="Curve" id="Curve_1yaj0"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.174377, 0.254717), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_14hg8"]
+curve = SubResource("Curve_1yaj0")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_w47a3"]
+lifetime_randomness = 0.5
+particle_flag_align_y = true
+particle_flag_damping_as_friction = true
+emission_shape = 2
+emission_sphere_radius = 0.01
+angle_min = -90.0
+angle_max = 90.0
+velocity_limit_curve = SubResource("CurveTexture_14hg8")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r03pv"]
+albedo_color = Color(1, 1, 0, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_kx01e"]
+material = SubResource("StandardMaterial3D_r03pv")
+top_radius = 0.025
+bottom_radius = 0.025
+height = 0.008
+radial_segments = 8
+rings = 2
+
+[node name="CoinParticles" type="GPUParticles3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00307729, 0)
+emitting = false
+lifetime = 0.5
+one_shot = true
+randomness = 1.0
+fixed_fps = 120
+visibility_aabb = AABB(-0.001, -4, -4, 0.002, 8, 8)
+process_material = SubResource("ParticleProcessMaterial_w47a3")
+draw_pass_1 = SubResource("CylinderMesh_kx01e")
+
+[node name="GPUParticlesAttractorSphere3D" type="GPUParticlesAttractorSphere3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0245272, 0.000923272)
+strength = -17.19
+attenuation = 0.108819
+radius = 0.1

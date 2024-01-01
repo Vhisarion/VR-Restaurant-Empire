@@ -1,13 +1,54 @@
-[gd_scene load_steps=3 format=3 uid="uid://d3wsb48kp04ba"]
+[gd_scene load_steps=8 format=3 uid="uid://d3wsb48kp04ba"]
 
 [ext_resource type="Script" path="res://objects/stage_1/machines/automatic_squeezer.gd" id="1_sepsy"]
 [ext_resource type="PackedScene" uid="uid://ce7vysyvondf8" path="res://addons/godot-xr-tools/objects/snap_zone.tscn" id="2_cl85p"]
+[ext_resource type="PackedScene" uid="uid://r682umd2ffwh" path="res://assets/models/machines/blender.glb" id="3_sjgtn"]
+[ext_resource type="AudioStream" uid="uid://cbtcyb0im5rwe" path="res://assets/sound/sfx/juicer.mp3" id="4_74crc"]
+[ext_resource type="PackedScene" uid="uid://bwqw5b30xfypw" path="res://vfx/lemon_particles.tscn" id="5_xj81u"]
+[ext_resource type="PackedScene" uid="uid://c3jnln38exbh8" path="res://vfx/orange_particles.tscn" id="6_cgrsi"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1nx8h"]
+albedo_color = Color(0.635294, 0.635294, 0.635294, 1)
 
 [node name="AutomaticSqueezer" type="Node3D"]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0, 0)
 script = ExtResource("1_sepsy")
 
 [node name="PreparationTimer" type="Timer" parent="."]
 one_shot = true
 
 [node name="SnapZone" parent="." instance=ExtResource("2_cl85p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.482607, 0)
+snap_mode = 1
 snap_require = "Squeezable"
+
+[node name="blender" parent="." instance=ExtResource("3_sjgtn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.204337, 0)
+
+[node name="CenterPiece" type="CSGSphere3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.395481, 0)
+radius = 0.07
+radial_segments = 6
+smooth_faces = false
+material = SubResource("StandardMaterial3D_1nx8h")
+
+[node name="ProductLocation" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.376916)
+
+[node name="SFX" type="Node3D" parent="."]
+
+[node name="Juicer" type="AudioStreamPlayer3D" parent="SFX"]
+stream = ExtResource("4_74crc")
+
+[node name="VFX" type="Node3D" parent="."]
+
+[node name="LemonParticles" parent="VFX" instance=ExtResource("5_xj81u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.445865, 0)
+one_shot = false
+
+[node name="OrangeParticles" parent="VFX" instance=ExtResource("6_cgrsi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.445725, 0)
+one_shot = false
+
+[connection signal="timeout" from="PreparationTimer" to="." method="_on_preparation_timer_timeout"]
+[connection signal="has_picked_up" from="SnapZone" to="." method="_on_snap_zone_has_picked_up"]

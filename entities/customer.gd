@@ -98,7 +98,9 @@ func product_received(received_product: Product):
 		
 		# Remove the item request
 		order[product_index_in_order].visible = false
+		var item_request_location = item_request_locations[product_index]
 		item_request_locations.remove_at(product_index)
+		item_request_location.queue_free()
 		
 		# Increase patience if there are still products left
 		if (pending_products.size() > 0):
@@ -107,11 +109,12 @@ func product_received(received_product: Product):
 		else:
 			# Complete order if no products left
 			pay()
-		return
 	else:
 		print ("The product received wasn't in the order")
 		# The product received isn't wanted
 		level_controller.lose_points(1)
+	
+	received_product.queue_free()
 
 func find_product_index(array: Array[Product], product: Product) -> int:
 	for index in range(array.size()):
@@ -135,19 +138,14 @@ func _on_patience_timer_timeout():
 func set_location(location: Node3D):
 	self.location = location
 	if (location != null):
-		transform = location.transform
+		global_transform = location.global_transform
 
 func _update_customer_color():
 	if is_inside_tree():
-		var color_value = $PatienceTimer.time_left/max_patience
-		var material = $CustomerBody.get_surface_override_material(0)
-		if (material == null):
-			material = StandardMaterial3D.new()
-		material.albedo_color = Color(1-color_value,color_value,0,0)
-		$CustomerBody.set_surface_override_material(0, material)
+		print($PatienceTimer.time_left/max_patience)
+		%PatienceBar.value = $PatienceTimer.time_left/max_patience*100
 
 func _on_tray_snap_zone_has_picked_up(what):
-	#var product = find_product_child(what)
 	product_received(what)
 	($Tray/TraySnapZone as XRToolsSnapZone).picked_up_object = null
 

@@ -2,14 +2,18 @@ class_name LevelController
 
 extends Node
 
+signal on_score_updated(height_percentage: float)
+signal points_gained()
+
 # Level settings
-var max_time : int
 var required_score : int
 
 # Score
 var current_score: int
 
 var customers: Array[Customer] = []
+var customer_total: int
+var served_customers = 0
 var arrival_timers: Array[Timer] = []
 var customer_locations: Array[Node3D] = []
 var occupied_locations: Array[bool] = []
@@ -18,8 +22,8 @@ var customer_queue: Array[Customer] = []
 # Constants
 const INT_MAX = 9223372036854775807
 
-# Settings for the level to load
-@export var json_file: JSON 
+# Player
+@export var player: XROrigin3D
 
 func _process(delta):
 	# Check if there are customers in the queue.
@@ -40,12 +44,24 @@ func _ready():
 	var json = read_json_file()
 	
 	# Initialize level settings
-	max_time = json.settings.max_time
 	required_score = json.settings.required_score
 	
 	# Initialize all customers for the level
 	initialize_customers(json.customers)
 	start_arrival_timers()
+	
+	# Remove machines and sources not enabled in the level
+	var machines = %Machines.get_children()
+	for machine in machines:
+		if (!json.settings.machines.has(machine.name)):
+			print("removing ", machine.name)
+			machine.queue_free()
+	
+	var sources = %Sources.get_children()
+	for source in sources:
+		if (!json.settings.sources.has(source.name)):
+			source.queue_free()
+			print("removing ", source.name)
 	
 	# Look for customer locations in the current environment
 	for number in range(9):
@@ -53,6 +69,8 @@ func _ready():
 		if (location != null):
 			customer_locations.push_back(location)
 			occupied_locations.push_back(false)
+	
+	player.transitioned.connect(return_to_selection_world)
 
 func initialize_customers(json_customers: Array):
 	for customer_settings in json_customers:
@@ -60,6 +78,7 @@ func initialize_customers(json_customers: Array):
 		create_customer_arrival_timer(customer_settings.arrival, customer)
 		customer.on_customer_left.connect(_on_customer_left)
 		customers.push_back(customer)
+	customer_total = customers.size()
 
 func create_customer(settings) -> Customer:
 	var customer = load("res://entities/customer.tscn").instantiate()
@@ -103,20 +122,48 @@ func start_arrival_timers():
 		timer.start()
 
 func read_json_file():
-	var file = FileAccess.open(json_file.resource_path, FileAccess.READ)
+	var file = FileAccess.open(Main.selected_level, FileAccess.READ)
 	var content_as_dictionary = JSON.parse_string(file.get_as_text())
 	return content_as_dictionary
 
 func gain_points(amount: int):
 	current_score += amount
+	on_score_updated.emit(float(current_score)/float(required_score*1.1))
+	points_gained.emit()
+	$SFX/Coins.play()
 
 func lose_points(amount: int):
 	current_score = clamp(current_score-amount,0,INT_MAX)
+	on_score_updated.emit(float(current_score)/float(required_score*1.1))
+	$SFX/CustomerAngry.play()
 
 func _on_customer_left(customer, location):
 	var location_index = customer_locations.find(customer.location)
 	occupied_locations[location_index] = false
 	customer.set_location(null)
+	served_customers += 1
+	if (served_customers == customer_total) :
+		end_level()
 
 func enter_queue(customer: Customer):
 	customer_queue.push_back(customer)
+
+func end_level() -> void:
+	if (current_score >= required_score):
+		# Win
+		Main.complete_current_level()
+		%EndOfLevelMessage.text = "LEVEL CLEARED!"
+	else:
+		# Lose
+		%EndOfLevelMessage.text = "LEVEL FAILED!"
+	%EndOfLevelMessage.visible = true
+	
+	var return_timer = get_tree().create_timer(5.0)
+	return_timer.connect("timeout", start_scene_transition)
+	print("End of level! Total score: ", current_score)
+
+func start_scene_transition() -> void:
+	player.transition()
+
+func return_to_selection_world() -> void:
+	get_tree().change_scene_to_packed.bind(Main.world_environments[0]).call_deferred()

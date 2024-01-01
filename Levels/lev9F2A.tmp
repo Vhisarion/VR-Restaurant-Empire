@@ -1,0 +1,128 @@
+[gd_scene load_steps=17 format=3 uid="uid://dyjwtaftumixa"]
+
+[ext_resource type="PackedScene" uid="uid://ce7vysyvondf8" path="res://addons/godot-xr-tools/objects/snap_zone.tscn" id="1_3u62c"]
+[ext_resource type="Script" path="res://levels/level_selector.gd" id="1_quixu"]
+[ext_resource type="Script" path="res://levels/level_number_sprite.gd" id="3_7660b"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y8krr"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_d0k8s"]
+material = SubResource("StandardMaterial3D_y8krr")
+size = Vector3(0.005, 0.1, 0.005)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g5pph"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_l1ij6"]
+material = SubResource("StandardMaterial3D_g5pph")
+size = Vector3(0.005, 0.1, 0.005)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_odvlk"]
+albedo_color = Color(0, 0.988235, 0, 1)
+
+[sub_resource type="PrismMesh" id="PrismMesh_sbae2"]
+material = SubResource("StandardMaterial3D_odvlk")
+size = Vector3(0.03, 0.05, 0.003)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_vecpy"]
+viewport_path = NodePath("Flag/ClearedFlag/Sprite3D/SubViewport")
+
+[sub_resource type="LabelSettings" id="LabelSettings_ef1fc"]
+font_size = 255
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c1fmc"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="PrismMesh" id="PrismMesh_fdtkl"]
+material = SubResource("StandardMaterial3D_c1fmc")
+size = Vector3(0.03, 0.05, 0.003)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_vf21y"]
+top_radius = 0.04
+bottom_radius = 0.04
+height = 0.01
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g4jce"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_41gb1"]
+material = SubResource("StandardMaterial3D_g4jce")
+top_radius = 0.06
+bottom_radius = 0.06
+height = 0.01
+
+[node name="LevelSelector" type="Node3D" node_paths=PackedStringArray("cleared_label", "uncleared_label")]
+script = ExtResource("1_quixu")
+cleared_label = NodePath("Flag/ClearedFlag/Sprite3D/SubViewport/ClearedLevelNumber")
+uncleared_label = NodePath("Flag/UnclearedFlag/Sprite3D2/SubViewport/UnclearedLevelNumber")
+
+[node name="SnapZone" parent="." instance=ExtResource("1_3u62c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0214465, 0)
+grab_distance = 0.15
+snap_mode = 1
+snap_require = "LevelSelector"
+
+[node name="Flag" type="Node3D" parent="."]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0.06761, 0.0744651, -0.0413642)
+
+[node name="Pole" type="MeshInstance3D" parent="Flag"]
+mesh = SubResource("BoxMesh_d0k8s")
+
+[node name="BottomBase" type="MeshInstance3D" parent="Flag"]
+transform = Transform3D(2.99753, 0, 0, 0, 0.16308, 0, 0, 0, 3.38575, 0, -0.0415696, 0)
+mesh = SubResource("BoxMesh_l1ij6")
+
+[node name="UpperBase" type="MeshInstance3D" parent="Flag"]
+transform = Transform3D(1.60289, 0, 0, 0, 0.16308, 0, 0, 0, 2.3446, 0, -0.0290031, 0)
+mesh = SubResource("BoxMesh_l1ij6")
+
+[node name="ClearedFlag" type="MeshInstance3D" parent="Flag"]
+unique_name_in_owner = true
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0.0261894, 0.0336414, 0)
+mesh = SubResource("PrismMesh_sbae2")
+
+[node name="Sprite3D" type="Sprite3D" parent="Flag/ClearedFlag"]
+transform = Transform3D(-2.18557e-10, -0.005, 0, 0.005, -2.18557e-10, 0, 0, 0, 0.005, 0.00260668, -0.00647408, 0.00244965)
+texture = SubResource("ViewportTexture_vecpy")
+
+[node name="SubViewport" type="SubViewport" parent="Flag/ClearedFlag/Sprite3D"]
+transparent_bg = true
+script = ExtResource("3_7660b")
+
+[node name="ClearedLevelNumber" type="Label" parent="Flag/ClearedFlag/Sprite3D/SubViewport"]
+unique_name_in_owner = true
+offset_right = 40.0
+offset_bottom = 23.0
+label_settings = SubResource("LabelSettings_ef1fc")
+
+[node name="UnclearedFlag" type="MeshInstance3D" parent="Flag"]
+unique_name_in_owner = true
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0.0261894, -0.00576273, 0)
+mesh = SubResource("PrismMesh_fdtkl")
+
+[node name="Sprite3D2" type="Sprite3D" parent="Flag/UnclearedFlag"]
+transform = Transform3D(-2.18557e-10, -0.005, 0, 0.005, -2.18557e-10, 0, 0, 0, 0.005, 0.00214372, -0.00647408, 0.00244965)
+texture = SubResource("ViewportTexture_vecpy")
+
+[node name="SubViewport" type="SubViewport" parent="Flag/UnclearedFlag/Sprite3D2"]
+transparent_bg = true
+script = ExtResource("3_7660b")
+
+[node name="UnclearedLevelNumber" type="Label" parent="Flag/UnclearedFlag/Sprite3D2/SubViewport"]
+unique_name_in_owner = true
+offset_right = 40.0
+offset_bottom = 23.0
+label_settings = SubResource("LabelSettings_ef1fc")
+
+[node name="LevelSelectorBase" type="Node3D" parent="."]
+
+[node name="UpperBase" type="MeshInstance3D" parent="LevelSelectorBase"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.01, 0)
+mesh = SubResource("CylinderMesh_vf21y")
+
+[node name="LowerBase" type="MeshInstance3D" parent="LevelSelectorBase"]
+mesh = SubResource("CylinderMesh_41gb1")
+
+[connection signal="has_dropped" from="SnapZone" to="." method="_on_snap_zone_has_dropped"]
+[connection signal="has_picked_up" from="SnapZone" to="." method="_on_snap_zone_has_picked_up"]

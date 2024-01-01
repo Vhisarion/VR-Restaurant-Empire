@@ -1,13 +1,17 @@
-[gd_scene load_steps=12 format=3 uid="uid://fo70a732j1c7"]
+[gd_scene load_steps=17 format=3 uid="uid://fo70a732j1c7"]
 
 [ext_resource type="Script" path="res://entities/customer.gd" id="1_qdvgl"]
 [ext_resource type="Script" path="res://entities/RandomCustomerBody.gd" id="2_4gx62"]
 [ext_resource type="PackedScene" uid="uid://ce7vysyvondf8" path="res://addons/godot-xr-tools/objects/snap_zone.tscn" id="2_mjyil"]
+[ext_resource type="ArrayMesh" uid="uid://ckos3it34v3nf" path="res://assets/characters/placeholder_character_mesh.res" id="2_x5ofj"]
 [ext_resource type="PackedScene" uid="uid://b405r878hxe03" path="res://assets/characters/character1.glb" id="3_1bex6"]
 [ext_resource type="PackedScene" uid="uid://dnyxl414hsrt2" path="res://objects/shared/item_request.tscn" id="3_xonr1"]
 [ext_resource type="PackedScene" uid="uid://b2ummm8esasn8" path="res://assets/characters/character2.glb" id="4_26x51"]
 [ext_resource type="PackedScene" uid="uid://dfhtwkboun8hi" path="res://assets/characters/character3.glb" id="5_y6uha"]
 [ext_resource type="PackedScene" uid="uid://b0hwhdyhsk0oo" path="res://assets/characters/character4.glb" id="6_mu8ko"]
+[ext_resource type="PackedScene" uid="uid://cyy2hqbook5wb" path="res://objects/shared/patience_bar.tscn" id="10_t2udq"]
+[ext_resource type="Script" path="res://objects/shared/patience_bar.gd" id="11_hgd8p"]
+[ext_resource type="AudioStream" uid="uid://dg6b52n2qmai1" path="res://assets/sound/sfx/door_bell.mp3" id="12_tgunf"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1cstt"]
 size = Vector3(0.5, 0.01, 0.5)
@@ -18,12 +22,16 @@ size = Vector3(0.5, 0.01, 0.5)
 [sub_resource type="BoxShape3D" id="BoxShape3D_vhl6v"]
 size = Vector3(0.512345, 0.242831, 0.518503)
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_1ftkr"]
+viewport_path = NodePath("Sprite3D/SubViewport")
+
 [node name="Customer" type="Node3D"]
 script = ExtResource("1_qdvgl")
 max_patience = 10
 
 [node name="CustomerBody" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.01, 0, 0, 0, -4.37114e-10, -0.01, 0, 0.01, -4.37114e-10, 0, 0, 0)
+mesh = ExtResource("2_x5ofj")
 script = ExtResource("2_4gx62")
 availableBodies = Array[PackedScene]([ExtResource("3_1bex6"), ExtResource("4_26x51"), ExtResource("5_y6uha"), ExtResource("6_mu8ko")])
 
@@ -49,16 +57,45 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0031206, 0.110673, 0.00192
 shape = SubResource("BoxShape3D_vhl6v")
 
 [node name="ItemRequest1" parent="Tray" instance=ExtResource("3_xonr1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.121681, -1.19209e-07, 0.0986757)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.121681, 0.042877, 0.0986757)
 
 [node name="ItemRequest2" parent="Tray" instance=ExtResource("3_xonr1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.165936, -5.96046e-08, 0.111923)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.165936, 0.042877, 0.111923)
 
 [node name="ItemRequest3" parent="Tray" instance=ExtResource("3_xonr1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00626296, -1.19209e-07, -0.126465)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00626296, 0.042877, -0.126465)
 
 [node name="PatienceTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.098, 0, 0, 0, -2.18557e-10, 1, 0, -0.005, -4.37114e-08, 0.000100888, 0.787728, 0.767397)
+texture = SubResource("ViewportTexture_1ftkr")
+
+[node name="SubViewport" type="SubViewport" parent="Sprite3D"]
+disable_3d = true
+transparent_bg = true
+
+[node name="PatienceBar" parent="Sprite3D/SubViewport" instance=ExtResource("10_t2udq")]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+value = 100.0
+script = ExtResource("11_hgd8p")
+
+[node name="SFX" type="Node3D" parent="."]
+
+[node name="DoorBell" type="AudioStreamPlayer3D" parent="SFX"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.27626, 0)
+stream = ExtResource("12_tgunf")
+autoplay = true
 
 [connection signal="has_picked_up" from="Tray/TraySnapZone" to="." method="_on_tray_snap_zone_has_picked_up"]
 [connection signal="timeout" from="PatienceTimer" to="." method="_on_patience_timer_timeout"]

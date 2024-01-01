@@ -20,6 +20,12 @@ func check_rotation(tracked_object):
 		print_rich(tracked_object, " has rotated enough, substracting motion...")
 		tracked_object.motions_remaining -= 1
 		tracked_object.last_motion_rotation = tracked_object.object.rotation.y
+		$SFX/FruitSqueeze.play()
+		match(tracked_object.type):
+			"Lemon":
+				$VFX/LemonParticles.emitting = true
+			"Orange":
+				$VFX/OrangeParticles.emitting = true
 	
 func process_tracked_object(tracked_object):
 	var object = tracked_object.object

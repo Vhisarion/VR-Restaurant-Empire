@@ -1,0 +1,62 @@
+[gd_scene load_steps=9 format=3 uid="uid://qps81sspj75w"]
+
+[ext_resource type="PackedScene" uid="uid://ymrkupnc0l26" path="res://assets/models/furniture/tip_jar.glb" id="1_t5b1g"]
+[ext_resource type="Script" path="res://objects/shared/tip_jar.gd" id="1_vbm8b"]
+[ext_resource type="AudioStream" uid="uid://b1i8slb2mbo6e" path="res://assets/sound/sfx/coins.mp3" id="3_a0fbd"]
+[ext_resource type="PackedScene" uid="uid://dlwk0wobgr58b" path="res://vfx/coin_particles.tscn" id="4_3kipc"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1uup5"]
+albedo_color = Color(0.647059, 0.647059, 0, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_1n78m"]
+material = SubResource("StandardMaterial3D_1uup5")
+top_radius = 0.08
+bottom_radius = 0.08
+height = 0.16
+radial_segments = 8
+rings = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kwnhr"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_wqrkr"]
+height = 0.222266
+radius = 0.0961165
+
+[node name="TipJar" type="StaticBody3D"]
+collision_layer = 1073741824
+script = ExtResource("1_vbm8b")
+
+[node name="tip_jar" parent="." instance=ExtResource("1_t5b1g")]
+transform = Transform3D(1.96584, 0, 0, 0, 1.51572, 0, 0, 0, 1.96584, 0, 0, 0)
+
+[node name="Money" type="MeshInstance3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.110816, 0)
+mesh = SubResource("CylinderMesh_1n78m")
+skeleton = NodePath("")
+
+[node name="RequiredMark" type="Node3D" parent="."]
+
+[node name="CSGTorus3D" type="CSGTorus3D" parent="RequiredMark"]
+transform = Transform3D(0.847344, 0, -0.531044, 0, 1, 0, 0.531044, 0, 0.847344, 0, 0.177407, 0)
+inner_radius = 0.09466
+outer_radius = 0.104177
+sides = 23
+ring_sides = 11
+smooth_faces = false
+material = SubResource("StandardMaterial3D_kwnhr")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000858188, 0.115237, 0)
+shape = SubResource("CylinderShape3D_wqrkr")
+
+[node name="SFX" type="Node3D" parent="."]
+
+[node name="Coins" type="AudioStreamPlayer3D" parent="SFX"]
+stream = ExtResource("3_a0fbd")
+
+[node name="VFX" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.226447, 0)
+
+[node name="CoinParticles" parent="VFX" instance=ExtResource("4_3kipc")]

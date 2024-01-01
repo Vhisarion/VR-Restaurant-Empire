@@ -13,8 +13,12 @@ func _process(delta):
 func _on_area_3d_body_entered(body):
 	if (body is LemonJuice):
 		filling_objects.push_back(body)
+		$SFX/Pour.play()
+		$VFX/WaterParticles.emitting = true
 
 
 func _on_area_3d_body_exited(body):
 	if (body is LemonJuice):
 		filling_objects.remove_at(filling_objects.find(body))
+		$SFX/Pour.stop()
+		$VFX/WaterParticles.emitting = false
