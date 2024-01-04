@@ -131,6 +131,7 @@ func gain_points(amount: int):
 	on_score_updated.emit(float(current_score)/float(required_score*1.1))
 	points_gained.emit()
 	$SFX/Coins.play()
+	print("Player earned ", amount, " points and now has a total of ", current_score, " points")
 
 func lose_points(amount: int):
 	current_score = clamp(current_score-amount,0,INT_MAX)

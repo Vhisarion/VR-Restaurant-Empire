@@ -24,15 +24,12 @@ func _ready():
 		# Change our main viewport to output to the HMD
 		get_viewport().use_xr = true
 		
-		# Connect to transition screen
-		TransitionScreen.transitioned.connect(_on_transitioned)
-		
 		# Load saved data
-		DirAccess.remove_absolute(save_path)
+		#DirAccess.remove_absolute(save_path)
 		load_progress()
 		
 		# Load Level Selector
-		get_tree().change_scene_to_file.bind("res://levels/selection_world.tscn").call_deferred()
+		get_tree().change_scene_to_file.bind("res://levels/selection_world/selection_world.tscn").call_deferred()
 	else:
 		print("OpenXR not initialized, please check if your headset is connected")
 

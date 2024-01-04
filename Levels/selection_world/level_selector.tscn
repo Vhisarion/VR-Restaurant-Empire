@@ -1,8 +1,8 @@
 [gd_scene load_steps=18 format=3 uid="uid://dyjwtaftumixa"]
 
 [ext_resource type="PackedScene" uid="uid://ce7vysyvondf8" path="res://addons/godot-xr-tools/objects/snap_zone.tscn" id="1_3u62c"]
-[ext_resource type="Script" path="res://levels/level_selector.gd" id="1_quixu"]
-[ext_resource type="Script" path="res://levels/level_number_sprite.gd" id="3_7660b"]
+[ext_resource type="Script" path="res://levels/selection_world/level_selector.gd" id="1_quixu"]
+[ext_resource type="Script" path="res://levels/selection_world/level_number_sprite.gd" id="3_7660b"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y8krr"]
 

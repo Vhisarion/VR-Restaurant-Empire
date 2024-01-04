@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://ub8fx2bjffis" path="res://assets/models/kenney_set/path_tilesLong.glb" id="9_88ej4"]
 [ext_resource type="PackedScene" uid="uid://dqvkhawmj4kdi" path="res://assets/models/park/bush_house_separator.tscn" id="10_jd7kj"]
 [ext_resource type="PackedScene" uid="uid://b8iabtvk8avvm" path="res://objects/stage_1/furniture/counter_large.tscn" id="12_vd1yd"]
-[ext_resource type="PackedScene" uid="uid://dyjwtaftumixa" path="res://levels/level_selector.tscn" id="13_cm5qa"]
+[ext_resource type="PackedScene" uid="uid://dyjwtaftumixa" path="res://levels/selection_world/level_selector.tscn" id="13_cm5qa"]
 [ext_resource type="JSON" path="res://levels/stage_1/level_1.json" id="14_8vh1k"]
 [ext_resource type="JSON" path="res://levels/stage_1/level_2.json" id="15_ehdfo"]
 [ext_resource type="PackedScene" uid="uid://clwdncfwnjiyl" path="res://levels/stage_1/world1_environment.tscn" id="15_kgjgs"]
@@ -20,7 +20,7 @@
 [ext_resource type="JSON" path="res://levels/stage_1/level_4.json" id="17_21bro"]
 [ext_resource type="JSON" path="res://levels/stage_1/level_5.json" id="18_72iot"]
 [ext_resource type="JSON" path="res://levels/stage_1/level_6.json" id="19_mw7gf"]
-[ext_resource type="PackedScene" uid="uid://k7p1w0fj745x" path="res://levels/world_1_level_selector_object.tscn" id="20_8epvj"]
+[ext_resource type="PackedScene" uid="uid://k7p1w0fj745x" path="res://levels/selection_world/world_1_level_selector_object.tscn" id="20_8epvj"]
 [ext_resource type="AudioStream" uid="uid://cyteq6kqfnbqm" path="res://assets/sound/music/level_selection.mp3" id="22_hhdea"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2kl1o"]
@@ -1429,6 +1429,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0317369, 1.00256, -0.467144
 
 [node name="BGMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("22_hhdea")
+volume_db = -10.0
 autoplay = true
 
 [connection signal="transitioned" from="Player" to="World1Levels/LevelSelector1" method="_on_player_transitioned"]

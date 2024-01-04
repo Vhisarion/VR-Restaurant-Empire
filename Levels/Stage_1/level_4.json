@@ -1,8 +1,8 @@
 {
 	"settings": {
-		"required_score": 20,
+		"required_score": 18,
 		"machines": ["ManualSqueezer", "ManualSqueezer2", "Water", "Water2", "Water3"],
-		"sources": ["LemonBox", "AppleBox", "PearBox", "OrangeBox", "RedStrawPot", "BlueStrawPot"]
+		"sources": ["LemonBox", "AppleBox", "BananaBox", "OrangeBox", "RedStrawPot", "BlueStrawPot"]
 	},
 	"customers": [
 		{
@@ -25,7 +25,7 @@
 					"product": "Apple"
 				},
 				{
-					"product": "Pear",
+					"product": "Banana",
 				}
 			],
 		},
@@ -58,7 +58,7 @@
 					}
 				},
 				{
-					"product": "Pear",
+					"product": "Banana",
 				}
 			],
 		},

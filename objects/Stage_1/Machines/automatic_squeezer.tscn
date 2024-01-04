@@ -39,6 +39,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.376916)
 
 [node name="Juicer" type="AudioStreamPlayer3D" parent="SFX"]
 stream = ExtResource("4_74crc")
+volume_db = 10.0
 
 [node name="VFX" type="Node3D" parent="."]
 

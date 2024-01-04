@@ -78,5 +78,5 @@ transform = Transform3D(-0.116683, -0.433389, 0.893622, 0.992685, -0.0789852, 0.
 transform = Transform3D(-0.168944, -0.855547, -0.489385, -0.977702, 0.208303, -0.0266382, 0.124731, 0.473972, -0.871661, 0.0679326, 0.165694, -0.148336)
 
 [node name="ItemSource" parent="." instance=ExtResource("3_lgkpu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.148249, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.23, 0)
 item = ExtResource("4_icxqh")

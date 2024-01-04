@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cgplqy743cl23"]
+[gd_scene load_steps=12 format=3 uid="uid://cgplqy743cl23"]
 
 [ext_resource type="Script" path="res://objects/stage_1/modifiers/red_straw.gd" id="1_aod2m"]
 [ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="2_tvgap"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://addons/godot-xr-tools/hands/poses/hand_pose_settings.gd" id="4_xmd40"]
 [ext_resource type="Animation" uid="uid://f5k0gh4qnmv5" path="res://addons/godot-xr-tools/hands/animations/left/OK.res" id="6_15lb8"]
 [ext_resource type="PackedScene" uid="uid://wwe7y3rs0yxx" path="res://assets/models/juice/red_straw.glb" id="7_bh44a"]
+[ext_resource type="PackedScene" uid="uid://da2qgxxwwitl6" path="res://addons/godot-xr-tools/objects/highlight/highlight_ring.tscn" id="8_082ag"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3u31s"]
 size = Vector3(0.025, 0.2, 0.025)
@@ -37,3 +38,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0598345, 0.13574, -0.05737
 hand_pose = SubResource("Resource_b6ije")
 
 [node name="red_straw" parent="." instance=ExtResource("7_bh44a")]
+
+[node name="HighlightRing" parent="." instance=ExtResource("8_082ag")]
+visible = false

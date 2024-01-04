@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://vp4y1hdtknjl" path="res://assets/models/kenney_set/path_long.glb" id="7_2qat2"]
 [ext_resource type="PackedScene" uid="uid://ub8fx2bjffis" path="res://assets/models/kenney_set/path_tilesLong.glb" id="8_n4jnm"]
 [ext_resource type="PackedScene" uid="uid://dqvkhawmj4kdi" path="res://assets/models/park/bush_house_separator.tscn" id="9_akyd6"]
-[ext_resource type="PackedScene" uid="uid://dyjwtaftumixa" path="res://levels/level_selector.tscn" id="10_yk30f"]
+[ext_resource type="PackedScene" uid="uid://dyjwtaftumixa" path="res://levels/selection_world/level_selector.tscn" id="10_yk30f"]
 [ext_resource type="JSON" path="res://levels/stage_1/level_1.json" id="11_xrh4u"]
 [ext_resource type="PackedScene" uid="uid://clwdncfwnjiyl" path="res://levels/stage_1/world1_environment.tscn" id="12_cgosb"]
 [ext_resource type="JSON" path="res://levels/stage_1/level_2.json" id="13_kapge"]
@@ -17,7 +17,7 @@
 [ext_resource type="JSON" path="res://levels/stage_1/level_4.json" id="15_ogacf"]
 [ext_resource type="JSON" path="res://levels/stage_1/level_5.json" id="16_2nemq"]
 [ext_resource type="JSON" path="res://levels/stage_1/level_6.json" id="17_57d2b"]
-[ext_resource type="PackedScene" uid="uid://k7p1w0fj745x" path="res://levels/world_1_level_selector_object.tscn" id="18_as0cx"]
+[ext_resource type="PackedScene" uid="uid://k7p1w0fj745x" path="res://levels/selection_world/world_1_level_selector_object.tscn" id="18_as0cx"]
 [ext_resource type="AudioStream" uid="uid://dn2d3xyrbllla" path="res://assets/sound/music/birds.mp3" id="19_dkfbi"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cmwfp"]

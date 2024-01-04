@@ -50,5 +50,6 @@ hand = 1
 hand_pose = SubResource("Resource_nkg2d")
 
 [node name="HighlightRing" parent="." instance=ExtResource("7_n56l5")]
+visible = false
 
 [editable path="half_lemon"]

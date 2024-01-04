@@ -123,5 +123,5 @@ transform = Transform3D(-0.155654, -0.251401, 0.955285, 0.291867, 0.91219, 0.287
 transform = Transform3D(-0.0962093, 0.97064, -0.220459, 0.851796, -0.0343013, -0.522749, -0.514963, -0.23808, -0.823487, 0.135067, 0.121208, -0.0474702)
 
 [node name="ItemSource" parent="." instance=ExtResource("3_36rq5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.148249, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.23, 0)
 item = ExtResource("4_w534e")

@@ -4,7 +4,7 @@
 
 [node name="PickableObject" type="RigidBody3D"]
 collision_layer = 4
-collision_mask = 196615
+collision_mask = 3221422087
 freeze_mode = 1
 script = ExtResource("1")
 
