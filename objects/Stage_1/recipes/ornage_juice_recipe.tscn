@@ -1,0 +1,104 @@
+[gd_scene load_steps=11 format=3 uid="uid://c3gfj6p70iooh"]
+
+[ext_resource type="Texture2D" uid="uid://gfacsw7kjyvv" path="res://assets/images/manual_squeezer.png" id="1_g1dgp"]
+[ext_resource type="Texture2D" uid="uid://che4b8j16s24p" path="res://assets/images/grabbed_orange.png" id="2_j6s4p"]
+[ext_resource type="Texture2D" uid="uid://dc417hl21i4e2" path="res://assets/images/orange.png" id="3_harwt"]
+[ext_resource type="Texture2D" uid="uid://cxkr3dsox5sy8" path="res://assets/images/orange_juice.png" id="4_4qc1c"]
+[ext_resource type="Texture2D" uid="uid://b2ga4neyle7hh" path="res://assets/images/red_straw_orange_juice.png" id="5_88wrq"]
+[ext_resource type="Texture2D" uid="uid://ds3fcn41hx20o" path="res://assets/images/blue_straw_orange_juice.png" id="6_lsoi0"]
+[ext_resource type="Texture2D" uid="uid://2bs5nhm75luc" path="res://assets/images/straight_arrow.png" id="7_qd6vi"]
+[ext_resource type="Texture2D" uid="uid://b2ne27nibnd6n" path="res://assets/images/curved_arrow.png" id="8_icpvw"]
+[ext_resource type="Texture2D" uid="uid://dowxtcs3kvolc" path="res://assets/images/red_straw.png" id="9_jgef6"]
+[ext_resource type="Texture2D" uid="uid://bwvm0wxxfb2ym" path="res://assets/images/bluw_straw.png" id="10_utcgr"]
+
+[node name="SubViewport" type="SubViewport"]
+size = Vector2i(1100, 650)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="BG" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ManualSqueezer" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(393.25, 362.395)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("1_g1dgp")
+
+[node name="GrabbedOrange" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(361, 351.395)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("2_j6s4p")
+
+[node name="Orange" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(106, 335)
+rotation = 0.522253
+scale = Vector2(1, 1)
+texture = ExtResource("3_harwt")
+
+[node name="OrangeJuice" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(660, 352)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("4_4qc1c")
+
+[node name="RedStrawOrangeJuice" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(975.1, 185.821)
+rotation = -0.165439
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("5_88wrq")
+
+[node name="BlueStrawOrangeJuice" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(1002.1, 465.821)
+rotation = 0.169168
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("6_lsoi0")
+
+[node name="StraightArrow" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(222.625, 352)
+scale = Vector2(1.07927, 1.71739)
+texture = ExtResource("7_qd6vi")
+
+[node name="StraightArrow2" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(551, 360)
+scale = Vector2(1.13415, 1.48913)
+texture = ExtResource("7_qd6vi")
+
+[node name="StraightArrow3" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(832.1, 256.821)
+rotation = -0.430827
+scale = Vector2(1.70604, 2.02758)
+texture = ExtResource("7_qd6vi")
+
+[node name="StraightArrow5" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(839.1, 401.821)
+rotation = 0.653658
+scale = Vector2(1.94053, 2.02758)
+texture = ExtResource("7_qd6vi")
+
+[node name="BiArrow" type="Node2D" parent="CanvasLayer"]
+position = Vector2(394, 298)
+scale = Vector2(1.24, 1)
+
+[node name="CurvedArrow" type="Sprite2D" parent="CanvasLayer/BiArrow"]
+position = Vector2(2.64516, 2.39511)
+rotation = 0.765443
+texture = ExtResource("8_icpvw")
+
+[node name="CurvedArrow2" type="Sprite2D" parent="CanvasLayer/BiArrow"]
+position = Vector2(-19.3548, -6.60489)
+rotation = 3.14159
+scale = Vector2(1, -1)
+texture = ExtResource("8_icpvw")
+
+[node name="RedStraw" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(816.1, 233.821)
+scale = Vector2(0.354592, 0.354592)
+texture = ExtResource("9_jgef6")
+
+[node name="BluwStraw" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(824.1, 389.821)
+scale = Vector2(0.395594, 0.395594)
+texture = ExtResource("10_utcgr")

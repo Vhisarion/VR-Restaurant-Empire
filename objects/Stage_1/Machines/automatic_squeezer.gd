@@ -9,7 +9,6 @@ func _on_snap_zone_has_picked_up(what):
 	if what.is_queued_for_deletion():
 		return
 	
-	print('Called _on_snap_zone_has_picked_up with ', what.name)
 	if (what is Orange):
 		type = "Orange"
 	elif (what is Lemon):

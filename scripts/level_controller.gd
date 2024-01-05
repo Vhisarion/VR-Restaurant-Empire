@@ -4,6 +4,7 @@ extends Node
 
 signal on_score_updated(height_percentage: float)
 signal points_gained()
+signal on_level_ended(cleared: bool)
 
 # Level settings
 var required_score : int
@@ -54,14 +55,12 @@ func _ready():
 	var machines = %Machines.get_children()
 	for machine in machines:
 		if (!json.settings.machines.has(machine.name)):
-			print("removing ", machine.name)
 			machine.queue_free()
 	
 	var sources = %Sources.get_children()
 	for source in sources:
 		if (!json.settings.sources.has(source.name)):
 			source.queue_free()
-			print("removing ", source.name)
 	
 	# Look for customer locations in the current environment
 	for number in range(9):
@@ -153,11 +152,10 @@ func end_level() -> void:
 	if (current_score >= required_score):
 		# Win
 		Main.complete_current_level()
-		%EndOfLevelMessage.text = "LEVEL CLEARED!"
+		on_level_ended.emit(true)
 	else:
 		# Lose
-		%EndOfLevelMessage.text = "LEVEL FAILED!"
-	%EndOfLevelMessage.visible = true
+		on_level_ended.emit(false)
 	
 	var return_timer = get_tree().create_timer(5.0)
 	return_timer.connect("timeout", start_scene_transition)

@@ -4,7 +4,7 @@ var xr_interface: XRInterface
 
 var current_level: int
 var current_world: int
-var selected_level = "res://levels/stage_1/level_5.json"
+var selected_level: String
 @export var world_environments: Array[PackedScene]
 
 # world and level progress matrix
@@ -36,23 +36,13 @@ func _ready():
 func save_progress() -> void:
 	var file = FileAccess.open(save_path, FileAccess.WRITE)
 	file.store_var(progress)
-	print("Saved progress: ", progress)
 
 func load_progress() -> void:
 	if (FileAccess.file_exists(save_path)):
 		var file = FileAccess.open(save_path, FileAccess.READ)
 		progress = file.get_var(true)
-		print("Loaded progress: ", progress)
 	else:
-		# Create progress array
-		var arr: Array[Array] = []
-		arr.resize(world_environments.size())
-		var world_arr = []
-		world_arr.resize(100)
-		world_arr.fill(false)
-		for index in range(world_environments.size()):
-			arr[index] = world_arr.duplicate()
-		progress = arr
+		progress = create_empty_progress_array()
 
 func get_world_environment_path(world_number: int) -> String:
 	return world_environments[world_number].resource_path
@@ -70,3 +60,14 @@ func load_selection_world() -> void:
 
 func _on_transitioned() -> void:
 	load_selection_world()
+
+func create_empty_progress_array():
+	# Create progress array
+	var arr: Array[Array] = []
+	arr.resize(world_environments.size())
+	var world_arr = []
+	world_arr.resize(100)
+	world_arr.fill(false)
+	for index in range(world_environments.size()):
+		arr[index] = world_arr.duplicate()
+	return arr

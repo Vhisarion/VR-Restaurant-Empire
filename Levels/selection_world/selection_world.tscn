@@ -1,5 +1,6 @@
-[gd_scene load_steps=37 format=3 uid="uid://cwhatattyrdig"]
+[gd_scene load_steps=41 format=3 uid="uid://cwhatattyrdig"]
 
+[ext_resource type="Script" path="res://levels/selection_world/selection_world_controller.gd" id="1_1afim"]
 [ext_resource type="Environment" uid="uid://ckiwtcdsam7ed" path="res://addons/godot-xr-tools/staging/staging_env.tres" id="1_jqjvl"]
 [ext_resource type="PackedScene" uid="uid://o7e8qsgryg7y" path="res://entities/player.tscn" id="1_u5v4o"]
 [ext_resource type="PackedScene" uid="uid://d0yj88rv0ucqe" path="res://assets/models/kenney_set/house_type13.glb" id="2_5uctk"]
@@ -22,6 +23,9 @@
 [ext_resource type="JSON" path="res://levels/stage_1/level_6.json" id="19_mw7gf"]
 [ext_resource type="PackedScene" uid="uid://k7p1w0fj745x" path="res://levels/selection_world/world_1_level_selector_object.tscn" id="20_8epvj"]
 [ext_resource type="AudioStream" uid="uid://cyteq6kqfnbqm" path="res://assets/sound/music/level_selection.mp3" id="22_hhdea"]
+[ext_resource type="PackedScene" uid="uid://cl5obr18nruic" path="res://levels/button_pedestal.tscn" id="23_ygi4m"]
+[ext_resource type="PackedScene" uid="uid://c77lf1g6stp27" path="res://objects/shared/tutorial_tablet.tscn" id="25_1ifld"]
+[ext_resource type="PackedScene" uid="uid://bi0usa70snafe" path="res://objects/stage_1/recipes/lemon_juice_recipe.tscn" id="26_yye1c"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2kl1o"]
 albedo_color = Color(0.2, 0.2, 0.2, 1)
@@ -115,9 +119,9 @@ shadow_mesh = SubResource("ArrayMesh_36qhk")
 albedo_color = Color(0, 0, 0, 1)
 
 [node name="SelectionWorld" type="Node3D"]
+script = ExtResource("1_1afim")
 
 [node name="Player" parent="." instance=ExtResource("1_u5v4o")]
-unique_name_in_owner = true
 
 [node name="Lighting" type="Node3D" parent="."]
 
@@ -1269,21 +1273,19 @@ skeleton = NodePath("")
 [node name="World1Levels" type="Node3D" parent="."]
 transform = Transform3D(0.627225, 0, 0, 0, 1, 0, 0, 0, 0.627225, 0.0386441, 0.766364, -0.962134)
 
-[node name="LevelSelector1" parent="World1Levels" node_paths=PackedStringArray("player") instance=ExtResource("13_cm5qa")]
+[node name="LevelSelector1" parent="World1Levels" instance=ExtResource("13_cm5qa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.42827, 0, 0.238375)
 level = ExtResource("14_8vh1k")
 world_environment = ExtResource("15_kgjgs")
 level_number = 1
 world_number = 1
-player = NodePath("../../Player")
 
-[node name="LevelSelector2" parent="World1Levels" node_paths=PackedStringArray("player") instance=ExtResource("13_cm5qa")]
+[node name="LevelSelector2" parent="World1Levels" instance=ExtResource("13_cm5qa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.921788, 0, -0.190071)
 level = ExtResource("15_ehdfo")
 world_environment = ExtResource("15_kgjgs")
 level_number = 2
 world_number = 1
-player = NodePath("../../Player")
 
 [node name="LevelPath" type="CSGBox3D" parent="World1Levels/LevelSelector2"]
 transform = Transform3D(0.997512, 0, -1.24372, 0, 1, 0, 1.24372, 0, 0.997512, -0.386866, 0.00515926, 0.321052)
@@ -1305,13 +1307,12 @@ transform = Transform3D(0.997512, 0, -1.24372, 0, 1, 0, 1.24372, 0, 0.997512, -0
 size = Vector3(0.01, 0.005, 0.05)
 material = SubResource("StandardMaterial3D_ahpcu")
 
-[node name="LevelSelector3" parent="World1Levels" node_paths=PackedStringArray("player") instance=ExtResource("13_cm5qa")]
+[node name="LevelSelector3" parent="World1Levels" instance=ExtResource("13_cm5qa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.427173, 0, 0.246518)
 level = ExtResource("16_fbms3")
 world_environment = ExtResource("15_kgjgs")
 level_number = 3
 world_number = 1
-player = NodePath("../../Player")
 
 [node name="LevelPath5" type="CSGBox3D" parent="World1Levels/LevelSelector3"]
 transform = Transform3D(-1.08437, 0, -1.16876, 0, 1, 0, 1.16876, 0, -1.08437, -0.376216, 0.00515926, -0.334958)
@@ -1333,13 +1334,12 @@ transform = Transform3D(-1.08437, 0, -1.16876, 0, 1, 0, 1.16876, 0, -1.08437, -0
 size = Vector3(0.01, 0.005, 0.05)
 material = SubResource("StandardMaterial3D_ahpcu")
 
-[node name="LevelSelector4" parent="World1Levels" node_paths=PackedStringArray("player") instance=ExtResource("13_cm5qa")]
+[node name="LevelSelector4" parent="World1Levels" instance=ExtResource("13_cm5qa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0857942, 0, -0.186384)
 level = ExtResource("17_21bro")
 world_environment = ExtResource("15_kgjgs")
 level_number = 4
 world_number = 1
-player = NodePath("../../Player")
 
 [node name="LevelPath9" type="CSGBox3D" parent="World1Levels/LevelSelector4"]
 transform = Transform3D(1.09657, 0, -1.15732, 0, 1, 0, 1.15732, 0, 1.09657, -0.378471, 0.00515926, 0.342018)
@@ -1361,13 +1361,12 @@ transform = Transform3D(1.09657, 0, -1.15732, 0, 1, 0, 1.15732, 0, 1.09657, -0.1
 size = Vector3(0.01, 0.005, 0.05)
 material = SubResource("StandardMaterial3D_ahpcu")
 
-[node name="LevelSelector5" parent="World1Levels" node_paths=PackedStringArray("player") instance=ExtResource("13_cm5qa")]
+[node name="LevelSelector5" parent="World1Levels" instance=ExtResource("13_cm5qa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.573223, 0, 0.25123)
 level = ExtResource("18_72iot")
 world_environment = ExtResource("15_kgjgs")
 level_number = 5
 world_number = 1
-player = NodePath("../../Player")
 
 [node name="LevelPath13" type="CSGBox3D" parent="World1Levels/LevelSelector5"]
 transform = Transform3D(-1.03475, 0, -1.21291, 0, 1, 0, 1.21291, 0, -1.03475, -0.367665, 0.00515926, -0.327219)
@@ -1389,13 +1388,12 @@ transform = Transform3D(-1.03475, 0, -1.21291, 0, 1, 0, 1.21291, 0, -1.03475, -0
 size = Vector3(0.01, 0.005, 0.05)
 material = SubResource("StandardMaterial3D_ahpcu")
 
-[node name="LevelSelector6" parent="World1Levels" node_paths=PackedStringArray("player") instance=ExtResource("13_cm5qa")]
+[node name="LevelSelector6" parent="World1Levels" instance=ExtResource("13_cm5qa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.25453, -1.19209e-07, -0.187051)
 level = ExtResource("19_mw7gf")
 world_environment = ExtResource("15_kgjgs")
 level_number = 6
 world_number = 1
-player = NodePath("../../Player")
 
 [node name="LevelPath17" type="CSGBox3D" parent="World1Levels/LevelSelector6"]
 transform = Transform3D(0.849107, 0, -1.3494, 0, 1, 0, 1.3494, 0, 0.849107, -0.534677, 0.00515938, 0.341253)
@@ -1432,6 +1430,15 @@ stream = ExtResource("22_hhdea")
 volume_db = -10.0
 autoplay = true
 
-[connection signal="transitioned" from="Player" to="World1Levels/LevelSelector1" method="_on_player_transitioned"]
+[node name="ButtonPedestal" parent="." instance=ExtResource("23_ygi4m")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0.865074)
+
+[node name="TutorialTablet" parent="." node_paths=PackedStringArray("viewport") instance=ExtResource("25_1ifld")]
+transform = Transform3D(1, 0, 0, 0, 0.121627, 0.992576, 0, -0.992576, 0.121627, 0, 1.12576, -0.836262)
+viewport = NodePath("../Subviewport")
+
+[node name="Subviewport" parent="." instance=ExtResource("26_yye1c")]
+
+[connection signal="on_button_pressed" from="ButtonPedestal" to="." method="_on_button_pedestal_on_button_pressed"]
 
 [editable path="LargeCounter"]

@@ -1,0 +1,59 @@
+[gd_scene load_steps=14 format=3 uid="uid://c77lf1g6stp27"]
+
+[ext_resource type="Script" path="res://objects/shared/tutorial_tablet.gd" id="1_5sblq"]
+[ext_resource type="PackedScene" uid="uid://da2qgxxwwitl6" path="res://addons/godot-xr-tools/objects/highlight/highlight_ring.tscn" id="3_vepep"]
+[ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="4_url0m"]
+[ext_resource type="Animation" uid="uid://cnng6xumhw7cx" path="res://addons/godot-xr-tools/hands/animations/left/Rounded.res" id="5_niocy"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/hands/poses/hand_pose_settings.gd" id="6_vw0ma"]
+[ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="7_y2i88"]
+[ext_resource type="Animation" uid="uid://wcwa3p1qrhwr" path="res://addons/godot-xr-tools/hands/animations/right/Rounded.res" id="8_xe74b"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5a2cp"]
+size = Vector3(0.56, 0.335, 0.005)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y3v51"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_fx2r2"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_y3v51")
+size = Vector3(0.56, 0.335, 0.005)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_xyrtu"]
+
+[sub_resource type="Resource" id="Resource_yl73v"]
+script = ExtResource("6_vw0ma")
+closed_pose = ExtResource("5_niocy")
+
+[sub_resource type="Resource" id="Resource_57emr"]
+script = ExtResource("6_vw0ma")
+closed_pose = ExtResource("8_xe74b")
+
+[node name="TutorialTablet" type="RigidBody3D"]
+collision_layer = 4
+collision_mask = 3221422087
+freeze_mode = 1
+script = ExtResource("1_5sblq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_5a2cp")
+
+[node name="TutorialTablet" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TutorialTablet"]
+mesh = SubResource("BoxMesh_fx2r2")
+
+[node name="Sprite3D" type="Sprite3D" parent="TutorialTablet"]
+unique_name_in_owner = true
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0.00400141)
+texture = SubResource("ViewportTexture_xyrtu")
+
+[node name="HighlightRing" parent="." instance=ExtResource("3_vepep")]
+
+[node name="GrabPointHandLeft" parent="." instance=ExtResource("4_url0m")]
+transform = Transform3D(0.878058, -7.05817e-09, -0.478554, -0.0588764, 0.992403, -0.108027, 0.474918, 0.12303, 0.871388, -0.245828, -2.98023e-08, -0.043947)
+hand_pose = SubResource("Resource_yl73v")
+
+[node name="GrabPointHandRight" parent="." instance=ExtResource("7_y2i88")]
+transform = Transform3D(0.87785, -3.30657e-05, 0.478936, 0.0589595, 0.992401, -0.107999, -0.475293, 0.123045, 0.871181, 0.252663, 0, -0.044)
+hand_pose = SubResource("Resource_57emr")
