@@ -1,0 +1,92 @@
+[gd_scene load_steps=11 format=3 uid="uid://cl5obr18nruic"]
+
+[ext_resource type="Script" path="res://levels/button_pedestal.gd" id="1_afj6k"]
+[ext_resource type="PackedScene" uid="uid://cme66uldrjl2i" path="res://addons/godot-xr-tools/interactables/interactable_area_button.tscn" id="2_lltpf"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5dox7"]
+albedo_color = Color(0.588235, 0.588235, 0.588235, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_dgypv"]
+material = SubResource("StandardMaterial3D_5dox7")
+top_radius = 0.1
+bottom_radius = 0.1
+height = 0.6
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r1atd"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_7k0u4"]
+material = SubResource("StandardMaterial3D_r1atd")
+top_radius = 0.05
+bottom_radius = 0.05
+height = 0.1
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_n55ou"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ant73"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_n55ou")
+uv1_offset = Vector3(0.52, 0.22, 0)
+
+[sub_resource type="SphereMesh" id="SphereMesh_uit0p"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_ant73")
+radius = 0.15
+height = 0.12
+rings = 16
+is_hemisphere = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_iu65c"]
+size = Vector3(0.295898, 0.120117, 0.294678)
+
+[node name="ButtonPedestal" type="Node3D"]
+script = ExtResource("1_afj6k")
+
+[node name="Base" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+mesh = SubResource("CylinderMesh_dgypv")
+
+[node name="Neck" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.643483, 0)
+mesh = SubResource("CylinderMesh_7k0u4")
+
+[node name="Button" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, -0.00058122, -0.000500831, 0.000581237, 1, 3.28672e-05, 0.000500812, -3.31614e-05, 1, 0, 0.681743, 0)
+mesh = SubResource("SphereMesh_uit0p")
+
+[node name="InteractableAreaButton" parent="." instance=ExtResource("2_lltpf")]
+collision_layer = 1
+button = NodePath("../Button")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractableAreaButton"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.742393, 0)
+shape = SubResource("BoxShape3D_iu65c")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="SubViewport"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0, 0, 1)
+
+[node name="Label" type="Label" parent="SubViewport"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -131.0
+offset_top = -87.5
+offset_right = 131.0
+offset_bottom = 87.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 128
+text = "EXIT"
+
+[connection signal="button_pressed" from="InteractableAreaButton" to="." method="_on_interactable_area_button_button_pressed"]

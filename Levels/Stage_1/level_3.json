@@ -2,7 +2,8 @@
 	"settings": {
 		"required_score": 20,
 		"machines": ["ManualSqueezer", "ManualSqueezer2", "Water", "Water2", "Water3"],
-		"sources": ["LemonBox", "AppleBox", "PearBox", "RedStrawPot", "BlueStrawPot"]
+		"sources": ["LemonBox", "AppleBox", "BananaBox", "RedStrawPot", "BlueStrawPot"],
+		"tutorials": []
 	},
 	"customers": [
 		{
@@ -10,7 +11,7 @@
 			"max_patience": 12,
 			"order": [
 				{
-					"product": "Pear"
+					"product": "Banana"
 				}
 			],
 		},
@@ -25,7 +26,7 @@
 					}
 				},
 				{
-					"product": "Pear",
+					"product": "Banana",
 				}
 			],
 		},
@@ -52,7 +53,7 @@
 					"product": "Apple",
 				},
 				{
-					"product": "Pear",
+					"product": "Banana",
 				}
 			],
 		},
@@ -82,7 +83,7 @@
 					}
 				},
 				{
-					"product": "Pear"
+					"product": "Banana"
 				}
 			],
 		}

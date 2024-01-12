@@ -1,0 +1,86 @@
+[gd_scene load_steps=6 format=3 uid="uid://b5t54qqnja3c3"]
+
+[ext_resource type="PackedScene" uid="uid://cu2ad2f3gqx4q" path="res://assets/models/low_poly_truck.glb" id="1_1v7q2"]
+[ext_resource type="Script" path="res://levels/stage_1/eol_truck.gd" id="1_v6exo"]
+[ext_resource type="AudioStream" uid="uid://c6nqtps10korf" path="res://assets/sound/sfx/truck_engine.mp3" id="3_dqsdr"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_yi13g"]
+viewport_path = NodePath("MessageLeft/SubViewport")
+
+[sub_resource type="GDScript" id="GDScript_adinu"]
+script/source = "@tool
+extends SubViewport
+"
+
+[node name="EOLTruck" type="Node3D"]
+script = ExtResource("1_v6exo")
+speed = 15.0
+
+[node name="LowPolyTruck" parent="." instance=ExtResource("1_1v7q2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.214586, 1.19209e-07, 0.0775304)
+
+[node name="MessageLeft" type="Sprite3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.354223, 0.3691, -0.567281)
+texture = SubResource("ViewportTexture_yi13g")
+
+[node name="SubViewport" type="SubViewport" parent="MessageLeft"]
+disable_3d = true
+transparent_bg = true
+size = Vector2i(256, 128)
+script = SubResource("GDScript_adinu")
+
+[node name="EndOfLevelMessage" type="Label" parent="MessageLeft/SubViewport"]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -984.5
+offset_top = -174.5
+offset_right = 984.5
+offset_bottom = 174.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "LEVEL CLEARED!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MessageRight" type="Sprite3D" parent="."]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -0.777005, 0.3691, -0.567281)
+texture = SubResource("ViewportTexture_yi13g")
+
+[node name="SubViewport" type="SubViewport" parent="MessageRight"]
+disable_3d = true
+transparent_bg = true
+size = Vector2i(256, 128)
+script = SubResource("GDScript_adinu")
+
+[node name="EndOfLevelMessage" type="Label" parent="MessageRight/SubViewport"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -984.5
+offset_top = -174.5
+offset_right = 984.5
+offset_bottom = 174.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "LEVEL CLEARED!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SFX" type="Node3D" parent="."]
+
+[node name="Engine" type="AudioStreamPlayer3D" parent="SFX"]
+stream = ExtResource("3_dqsdr")
+unit_size = 100.0
+pitch_scale = 1.5

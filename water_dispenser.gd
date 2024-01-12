@@ -8,8 +8,10 @@ extends Node3D
 func dispense() -> void:
 	$SnapZone.drop_object_and_free()
 	
-	var lemonade = product.instantiate()
-	$SnapZone.pick_up(lemonade)
+	var lemonade = (product.instantiate() as Lemonade)
+	lemonade.picked_up_by = $SnapZone
+	add_child(lemonade)
+	$SnapZone.pick_up_object(lemonade)
 	
 	$VFX/WaterParticles.emitting = false
 	$SnapZone.enabled = true

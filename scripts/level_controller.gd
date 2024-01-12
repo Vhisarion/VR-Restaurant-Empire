@@ -4,6 +4,7 @@ extends Node
 
 signal on_score_updated(height_percentage: float)
 signal points_gained()
+signal on_level_ended(cleared: bool)
 
 # Level settings
 var required_score : int
@@ -51,26 +52,41 @@ func _ready():
 	start_arrival_timers()
 	
 	# Remove machines and sources not enabled in the level
-	var machines = %Machines.get_children()
-	for machine in machines:
-		if (!json.settings.machines.has(machine.name)):
-			print("removing ", machine.name)
-			machine.queue_free()
+	configure_machines(json.settings.machines)
+	configure_sources(json.settings.sources)
 	
-	var sources = %Sources.get_children()
-	for source in sources:
-		if (!json.settings.sources.has(source.name)):
-			source.queue_free()
-			print("removing ", source.name)
+	# Remove tutorials not enabled in the level
+	configure_tutorials(json.settings.tutorials)
 	
 	# Look for customer locations in the current environment
+	configure_customer_locations()
+	
+	player.transitioned.connect(return_to_selection_world)
+
+func configure_machines(json_machines):
+	var machines = %Machines.get_children()
+	for machine in machines:
+		if (!json_machines.has(machine.name)):
+			machine.queue_free()
+
+func configure_sources(json_sources):
+	var sources = %Sources.get_children()
+	for source in sources:
+		if (!json_sources.has(source.name)):
+			source.queue_free()
+
+func configure_tutorials(json_tutorials):
+	var tutorials = %Tutorials.get_children()
+	for tutorial in tutorials:
+		if (!json_tutorials.has(tutorial.name)):
+			tutorial.queue_free()
+
+func configure_customer_locations():
 	for number in range(9):
 		var location = get_node_or_null("CustomerLocations/CustomerLocation"+str(number+1))
 		if (location != null):
 			customer_locations.push_back(location)
 			occupied_locations.push_back(false)
-	
-	player.transitioned.connect(return_to_selection_world)
 
 func initialize_customers(json_customers: Array):
 	for customer_settings in json_customers:
@@ -131,6 +147,7 @@ func gain_points(amount: int):
 	on_score_updated.emit(float(current_score)/float(required_score*1.1))
 	points_gained.emit()
 	$SFX/Coins.play()
+	print("Player earned ", amount, " points and now has a total of ", current_score, " points")
 
 func lose_points(amount: int):
 	current_score = clamp(current_score-amount,0,INT_MAX)
@@ -152,11 +169,10 @@ func end_level() -> void:
 	if (current_score >= required_score):
 		# Win
 		Main.complete_current_level()
-		%EndOfLevelMessage.text = "LEVEL CLEARED!"
+		on_level_ended.emit(true)
 	else:
 		# Lose
-		%EndOfLevelMessage.text = "LEVEL FAILED!"
-	%EndOfLevelMessage.visible = true
+		on_level_ended.emit(false)
 	
 	var return_timer = get_tree().create_timer(5.0)
 	return_timer.connect("timeout", start_scene_transition)

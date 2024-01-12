@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://clwdncfwnjiyl"]
+[gd_scene load_steps=44 format=3 uid="uid://clwdncfwnjiyl"]
 
 [ext_resource type="Script" path="res://scripts/level_controller.gd" id="1_ywhge"]
 [ext_resource type="PackedScene" uid="uid://o7e8qsgryg7y" path="res://entities/player.tscn" id="3_a0kes"]
@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://dqvkhawmj4kdi" path="res://assets/models/park/bush_house_separator.tscn" id="12_qawu0"]
 [ext_resource type="PackedScene" uid="uid://clid6pryr5sf5" path="res://objects/stage_1/machines/manual_squeezer.tscn" id="13_vnkv0"]
 [ext_resource type="PackedScene" uid="uid://d3wsb48kp04ba" path="res://objects/stage_1/machines/automatic_squeezer.tscn" id="14_os1di"]
-[ext_resource type="PackedScene" uid="uid://dp7h3tvs3lhuq" path="res://objects/stage_1/machines/Water.tscn" id="14_rb1f8"]
+[ext_resource type="PackedScene" uid="uid://dp7h3tvs3lhuq" path="res://objects/stage_1/machines/water.tscn" id="14_rb1f8"]
 [ext_resource type="PackedScene" uid="uid://d3pvosj6lk4d0" path="res://objects/stage_1/machines/water_dispenser.tscn" id="15_i7yw0"]
 [ext_resource type="PackedScene" uid="uid://buhep2w1a83i5" path="res://objects/stage_1/boxes/orange_box.tscn" id="15_wjco4"]
 [ext_resource type="PackedScene" uid="uid://rgtsg8clr6jt" path="res://objects/stage_1/boxes/lemon_box.tscn" id="16_bt1w2"]
@@ -23,12 +23,17 @@
 [ext_resource type="PackedScene" uid="uid://bt2qyw6irwvmk" path="res://objects/stage_1/boxes/blue_straw_pot.tscn" id="20_gng0u"]
 [ext_resource type="PackedScene" uid="uid://b8iabtvk8avvm" path="res://objects/stage_1/furniture/counter_large.tscn" id="21_y5g2k"]
 [ext_resource type="PackedScene" uid="uid://cvvhnuv0lq2tt" path="res://objects/stage_1/furniture/counter_small.tscn" id="22_gihdr"]
-[ext_resource type="PackedScene" uid="uid://csdvwhjuyr5ob" path="res://assets/models/furniture/cabinet/cabinet.glb" id="23_mj50x"]
 [ext_resource type="PackedScene" uid="uid://qps81sspj75w" path="res://objects/shared/tip_jar.tscn" id="24_re2vq"]
-[ext_resource type="Script" path="res://levels/stage_1/SubViewport.gd" id="25_36oud"]
+[ext_resource type="PackedScene" uid="uid://ca1gor3lulpo8" path="res://objects/stage_1/furniture/cabinet.tscn" id="24_vf82v"]
 [ext_resource type="AudioStream" uid="uid://cscfx7l04pfkw" path="res://assets/sound/music/world_1.mp3" id="26_bky4e"]
 [ext_resource type="AudioStream" uid="uid://b1i8slb2mbo6e" path="res://assets/sound/sfx/coins.mp3" id="27_74upb"]
 [ext_resource type="AudioStream" uid="uid://cwanyxix3tvfx" path="res://assets/sound/sfx/customer_leave.mp3" id="28_6xdok"]
+[ext_resource type="PackedScene" uid="uid://b5t54qqnja3c3" path="res://levels/stage_1/eol_truck.tscn" id="29_31twe"]
+[ext_resource type="PackedScene" uid="uid://c77lf1g6stp27" path="res://objects/shared/tutorial_tablet.tscn" id="30_2beae"]
+[ext_resource type="PackedScene" uid="uid://ds7mqc2gwv12f" path="res://objects/stage_1/recipes/water_dispenser_recipe.tscn" id="31_huxdm"]
+[ext_resource type="PackedScene" uid="uid://cjkhwvkbpghjx" path="res://objects/stage_1/recipes/automatic_squeezer_recipe.tscn" id="32_7gm1e"]
+[ext_resource type="PackedScene" uid="uid://bybpdovbjjm8v" path="res://objects/stage_1/recipes/lemonade_recipe.tscn" id="33_awlsp"]
+[ext_resource type="PackedScene" uid="uid://c3gfj6p70iooh" path="res://objects/stage_1/recipes/ornage_juice_recipe.tscn" id="34_xh8l4"]
 
 [sub_resource type="Environment" id="Environment_fn5ye"]
 background_mode = 1
@@ -104,12 +109,6 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_d0860")
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_dt6va"]
-size = Vector3(0.265442, 0.0597076, 1.04724)
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_bgl5p"]
-viewport_path = NodePath("EOLSprite/SubViewport")
 
 [node name="World1Environment" type="Node3D" node_paths=PackedStringArray("player")]
 script = ExtResource("1_ywhge")
@@ -427,10 +426,10 @@ skeleton = NodePath("")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.35672, 0, 1.22322)
 
 [node name="CustomerLocation1" type="Node3D" parent="CustomerLocations"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.756559, 1.19209e-07, -1.03499)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.479381, 1.19209e-07, -1.07692)
 
 [node name="CustomerLocation2" type="Node3D" parent="CustomerLocations"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.668869, 0, -1.03612)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.414, 0, -1.077)
 
 [node name="Machines" type="Node3D" parent="."]
 unique_name_in_owner = true
@@ -478,6 +477,10 @@ picked_by_require = null
 [node name="AutomaticSqueezer" parent="Machines" instance=ExtResource("14_os1di")]
 transform = Transform3D(-3.27835e-08, 0, -0.75, 0, 0.75, 0, 0.75, 0, -3.27835e-08, 0.923898, 0.69841, 0.767094)
 
+[node name="Juicer" parent="Machines/AutomaticSqueezer/SFX" index="0"]
+unit_size = 42.98
+max_db = 6.0
+
 [node name="WaterDispenser" parent="Machines" instance=ExtResource("15_i7yw0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.841958, 0.734627, 0)
 
@@ -514,57 +517,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.828821, -1.19209e-07, -0.89
 [node name="SmallCounter2" parent="Counters" instance=ExtResource("22_gihdr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.70314, -3.57628e-07, -0.00414693)
 
-[node name="Cabinet" type="StaticBody3D" parent="Counters"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.19209e-07)
-
-[node name="CabinetModel" parent="Counters/Cabinet" instance=ExtResource("23_mj50x")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.828821, -1.19209e-07, 0.721089)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Counters/Cabinet"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.829981, 1.0148, 0.987562)
-shape = SubResource("BoxShape3D_dt6va")
-
-[node name="Debug" type="Node3D" parent="."]
+[node name="Cabinet" parent="Counters" instance=ExtResource("24_vf82v")]
 
 [node name="TipJar" parent="." instance=ExtResource("24_re2vq")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.30999, 0.75586, 0.571872)
 
-[node name="EOLSprite" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.964359, -0.264597, 0, 0.264597, 0.964359, 3.58047, 7.19033, -8)
-texture = SubResource("ViewportTexture_bgl5p")
-
-[node name="SubViewport" type="SubViewport" parent="EOLSprite"]
-disable_3d = true
-transparent_bg = true
-size = Vector2i(2560, 512)
-script = ExtResource("25_36oud")
-
-[node name="EndOfLevelMessage" type="Label" parent="EOLSprite/SubViewport"]
-unique_name_in_owner = true
-visible = false
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -984.5
-offset_top = -174.5
-offset_right = 984.5
-offset_bottom = 174.5
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 256
-text = "LEVEL CLEARED!"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="Music" type="Node3D" parent="."]
 
 [node name="Background" type="AudioStreamPlayer" parent="Music"]
 stream = ExtResource("26_bky4e")
+volume_db = -10.0
 autoplay = true
 
 [node name="SFX" type="Node3D" parent="."]
@@ -575,8 +538,43 @@ stream = ExtResource("27_74upb")
 [node name="CustomerAngry" type="AudioStreamPlayer3D" parent="SFX"]
 stream = ExtResource("28_6xdok")
 
+[node name="EOLTruck" parent="." instance=ExtResource("29_31twe")]
+unique_name_in_owner = true
+transform = Transform3D(-6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, -28.6048, 0.972918, -6.66472)
+visible = false
+
+[node name="Tutorials" type="Node3D" parent="."]
+unique_name_in_owner = true
+
+[node name="WaterDispenserTutorial" parent="Tutorials" node_paths=PackedStringArray("viewport") instance=ExtResource("30_2beae")]
+transform = Transform3D(1, 0, 0, 0, 0.903403, 0.428793, 0, -0.428793, 0.903403, 3.33207, 0.963983, 0.69964)
+viewport = NodePath("WaterDispenserRecipe")
+
+[node name="WaterDispenserRecipe" parent="Tutorials/WaterDispenserTutorial" instance=ExtResource("31_huxdm")]
+
+[node name="AutomaticSqueezerTutorial" parent="Tutorials" node_paths=PackedStringArray("viewport") instance=ExtResource("30_2beae")]
+transform = Transform3D(1, 0, 0, 0, 0.903403, 0.428793, 0, -0.428793, 0.903403, 3.33207, 0.950589, 0.748371)
+viewport = NodePath("AutomaticSqueezerRecipe")
+
+[node name="AutomaticSqueezerRecipe" parent="Tutorials/AutomaticSqueezerTutorial" instance=ExtResource("32_7gm1e")]
+
+[node name="LemonadeTutorial" parent="Tutorials" node_paths=PackedStringArray("viewport") instance=ExtResource("30_2beae")]
+transform = Transform3D(1, 0, 0, 0, 0.903403, 0.428793, 0, -0.428793, 0.903403, 3.33207, 0.928871, 0.793037)
+viewport = NodePath("LemonadeRecipe")
+
+[node name="LemonadeRecipe" parent="Tutorials/LemonadeTutorial" instance=ExtResource("33_awlsp")]
+
+[node name="OrangeJuiceTutorial" parent="Tutorials" node_paths=PackedStringArray("viewport") instance=ExtResource("30_2beae")]
+transform = Transform3D(1, 0, 0, 0, 0.903403, 0.428793, 0, -0.428793, 0.903403, 3.33207, 0.914414, 0.842703)
+viewport = NodePath("OrangeJuiceRecipe")
+
+[node name="OrangeJuiceRecipe" parent="Tutorials/OrangeJuiceTutorial" instance=ExtResource("34_xh8l4")]
+
+[connection signal="on_level_ended" from="." to="EOLTruck" method="_on_world_1_environment_on_level_ended"]
 [connection signal="on_score_updated" from="." to="TipJar" method="_on_world_1_environment_on_score_updated"]
 [connection signal="points_gained" from="." to="TipJar" method="_on_world_1_environment_points_gained"]
+[connection signal="transitioned" from="Player" to="." method="return_to_selection_world"]
 
 [editable path="Machines/ManualSqueezer"]
 [editable path="Machines/ManualSqueezer2"]
+[editable path="Machines/AutomaticSqueezer"]

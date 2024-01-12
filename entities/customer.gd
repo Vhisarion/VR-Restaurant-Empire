@@ -6,6 +6,7 @@ signal on_customer_left(customer, location)
 
 # The products the customer wants
 var order: Array[Product]
+var total_order_price: int
 # Copy of the original order to keep track of remaining items
 var pending_products: Array[Product]
 
@@ -23,7 +24,8 @@ var item_request_locations: Array[Node3D] = []
 
 func init(max_patience: int, products: Array[Product], level_controller: LevelController):
 	order = products
-	pending_products = order.duplicate()
+	total_order_price = calculate_price_of_products()
+	pending_products = order.duplicate(true)
 	self.max_patience = max_patience
 	self.level_controller = level_controller
 
@@ -37,21 +39,9 @@ func _ready():
 func _process(delta):
 	_update_customer_color()
 
-# Sum of the price of all products + tip
-func calculate_price_of_order() -> int:
-	return add_tip(calculate_price_of_products())
-
-# Sum of the price of all products requested
 func calculate_price_of_products() -> int:
 	var sum = 0
 	for product in order:
-		sum += product.price
-	return sum
-
-# Sum of the price of all pending products
-func calculate_price_of_pending_products() -> int:
-	var sum = 0
-	for product in pending_products:
 		sum += product.price
 	return sum
 
@@ -62,11 +52,11 @@ func add_tip(total: int) -> int:
 	var time_left = $PatienceTimer.time_left
 	var tip = 0
 	if (time_left > max_patience*0.75):
-		tip = total*0.15
+		tip = total*0.5
 	elif (time_left > max_patience*0.5):
-		tip = total*0.1
-	elif (time_left > max_patience*0.5):
-		tip = total*0.05
+		tip = total*0.33
+	elif (time_left > max_patience*0.25):
+		tip = total*0.25
 	
 	return total + tip
 
@@ -81,7 +71,7 @@ func make_order():
 
 # Customer leaves without fulfilling the order
 func leave():
-	level_controller.lose_points(calculate_price_of_products())
+	level_controller.lose_points(total_order_price)
 	on_customer_left.emit(self, location)
 	destroy()
 
@@ -109,6 +99,8 @@ func product_received(received_product: Product):
 		else:
 			# Complete order if no products left
 			pay()
+		
+		$SFX/Delivery.play()
 	else:
 		print ("The product received wasn't in the order")
 		# The product received isn't wanted
@@ -124,7 +116,8 @@ func find_product_index(array: Array[Product], product: Product) -> int:
 
 # The customer awards points to the player
 func pay():
-	level_controller.gain_points(calculate_price_of_order())
+	print("Customer is about to pay. Order total is: ", total_order_price, " and with tips it's ", add_tip(total_order_price))
+	level_controller.gain_points(add_tip(total_order_price))
 	on_customer_left.emit(self, location)
 	destroy()
 
@@ -142,7 +135,6 @@ func set_location(location: Node3D):
 
 func _update_customer_color():
 	if is_inside_tree():
-		print($PatienceTimer.time_left/max_patience)
 		%PatienceBar.value = $PatienceTimer.time_left/max_patience*100
 
 func _on_tray_snap_zone_has_picked_up(what):

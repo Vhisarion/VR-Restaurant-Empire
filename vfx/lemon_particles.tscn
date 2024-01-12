@@ -1,32 +1,29 @@
 [gd_scene load_steps=4 format=3 uid="uid://bwqw5b30xfypw"]
 
+[ext_resource type="Material" uid="uid://c52gg2gx8rh8d" path="res://assets/models/juice/lemon_juice.tres" id="1_7xarj"]
+
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_batiy"]
-lifetime_randomness = 0.51
 particle_flag_damping_as_friction = true
 emission_shape = 2
-emission_sphere_radius = 0.02
-gravity = Vector3(0, 0, 0)
+emission_sphere_radius = 0.01
+gravity = Vector3(0, -0.5, 0)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0j7wx"]
-albedo_color = Color(0.937255, 0.92549, 0.556863, 1)
-
-[sub_resource type="QuadMesh" id="QuadMesh_sf3yv"]
-material = SubResource("StandardMaterial3D_0j7wx")
-size = Vector2(0.015, 0.007)
-orientation = 0
+[sub_resource type="BoxMesh" id="BoxMesh_5ov4s"]
+material = ExtResource("1_7xarj")
+flip_faces = true
+size = Vector3(0.01, 0.01, 0.01)
 
 [node name="LemonParticles" type="GPUParticles3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0527314, 0)
 emitting = false
 amount = 25
-lifetime = 0.5
+lifetime = 0.25
 one_shot = true
-fixed_fps = 120
 process_material = SubResource("ParticleProcessMaterial_batiy")
-draw_pass_1 = SubResource("QuadMesh_sf3yv")
+draw_pass_1 = SubResource("BoxMesh_5ov4s")
 
 [node name="GPUParticlesAttractorSphere3D" type="GPUParticlesAttractorSphere3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0253062, 0)
-strength = -1.0
-attenuation = 0.000440056
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0112285, 0)
+strength = -4.0
+attenuation = 0.189465
 radius = 0.05

@@ -1,8 +1,9 @@
-[gd_scene load_steps=37 format=3 uid="uid://cwhatattyrdig"]
+[gd_scene load_steps=46 format=3 uid="uid://cwhatattyrdig"]
 
+[ext_resource type="Script" path="res://levels/selection_world/selection_world_controller.gd" id="1_1afim"]
 [ext_resource type="Environment" uid="uid://ckiwtcdsam7ed" path="res://addons/godot-xr-tools/staging/staging_env.tres" id="1_jqjvl"]
-[ext_resource type="PackedScene" uid="uid://o7e8qsgryg7y" path="res://entities/player.tscn" id="1_u5v4o"]
 [ext_resource type="PackedScene" uid="uid://d0yj88rv0ucqe" path="res://assets/models/kenney_set/house_type13.glb" id="2_5uctk"]
+[ext_resource type="PackedScene" uid="uid://b4eyquevowwu0" path="res://entities/player_physics_hands.tscn" id="2_ih3p8"]
 [ext_resource type="PackedScene" uid="uid://dlbt848q6h5e8" path="res://assets/models/kenney_set/house_type05.glb" id="3_3nmce"]
 [ext_resource type="PackedScene" uid="uid://b1m3qc3ko5g8e" path="res://assets/models/kenney_set/house_type02.glb" id="4_pp15s"]
 [ext_resource type="PackedScene" uid="uid://wiej8os8f0v6" path="res://assets/models/kenney_set/house_type01.glb" id="5_tloc1"]
@@ -12,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://ub8fx2bjffis" path="res://assets/models/kenney_set/path_tilesLong.glb" id="9_88ej4"]
 [ext_resource type="PackedScene" uid="uid://dqvkhawmj4kdi" path="res://assets/models/park/bush_house_separator.tscn" id="10_jd7kj"]
 [ext_resource type="PackedScene" uid="uid://b8iabtvk8avvm" path="res://objects/stage_1/furniture/counter_large.tscn" id="12_vd1yd"]
-[ext_resource type="PackedScene" uid="uid://dyjwtaftumixa" path="res://levels/level_selector.tscn" id="13_cm5qa"]
+[ext_resource type="PackedScene" uid="uid://dyjwtaftumixa" path="res://levels/selection_world/level_selector.tscn" id="13_cm5qa"]
 [ext_resource type="JSON" path="res://levels/stage_1/level_1.json" id="14_8vh1k"]
 [ext_resource type="JSON" path="res://levels/stage_1/level_2.json" id="15_ehdfo"]
 [ext_resource type="PackedScene" uid="uid://clwdncfwnjiyl" path="res://levels/stage_1/world1_environment.tscn" id="15_kgjgs"]
@@ -20,8 +21,12 @@
 [ext_resource type="JSON" path="res://levels/stage_1/level_4.json" id="17_21bro"]
 [ext_resource type="JSON" path="res://levels/stage_1/level_5.json" id="18_72iot"]
 [ext_resource type="JSON" path="res://levels/stage_1/level_6.json" id="19_mw7gf"]
-[ext_resource type="PackedScene" uid="uid://k7p1w0fj745x" path="res://levels/world_1_level_selector_object.tscn" id="20_8epvj"]
+[ext_resource type="PackedScene" uid="uid://k7p1w0fj745x" path="res://levels/selection_world/world_1_level_selector_object.tscn" id="20_8epvj"]
 [ext_resource type="AudioStream" uid="uid://cyteq6kqfnbqm" path="res://assets/sound/music/level_selection.mp3" id="22_hhdea"]
+[ext_resource type="PackedScene" uid="uid://cl5obr18nruic" path="res://levels/button_pedestal.tscn" id="23_ygi4m"]
+[ext_resource type="PackedScene" uid="uid://c77lf1g6stp27" path="res://objects/shared/tutorial_tablet.tscn" id="25_1ifld"]
+[ext_resource type="PackedScene" uid="uid://ce32hx70pukxd" path="res://objects/stage_1/recipes/level_selection_recipe.tscn" id="26_3v2yt"]
+[ext_resource type="Texture2D" uid="uid://st4mvm8opjs0" path="res://upscaled_logo.png" id="27_q11tj"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2kl1o"]
 albedo_color = Color(0.2, 0.2, 0.2, 1)
@@ -33,15 +38,25 @@ size = Vector3(5, 0.075, 5)
 [sub_resource type="BoxShape3D" id="BoxShape3D_8mto8"]
 size = Vector3(5, 0.075, 5)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_w75pn"]
+size = Vector3(0.4, 0.01, 0.243585)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tevkv"]
+albedo_color = Color(0.164706, 0.0941176, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_5isyv"]
+material = SubResource("StandardMaterial3D_tevkv")
+size = Vector3(0.4, 0.01, 0.425)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_y8mqt"]
-size = Vector3(0.4, 0.01, 0.220996)
+size = Vector3(0.4, 0.01, 0.821753)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yer8r"]
 albedo_color = Color(0.164706, 0.0941176, 0, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_r0kci"]
 material = SubResource("StandardMaterial3D_yer8r")
-size = Vector3(0.4, 0.01, 0.4)
+size = Vector3(0.4, 0.01, 0.8)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cmwfp"]
 albedo_color = Color(0.203922, 0.203922, 0.203922, 1)
@@ -114,10 +129,13 @@ shadow_mesh = SubResource("ArrayMesh_36qhk")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ahpcu"]
 albedo_color = Color(0, 0, 0, 1)
 
-[node name="SelectionWorld" type="Node3D"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_nvlyn"]
+viewport_path = NodePath("Sprite3D/GameLogo")
 
-[node name="Player" parent="." instance=ExtResource("1_u5v4o")]
-unique_name_in_owner = true
+[node name="SelectionWorld" type="Node3D"]
+script = ExtResource("1_1afim")
+
+[node name="Player" parent="." instance=ExtResource("2_ih3p8")]
 
 [node name="Lighting" type="Node3D" parent="."]
 
@@ -150,14 +168,29 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0386441, 0.727827, -0.55216
 collision_layer = 1073741824
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Shelf"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0895019)
-shape = SubResource("BoxShape3D_y8mqt")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0977142)
+shape = SubResource("BoxShape3D_w75pn")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Shelf"]
+mesh = SubResource("BoxMesh_5isyv")
+
+[node name="Shelf2" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.741088, 0.727827, -0.323623)
+collision_layer = 1073741824
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Shelf2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0108764)
+shape = SubResource("BoxShape3D_y8mqt")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Shelf2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0216003)
 mesh = SubResource("BoxMesh_r0kci")
 
 [node name="LargeCounter" parent="." instance=ExtResource("12_vd1yd")]
 transform = Transform3D(1.68469, 0, 0, 0, 1, 0, 0, 0, 1.47471, 0.0386441, 0, -0.959096)
+
+[node name="CollisionShape3D" parent="LargeCounter/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00222778, 0.743347, 0.0027771)
 
 [node name="World1Map" type="Node3D" parent="."]
 transform = Transform3D(0.0125445, 0, 0, 0, 0.02, 0, 0, 0, 0.0125445, -0.670459, 0.766101, -0.840776)
@@ -1423,14 +1456,42 @@ size = Vector3(0.01, 0.005, 0.05)
 material = SubResource("StandardMaterial3D_ahpcu")
 
 [node name="World1LevelSelectorObject" parent="." instance=ExtResource("20_8epvj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0317369, 1.00256, -0.467144)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0317369, 0.756605, -0.467144)
 
 [node name="LevelPaths" type="Node3D" parent="."]
 
 [node name="BGMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("22_hhdea")
+volume_db = -10.0
 autoplay = true
 
-[connection signal="transitioned" from="Player" to="World1Levels/LevelSelector1" method="_on_player_transitioned"]
+[node name="ButtonPedestal" parent="." instance=ExtResource("23_ygi4m")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0.865074)
+
+[node name="TutorialTablet" parent="." node_paths=PackedStringArray("viewport") instance=ExtResource("25_1ifld")]
+transform = Transform3D(1.91069e-15, -1, -4.37114e-08, -4.37114e-08, -4.37114e-08, 1, -1, 0, -4.37114e-08, -0.739356, 0.74757, -0.232207)
+viewport = NodePath("LevelSelectionRecipe")
+
+[node name="LevelSelectionRecipe" parent="TutorialTablet" instance=ExtResource("26_3v2yt")]
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.91872, -2.92165)
+texture = SubResource("ViewportTexture_nvlyn")
+
+[node name="GameLogo" type="SubViewport" parent="Sprite3D"]
+size = Vector2i(512, 272)
+
+[node name="TextureRect" type="TextureRect" parent="Sprite3D/GameLogo"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("27_q11tj")
+expand_mode = 2
+stretch_mode = 5
+
+[connection signal="transitioned" from="Player" to="World1Levels/LevelSelector6" method="_on_player_transitioned"]
+[connection signal="on_button_pressed" from="ButtonPedestal" to="." method="_on_button_pedestal_on_button_pressed"]
 
 [editable path="LargeCounter"]

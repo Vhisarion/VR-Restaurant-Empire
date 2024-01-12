@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://fo70a732j1c7"]
+[gd_scene load_steps=23 format=3 uid="uid://fo70a732j1c7"]
 
 [ext_resource type="Script" path="res://entities/customer.gd" id="1_qdvgl"]
 [ext_resource type="Script" path="res://entities/RandomCustomerBody.gd" id="2_4gx62"]
@@ -12,11 +12,28 @@
 [ext_resource type="PackedScene" uid="uid://cyy2hqbook5wb" path="res://objects/shared/patience_bar.tscn" id="10_t2udq"]
 [ext_resource type="Script" path="res://objects/shared/patience_bar.gd" id="11_hgd8p"]
 [ext_resource type="AudioStream" uid="uid://dg6b52n2qmai1" path="res://assets/sound/sfx/door_bell.mp3" id="12_tgunf"]
+[ext_resource type="AudioStream" uid="uid://clvgjxynh28sl" path="res://assets/sound/sfx/delivery.ogg" id="13_yw63l"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_djj1b"]
+size = Vector3(0.372009, 1.59424, 0.275238)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ubjae"]
+size = Vector3(0.204834, 0.251953, 0.241943)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gxdhr"]
+size = Vector3(0.0863037, 0.660034, 0.267029)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nmkg6"]
+size = Vector3(0.0863037, 0.660034, 0.262817)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1cstt"]
 size = Vector3(0.5, 0.01, 0.5)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_77pcx"]
+albedo_color = Color(0.580392, 0.580392, 0.580392, 1)
+
 [sub_resource type="BoxMesh" id="BoxMesh_uxe6t"]
+material = SubResource("StandardMaterial3D_77pcx")
 size = Vector3(0.5, 0.01, 0.5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vhl6v"]
@@ -35,6 +52,25 @@ mesh = ExtResource("2_x5ofj")
 script = ExtResource("2_4gx62")
 availableBodies = Array[PackedScene]([ExtResource("3_1bex6"), ExtResource("4_26x51"), ExtResource("5_y6uha"), ExtResource("6_mu8ko")])
 
+[node name="CustomerColliders" type="StaticBody3D" parent="."]
+collision_mask = 1073741825
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CustomerColliders"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00234985, 0.807092, -0.0209808)
+shape = SubResource("BoxShape3D_djj1b")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="CustomerColliders"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.73392, -0.0172119)
+shape = SubResource("BoxShape3D_ubjae")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="CustomerColliders"]
+transform = Transform3D(0.990833, 0.135093, 0, -0.135093, 0.990833, 0, 0, 0, 1, -0.241062, 1.19989, -0.0174255)
+shape = SubResource("BoxShape3D_gxdhr")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="CustomerColliders"]
+transform = Transform3D(0.994944, -0.100431, 0, 0.100431, 0.994944, 0, 0, 0, 1, 0.252151, 1.20192, -0.0195923)
+shape = SubResource("BoxShape3D_nmkg6")
+
 [node name="Tray" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.78, 0.53)
 
@@ -42,10 +78,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.78, 0.53)
 collision_layer = 1073741824
 freeze = true
 
-[node name="TrayMesh" type="CollisionShape3D" parent="Tray/TrayBody"]
+[node name="TrayCollider" type="CollisionShape3D" parent="Tray/TrayBody"]
 shape = SubResource("BoxShape3D_1cstt")
 
-[node name="TrayCollider" type="MeshInstance3D" parent="Tray/TrayBody"]
+[node name="TrayMesh" type="MeshInstance3D" parent="Tray/TrayBody"]
 mesh = SubResource("BoxMesh_uxe6t")
 
 [node name="TraySnapZone" parent="Tray" instance=ExtResource("2_mjyil")]
@@ -95,6 +131,11 @@ script = ExtResource("11_hgd8p")
 [node name="DoorBell" type="AudioStreamPlayer3D" parent="SFX"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.27626, 0)
 stream = ExtResource("12_tgunf")
+autoplay = true
+
+[node name="Delivery" type="AudioStreamPlayer3D" parent="SFX"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.27626, 0)
+stream = ExtResource("13_yw63l")
 autoplay = true
 
 [connection signal="has_picked_up" from="Tray/TraySnapZone" to="." method="_on_tray_snap_zone_has_picked_up"]

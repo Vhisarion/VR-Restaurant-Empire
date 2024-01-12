@@ -257,6 +257,9 @@ func pick_up(by: Node3D, with_controller: XRController3D) -> void:
 		_do_snap_grab()
 	else:
 		_do_precise_grab()
+	
+	if (has_node("HighlightRing")):
+		$HighlightRing.visible = false
 
 
 # Called when this object is dropped

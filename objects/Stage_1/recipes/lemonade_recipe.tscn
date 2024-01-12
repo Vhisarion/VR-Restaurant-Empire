@@ -1,0 +1,108 @@
+[gd_scene load_steps=12 format=3 uid="uid://bybpdovbjjm8v"]
+
+[ext_resource type="Texture2D" uid="uid://gfacsw7kjyvv" path="res://assets/images/manual_squeezer.png" id="1_1abia"]
+[ext_resource type="Texture2D" uid="uid://b2ne27nibnd6n" path="res://assets/images/curved_arrow.png" id="2_d1qiq"]
+[ext_resource type="Texture2D" uid="uid://dgaouq3l4w2qn" path="res://assets/images/grabbed_lemon.png" id="3_tvda3"]
+[ext_resource type="Texture2D" uid="uid://dbjsf50qe1g3" path="res://assets/images/lemon_juice.png" id="4_761cv"]
+[ext_resource type="Texture2D" uid="uid://1hfhbbdtfth2" path="res://assets/images/red_straw_lemonade.png" id="5_e0bjs"]
+[ext_resource type="Texture2D" uid="uid://bq2uywfxjd0pj" path="res://assets/images/blue_straw_lemonade.png" id="6_j2y1o"]
+[ext_resource type="Texture2D" uid="uid://2bs5nhm75luc" path="res://assets/images/straight_arrow.png" id="7_rn5ge"]
+[ext_resource type="Texture2D" uid="uid://dowxtcs3kvolc" path="res://assets/images/red_straw.png" id="8_e2xf1"]
+[ext_resource type="Texture2D" uid="uid://bwvm0wxxfb2ym" path="res://assets/images/bluw_straw.png" id="9_8aj5a"]
+[ext_resource type="Texture2D" uid="uid://qsbyhfuhq2da" path="res://assets/images/lemon.png" id="10_6h83g"]
+[ext_resource type="Texture2D" uid="uid://b82x81rh12bu5" path="res://assets/images/water.png" id="11_njihu"]
+
+[node name="LemonadeRecipe" type="SubViewport"]
+size = Vector2i(1100, 650)
+
+[node name="BG" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ManualSqueezer" type="Sprite2D" parent="."]
+position = Vector2(389.25, 348)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("1_1abia")
+
+[node name="BiArrow" type="Node2D" parent="."]
+position = Vector2(366, 277)
+scale = Vector2(1.24, 1)
+
+[node name="CurvedArrow" type="Sprite2D" parent="BiArrow"]
+position = Vector2(22, 9)
+rotation = 0.765443
+texture = ExtResource("2_d1qiq")
+
+[node name="CurvedArrow2" type="Sprite2D" parent="BiArrow"]
+rotation = 3.14159
+scale = Vector2(1, -1)
+texture = ExtResource("2_d1qiq")
+
+[node name="GrabbedLemon" type="Sprite2D" parent="."]
+position = Vector2(345, 331)
+scale = Vector2(0.489044, 0.489044)
+texture = ExtResource("3_tvda3")
+
+[node name="LemonJuice" type="Sprite2D" parent="."]
+position = Vector2(646.574, 399.995)
+scale = Vector2(0.501786, 0.501786)
+texture = ExtResource("4_761cv")
+
+[node name="RedStrawOrangeJuice" type="Sprite2D" parent="."]
+position = Vector2(977, 189)
+rotation = -0.165439
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("5_e0bjs")
+
+[node name="BlueStrawOrangeJuice" type="Sprite2D" parent="."]
+position = Vector2(998, 473)
+rotation = 0.169168
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("6_j2y1o")
+
+[node name="StraightArrow" type="Sprite2D" parent="."]
+position = Vector2(232, 356)
+scale = Vector2(1.14579, 1.29702)
+texture = ExtResource("7_rn5ge")
+
+[node name="StraightArrow2" type="Sprite2D" parent="."]
+position = Vector2(532, 355)
+scale = Vector2(1.02785, 1.12913)
+texture = ExtResource("7_rn5ge")
+
+[node name="StraightArrow3" type="Sprite2D" parent="."]
+position = Vector2(826.1, 286.684)
+rotation = -0.430827
+scale = Vector2(1.70604, 2.02758)
+texture = ExtResource("7_rn5ge")
+
+[node name="StraightArrow5" type="Sprite2D" parent="."]
+position = Vector2(833.1, 431.684)
+rotation = 0.653658
+scale = Vector2(1.94053, 2.02758)
+texture = ExtResource("7_rn5ge")
+
+[node name="RedStraw" type="Sprite2D" parent="."]
+position = Vector2(810.1, 263.684)
+scale = Vector2(0.354592, 0.354592)
+texture = ExtResource("8_e2xf1")
+
+[node name="BluwStraw" type="Sprite2D" parent="."]
+position = Vector2(818.1, 419.684)
+scale = Vector2(0.395594, 0.395594)
+texture = ExtResource("9_8aj5a")
+
+[node name="Lemon" type="Sprite2D" parent="."]
+position = Vector2(104, 350)
+rotation = 0.783999
+scale = Vector2(0.859775, 0.859775)
+texture = ExtResource("10_6h83g")
+
+[node name="Water" type="Sprite2D" parent="."]
+position = Vector2(685.574, 232.995)
+rotation = -2.61799
+scale = Vector2(0.780143, 0.780143)
+texture = ExtResource("11_njihu")

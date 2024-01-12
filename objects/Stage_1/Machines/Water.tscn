@@ -1,13 +1,14 @@
-[gd_scene load_steps=13 format=3 uid="uid://dp7h3tvs3lhuq"]
+[gd_scene load_steps=14 format=3 uid="uid://dp7h3tvs3lhuq"]
 
-[ext_resource type="Script" path="res://objects/stage_1/machines/water.gd" id="1_wtipe"]
-[ext_resource type="Script" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand.gd" id="2_f1ptf"]
-[ext_resource type="Animation" uid="uid://do01jton6rk42" path="res://addons/godot-xr-tools/hands/animations/right/Cup.res" id="3_yj3dm"]
-[ext_resource type="Script" path="res://addons/godot-xr-tools/hands/poses/hand_pose_settings.gd" id="4_q36dq"]
-[ext_resource type="PackedScene" uid="uid://wxscx4c5afcp" path="res://assets/models/machines/water.glb" id="5_bfq8o"]
-[ext_resource type="Animation" uid="uid://dgfeikrugfewi" path="res://addons/godot-xr-tools/hands/animations/left/Cup.res" id="5_ppdcp"]
-[ext_resource type="AudioStream" uid="uid://b2ygrd1sfrs8g" path="res://assets/sound/sfx/water_pour.mp3" id="7_xtmh7"]
-[ext_resource type="PackedScene" uid="uid://bq1sdqlgstsrb" path="res://vfx/water_particles.tscn" id="8_3qqpr"]
+[ext_resource type="Script" path="res://objects/stage_1/machines/water.gd" id="1_7bpw6"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand.gd" id="1_cw2hw"]
+[ext_resource type="Animation" uid="uid://do01jton6rk42" path="res://addons/godot-xr-tools/hands/animations/right/Cup.res" id="2_sdvrb"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/hands/poses/hand_pose_settings.gd" id="3_hkfrx"]
+[ext_resource type="Animation" uid="uid://dgfeikrugfewi" path="res://addons/godot-xr-tools/hands/animations/left/Cup.res" id="4_icjtf"]
+[ext_resource type="PackedScene" uid="uid://wxscx4c5afcp" path="res://assets/models/machines/water.glb" id="5_eys24"]
+[ext_resource type="AudioStream" uid="uid://b2ygrd1sfrs8g" path="res://assets/sound/sfx/water_pour.mp3" id="6_1c4sg"]
+[ext_resource type="PackedScene" uid="uid://bq1sdqlgstsrb" path="res://vfx/water_particles.tscn" id="7_o7g8w"]
+[ext_resource type="PackedScene" uid="uid://da2qgxxwwitl6" path="res://addons/godot-xr-tools/objects/highlight/highlight_ring.tscn" id="8_nti8f"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5jwnl"]
 size = Vector3(0.1, 0.259912, 0.1)
@@ -16,18 +17,18 @@ size = Vector3(0.1, 0.259912, 0.1)
 size = Vector3(0.150429, 0.495343, 0.253501)
 
 [sub_resource type="Resource" id="Resource_cohoj"]
-script = ExtResource("4_q36dq")
-closed_pose = ExtResource("3_yj3dm")
+script = ExtResource("3_hkfrx")
+closed_pose = ExtResource("2_sdvrb")
 
 [sub_resource type="Resource" id="Resource_gqgu6"]
-script = ExtResource("4_q36dq")
-closed_pose = ExtResource("5_ppdcp")
+script = ExtResource("3_hkfrx")
+closed_pose = ExtResource("4_icjtf")
 
 [node name="Water" type="RigidBody3D"]
 collision_layer = 4
 collision_mask = 3221422087
 freeze_mode = 1
-script = ExtResource("1_wtipe")
+script = ExtResource("1_7bpw6")
 
 [node name="BottleCollider" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0170166, 0)
@@ -43,28 +44,33 @@ shape = SubResource("BoxShape3D_h1kby")
 [node name="XRToolsGrabPointHand" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00855757, 0.0342341, -0.0718847)
 visible = false
-script = ExtResource("2_f1ptf")
+script = ExtResource("1_cw2hw")
 hand = 1
 hand_pose = SubResource("Resource_cohoj")
 
 [node name="XRToolsGrabPointHand2" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0180381, 0.032613, -0.0677116)
 visible = false
-script = ExtResource("2_f1ptf")
+script = ExtResource("1_cw2hw")
 hand_pose = SubResource("Resource_gqgu6")
 
-[node name="water" parent="." instance=ExtResource("5_bfq8o")]
+[node name="water" parent="." instance=ExtResource("5_eys24")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
 
 [node name="SFX" type="Node3D" parent="."]
 
 [node name="Pour" type="AudioStreamPlayer3D" parent="SFX"]
-stream = ExtResource("7_xtmh7")
+stream = ExtResource("6_1c4sg")
 
 [node name="VFX" type="Node3D" parent="."]
 
-[node name="WaterParticles" parent="VFX" instance=ExtResource("8_3qqpr")]
+[node name="WaterParticles" parent="VFX" instance=ExtResource("7_o7g8w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.148483, 0)
+amount = 8
+lifetime = 0.3
+
+[node name="HighlightRing" parent="." instance=ExtResource("8_nti8f")]
+skeleton = NodePath("")
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

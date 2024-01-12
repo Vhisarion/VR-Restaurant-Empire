@@ -28,13 +28,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.005)
 shape = SubResource("SphereShape3D_2fysm")
 
 [node name="XRToolsGrabPointHand" type="Marker3D" parent="." index="1"]
-transform = Transform3D(0.9683, 0, 0.249789, 0, 1, 0, -0.249789, 0, 0.9683, -0.0353259, 0.0542291, -0.0774098)
-visible = false
+transform = Transform3D(0.9683, 0, 0.249789, 0, 1, 0, -0.249789, 0, 0.9683, -0.0353259, 0.0542291, -0.0822613)
 script = ExtResource("6_sagvi")
 hand_pose = SubResource("Resource_v6l77")
 
 [node name="XRToolsGrabPointHand2" type="Marker3D" parent="." index="2"]
-transform = Transform3D(-0.980785, -0.19509, 8.5743e-08, -0.19509, 0.980785, 1.70553e-08, -8.74228e-08, 0, -1, -0.0126123, 0.0420792, 0.0888509)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.0126123, 0.0420792, 0.0888509)
+visible = false
 script = ExtResource("6_sagvi")
 hand = 1
 hand_pose = SubResource("Resource_pfwtu")
@@ -42,4 +42,5 @@ hand_pose = SubResource("Resource_pfwtu")
 [node name="half_orange" parent="." index="3" instance=ExtResource("7_l6gvy")]
 
 [node name="HighlightRing" parent="." index="4" instance=ExtResource("8_byfol")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0169692, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00741645, 0, 0)
+visible = false

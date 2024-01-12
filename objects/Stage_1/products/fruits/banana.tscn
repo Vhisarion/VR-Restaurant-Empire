@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c3n7mspk1jai5"]
+[gd_scene load_steps=11 format=3 uid="uid://c3n7mspk1jai5"]
 
 [ext_resource type="Script" path="res://objects/stage_1/products/fruits/banana.gd" id="1_lyf2m"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand.gd" id="2_4vciw"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://addons/godot-xr-tools/hands/poses/hand_pose_settings.gd" id="4_g8uhe"]
 [ext_resource type="Animation" uid="uid://ccds2u22gbxn7" path="res://addons/godot-xr-tools/hands/animations/right/Grip.res" id="5_oyrxv"]
 [ext_resource type="PackedScene" uid="uid://2gkncyy52emd" path="res://assets/models/fruits/banana.glb" id="6_djjej"]
+[ext_resource type="PackedScene" uid="uid://da2qgxxwwitl6" path="res://addons/godot-xr-tools/objects/highlight/highlight_ring.tscn" id="7_oftv5"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4gcul"]
 size = Vector3(0.0634354, 0.14577, 0.1)
@@ -26,19 +27,25 @@ script = ExtResource("1_lyf2m")
 price = 1
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00498123, -0.0114838, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00498123, 0.0845197, 0)
 shape = SubResource("BoxShape3D_4gcul")
 
 [node name="XRToolsGrabPointHand" type="Marker3D" parent="."]
-transform = Transform3D(0.998788, 0.0446307, 0.0207298, -0.0446211, 0.999004, -0.000926112, -0.0207505, 5.59654e-10, 0.999785, -0.001862, 0.0373835, -0.0915601)
+transform = Transform3D(0.998788, 0.0446307, 0.0207298, -0.0446211, 0.999004, -0.000926112, -0.0207505, 5.59654e-10, 0.999785, -0.001862, 0.133387, -0.0915601)
 visible = false
 script = ExtResource("2_4vciw")
 hand_pose = SubResource("Resource_wwpxl")
 
 [node name="XRToolsGrabPointHand2" type="Marker3D" parent="."]
-transform = Transform3D(-0.997117, 0.0758837, 8.71707e-08, 0.0758837, 0.997117, -6.63397e-09, -8.74228e-08, 0, -1, 0.0081597, 0.0374492, 0.0904944)
+transform = Transform3D(-0.997117, 0.0758837, 8.71707e-08, 0.0758837, 0.997117, -6.63397e-09, -8.74228e-08, 0, -1, 0.0081597, 0.133453, 0.0904944)
+visible = false
 script = ExtResource("2_4vciw")
 hand = 1
 hand_pose = SubResource("Resource_e4hxa")
 
 [node name="banana" parent="." instance=ExtResource("6_djjej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0960035, 0)
+
+[node name="HighlightRing" parent="." instance=ExtResource("7_oftv5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0195923, 0.0839889, 0)
+visible = false

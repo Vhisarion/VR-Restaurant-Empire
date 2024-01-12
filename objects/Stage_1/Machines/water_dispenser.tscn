@@ -35,22 +35,19 @@ radius = 0.05
 height = 0.001
 material = SubResource("StandardMaterial3D_lwrfw")
 
-[node name="ProductLocation" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.078, 0)
-
 [node name="SnapZone" parent="." instance=ExtResource("3_rhbxp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00946948, 0.160948, 0.0135626)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00946948, 0.0811418, 0.0135626)
 grab_distance = 0.2
 snap_mode = 1
 snap_require = "Dispensable"
-grab_require = "Dispensable"
+
+[node name="PreparationTimer" type="Timer" parent="."]
+one_shot = true
 
 [node name="VFX" type="Node3D" parent="."]
 
 [node name="WaterParticles" parent="VFX" instance=ExtResource("4_tt88y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.474274, 0)
-
-[node name="PreparationTimer" type="Timer" parent="."]
 
 [node name="SFX" type="Node3D" parent="."]
 

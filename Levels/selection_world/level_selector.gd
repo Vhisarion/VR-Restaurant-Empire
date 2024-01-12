@@ -33,7 +33,7 @@ func _on_snap_zone_has_picked_up(what: Variant) -> void:
 	player.transition()
 
 func _on_snap_zone_has_dropped() -> void:
-	Main.selected_level = null
+	Main.selected_level = ""
 
 func _on_player_transitioned() -> void:
 	var environment_path = Main.get_world_environment_path(world_number)

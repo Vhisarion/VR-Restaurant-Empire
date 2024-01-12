@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://ce32hx70pukxd"]
+
+[ext_resource type="Texture2D" uid="uid://c83wxma2tki6n" path="res://assets/images/world1_selector.png" id="2_fnmc8"]
+[ext_resource type="Texture2D" uid="uid://pkdxjuci1cjn" path="res://assets/images/level_selector.png" id="3_twu2n"]
+[ext_resource type="Texture2D" uid="uid://2bs5nhm75luc" path="res://assets/images/straight_arrow.png" id="7_em1jv"]
+
+[node name="LevelSelectionRecipe" type="SubViewport"]
+size = Vector2i(1100, 650)
+
+[node name="BG" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StraightArrow" type="Sprite2D" parent="."]
+position = Vector2(552, 374)
+rotation = 0.540829
+scale = Vector2(2.0627, 2.33495)
+texture = ExtResource("7_em1jv")
+
+[node name="World1Selector" type="Sprite2D" parent="."]
+position = Vector2(255, 209)
+texture = ExtResource("2_fnmc8")
+
+[node name="LevelSelector" type="Sprite2D" parent="."]
+position = Vector2(783, 396)
+texture = ExtResource("3_twu2n")

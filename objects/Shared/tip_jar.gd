@@ -19,7 +19,6 @@ func _on_world_1_environment_on_score_updated(height_percentage: float) -> void:
 
 func adjust_position(cilinder_height: float) -> void:
 	%Money.position.y = min_y_pos + (cilinder_height/2.0)
-	print("adjusted position to: ", %Money.position.y)
 
 func _on_world_1_environment_points_gained() -> void:
 	$VFX/CoinParticles.emitting = true
