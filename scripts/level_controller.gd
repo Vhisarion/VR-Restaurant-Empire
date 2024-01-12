@@ -52,24 +52,41 @@ func _ready():
 	start_arrival_timers()
 	
 	# Remove machines and sources not enabled in the level
-	var machines = %Machines.get_children()
-	for machine in machines:
-		if (!json.settings.machines.has(machine.name)):
-			machine.queue_free()
+	configure_machines(json.settings.machines)
+	configure_sources(json.settings.sources)
 	
-	var sources = %Sources.get_children()
-	for source in sources:
-		if (!json.settings.sources.has(source.name)):
-			source.queue_free()
+	# Remove tutorials not enabled in the level
+	configure_tutorials(json.settings.tutorials)
 	
 	# Look for customer locations in the current environment
+	configure_customer_locations()
+	
+	player.transitioned.connect(return_to_selection_world)
+
+func configure_machines(json_machines):
+	var machines = %Machines.get_children()
+	for machine in machines:
+		if (!json_machines.has(machine.name)):
+			machine.queue_free()
+
+func configure_sources(json_sources):
+	var sources = %Sources.get_children()
+	for source in sources:
+		if (!json_sources.has(source.name)):
+			source.queue_free()
+
+func configure_tutorials(json_tutorials):
+	var tutorials = %Tutorials.get_children()
+	for tutorial in tutorials:
+		if (!json_tutorials.has(tutorial.name)):
+			tutorial.queue_free()
+
+func configure_customer_locations():
 	for number in range(9):
 		var location = get_node_or_null("CustomerLocations/CustomerLocation"+str(number+1))
 		if (location != null):
 			customer_locations.push_back(location)
 			occupied_locations.push_back(false)
-	
-	player.transitioned.connect(return_to_selection_world)
 
 func initialize_customers(json_customers: Array):
 	for customer_settings in json_customers:

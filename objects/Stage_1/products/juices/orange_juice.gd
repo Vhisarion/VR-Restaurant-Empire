@@ -13,4 +13,7 @@ func _on_straw_snap_zone_has_picked_up(straw):
 	straw.queue_free()
 	# Only allow one straw. Delete SnapZone afterwards
 	$StrawSnapZone.queue_free()
-	$VFX/OrangeParticles.emitting = true
+	var particles_copy = $VFX/OrangeParticles.duplicate()
+	particles_copy.global_transform = $VFX/OrangeParticles.global_transform
+	get_tree().current_scene.add_child(particles_copy)
+	particles_copy.emitting = true

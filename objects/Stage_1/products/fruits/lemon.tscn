@@ -1,8 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://dij0c6twfyfnp"]
+[gd_scene load_steps=11 format=3 uid="uid://dij0c6twfyfnp"]
 
 [ext_resource type="Script" path="res://objects/stage_1/products/fruits/lemon.gd" id="1_vjo77"]
 [ext_resource type="PackedScene" uid="uid://b3vn2fetp3c8v" path="res://assets/models/fruits/half_lemon.glb" id="2_c5o44"]
-[ext_resource type="Animation" uid="uid://dgfeikrugfewi" path="res://addons/godot-xr-tools/hands/animations/left/Cup.res" id="5_aujx7"]
 [ext_resource type="Animation" uid="uid://db62hs5s4n2b3" path="res://addons/godot-xr-tools/hands/animations/left/Grip 4.res" id="5_dtdnq"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand.gd" id="5_i1egd"]
 [ext_resource type="Animation" uid="uid://rs7vpclot07o" path="res://addons/godot-xr-tools/hands/animations/right/Grip 3.res" id="7_2gdtn"]
@@ -14,7 +13,6 @@ radius = 0.04
 
 [sub_resource type="Resource" id="Resource_x4oo3"]
 script = ExtResource("7_m818p")
-open_pose = ExtResource("5_aujx7")
 closed_pose = ExtResource("5_dtdnq")
 
 [sub_resource type="Resource" id="Resource_nkg2d"]

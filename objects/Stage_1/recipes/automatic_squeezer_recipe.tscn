@@ -1,0 +1,76 @@
+[gd_scene load_steps=7 format=3 uid="uid://cjkhwvkbpghjx"]
+
+[ext_resource type="Texture2D" uid="uid://c8wehji28ilxa" path="res://assets/images/automatic_squeezer.png" id="4_422ns"]
+[ext_resource type="Texture2D" uid="uid://dbjsf50qe1g3" path="res://assets/images/lemon_juice.png" id="4_kiqi6"]
+[ext_resource type="Texture2D" uid="uid://dc417hl21i4e2" path="res://assets/images/orange.png" id="5_c8amx"]
+[ext_resource type="Texture2D" uid="uid://cxkr3dsox5sy8" path="res://assets/images/orange_juice.png" id="6_qsy0o"]
+[ext_resource type="Texture2D" uid="uid://2bs5nhm75luc" path="res://assets/images/straight_arrow.png" id="7_xmawf"]
+[ext_resource type="Texture2D" uid="uid://qsbyhfuhq2da" path="res://assets/images/lemon.png" id="10_h56jx"]
+
+[node name="AutomaticSqueezerRecipe" type="SubViewport"]
+size = Vector2i(1100, 650)
+
+[node name="BG" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BiArrow" type="Node2D" parent="."]
+position = Vector2(352.887, 105.125)
+scale = Vector2(0.75, 0.75)
+
+[node name="LemonJuice" type="Sprite2D" parent="."]
+position = Vector2(977.887, 166.125)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("4_kiqi6")
+
+[node name="StraightArrow" type="Sprite2D" parent="."]
+position = Vector2(326, 174)
+scale = Vector2(1.47348, 1.47348)
+texture = ExtResource("7_xmawf")
+
+[node name="StraightArrow2" type="Sprite2D" parent="."]
+position = Vector2(777, 178)
+scale = Vector2(1.4375, 1.4375)
+texture = ExtResource("7_xmawf")
+
+[node name="Lemon" type="Sprite2D" parent="."]
+position = Vector2(160.322, 174.069)
+rotation = 0.783999
+scale = Vector2(0.882853, 0.882853)
+texture = ExtResource("10_h56jx")
+
+[node name="AutomaticSqueezer" type="Sprite2D" parent="."]
+position = Vector2(559.887, 170.125)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("4_422ns")
+
+[node name="BiArrow2" type="Node2D" parent="."]
+position = Vector2(354.887, 403.125)
+scale = Vector2(0.75, 0.75)
+
+[node name="StraightArrow3" type="Sprite2D" parent="."]
+position = Vector2(322, 487)
+scale = Vector2(1.28533, 1.28533)
+texture = ExtResource("7_xmawf")
+
+[node name="StraightArrow4" type="Sprite2D" parent="."]
+position = Vector2(758, 499)
+scale = Vector2(1.41576, 1.41576)
+texture = ExtResource("7_xmawf")
+
+[node name="AutomaticSqueezer2" type="Sprite2D" parent="."]
+position = Vector2(524, 470)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("4_422ns")
+
+[node name="Orange" type="Sprite2D" parent="."]
+position = Vector2(154, 474)
+rotation = 0.545666
+texture = ExtResource("5_c8amx")
+
+[node name="OrangeJuice" type="Sprite2D" parent="."]
+position = Vector2(977, 495)
+texture = ExtResource("6_qsy0o")

@@ -1,9 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://d3wsb48kp04ba"]
+[gd_scene load_steps=7 format=3 uid="uid://d3wsb48kp04ba"]
 
 [ext_resource type="Script" path="res://objects/stage_1/machines/automatic_squeezer.gd" id="1_sepsy"]
 [ext_resource type="PackedScene" uid="uid://ce7vysyvondf8" path="res://addons/godot-xr-tools/objects/snap_zone.tscn" id="2_cl85p"]
 [ext_resource type="PackedScene" uid="uid://r682umd2ffwh" path="res://assets/models/machines/blender.glb" id="3_sjgtn"]
-[ext_resource type="AudioStream" uid="uid://cbtcyb0im5rwe" path="res://assets/sound/sfx/juicer.mp3" id="4_74crc"]
 [ext_resource type="PackedScene" uid="uid://bwqw5b30xfypw" path="res://vfx/lemon_particles.tscn" id="5_xj81u"]
 [ext_resource type="PackedScene" uid="uid://c3jnln38exbh8" path="res://vfx/orange_particles.tscn" id="6_cgrsi"]
 
@@ -38,8 +37,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.376916)
 [node name="SFX" type="Node3D" parent="."]
 
 [node name="Juicer" type="AudioStreamPlayer3D" parent="SFX"]
-stream = ExtResource("4_74crc")
-volume_db = 10.0
+volume_db = 80.0
 
 [node name="VFX" type="Node3D" parent="."]
 

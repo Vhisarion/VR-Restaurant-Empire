@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://b5t54qqnja3c3"]
+[gd_scene load_steps=6 format=3 uid="uid://b5t54qqnja3c3"]
 
 [ext_resource type="PackedScene" uid="uid://cu2ad2f3gqx4q" path="res://assets/models/low_poly_truck.glb" id="1_1v7q2"]
 [ext_resource type="Script" path="res://levels/stage_1/eol_truck.gd" id="1_v6exo"]
+[ext_resource type="AudioStream" uid="uid://c6nqtps10korf" path="res://assets/sound/sfx/truck_engine.mp3" id="3_dqsdr"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_yi13g"]
 viewport_path = NodePath("MessageLeft/SubViewport")
@@ -76,3 +77,10 @@ theme_override_font_sizes/font_size = 32
 text = "LEVEL CLEARED!"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="SFX" type="Node3D" parent="."]
+
+[node name="Engine" type="AudioStreamPlayer3D" parent="SFX"]
+stream = ExtResource("3_dqsdr")
+unit_size = 100.0
+pitch_scale = 1.5

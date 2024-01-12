@@ -1,10 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://o7e8qsgryg7y"]
+[gd_scene load_steps=13 format=3 uid="uid://b4eyquevowwu0"]
 
-[ext_resource type="Script" path="res://entities/player.gd" id="1_hdqxn"]
-[ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="2_qdm8t"]
-[ext_resource type="PackedScene" uid="uid://b4kad2kuba1yn" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_hand_low.tscn" id="3_33bpg"]
-[ext_resource type="PackedScene" uid="uid://l2n30mpbkdyw" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_hand_low.tscn" id="4_1mgph"]
-[ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="4_o6lw0"]
+[ext_resource type="Script" path="res://entities/player.gd" id="1_rmpqr"]
+[ext_resource type="PackedScene" uid="uid://bj1aas6kty3qx" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_physics_tac_glove_low.tscn" id="2_88xqs"]
+[ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="3_sob53"]
+[ext_resource type="PackedScene" uid="uid://c2uvwvdlsfuep" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_physics_tac_glove_low.tscn" id="4_rp7wd"]
+[ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="5_mapfk"]
 
 [sub_resource type="Animation" id="Animation_ieugj"]
 length = 0.001
@@ -73,7 +73,7 @@ radius = 0.2
 height = 1.4
 
 [node name="Player" type="XROrigin3D"]
-script = ExtResource("1_hdqxn")
+script = ExtResource("1_rmpqr")
 
 [node name="XRCamera3D" type="XRCamera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
@@ -91,21 +91,21 @@ mesh = SubResource("BoxMesh_cxb4g")
 [node name="LeftHand" type="XRController3D" parent="."]
 tracker = &"left_hand"
 
-[node name="FunctionPickup" parent="LeftHand" instance=ExtResource("2_qdm8t")]
+[node name="LeftPhysicsHand" parent="LeftHand" instance=ExtResource("2_88xqs")]
+
+[node name="FunctionPickup" parent="LeftHand" instance=ExtResource("3_sob53")]
 grab_distance = 0.25
 ranged_enable = false
-
-[node name="LeftHand" parent="LeftHand" instance=ExtResource("3_33bpg")]
 
 [node name="RightHand" type="XRController3D" parent="."]
 tracker = &"right_hand"
 
-[node name="FunctionPickup" parent="RightHand" instance=ExtResource("2_qdm8t")]
+[node name="RightPhysicsHand" parent="RightHand" instance=ExtResource("4_rp7wd")]
+
+[node name="FunctionPickup" parent="RightHand" instance=ExtResource("3_sob53")]
 grab_distance = 0.25
 
-[node name="RightHand" parent="RightHand" instance=ExtResource("4_1mgph")]
-
-[node name="PlayerBody" parent="." instance=ExtResource("4_o6lw0")]
+[node name="PlayerBody" parent="." instance=ExtResource("5_mapfk")]
 collision_mask = 1019
 player_calibrate_height = false
 push_rigid_bodies = false

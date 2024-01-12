@@ -2,7 +2,8 @@
 	"settings": {
 		"required_score": 8,
 		"machines": ["ManualSqueezer", "Water", "Water2", "Water3"],
-		"sources": ["LemonBox", "AppleBox", "RedStrawPot"]
+		"sources": ["LemonBox", "AppleBox", "RedStrawPot"],
+		"tutorials": ["LemonadeTutorial"]
 	},
 	"customers": [
 		{

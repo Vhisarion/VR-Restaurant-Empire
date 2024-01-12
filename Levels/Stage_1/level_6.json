@@ -2,7 +2,8 @@
 	"settings": {
 		"required_score": 27,
 		"machines": ["ManualSqueezer", "ManualSqueezer2", "AutomaticSqueezer", "WaterDispenser", "Water", "Water2", "Water3"],
-		"sources": ["LemonBox", "AppleBox", "BananaBox", "OrangeBox", "RedStrawPot", "BlueStrawPot"]
+		"sources": ["LemonBox", "AppleBox", "BananaBox", "OrangeBox", "RedStrawPot", "BlueStrawPot"],
+		"tutorials": ["WaterDispenserTutorial"]
 	},
 	"customers": [
 		{
